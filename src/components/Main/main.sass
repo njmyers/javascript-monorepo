@@ -1,0 +1,27 @@
+@import '../Global/mixins.sass'
+@import '../Global/colors.sass'
+@import '../Global/fonts.sass'
+
+$content-width: 85%
+$mobile-content-width: 90%
+$page-gutter: (100% - $content-width) / 2
+$mobile-page-gutter: (100% - $mobile-content-width) / 2
+
+.page
+
+.content
+	+flexbox
+	z-index: 1
+	justify-content: center
+	@include all-phone
+		background: $white
+		
+.main
+	background: $white
+	box-sizing: border-box
+	width: $content-width
+	padding: 1.5% 2.5%
+	@include all-phone
+		width: $mobile-content-width
+	@include all-phone
+		padding: 20px 0

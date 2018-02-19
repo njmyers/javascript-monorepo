@@ -1,0 +1,15 @@
+@import '../Global/mixins.sass'
+@import '../Global/colors.sass'
+
+.scroll-window-up
+	position: fixed
+	background: transparentize($white, 0.2)
+	opacity: 0
+	+transition(0.25s background, 0.25s opacity)
+	right: 1%
+	@include all-phone
+		right: 3%
+	
+
+.scroll-window-up:hover
+	background: $white-hover

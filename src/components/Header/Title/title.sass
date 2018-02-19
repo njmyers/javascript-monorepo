@@ -1,0 +1,23 @@
+@import '../../Global/mixins.sass'
+@import '../../Global/colors.sass'
+
+.title-text
+	+flexbox
+	justify-content: space-between
+	width: 54%
+	margin: 0 0 10px 10px
+	font-size: 2.6em
+	@include desktop
+		width: 46%
+	@include all-phone
+		width: 100%
+	@include laptop
+		font-size: 2.4em
+	@include tablet
+		font-size: 2em
+	@include large-phone
+		margin: 0
+		font-size: 2em
+	@include small-phone
+		margin: 0
+		font-size: 1.5em
