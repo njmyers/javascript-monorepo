@@ -1,6 +1,10 @@
 import React from 'react';
 
-import NotFound from '../NotFound';
+/*
+	Use AsyncLoader for sweet page based code splitting
+*/
+
+const NotFound = AsyncLoader(() => import('../NotFound'));
 
 const PageIndex = [
 	{
