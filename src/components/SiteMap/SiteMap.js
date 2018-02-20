@@ -15,7 +15,7 @@ function scrollTop() {
 }
 
 function SiteMap(props) {
-	const pages = props.pages ? props.pages : [];
+	const pages = props.pages ? props.pages.filter((each) => each.label) : [];
 	const parentClass = props.parentClass ? props.parentClass : 'site-map';
 	const childClass = props.childClass ? props.childClass : 'site-map-item';
 
