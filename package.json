@@ -24,6 +24,7 @@
 		"webfontloader": "^1.6.28"
 	},
 	"devDependencies": {
+		"dotenv": "^5.0.0",
 		"husky": "^0.14.3",
 		"lint-staged": "^6.1.1",
 		"localtunnel": "^1.8.3",
@@ -49,6 +50,9 @@
 		"prettier": "prettier src/**/*.{js,jsx,json,md} --write"
 	},
 	"lint-staged": {
-		"src/**/*.{js,jsx,json,md}": ["prettier --write", "git add"]
+		"src/**/*.{js,jsx,json,md}": [
+			"prettier --write",
+			"git add"
+		]
 	}
 }
