@@ -25,7 +25,7 @@ export default function asyncLoader(importComponent) {
 		render() {
 			const Wrapped = this.state.component;
 
-			return Wrapped ? <Wrapped {...this.props} /> : <spinner />;
+			return Wrapped ? <Wrapped {...this.props} /> : <Spinner />;
 		}
 	}
 
