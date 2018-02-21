@@ -17,6 +17,7 @@ ReactDOM.render(
 		<Router>
 			<Switch>
 				<Route path="/robots.txt" onEnter={reload} />
+				<Route path="/sitemap.xml" onEnter={reload} />
 				<Root />
 			</Switch>
 		</Router>
