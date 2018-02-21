@@ -3,6 +3,7 @@
 	"version": "0.1.0",
 	"private": true,
 	"dependencies": {
+		"babel-polyfill": "^6.26.0",
 		"lodash": "^4.17.5",
 		"modernizr": "^3.5.0",
 		"node-sass-chokidar": "0.0.3",
