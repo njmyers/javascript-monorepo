@@ -1,3 +1,5 @@
+import uniq from 'lodash/uniq';
+
 const blankPost = {
 	status: 'blank',
 	loadedAt: '',
@@ -53,7 +55,7 @@ function postReducerCreator(POSTTYPE) {
 				});
 			case FETCHED_PAGES:
 				return Object.assign({}, state, {
-					[action.key]: [action.payload, ...state[action.key]],
+					[action.key]: uniq([action.payload, ...state[action.key]]),
 				});
 			default:
 				return state;
@@ -65,7 +67,13 @@ function postReducerCreator(POSTTYPE) {
  * Use this secton to create wordpress state slices
  */
 
-// export const bandReducer = postReducerCreator('BAND');
+export const bandReducer = postReducerCreator('BAND');
+export const venueReducer = postReducerCreator('VENUE');
+export const categoryReducer = postReducerCreator('CATEGORY');
+export const calendarReducer = postReducerCreator('CALENDAR');
+export const blogReducer = postReducerCreator('BLOG');
+export const trackReducer = postReducerCreator('TRACK');
+export const videoReducer = postReducerCreator('VIDEO');
 
 function removeDuplicatePosts(arr) {
 	const ids = [];

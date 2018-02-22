@@ -49,7 +49,7 @@ window.addEventListener(
 	'scroll',
 	throttle((event) => {
 		listen.scrollEvent.publish(event);
-	}, 500)
+	}, 400)
 );
 
 export default listen;
