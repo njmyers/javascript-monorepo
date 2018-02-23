@@ -1,5 +1,5 @@
 import React from 'react';
-import './marquee.css';
+import './marquee-default.css';
 
 function Marquee(props) {
 	const speed = props.speed ? props.speed : 4;

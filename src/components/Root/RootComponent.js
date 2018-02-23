@@ -12,7 +12,7 @@ import ScrollTop from '../ScrollTop';
 import Header from '../Header';
 import Footer from '../Footer';
 
-import './root.css';
+import './root-default.css';
 
 class Root extends Component {
 	constructor(props) {

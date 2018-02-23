@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import listen from '../utils/listen';
 
-import './scroll-top.css';
+import './scroll-top-default.css';
 
 class ScrollTop extends Component {
 	constructor(props) {

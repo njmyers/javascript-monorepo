@@ -1,5 +1,5 @@
 import React from 'react';
-import './mosaic.css';
+import './mosaic-default.css';
 
 function importAll(r) {
 	return r.keys().map((item) => r(item));

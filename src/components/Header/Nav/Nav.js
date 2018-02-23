@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import './nav.css';
+import './nav-default.css';
 
 function Nav(props) {
 	// const style = {

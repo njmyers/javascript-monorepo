@@ -6,7 +6,7 @@ import Nav from './Nav';
 import Title from './Title';
 import MobileNav from './MobileNav';
 
-import './header.css';
+import './header-default.css';
 
 class Header extends Component {
 	constructor(props) {

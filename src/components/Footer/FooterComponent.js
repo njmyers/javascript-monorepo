@@ -5,7 +5,7 @@ import sizeMe from '../utils/size-me';
 import SiteMap from '../SiteMap';
 import socialMap from './social-map';
 
-import './footer.css';
+import './footer-default.css';
 
 class Footer extends Component {
 	constructor(props) {

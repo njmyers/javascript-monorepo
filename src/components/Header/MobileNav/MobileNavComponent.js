@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
-import './mobile-nav.css';
+import './mobile-nav-default.css';
 
 class MobileNav extends Component {
 	render() {

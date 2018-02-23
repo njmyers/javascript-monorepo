@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import './site-map.css';
+import './site-map-default.css';
 
 function Divider(props) {
 	return <span className="site-map-divider">|</span>;
