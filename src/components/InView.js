@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
 import debounce from 'lodash/debounce';
 import isEqualWith from 'lodash/isEqualWith';
 import isEqual from 'lodash/isEqual';
@@ -22,28 +23,14 @@ function InView(WrappedComponent) {
 				page: this.props.page,
 			};
 
-			this.handleScroll = this.handleScroll.bind(this);
-			this.handleResize = this.handleResize.bind(this);
-			this.refresh = debounce(this.refresh.bind(this), 500);
+			this.polled = 0;
+			this.refresh = debounce(this.refresh.bind(this), 300);
 		}
 
-		handleScroll() {
-			const bool = this.isInView();
-
-			if (bool !== this.state.bool) {
-				// cb with new view status to parent
-				if (this.props.cb) this.props.cb({ ...this.state, bool });
-				// set internal component state
-				this.setState({ bool });
-			}
-		}
-
+		/* Measurments */
 		isInView() {
-			const clientRect = this.divContainer
-				? this.divContainer.getBoundingClientRect()
-				: undefined;
-
-			const offsetTop = this.divContainer ? this.divContainer.offsetTop : undefined;
+			const clientRect = this.DOMNode ? this.DOMNode.getBoundingClientRect() : undefined;
+			const offsetTop = this.DOMNode ? this.DOMNode.offsetTop : undefined;
 
 			return clientRect
 				? clientRect.top < 0
@@ -53,9 +40,7 @@ function InView(WrappedComponent) {
 		}
 
 		getMeasurements() {
-			const boundingRect = this.divContainer
-				? this.divContainer.getBoundingClientRect()
-				: undefined;
+			const boundingRect = this.DOMNode ? this.DOMNode.getBoundingClientRect() : undefined;
 
 			// transform to regular js object for comparisons and iterations
 			const clientRect = boundingRect
@@ -89,51 +74,92 @@ function InView(WrappedComponent) {
 			};
 		}
 
-		handleResize() {
-			const sizes = this.getMeasurements();
-			this.setState({ sizes });
-		}
+		/* call this instead of setState so that you always hook into the cb */
+		hotUpdate = (object) => {
+			if (typeof object === 'object') {
+				this.setState(object, () => (this.props.cb ? this.props.cb(this.state) : null));
+			} else
+				process.env.NODE_ENV === 'development'
+					? console.log(
+							'you tried to update state without an object, please pass an object'
+						)
+					: null;
+		};
 
-		refresh() {
-			// only compare measurements for refreshing
+		/* Listeners */
+		handleScroll = () => {
+			const bool = this.isInView();
+			bool !== this.state.bool ? this.hotUpdate({ bool }) : null;
+		};
+
+		handleResize = () => {
+			const sizes = this.compareAll();
+			sizes ? this.hotUpdate(sizes) : null;
+		};
+
+		handleLoaded = () => {
+			console.log(this.props.page + ' loaded');
+		};
+
+		compareMeasurements() {
 			const measurements = this.getMeasurements();
 			const thisMeasurements = {
 				window: this.state.window,
 				clientRect: this.state.clientRect,
 			};
 
-			const equal = isEqual(measurements, thisMeasurements);
+			return !isEqual(measurements, thisMeasurements) ? measurements : false;
+		}
 
-			if (!equal) {
-				const state = { ...this.state, ...this.getSizes() };
-				this.setState(state);
-				this.props.cb ? this.props.cb(state) : null;
+		compareAll() {
+			const sizes = this.getSizes();
+			const thisSizes = {
+				window: this.state.window,
+				clientRect: this.state.clientRect,
+				bool: this.state.bool,
+			};
+
+			return !isEqual(sizes, thisSizes) ? sizes : false;
+		}
+
+		refresh() {
+			// only compare measurements for refreshing
+			// otherwise scrolling could keep this polling forever
+			const measurements = this.compareMeasurements();
+
+			if (measurements) {
+				// but if you need to refresh, refresh all
+				const sizes = this.getSizes();
+				this.hotUpdate(sizes);
 				this.refresh();
+			} else {
+				// poll twice after measurements are the same
+				// in order to ensure any late loading elements
+				this.polled += 1;
+				if (this.polled < 2) this.refresh();
+				else this.polled = 0;
 			}
 		}
 
+		/* Lifecycle */
 		componentDidMount() {
-			// set initial inview
+			// make sure to set reference to this node before attempting to size
+			this.DOMNode = ReactDOM.findDOMNode(this);
 			this.refresh();
+
+			this.loadedSubKey = listen.loadEvent.subscribe(this.handleLoaded);
 			this.scrollSubKey = listen.scrollEvent.subscribe(this.handleScroll);
 			this.resizeSubKey = listen.resizeEvent.subscribe(this.handleResize);
 		}
 
 		componentWillUnmount() {
+			listen.loadEvent.unsubscribe(this.loadedSubKey);
 			listen.scrollEvent.unsubscribe(this.scrollSubKey);
 			listen.resizeEvent.unsubscribe(this.resizeSubKey);
 		}
 
 		render() {
-			return (
-				<div ref={(div) => (this.divContainer = div)}>
-					{!this.props.cb ? (
-						<WrappedComponent {...this.props} inView={this.state} />
-					) : (
-						<WrappedComponent {...this.props} />
-					)}
-				</div>
-			);
+			return <WrappedComponent {...this.props} inView={this.state} />;
 		}
 	};
 }
