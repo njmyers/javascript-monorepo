@@ -97,10 +97,6 @@ function InView(WrappedComponent) {
 			sizes ? this.hotUpdate(sizes) : null;
 		};
 
-		handleLoaded = () => {
-			console.log(this.props.page + ' loaded');
-		};
-
 		compareMeasurements() {
 			const measurements = this.getMeasurements();
 			const thisMeasurements = {
@@ -147,13 +143,11 @@ function InView(WrappedComponent) {
 			this.DOMNode = ReactDOM.findDOMNode(this);
 			this.refresh();
 
-			this.loadedSubKey = listen.loadEvent.subscribe(this.handleLoaded);
 			this.scrollSubKey = listen.scrollEvent.subscribe(this.handleScroll);
 			this.resizeSubKey = listen.resizeEvent.subscribe(this.handleResize);
 		}
 
 		componentWillUnmount() {
-			listen.loadEvent.unsubscribe(this.loadedSubKey);
 			listen.scrollEvent.unsubscribe(this.scrollSubKey);
 			listen.resizeEvent.unsubscribe(this.resizeSubKey);
 		}
