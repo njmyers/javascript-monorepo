@@ -3,7 +3,7 @@ import thunk from 'redux-thunk';
 import throttle from 'lodash/throttle';
 import reducer from './root-reducer';
 import { loadLocalApplication, saveLocalApplication } from './local-storage';
-import { ensureDateObject } from './component/utils/dates';
+import { ensureDateObject } from './components/utils/dates';
 
 const TIMESTAMP = new Date();
 const REFRESH = 86400 * 31 * 1000; // monthly
