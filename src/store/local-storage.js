@@ -1,6 +1,6 @@
-const loadState = () => {
+const loadLocalApplication = () => {
 	try {
-		const serializedState = localStorage.getItem('state');
+		const serializedState = localStorage.getItem('application');
 		if (serializedState === null) {
 			return undefined;
 		}
@@ -10,11 +10,11 @@ const loadState = () => {
 	}
 };
 
-const saveState = (state) => {
+const saveLocalApplication = (application) => {
 	try {
-		const serializedState = JSON.stringify(state);
-		localStorage.setItem('state', serializedState);
+		const serializedState = JSON.stringify(application);
+		localStorage.setItem('application', serializedState);
 	} catch (err) {}
 };
 
-export { loadState, saveState };
+export { loadLocalApplication, saveLocalApplication };

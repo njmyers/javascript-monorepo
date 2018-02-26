@@ -2,7 +2,11 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import throttle from 'lodash/throttle';
 import reducer from './root-reducer';
-import { loadState, saveState } from './local-storage';
+import { loadLocalApplication, saveLocalApplication } from './local-storage';
+import { ensureDateObject } from './component/utils/dates';
+
+const TIMESTAMP = new Date();
+const REFRESH = 86400 * 31 * 1000; // monthly
 
 const middlewares = [thunk];
 
@@ -11,18 +15,24 @@ if (process.env.NODE_ENV === 'development') {
 	middlewares.push(logger);
 }
 
-const persistedState = loadState();
+const application = loadLocalApplication();
+const persistedState = application.state;
+const saveDate = ensureDateObject(application.date);
 
 const store =
-	process.env.NODE_ENV !== 'development'
+	process.env.NODE_ENV !== 'development' || saveDate - TIMESTAMP < REFRESH
 		? compose(applyMiddleware(...middlewares))(createStore)(reducer, persistedState)
 		: compose(applyMiddleware(...middlewares))(createStore)(reducer);
 
 if (process.env.NODE_ENV !== 'development') {
 	store.subscribe(
 		throttle(() => {
-			const state = store.getState();
-			saveState(state);
+			const application = {
+				state: store.getState(),
+				date: TIMESTAMP,
+			};
+
+			saveLocalApplication(application);
 		}),
 		1000
 	);
