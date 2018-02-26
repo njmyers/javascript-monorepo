@@ -16,7 +16,7 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 const application = loadLocalApplication();
-const persistedState = application ? application.state : null;
+const persistedState = application ? application.state : undefined;
 const saveDate = application ? ensureDateObject(application.date) : TIMESTAMP;
 
 const store =
