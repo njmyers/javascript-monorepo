@@ -3,7 +3,7 @@ import thunk from 'redux-thunk';
 import throttle from 'lodash/throttle';
 import reducer from './root-reducer';
 import { loadLocalApplication, saveLocalApplication } from './local-storage';
-import { ensureDateObject } from './components/utils/dates';
+import { ensureDateObject } from '../components/utils/dates';
 
 const TIMESTAMP = new Date();
 const REFRESH = 86400 * 31 * 1000; // monthly
@@ -16,8 +16,8 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 const application = loadLocalApplication();
-const persistedState = application.state;
-const saveDate = ensureDateObject(application.date);
+const persistedState = application ? application.state : null;
+const saveDate = application ? ensureDateObject(application.date) : TIMESTAMP;
 
 const store =
 	process.env.NODE_ENV !== 'development' || saveDate - TIMESTAMP < REFRESH
