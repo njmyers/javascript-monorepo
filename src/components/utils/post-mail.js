@@ -19,7 +19,6 @@ export default function fetchPost({
 			return fetch(url, {
 				method,
 				headers: {
-					Accept: 'application/json',
 					Authorization: MAIL_API_KEY,
 					'Content-Type': 'application/json',
 				},
