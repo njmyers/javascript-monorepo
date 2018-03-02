@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import debounce from 'lodash/debounce';
-import sizeMe from '../utils/size-me';
+import sizeMe from '../../utils/size-me';
 
 import Nav from './Nav';
 import Title from './Title';

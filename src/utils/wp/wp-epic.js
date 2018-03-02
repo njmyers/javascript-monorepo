@@ -1,4 +1,11 @@
-import Observable from '../rxjs';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/observable/from';
+import 'rxjs/add/observable/of';
+import 'rxjs/add/observable/concat';
+import 'rxjs/add/operator/mergeMap';
+import 'rxjs/add/operator/concat';
+import 'rxjs/add/operator/catch';
+
 import request from '../axios/request';
 import { postsHeader, postsResolve, postsRequestError } from './wp-actions';
 

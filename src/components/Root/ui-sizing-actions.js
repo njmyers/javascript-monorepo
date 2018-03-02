@@ -1,4 +1,4 @@
-import generateActions from '../utils/action-creator';
+import generateActions from '../../utils/action-creator';
 
 const myActions = [
 	{

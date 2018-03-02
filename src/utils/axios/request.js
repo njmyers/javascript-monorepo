@@ -1,11 +1,16 @@
-import Observable from '../rxjs';
-import compose from 'lodash/fp/compose';
-
-import api from './config';
-import createURL from './query-defaults';
+import axios from 'axios';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/observable/from';
+import applyDefaults from '../queries/create-url';
 import log from '../log/log';
 
-const request = (slug) => (query) => {
+/* Apply Default Query Method */
+const createURL = applyDefaults({ per_page: 10 });
+
+/* Axios API Stub Method */
+const api = axios.create({ baseURL: `${process.env.REACT_APP_WP_API_URL}/wp-json/wp/v2` });
+
+export default (slug) => (query) => {
 	const URL =
 		process.env.NODE_ENV !== 'production'
 			? log(createURL(slug)(query))
@@ -13,5 +18,3 @@ const request = (slug) => (query) => {
 
 	return Observable.from(api.get(URL));
 };
-
-export default request;

@@ -8,27 +8,19 @@ const contactFields = {
 };
 
 const messages = {
-	success: '',
-	error: '',
+	status: '',
 };
 
-const contactForm = Object.assign({}, contactFields, messages);
-
-function contactReducer(state = contactForm, action) {
+function contactReducer(state = { ...contactFields, ...messages }, action) {
 	switch (action.type) {
-		case constants.UPDATE_CONTACT_FORM:
-			return Object.assign({}, state, {
-				[action.key]: action.payload,
-			});
-		case constants.SUBMIT_CONTACT_FORM_SUCCESS:
-		case constants.SUBMIT_CONTACT_FORM_ERROR:
-			return Object.assign({}, state, {
-				[action.key]: action.value,
-			});
-		case constants.SUBMIT_CONTACT_FORM:
-			return Object.assign({}, state, messages);
-		case constants.CLEAR_CONTACT_FORM:
-			return Object.assign({}, state, contactFields);
+		case 'SUBMIT_CONTACT_FORM':
+			return { ...state, messages };
+		case 'UPDATE_CONTACT_FORM':
+			return { ...state, [action.key]: action.payload };
+		case 'SUBMIT_CONTACT_FORM_SUCCESS':
+			return { ...state, contactFields, status: action.payload };
+		case 'SUBMIT_CONTACT_FORM_ERROR':
+			return { ...state, status: action.payload };
 		default:
 			return state;
 	}

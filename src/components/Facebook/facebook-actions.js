@@ -1,6 +1,6 @@
 /* global FB */
 
-import generateActions from '../utils/action-creator';
+import generateActions from '../../utils/action-creator';
 
 const appId = process.env.REACT_APP_FACEBOOK_APP_ID;
 

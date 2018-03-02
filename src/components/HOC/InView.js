@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import debounce from 'lodash/debounce';
 import isEqualWith from 'lodash/isEqualWith';
 import isEqual from 'lodash/isEqual';
-import listen from './utils/listen';
+import listen from '../../utils/listen';
 
 function InView(WrappedComponent) {
 	return class SizeAction extends Component {

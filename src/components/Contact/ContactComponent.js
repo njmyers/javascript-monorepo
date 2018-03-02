@@ -38,13 +38,8 @@ class Contact extends Component {
 						onChange={this.props.onChange}
 						required="true"
 					/>
-					{this.props.contact.success ? (
-						<p className="message">{this.props.contact.success}</p>
-					) : (
-						undefined
-					)}
-					{this.props.contact.error ? (
-						<p className="error">{this.props.contact.error}</p>
+					{this.props.contact.status ? (
+						<p className="message">{this.props.contact.status}</p>
 					) : (
 						undefined
 					)}

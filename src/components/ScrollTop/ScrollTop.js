@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import listen from '../utils/listen';
+import listen from '../../utils/listen';
 
 import './scroll-top-default.css';
 

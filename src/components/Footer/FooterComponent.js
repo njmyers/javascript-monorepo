@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import debounce from 'lodash/debounce';
-import sizeMe from '../utils/size-me';
+import sizeMe from '../../utils/size-me';
 
 import SiteMap from '../SiteMap';
 import socialMap from './social-map';
@@ -23,9 +23,11 @@ class Footer extends Component {
 	}
 
 	render() {
-		const style = this.props.audioPlayer.display
-			? { marginBottom: `${this.props.audioPlayerSize.height}px` }
-			: {};
+		// const style = this.props.audioPlayer.display
+		// 	? { marginBottom: `${this.props.audioPlayerSize.height}px` }
+		// 	: {};
+
+		const style = {};
 
 		const socials = socialMap.map((social) => (
 			<Icon key={social.link} fa={social.icon} link={social.link} />
@@ -36,7 +38,6 @@ class Footer extends Component {
 		return (
 			<footer className="footer" style={style}>
 				<SiteMap pages={this.props.pages} />
-				<p>{this.props.audioPlayer.display}</p>
 				<p className="social">
 					<span>Find us on </span>
 					{socials}

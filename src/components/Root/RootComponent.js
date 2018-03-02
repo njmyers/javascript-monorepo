@@ -3,7 +3,7 @@
 import React, { Component } from 'react';
 import ReactGA from 'react-ga';
 import debounce from 'lodash/debounce';
-import listen from '../utils/listen';
+import listen from '../../utils/listen';
 
 import PageIndex from './PageIndex';
 

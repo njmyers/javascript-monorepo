@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import ContactComponent from './ContactComponent';
-import { updateContactForm, sendMessage } from './contact-actions';
+import { updateContactForm, submitContactForm } from './contact-actions';
 
 const mapStateToProps = (state, ownProps) => {
 	return {
@@ -14,7 +14,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 		onChange: (event) => dispatch(updateContactForm(event.target.value, event.target.name)),
 		onSubmit: (event) => {
 			event.preventDefault();
-			dispatch(sendMessage());
+			dispatch(submitContactForm());
 		},
 	};
 };

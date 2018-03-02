@@ -1,3 +1,5 @@
+import WPReducer from './wp-reducer';
+import WPEpic from './wp-epic';
+
 export * from './wp-actions';
-export * from './wp-epic';
-export * from './wp-reducer';
+export { WPReducer, WPEpic };
