@@ -10,8 +10,6 @@ import registerServiceWorker from './registerServiceWorker';
 import store from './store';
 import WebFont from './fonts';
 
-import { postsRequest } from './utils/wp';
-
 const reload = () => window.reload();
 
 ReactDOM.render(
@@ -28,7 +26,3 @@ ReactDOM.render(
 );
 
 registerServiceWorker();
-
-store.dispatch(postsRequest('shows')({ page: 1 }));
-// store.dispatch(postsRequest('shows')({ page: 2 }));
-store.dispatch(postsRequest('shows')({ id: 15463 }));
