@@ -1,4 +1,6 @@
 import uniq from 'lodash/uniq';
+import uniqBy from 'lodash/uniqBy';
+import parse from 'parse-link-header';
 
 const blankPost = {
 	status: 'blank',
@@ -16,6 +18,23 @@ const blankPost = {
 
  */
 
+const extractCurrent = (header) => {
+	const parsed = parse(header.link);
+	return parsed.next
+		? Number(parsed.next.page) - 1
+		: parsed.prev ? Number(parsed.prev.page) + 1 : undefined;
+};
+
+const validateFetched = (header, fetched) => {
+	return uniq([extractCurrent(header), ...fetched]).filter((num) => typeof num === 'number');
+};
+
+const validateTotal = (header, total) => {
+	return header['x-wp-totalpages'] ? header['x-wp-totalpages'] : total;
+};
+
+const ensureArray = (thing) => (Array.isArray(thing) ? thing : [thing]);
+
 const WPReducer = (slice) => (state = blankPost, action) => {
 	if (action.slug !== slice) return state;
 
@@ -28,16 +47,15 @@ const WPReducer = (slice) => (state = blankPost, action) => {
 		case 'POSTS_RESOLVE':
 			return {
 				...state,
-				data: uniq([...state.data, ensureArray(action.payload)]),
+				data: uniqBy([...state.data, ...ensureArray(action.payload)], 'id'),
 				status: 'resolved',
 				loadedAt: new Date(),
 			};
 		case 'POSTS_HEADER':
 			return {
 				...state,
-				header: action.payload,
-				totalPages: action.payload['x-wp-totalpages'],
-				fetchedPages: uniq([...state.fetchedPages]),
+				totalPages: validateTotal(action.payload, state.totalPages),
+				fetchedPages: validateFetched(action.payload, state.fetchedPages),
 			};
 		case 'POSTS_FILTER_UPDATE':
 			return {
@@ -50,10 +68,5 @@ const WPReducer = (slice) => (state = blankPost, action) => {
 			return state;
 	}
 };
-
-function ensureArray(thing) {
-	if (Array.isArray(thing)) return thing;
-	else return [thing];
-}
 
 export default WPReducer;

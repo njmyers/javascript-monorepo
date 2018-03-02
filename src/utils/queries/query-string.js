@@ -1,7 +1,14 @@
 const queryString = (query) => {
-	return Object.keys(query)
-		.map((key) => `${key}=${query[key]}`)
-		.reduce((acc, curr, index) => (index === 0 ? `?${curr}` : `${acc}&${curr}`), undefined);
+	const keys = Object.keys(query);
+
+	return keys.includes('id')
+		? `/${query.id}`
+		: keys
+				.map((key) => `${key}=${query[key]}`)
+				.reduce(
+					(acc, curr, index) => (index === 0 ? `?${curr}` : `${acc}&${curr}`),
+					undefined
+				);
 };
 
 export default queryString;
