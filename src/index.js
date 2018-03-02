@@ -1,28 +1,11 @@
 import 'babel-polyfill';
-import React from 'react';
+import react from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-
-import Root from './components/Root';
-import registerServiceWorker from './registerServiceWorker';
-
 import store from './store';
-import WebFont from './fonts';
 
-const reload = () => window.reload();
+import { postsRequest, postsFilterUpdate } from './utils/wp';
 
-ReactDOM.render(
-	<Provider store={store}>
-		<Router>
-			<Switch>
-				<Route path="/robots.txt" onEnter={reload} />
-				<Route path="/sitemap.xml" onEnter={reload} />
-				<Root />
-			</Switch>
-		</Router>
-	</Provider>,
-	document.getElementById('root')
-);
-
-registerServiceWorker();
+store.dispatch(postsRequest('shows')({ page: 1 }));
+store.dispatch(postsFilterUpdate(1, 'shows'));
