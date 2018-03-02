@@ -5,7 +5,7 @@ import applyDefaults from '../queries/create-url';
 import log from '../log/log';
 
 /* Apply Default Query Method */
-const createURL = applyDefaults({});
+const createURL = applyDefaults({ per_page: 10 });
 
 /* Axios API Stub Method */
 const api = axios.create({ baseURL: `${process.env.REACT_APP_WP_API_URL}/wp-json/wp/v2` });
