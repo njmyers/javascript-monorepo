@@ -15,7 +15,7 @@ const formatTimes = (number) =>
 /* Functional Stateless Component */
 
 const TrackInfo = ({ playing, currentTime, duration, currentTrack }) => {
-	const string = `${currentTrack.name}: ${currentTrack.artist}`;
+	const string = currentTrack ? `${currentTrack.name}: ${currentTrack.artist}` : '';
 	const speed = speedFromLength(string);
 
 	return (

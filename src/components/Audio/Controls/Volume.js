@@ -12,11 +12,12 @@ const scaleValue = (value, max = 1) => (!isNaN(value / max) ? Math.ceil(value / 
 const deScaleValue = (value, max = 1) => value / scale * max;
 
 const Volume = ({ volume, muted, setVolume, setMute } = {}) => {
-	const icon = volume < 70 ? 'fa fa-volume-down' : 'fa fa-volume-up';
+	const icon = muted || volume === 0 ? 'volume-off' : volume < 0.4 ? 'volume-down' : 'volume-up';
+	const muteClasses = `fa fa-${icon} mute-button`;
 
 	return (
 		<div className="volume">
-			<label htmlFor="volume" className={icon + ' mute-button'} onClick={setMute} />
+			<label htmlFor="volume" className={muteClasses} onClick={setMute} />
 			<input
 				type="range"
 				min="0"

@@ -1,4 +1,12 @@
 import uniqBy from 'lodash.uniqby';
+import { Howl } from 'howler';
+
+// const sampleTrack = {
+// 	name: 'name',
+// 	artist: 'artists',
+// 	Howl: new Howl(),
+// 	urls: [],
+// };
 
 const audioPlayerState = {
 	currentTime: 0,
@@ -9,22 +17,7 @@ const audioPlayerState = {
 	muted: false,
 	current: 0,
 	previous: 0,
-	tracks: [
-		{
-			id: 39847534,
-			artist: 'Some Artist',
-			name: 'AutoPilot',
-			HTML5: new Audio('https://blatboy.s3.amazonaws.com/2017/11/Autopilot_10-29-09.mp3'),
-			url: '',
-		},
-		{
-			id: 23409234,
-			artist: 'Some Artist 2 ',
-			name: 'Kim Fab Ex 2',
-			HTML5: new Audio('https://blatboy.s3.amazonaws.com/2017/11/KimFabEx.mp3'),
-			url: '',
-		},
-	],
+	tracks: [],
 	size: {},
 };
 
@@ -32,6 +25,8 @@ const scrollTracks = (current, tracks, payload) =>
 	current + payload > 0 ? (current + payload) % tracks : (current + payload + tracks) % tracks;
 
 const selectById = (tracks, id) => tracks.findIndex((track) => Number(track.id) === Number(id));
+
+const validateCurrent = (tracks) => (tracks.length === 0 ? 0 : tracks.length - 1);
 
 const audioPlayerReducer = (state = audioPlayerState, action) => {
 	switch (action.type) {
@@ -68,10 +63,11 @@ const audioPlayerReducer = (state = audioPlayerState, action) => {
 				currentTime: 0,
 			};
 		case 'AUDIO_PLAYER_LOAD_TRACK':
+			const tracks = uniqBy([...state.tracks, action.payload], 'id');
 			return {
 				...state,
-				tracks: uniqBy([...state.tracks, action.payload], 'id'),
-				current: state.current + 1,
+				tracks,
+				current: validateCurrent(tracks),
 				previous: state.current,
 				currentTime: 0,
 			};

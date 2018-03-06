@@ -1,25 +1,38 @@
+import { Howl, Howler } from 'howler';
 import { compose } from 'redux';
 
 /* Redux State Getters */
-export const getStateSlice = (slice) => (state) => state.getState()[slice];
+export const getStateSlice = (slice) => (state) => state[slice];
 export const getAudioPlayer = getStateSlice('audioPlayer');
 export const getStateVolume = compose((slice) => slice.volume, getAudioPlayer);
 export const getStateMuted = compose((slice) => slice.muted, getAudioPlayer);
 export const getCurrentTrack = compose((slice) => slice.tracks[slice.current], getAudioPlayer);
 export const getPreviousTrack = compose((slice) => slice.tracks[slice.previous], getAudioPlayer);
 
-/* HTML5 Audio Object Getters */
-export const getHTML5 = compose((track) => track.HTML5, getCurrentTrack);
-export const getHTML5CurrentTime = compose((HTML5) => HTML5.currentTime, getHTML5);
-export const getHTML5Duration = compose((HTML5) => HTML5.duration, getHTML5);
-export const getHTML5Muted = compose((HTML5) => HTML5.muted, getHTML5);
-export const getHTML5Ended = compose((HTML5) => HTML5.endued, getHTML5);
+/* Howl Audio Object Getters */
+export const getHowl = compose((track) => track.howl, getCurrentTrack);
+export const getHowlCurrentTime = compose((howl) => howl.seek(), getHowl);
+export const getHowlDuration = compose((howl) => howl.duration(), getHowl);
+export const getHowlEnded = compose((howl) => !howl.playing(), getHowl);
+export const getHowlLoadingState = compose((howl) => howl.state(), getHowl);
+export const getHowlPlayState = compose((howl) => howl.playing(), getHowl);
 
-/* HTML5 Previous Audio Object Getters */
-export const getPreviousHTML5 = compose((track) => track.HTML5, getPreviousTrack);
+/* Howl Previous Audio Object Getters */
+export const getPreviousHowl = compose((track) => track.howl, getPreviousTrack);
 
-/* HTML5 Audio Object State Setters */
-export const setVolume = compose(
-	(slice) => (value) => (slice.active.HTML5.volume = value),
-	getAudioPlayer
-);
+/* Global Howler Setters */
+export const setGlobalVolume = (value) => Howler.volume(value);
+export const setGlobalMute = (bool) => Howler.mute(bool);
+
+/* Create New Howl From Sources */
+const defaults = {
+	loop: false,
+	autoplay: false,
+	html5: true,
+	preload: true,
+};
+
+const validateSources = (src) => (Array.isArray(src) ? src : [src]);
+const createWithDefaults = (defaults) => (src) => new Howl({ ...defaults, src });
+export const createHowl = compose(createWithDefaults(defaults), validateSources);
+// export const createTrack = (obj) => ({ ...obj, howl: createHowl(obj.urls) });

@@ -6,7 +6,7 @@ import InView from '../HOC/InView';
 
 import './audio.css';
 
-class AudioPlayer extends Component {
+class Audio extends Component {
 	constructor(props) {
 		super(props);
 	}
@@ -16,10 +16,6 @@ class AudioPlayer extends Component {
 			console.log(nextProps.inView.clientRect);
 			this.props.playerSize(nextProps.inView.clientRect);
 		}
-	}
-
-	componentWillMount() {
-		// this.props.saveAudioEncoding();
 	}
 
 	render() {
@@ -36,4 +32,4 @@ class AudioPlayer extends Component {
 	}
 }
 
-export default InView(AudioPlayer);
+export default InView(Audio);

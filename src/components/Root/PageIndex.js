@@ -1,7 +1,6 @@
 import React from 'react';
 
 import AsyncLoader from './AsyncLoader';
-
 /*
 	Use AsyncLoader for sweet page based code splitting
 */

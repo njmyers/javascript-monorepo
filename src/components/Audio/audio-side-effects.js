@@ -1,9 +1,12 @@
+import { Howler } from 'howler';
 import {
-	getHTML5,
+	getHowl,
+	getPreviousHowl,
+	getHowlPlayState,
 	getStateVolume,
+	setGlobalVolume,
 	getStateMuted,
-	getHTML5Muted,
-	getPreviousHTML5,
+	setGlobalMute,
 } from './audio-get-set';
 
 /*
@@ -13,37 +16,37 @@ import {
 	or you will literally produce unintended 'side effects'
 */
 
-const sideEffects = (action, state) => {
-	const HTML5 = getHTML5(state);
+const sideEffects = (action, store) => {
+	// get state once and then use getters
+	const state = store.getState();
+	const howl = getHowl(state);
 
 	switch (action.type) {
 		case 'AUDIO_PLAYER_PLAY':
-			HTML5.muted = getStateMuted(state);
-			HTML5.volume = getStateVolume(state);
-			HTML5.play();
+			const playing = getHowlPlayState(state);
+			if (!playing) howl.play();
 			return;
 		case 'AUDIO_PLAYER_STOP':
-			HTML5.pause();
-			HTML5.currentTime = 0;
+			howl.stop();
 			return;
 		case 'AUDIO_PLAYER_PAUSE':
-			HTML5.pause();
+			howl.pause();
 			return;
 		case 'AUDIO_PLAYER_SEEK':
-			HTML5.currentTime = action.payload;
+			howl.seek(action.payload);
 			return;
 		case 'AUDIO_PLAYER_VOLUME':
-			HTML5.volume = action.payload;
+			setGlobalVolume(action.payload);
 			return;
 		case 'AUDIO_PLAYER_MUTE':
-			HTML5.muted = !getHTML5Muted(state);
+			const muted = getStateMuted(state);
+			setGlobalMute(muted);
 			return;
 		case 'AUDIO_PLAYER_SCROLL':
 		case 'AUDIO_PLAYER_SELECT':
 		case 'AUDIO_PLAYER_LOAD_TRACK':
-			const previous = getPreviousHTML5(state);
-			previous.pause();
-			previous.currentTime = 0;
+			const previous = getPreviousHowl(state);
+			previous.stop();
 			return;
 		default:
 			return;

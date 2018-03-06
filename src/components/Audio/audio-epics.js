@@ -10,13 +10,11 @@ import 'rxjs/add/operator/ignoreElements';
 
 import { combineEpics } from 'redux-observable';
 
-import sideEffects from './audio-side-effects';
-
-import { getHTML5CurrentTime, getHTML5Duration, getHTML5Ended } from './audio-get-set';
 import { updateUI, trackEnded, playerStop, playerStart } from './audio-actions';
+import { getHowlCurrentTime, getHowlDuration, getHowlEnded } from './audio-get-set';
 
+import sideEffects from './audio-side-effects';
 import timer from './timer';
-const frame$ = timer();
 
 /*
 	Since all of our actions create side effects
@@ -28,7 +26,7 @@ const frame$ = timer();
 	These side effects happen after reducer
 */
 
-const sideEffectsEpic = (actions$, state) =>
+const sideEffectsEpic = (actions$, store) =>
 	actions$
 		.ofType(
 			'AUDIO_PLAYER_PLAY',
@@ -40,21 +38,24 @@ const sideEffectsEpic = (actions$, state) =>
 			'AUDIO_PLAYER_SCROLL',
 			'AUDIO_PLAYER_SELECT'
 		)
-		.do((action) => sideEffects(action, state))
+		.do((action) => sideEffects(action, store))
 		.ignoreElements();
 
-const audioPlayerChangeTrack = (actions$, state) =>
+const audioPlayerChangeTrack = (actions$) =>
 	actions$
-		.ofType('AUDIO_PLAYER_SCROLL', 'AUDIO_PLAYER_SELECT', 'AUDIO_PLAYER_LOAD_NEW')
+		.ofType('AUDIO_PLAYER_SCROLL', 'AUDIO_PLAYER_SELECT', 'AUDIO_PLAYER_LOAD_TRACK')
 		.mapTo(playerStart());
 
 /*
 	Normal Epic for updating player state based on frame rate
 */
 
-const audioUIEpic = (actions$, state) =>
-	actions$.ofType('AUDIO_PLAYER_PLAY').mergeMap(() => {
-		return frame$
+// set player framerate
+const frame$ = timer();
+
+const audioUIEpic = (actions$, store) =>
+	actions$.ofType('AUDIO_PLAYER_PLAY').mergeMap(() =>
+		frame$
 			.takeUntil(
 				actions$.ofType(
 					'AUDIO_PLAYER_STOP',
@@ -63,15 +64,14 @@ const audioUIEpic = (actions$, state) =>
 					'AUDIO_PLAYER_SELECT'
 				)
 			)
-			.mergeMap((frame) =>
-				Observable.concat(
-					Observable.of(
-						getHTML5Ended(state)
-							? playerStop()
-							: updateUI(getHTML5CurrentTime(state), getHTML5Duration(state))
-					)
-				)
-			);
-	});
+			.mergeMap((frame) => {
+				const state = store.getState();
+				return Observable.of(
+					getHowlEnded(state)
+						? playerStop()
+						: updateUI(getHowlCurrentTime(state), getHowlDuration(state))
+				);
+			})
+	);
 
 export default combineEpics(audioUIEpic, sideEffectsEpic, audioPlayerChangeTrack);

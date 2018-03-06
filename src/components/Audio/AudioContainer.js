@@ -2,11 +2,9 @@ import { connect } from 'react-redux';
 import AudioComponent from './AudioComponent';
 import { playerSize } from './audio-actions';
 
-const mapStateToProps = (state, ownProps) => {
-	return {
-		audioPlayer: state.audioPlayer,
-	};
-};
+const mapStateToProps = (state, ownProps) => ({
+	audioPlayer: state.audioPlayer,
+});
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
 	playerSize: (value) => dispatch(playerSize(value)),

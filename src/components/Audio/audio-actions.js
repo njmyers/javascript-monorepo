@@ -1,3 +1,5 @@
+import { createHowl } from './audio-get-set';
+
 export const updateUI = (currentTime, duration) => ({
 	type: 'AUDIO_PLAYER_UPDATE_UI',
 	payload: { currentTime, duration },
@@ -25,16 +27,16 @@ export const playerScroll = (payload) => ({ type: 'AUDIO_PLAYER_SCROLL', payload
 export const playerSelect = (payload) => ({ type: 'AUDIO_PLAYER_SELECT', payload });
 
 /* Add New */
-export const loadTrack = ({ id, url, name, artist } = {}) => ({
+export const loadTrack = ({ id, urls, name, artist } = {}) => ({
 	type: 'AUDIO_PLAYER_LOAD_TRACK',
 	payload: {
 		id,
-		url,
+		urls,
 		name,
 		artist,
 
 		// Side Effect
-		HTML5: new Audio(url),
+		howl: createHowl(urls),
 	},
 });
 
