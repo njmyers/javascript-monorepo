@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
+import queryString from 'query-string';
 import { withRouter } from 'react-router-dom';
-import { queryString } from 'query-string';
 
 function URLQuery(Wrapped) {
 	class Search extends Component {
