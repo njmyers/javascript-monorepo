@@ -1,4 +1,4 @@
-import uniqBy from 'lodash/uniqBy';
+import uniqBy from 'lodash.uniqby';
 
 const audioPlayerState = {
 	currentTime: 0,
@@ -8,12 +8,13 @@ const audioPlayerState = {
 	volume: 1,
 	muted: false,
 	current: 0,
+	previous: 0,
 	tracks: [
 		{
 			id: 39847534,
 			artist: 'Some Artist',
-			name: 'Kim Fab Ex',
-			HTML5: new Audio('https://blatboy.s3.amazonaws.com/2017/11/KimFabEx.mp3'),
+			name: 'AutoPilot',
+			HTML5: new Audio('https://blatboy.s3.amazonaws.com/2017/11/Autopilot_10-29-09.mp3'),
 			url: '',
 		},
 		{
@@ -24,6 +25,7 @@ const audioPlayerState = {
 			url: '',
 		},
 	],
+	size: {},
 };
 
 const scrollTracks = (current, tracks, payload) =>
@@ -55,16 +57,28 @@ const audioPlayerReducer = (state = audioPlayerState, action) => {
 			return {
 				...state,
 				current: scrollTracks(state.current, state.tracks.length, action.payload),
+				previous: state.current,
+				currentTime: 0,
 			};
 		case 'AUDIO_PLAYER_SELECT':
 			return {
 				...state,
 				current: selectById(state.tracks, action.payload),
+				previous: state.current,
+				currentTime: 0,
 			};
-		case 'AUDIO_PLAYER_LOAD_NEW':
+		case 'AUDIO_PLAYER_LOAD_TRACK':
 			return {
 				...state,
 				tracks: uniqBy([...state.tracks, action.payload], 'id'),
+				current: state.current + 1,
+				previous: state.current,
+				currentTime: 0,
+			};
+		case 'AUDIO_PLAYER_SIZE':
+			return {
+				...state,
+				size: action.payload,
 			};
 		default:
 			return state;

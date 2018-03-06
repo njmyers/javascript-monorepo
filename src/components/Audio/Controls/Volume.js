@@ -16,7 +16,7 @@ const Volume = ({ volume, muted, setVolume, setMute } = {}) => {
 
 	return (
 		<div className="volume">
-			<label htmlFor="volume" className={icon} onClick={setMute} />
+			<label htmlFor="volume" className={icon + ' mute-button'} onClick={setMute} />
 			<input
 				type="range"
 				min="0"

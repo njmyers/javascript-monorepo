@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
-import { parse } from 'qs';
+import { queryString } from 'query-string';
 
 function URLQuery(Wrapped) {
 	class Search extends Component {
@@ -8,12 +8,12 @@ function URLQuery(Wrapped) {
 			super(props);
 			this.handleHistoryChange = this.handleHistoryChange.bind(this);
 
-			const search = parse(this.props.location.search, { ignoreQueryPrefix: true });
+			const search = queryString.parse(this.props.location.search);
 			this.state = { search };
 		}
 
 		handleHistoryChange(location) {
-			const search = parse(location.search, { ignoreQueryPrefix: true });
+			const search = queryString.parse(location.search);
 			this.setState({ search });
 		}
 

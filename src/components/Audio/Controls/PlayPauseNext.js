@@ -8,14 +8,14 @@ import Button from './Button';
 const PlayPauseNext = ({ playing, play, pause, stop, next, prev, isMobile } = {}) => {
 	return (
 		<div className="audio-player-buttons">
-			<Button icon="backward" cb={prev} />
+			<Button icon="backward" className="previous" cb={prev} />
 			<Button
 				icon={!playing ? 'play' : 'pause'}
 				cb={!playing ? play : pause}
-				className="audio-player big"
+				className="play big"
 			/>
-			<Button icon="stop" className="big" cb={stop} />
-			<Button icon="forward" cb={next} />
+			<Button icon="stop" className="stop big" cb={stop} />
+			<Button icon="forward" className="next" cb={next} />
 		</div>
 	);
 };

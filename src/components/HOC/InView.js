@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import debounce from 'lodash/debounce';
-import isEqualWith from 'lodash/isEqualWith';
-import isEqual from 'lodash/isEqual';
+import debounce from 'lodash.debounce';
+import isEqualWith from 'lodash.isequalwith';
+import isEqual from 'lodash.isequal';
 import listen from '../../utils/listen';
 
 function InView(WrappedComponent) {
@@ -53,7 +53,7 @@ function InView(WrappedComponent) {
 						width: boundingRect.width,
 						x: boundingRect.x,
 						y: boundingRect.y,
-					}
+				  }
 				: undefined;
 
 			return {
@@ -82,7 +82,7 @@ function InView(WrappedComponent) {
 				process.env.NODE_ENV === 'development'
 					? console.log(
 							'you tried to update state without an object, please pass an object'
-						)
+					  )
 					: null;
 		};
 

@@ -26,7 +26,7 @@ export const playerSelect = (payload) => ({ type: 'AUDIO_PLAYER_SELECT', payload
 
 /* Add New */
 export const loadTrack = ({ id, url, name, artist } = {}) => ({
-	type: 'AUDIO_PLAYER_LOAD_NEW',
+	type: 'AUDIO_PLAYER_LOAD_TRACK',
 	payload: {
 		id,
 		url,
@@ -37,3 +37,6 @@ export const loadTrack = ({ id, url, name, artist } = {}) => ({
 		HTML5: new Audio(url),
 	},
 });
+
+/* Update Size */
+export const playerSize = (payload) => ({ type: 'AUDIO_PLAYER_SIZE', payload });

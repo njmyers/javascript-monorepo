@@ -1,5 +1,5 @@
-import uniq from 'lodash/uniq';
-import uniqBy from 'lodash/uniqBy';
+import uniq from 'lodash.uniq';
+import uniqBy from 'lodash.uniqby';
 import parse from 'parse-link-header';
 
 const blankPost = {

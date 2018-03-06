@@ -1,39 +1,39 @@
 import React, { Component } from 'react';
-// import Marquee from '../Marquee';
-// import sizeMe from '../../utils/size-me';
-// import debounce from 'lodash/debounce';
+import debounce from 'lodash.debounce';
+import isEqual from 'lodash.isequal';
 import { AudioMeter, PlayPauseNext, TrackInfo, Volume } from './Controls';
+import InView from '../HOC/InView';
 
 import './audio.css';
 
 class AudioPlayer extends Component {
-	// constructor(props) {
-	// 	super(props);
-	// 	this.handleUpdate = debounce(this.handleUpdate.bind(this), 50);
-	// }
+	constructor(props) {
+		super(props);
+	}
 
-	// handleUpdate() {
-	// 	this.props.updateContentSize(this.props.size);
-	// }
+	componentWillReceiveProps(nextProps) {
+		if (!isEqual(nextProps.inView.clientRect, this.props.inView.clientRect)) {
+			console.log(nextProps.inView.clientRect);
+			this.props.playerSize(nextProps.inView.clientRect);
+		}
+	}
 
-	// componentDidUpdate() {
-	// 	this.handleUpdate();
-	// }
-
-	// componentWillMount() {
-	// 	this.props.saveAudioEncoding();
-	// }
+	componentWillMount() {
+		// this.props.saveAudioEncoding();
+	}
 
 	render() {
 		return (
 			<aside className="audio-player-container">
-				<TrackInfo />
-				<PlayPauseNext />
-				<AudioMeter />
-				<Volume />
+				<article className="player">
+					<PlayPauseNext />
+					<TrackInfo />
+					<AudioMeter />
+					<Volume />
+				</article>
 			</aside>
 		);
 	}
 }
 
-export default AudioPlayer;
+export default InView(AudioPlayer);

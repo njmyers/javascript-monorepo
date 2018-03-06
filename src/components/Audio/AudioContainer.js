@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import AudioComponent from './AudioComponent';
-import { playerStart, playerStop, playerSeek } from './audio-actions';
+import { playerSize } from './audio-actions';
 
 const mapStateToProps = (state, ownProps) => {
 	return {
@@ -8,13 +8,9 @@ const mapStateToProps = (state, ownProps) => {
 	};
 };
 
-const mapDispatchToProps = (dispatch, ownProps) => {
-	return {
-		stop: () => dispatch(playerStop()),
-		start: () => dispatch(playerStart()),
-		seek: (value) => dispatch(playerSeek(value)),
-	};
-};
+const mapDispatchToProps = (dispatch, ownProps) => ({
+	playerSize: (value) => dispatch(playerSize(value)),
+});
 
 const Audio = connect(mapStateToProps, mapDispatchToProps)(AudioComponent);
 

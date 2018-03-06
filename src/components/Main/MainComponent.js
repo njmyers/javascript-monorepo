@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import sizeMe from '../../utils/size-me';
-import debounce from 'lodash/debounce';
+import debounce from 'lodash.debounce';
 
 class Main extends Component {
 	constructor(props) {

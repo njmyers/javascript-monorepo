@@ -2,17 +2,20 @@
 
 import React, { Component } from 'react';
 import ReactGA from 'react-ga';
-import debounce from 'lodash/debounce';
+import debounce from 'lodash.debounce';
 import listen from '../../utils/listen';
 
 import PageIndex from './PageIndex';
 
+import AsyncLoader from '../Root/AsyncLoader';
 import Main from '../Main';
 import ScrollTop from '../ScrollTop';
 import Header from '../Header';
 import Footer from '../Footer';
 
 import './root-default.css';
+
+const Audio = AsyncLoader(() => import('../Audio'));
 
 class Root extends Component {
 	constructor(props) {
@@ -49,6 +52,7 @@ class Root extends Component {
 				<Header pages={PageIndex} />
 				<Main pages={PageIndex} />
 				<Footer pages={PageIndex} />
+				<Audio />
 			</div>
 		);
 	}
