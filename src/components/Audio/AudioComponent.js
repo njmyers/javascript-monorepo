@@ -13,7 +13,6 @@ class Audio extends Component {
 
 	componentWillReceiveProps(nextProps) {
 		if (!isEqual(nextProps.inView.clientRect, this.props.inView.clientRect)) {
-			console.log(nextProps.inView.clientRect);
 			this.props.playerSize(nextProps.inView.clientRect);
 		}
 	}

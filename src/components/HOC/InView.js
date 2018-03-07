@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import debounce from 'lodash.debounce';
 import isEqualWith from 'lodash.isequalwith';
 import isEqual from 'lodash.isequal';
-import listen from '../../utils/listen';
+import { resizeWindow, scrollWindow } from '../../utils/listen';
 
 function InView(WrappedComponent) {
 	return class SizeAction extends Component {
@@ -143,13 +143,13 @@ function InView(WrappedComponent) {
 			this.DOMNode = ReactDOM.findDOMNode(this);
 			this.refresh();
 
-			this.scrollSubKey = listen.scrollEvent.subscribe(this.handleScroll);
-			this.resizeSubKey = listen.resizeEvent.subscribe(this.handleResize);
+			this.scrollWindowSubscription = scrollWindow.subscribe(() => this.handleScroll());
+			this.resizeWindowSubscription = resizeWindow.subscribe(() => this.handleResize());
 		}
 
 		componentWillUnmount() {
-			listen.scrollEvent.unsubscribe(this.scrollSubKey);
-			listen.resizeEvent.unsubscribe(this.resizeSubKey);
+			this.scrollWindowSubscription.unsubscribe();
+			this.resizeWindowSubscription.unsubscribe();
 		}
 
 		render() {

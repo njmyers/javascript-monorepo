@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import queryString from 'query-string';
 import { withRouter } from 'react-router-dom';
 
+/**
+ * Adds a prop search to the component containing current search strings
+ * @param {component} Wrapped react component to wrap with this HOC
+ */
 function URLQuery(Wrapped) {
 	class Search extends Component {
 		constructor(props) {

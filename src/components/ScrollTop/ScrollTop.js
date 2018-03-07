@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import listen from '../../utils/listen';
+import { scrollWindow } from '../../utils/listen';
 
 import './scroll-top-default.css';
 
@@ -45,11 +45,11 @@ class ScrollTop extends Component {
 	};
 
 	componentWillUnmount() {
-		this.scrollKey = listen.scrollEvent.subscribe(this.handleScroll);
+		this.scrollWindowSubscription = scrollWindow.subscribe(() => this.handleScroll());
 	}
 
 	componentDidMount() {
-		listen.scrollEvent.unsubscribe(this.scrollKey);
+		this.scrollWindowSubscription.unsubscribe();
 	}
 
 	componentWillReceiveProps() {

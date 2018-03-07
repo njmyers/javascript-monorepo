@@ -3,7 +3,7 @@
 import React, { Component } from 'react';
 import ReactGA from 'react-ga';
 import debounce from 'lodash.debounce';
-import listen from '../../utils/listen';
+import { resizeWindow } from '../../utils/listen';
 
 import PageIndex from './PageIndex';
 
@@ -25,7 +25,6 @@ class Root extends Component {
 		ReactGA.initialize(this.GA_ID);
 		ReactGA.pageview(window.location.pathname + window.location.search);
 
-		this.resizeSubKey = 0;
 		this.onResizeWindow = this.onResizeWindow.bind(this);
 	}
 
@@ -35,7 +34,9 @@ class Root extends Component {
 
 	componentWillMount() {
 		this.props.windowDetector(window.innerWidth, window.innerHeight);
-		this.resizeSubKey = listen.resizeEvent.subscribe(this.onResizeWindow);
+		this.resizeWindowSubscription = resizeWindow.subscribe(() => this.onResizeWindow());
+		this.resizeWindowSubscription2 = resizeWindow.subscribe(() => console.log());
+		this.resizeWindowSubscription2 = resizeWindow.subscribe(() => console.log());
 	}
 
 	componentDidMount() {
@@ -43,7 +44,7 @@ class Root extends Component {
 	}
 
 	componentWillUnmount() {
-		listen.resizeEvent.unsubscribe(this.resizeSubKey);
+		this.resizeWindowSubscription.unsubscribe();
 	}
 
 	render() {

@@ -9,15 +9,15 @@ import {
 	setGlobalMute,
 } from './audio-get-set';
 
-/*
-	Side effects 'reducer'
-	This is not actually a reducer
-	please ensure return or break after each statement
-	or you will literally produce unintended 'side effects'
-*/
-
+/**
+ * Side effects 'reducer.' This is not actually a reducer.
+ * Please ensure return or break after each statement
+ * or you will literally produce unintended 'side effects'
+ * @param {object} action redux action
+ * @param {object} store redux store provided by redux observable
+ */
 const sideEffects = (action, store) => {
-	// get state once and then use getters
+	// call getState() once and then use getters for object path
 	const state = store.getState();
 	const howl = getHowl(state);
 
