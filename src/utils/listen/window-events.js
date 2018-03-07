@@ -1,7 +1,9 @@
-import { debounceTime, throttleTime } from 'rxjs/operators';
-import createEventObservable from './create-event-observable';
+import debounce from 'lodash.debounce';
+import throttle from 'lodash.throttle';
 
-const createWindowObservable = createEventObservable(window);
+import createEventSubscription from './create-event-subscription';
 
-export const resizeWindow = createWindowObservable('resize').pipe(debounceTime(500));
-export const scrollWindow = createWindowObservable('scroll').pipe(throttleTime(400));
+const createWindowSubscription = createEventSubscription(window);
+
+export const resizeWindow = createWindowSubscription('resize')(debounce, 500);
+export const scrollWindow = createWindowSubscription('scroll')(throttle, 400);

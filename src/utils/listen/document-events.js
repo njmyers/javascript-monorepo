@@ -1,3 +1,3 @@
-import createEventObservable from './create-event-observable';
+import createEventSubscription from './create-event-subscription';
 
-const createDocumentObservable = createEventObservable(document);
+const createDocumentEvent = createEventSubscription(document);

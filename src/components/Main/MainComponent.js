@@ -18,13 +18,13 @@ class Main extends Component {
 	}
 
 	render() {
-		const marginTop = this.props.isMobile ? `${this.props.headerSize.height}px` : '0px';
-		const minHeight = `calc(101vh - ${this.props.headerSize.height +
-			this.props.footerSize.height}px)`;
+		// const marginTop = this.props.isMobile ? `${this.props.headerSize.height}px` : '0px';
+		// const minHeight = `calc(101vh - ${this.props.headerSize.height +
+		// 	this.props.footerSize.height}px)`;
 
 		const style = {
-			marginTop,
-			minHeight,
+			// marginTop,
+			// minHeight,
 		};
 
 		return (
@@ -35,7 +35,7 @@ class Main extends Component {
 	}
 }
 
-export default sizeMe(Main);
+export default Main;
 
 function MyRoutes(props) {
 	const routes = props.pages.map((each) => {

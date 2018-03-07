@@ -53,4 +53,4 @@ class Header extends Component {
 	}
 }
 
-export default sizeMe(Header);
+export default Header;

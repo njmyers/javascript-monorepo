@@ -53,7 +53,7 @@ class Footer extends Component {
 	}
 }
 
-export default sizeMe(Footer);
+export default Footer;
 
 function Icon(props) {
 	const fa = props.fa ? props.fa : 'home';
