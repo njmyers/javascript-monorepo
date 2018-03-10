@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import Spinner from '../StatusSwitch/Spinner';
 
+/**
+ * Asynchronous loader for react components and webpack
+ * @param {function} importComponent function that returns an import
+ */
 export default function asyncLoader(importComponent) {
 	class AsyncComponent extends Component {
 		constructor(props) {

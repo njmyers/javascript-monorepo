@@ -1,42 +1,23 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import debounce from 'lodash/debounce';
-import isEqualWith from 'lodash/isEqualWith';
-import isEqual from 'lodash/isEqual';
-import { resizeWindow, scrollWindow } from '../../utils/listen';
+import debounce from 'lodash.debounce';
+import isEqualWith from 'lodash.isequalwith';
+import isEqual from 'lodash.isequal';
+import { resizeWindow } from '../../utils/listen';
 
-function InView(WrappedComponent) {
+function Sizes(WrappedComponent) {
 	return class SizeAction extends Component {
 		constructor(props) {
 			super(props);
 			this.name = WrappedComponent.name;
 			this.state = {
-				window: {
-					innerHeight: window.innerHeight,
-					innerWidth: window.innerWidth,
-					outerHeight: window.outerHeight,
-					outerWidth: window.outerWidth,
-				},
 				name: this.name,
-				bool: undefined,
 				clientRect: undefined,
 				page: this.props.page,
 			};
 
 			this.polled = 0;
 			this.refresh = debounce(this.refresh.bind(this), 300);
-		}
-
-		/* Measurments */
-		isInView() {
-			const clientRect = this.DOMNode ? this.DOMNode.getBoundingClientRect() : undefined;
-			const offsetTop = this.DOMNode ? this.DOMNode.offsetTop : undefined;
-
-			return clientRect
-				? clientRect.top < 0
-					? Math.abs(clientRect.top) - clientRect.height < 0
-					: clientRect.top < this.state.window.innerHeight
-				: undefined;
 		}
 
 		getMeasurements() {
@@ -56,28 +37,13 @@ function InView(WrappedComponent) {
 				  }
 				: undefined;
 
-			return {
-				window: {
-					innerHeight: window.innerHeight,
-					innerWidth: window.innerWidth,
-					outerHeight: window.outerHeight,
-					outerWidth: window.outerWidth,
-				},
-				clientRect,
-			};
-		}
-
-		getSizes() {
-			return {
-				...this.getMeasurements(),
-				bool: this.isInView(),
-			};
+			return { clientRect };
 		}
 
 		/* call this instead of setState so that you always hook into the cb */
 		hotUpdate = (object) => {
 			if (typeof object === 'object') {
-				this.setState(object, () => (this.props.cb ? this.props.cb(this.state) : null));
+				this.setState(object);
 			} else
 				process.env.NODE_ENV === 'development'
 					? console.log(
@@ -87,46 +53,26 @@ function InView(WrappedComponent) {
 		};
 
 		/* Listeners */
-		handleScroll = () => {
-			const bool = this.isInView();
-			bool !== this.state.bool ? this.hotUpdate({ bool }) : null;
-		};
-
 		handleResize = () => {
-			const sizes = this.compareAll();
-			sizes ? this.hotUpdate(sizes) : null;
+			const measurements = this.compareMeasurements();
+			measurements ? this.hotUpdate(measurements) : null;
 		};
 
 		compareMeasurements() {
 			const measurements = this.getMeasurements();
 			const thisMeasurements = {
-				window: this.state.window,
 				clientRect: this.state.clientRect,
 			};
 
 			return !isEqual(measurements, thisMeasurements) ? measurements : false;
 		}
 
-		compareAll() {
-			const sizes = this.getSizes();
-			const thisSizes = {
-				window: this.state.window,
-				clientRect: this.state.clientRect,
-				bool: this.state.bool,
-			};
-
-			return !isEqual(sizes, thisSizes) ? sizes : false;
-		}
-
 		refresh() {
-			// only compare measurements for refreshing
-			// otherwise scrolling could keep this polling forever
+			// compare measurements for refreshing
 			const measurements = this.compareMeasurements();
 
 			if (measurements) {
-				// but if you need to refresh, refresh all
-				const sizes = this.getSizes();
-				this.hotUpdate(sizes);
+				this.hotUpdate(measurements);
 				this.refresh();
 			} else {
 				// poll twice after measurements are the same
@@ -143,19 +89,18 @@ function InView(WrappedComponent) {
 			this.DOMNode = ReactDOM.findDOMNode(this);
 			this.refresh();
 
-			this.scrollWindowSubscription = scrollWindow.subscribe(() => this.handleScroll());
 			this.resizeWindowSubscription = resizeWindow.subscribe(() => this.handleResize());
 		}
 
 		componentWillUnmount() {
-			this.scrollWindowSubscription.unsubscribe();
 			this.resizeWindowSubscription.unsubscribe();
 		}
 
 		render() {
-			return <WrappedComponent {...this.props} inView={this.state} />;
+			const mergeSizes = { ...this.props.sizes, ...this.state };
+			return <WrappedComponent {...this.props} sizes={mergeSizes} />;
 		}
 	};
 }
 
-export default InView;
+export default Sizes;

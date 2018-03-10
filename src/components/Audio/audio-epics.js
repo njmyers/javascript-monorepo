@@ -16,16 +16,18 @@ import { getHowlCurrentTime, getHowlDuration, getHowlEnded } from './audio-get-s
 import sideEffects from './audio-side-effects';
 import timer from './timer';
 
-/*
-	Since all of our actions create side effects
-	we have located them all to one epic/side effect 'reducer'
-	the epic listens for all actions that create side effects
-	and the reducer 'reduces' the side effects.
-	This way we can write side effects more declaratively
-
-	These side effects happen after reducer
-*/
-
+/**
+ *	Since all of our actions create side effects
+ *	we have located them all to one epic/side effect 'reducer'
+ *	the epic listens for all actions that create side effects
+ *	and the reducer 'reduces' the side effects.
+ *	This way we can write side effects more declaratively
+ *
+ *	These side effects happen after reducer
+ *
+ * @param {stream} actions$ stream of actions provided by redux observable
+ * @param {object} store redux store with getStore() method
+ */
 const sideEffectsEpic = (actions$, store) =>
 	actions$
 		.ofType(
@@ -41,16 +43,22 @@ const sideEffectsEpic = (actions$, store) =>
 		.do((action) => sideEffects(action, store))
 		.ignoreElements();
 
+/**
+ * Auto start on changing track actions.
+ * @param {stream} actions$ stream of actions provided by redux observable
+ */
 const audioPlayerChangeTrack = (actions$) =>
 	actions$
 		.ofType('AUDIO_PLAYER_SCROLL', 'AUDIO_PLAYER_SELECT', 'AUDIO_PLAYER_LOAD_TRACK')
 		.mapTo(playerStart());
 
-/*
-	Normal Epic for updating player state based on frame rate
-*/
+/**
+ * Normal Epic for updating player state based on frame rate
+ *
+ * @param {stream} actions$ stream of actions provided by redux observable
+ * @param {object} store redux store with getStore() method
+ */
 
-// set player framerate
 const frame$ = timer();
 
 const audioUIEpic = (actions$, store) =>
