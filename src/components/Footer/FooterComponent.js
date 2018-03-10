@@ -43,7 +43,10 @@ class Footer extends Component {
 					{socials}
 				</p>
 				<p className="footer-text">
-					<i className="fa fa-code" /> Web Design by Nick Myers
+					<i className="fa fa-code" />{' '}
+					<a href="https://www.linkedin.com/in/nickmyersnyc/" rel="noopener noreferrer">
+						Web Design by Nick Myers
+					</a>
 				</p>
 				<p className="footer-text">
 					<i className="fa fa-copyright" /> {this.year} {title}
