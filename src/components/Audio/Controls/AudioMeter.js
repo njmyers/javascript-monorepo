@@ -1,5 +1,5 @@
 import React from 'react';
-import debounce from 'lodash.debounce';
+import debounce from 'lodash/debounce';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 

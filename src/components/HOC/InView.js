@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import debounce from 'lodash.debounce';
-import isEqualWith from 'lodash.isequalwith';
-import isEqual from 'lodash.isequal';
+import debounce from 'lodash/debounce';
+import isEqualWith from 'lodash/isEqualWith';
+import isEqual from 'lodash/isEqual';
 import listen from '../../utils/listen';
 
 function InView(WrappedComponent) {

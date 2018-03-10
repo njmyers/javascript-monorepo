@@ -2,7 +2,7 @@
 
 import React, { Component } from 'react';
 import ReactGA from 'react-ga';
-import debounce from 'lodash.debounce';
+import debounce from 'lodash/debounce';
 import listen from '../../utils/listen';
 
 import PageIndex from './PageIndex';
@@ -13,7 +13,7 @@ import ScrollTop from '../ScrollTop';
 import Header from '../Header';
 import Footer from '../Footer';
 
-import './root-default.css';
+import './root-default.sass';
 
 const Audio = AsyncLoader(() => import('../Audio'));
 

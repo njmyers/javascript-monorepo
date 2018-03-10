@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './forms.css';
+import './forms-default.sass';
 
 const Fragment = React.Fragment;
 

@@ -1,4 +1,4 @@
-import uniqBy from 'lodash.uniqby';
+import uniqBy from 'lodash/uniqBy';
 import { Howl } from 'howler';
 
 // const sampleTrack = {
@@ -75,6 +75,11 @@ const audioPlayerReducer = (state = audioPlayerState, action) => {
 			return {
 				...state,
 				size: action.payload,
+			};
+		case 'AUDIO_PLAYER_DISPLAY':
+			return {
+				...state,
+				display: action.payload,
 			};
 		default:
 			return state;

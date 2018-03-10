@@ -35,4 +35,3 @@ const defaults = {
 const validateSources = (src) => (Array.isArray(src) ? src : [src]);
 const createWithDefaults = (defaults) => (src) => new Howl({ ...defaults, src });
 export const createHowl = compose(createWithDefaults(defaults), validateSources);
-// export const createTrack = (obj) => ({ ...obj, howl: createHowl(obj.urls) });

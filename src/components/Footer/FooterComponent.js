@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import debounce from 'lodash.debounce';
+import debounce from 'lodash/debounce';
 import sizeMe from '../../utils/size-me';
 
 import SiteMap from '../SiteMap';
 import socialMap from './social-map';
 
-import './footer-default.css';
+import './footer-default.sass';
 
 class Footer extends Component {
 	constructor(props) {

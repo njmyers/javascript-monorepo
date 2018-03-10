@@ -42,3 +42,7 @@ export const loadTrack = ({ id, urls, name, artist } = {}) => ({
 
 /* Update Size */
 export const playerSize = (payload) => ({ type: 'AUDIO_PLAYER_SIZE', payload });
+
+/* Display And Hide */
+const playerShow = () => ({ type: 'AUDIO_PLAYER_DISPLAY', display: true });
+const playerHide = () => ({ type: 'AUDIO_PLAYER_DISPLAY', display: false });

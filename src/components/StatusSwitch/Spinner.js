@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './spinner-default.css';
+import './spinner-default.sass';
 
 export default function Spinner(props) {
 	return (

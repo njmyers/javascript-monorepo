@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import debounce from 'lodash.debounce';
+import debounce from 'lodash/debounce';
 import sizeMe from '../../utils/size-me';
 
 import Nav from './Nav';
 import Title from './Title';
 import MobileNav from './MobileNav';
 
-import './header-default.css';
+import './header-default.sass';
 
 class Header extends Component {
 	constructor(props) {

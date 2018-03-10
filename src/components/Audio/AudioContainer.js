@@ -4,6 +4,7 @@ import { playerSize } from './audio-actions';
 
 const mapStateToProps = (state, ownProps) => ({
 	audioPlayer: state.audioPlayer,
+	display: state.audioPlayer.display,
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
