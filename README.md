@@ -77,6 +77,7 @@ class Parent extends Component {
 	}
 
 	handleSize = (sizes) => {
+		// control styles  or pass to higher state
 		console.log(sizes);
 	};
 
