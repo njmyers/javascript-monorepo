@@ -1,7 +1,6 @@
-import { mobileConstants } from './mobile-actions';
 import { UIConstants } from './ui-sizing-actions';
 
-const constants = { ...UIConstants, ...mobileConstants };
+const constants = { ...UIConstants };
 
 const initialMobileMenu = {
 	position: 'absolute',
@@ -12,7 +11,7 @@ const initialMobileMenu = {
 
 const size = {
 	height: undefined,
-	widht: undefined,
+	width: undefined,
 	position: undefined,
 };
 
@@ -20,7 +19,7 @@ const blankUI = {
 	styles: '',
 	mobileMenuStyle: initialMobileMenu,
 	isMenuOn: false,
-	isMobile: false,
+	isMobile: true,
 	footerSize: size,
 	headerSize: size,
 	contentSize: size,
@@ -29,19 +28,19 @@ const blankUI = {
 
 export default function UIReducer(state = blankUI, action) {
 	switch (action.type) {
-		case constants.ANIMATE_MENU:
-			return Object.assign({}, state, {
+		case 'DEVICE':
+		case 'ORIENTATION':
+		case 'DEVICE':
+		case 'MENU_STATE':
+			return {
+				...state,
+				[action.key]: action.payload,
+			};
+		case 'ANIMATE_MENU':
+			return {
+				...state,
 				[action.key]: { ...state[action.key], ...action.payload },
-			});
-		case constants.HIDE_MENU:
-		case constants.SHOW_MENU:
-		case constants.IS_MOBILE:
-		case constants.IS_NOT_MOBILE:
-		case constants.IS_LANDSCAPE:
-		case constants.IS_PORTRAIT:
-			return Object.assign({}, state, {
-				[action.key]: action.value,
-			});
+			};
 		case constants.UPDATE_CONTENT_SIZE:
 			return Object.assign({}, state, {
 				[action.key]: action.payload,

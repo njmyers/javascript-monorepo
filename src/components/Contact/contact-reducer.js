@@ -1,5 +1,3 @@
-import { constants } from './contact-actions';
-
 const contactFields = {
 	name: '',
 	email: '',

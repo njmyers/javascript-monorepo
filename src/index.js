@@ -8,7 +8,7 @@ import Root from './components/Root';
 import registerServiceWorker from './registerServiceWorker';
 
 import store from './store';
-import WebFont from './fonts';
+import './fonts';
 
 const reload = () => window.reload();
 

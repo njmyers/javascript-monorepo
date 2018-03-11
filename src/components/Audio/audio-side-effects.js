@@ -1,4 +1,3 @@
-import { Howler } from 'howler';
 import {
 	getHowl,
 	getPreviousHowl,

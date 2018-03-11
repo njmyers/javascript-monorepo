@@ -1,9 +1,5 @@
-/* global ReactGA */
-
 import React, { Component } from 'react';
 import ReactGA from 'react-ga';
-import debounce from 'lodash/debounce';
-import { resizeWindow } from '../../utils/listen';
 
 import PageIndex from './PageIndex';
 
@@ -14,6 +10,8 @@ import Header from '../Header';
 import Footer from '../Footer';
 
 import './root-default.sass';
+
+import Size from 'react-size-components';
 
 const Audio = AsyncLoader(() => import('../Audio'));
 
@@ -32,12 +30,12 @@ class Root extends Component {
 
 	render() {
 		return (
-			<div className="page">
+			<React.Fragment>
 				<Header pages={PageIndex} />
 				<Main pages={PageIndex} />
 				<Footer pages={PageIndex} />
 				<Audio />
-			</div>
+			</React.Fragment>
 		);
 	}
 }

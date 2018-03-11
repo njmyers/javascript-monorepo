@@ -10,7 +10,7 @@ import 'rxjs/add/operator/ignoreElements';
 
 import { combineEpics } from 'redux-observable';
 
-import { updateUI, trackEnded, playerStop, playerStart } from './audio-actions';
+import { updateUI, playerStop, playerStart } from './audio-actions';
 import { getHowlCurrentTime, getHowlDuration, getHowlEnded } from './audio-get-set';
 
 import sideEffects from './audio-side-effects';

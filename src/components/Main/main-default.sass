@@ -7,9 +7,10 @@ $mobile-content-width: 90%
 $page-gutter: (100% - $content-width) / 2
 $mobile-page-gutter: (100% - $mobile-content-width) / 2
 
-.page
+$header-height: 50px
 
 .content
+	margin-top: $header-height
 	+flexbox
 	z-index: 1
 	justify-content: center
@@ -20,7 +21,6 @@ $mobile-page-gutter: (100% - $mobile-content-width) / 2
 	background: $white
 	box-sizing: border-box
 	width: $content-width
-	padding: 1.5% 2.5%
 	@include all-phone
 		width: $mobile-content-width
 	@include all-phone

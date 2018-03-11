@@ -1,48 +1,52 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import Size from 'react-size-components';
 
 import Nav from './Nav';
 import Title from './Title';
 import MobileNav from './MobileNav';
 
-import Size from './';
-
-import { menuOn, menuOff } from '../Root/mobile-actions';
+import { menuOn, menuOff } from './menu-actions';
 
 import './header-default.sass';
 
 const title = process.env.REACT_APP_SITE_TITLE;
 
 const MobileHeaderMarkup = ({ isMenuOn, menuOff, menuOn, pages } = {}) => {
+	const icon = isMenuOn ? 'times' : 'bars';
+	const iconClass = `fa fa-${icon} fa-lg hamburger`;
+
+	const style = {}; //isMenuOn ? { borderBottom: 'white 1px solid' } : null;
 	return (
-		<header className="mobile-header-container">
-			<div className="mobile-header">
-				<i
-					className="fa fa-bars fa-large hamburger"
-					onClick={isMenuOn ? menuOff : menuOn}
-				/>
-				<div className="title">
-					<Title text={title} />
+		<React.Fragment>
+			<header className="header-container" style={style}>
+				<div className="mobile-header">
+					<button className={iconClass} onClick={isMenuOn ? menuOff : menuOn} />
+					<span className="title">
+						<Title text={title} />
+					</span>
 				</div>
-			</div>
+			</header>
 			<MobileNav pages={pages} />
-		</header>
+		</React.Fragment>
 	);
 };
 
 const HeaderMarkup = ({ isMobile, isMenuOn, menuOn, menuOff, pages }) => {
 	return (
-		<header className="header">
-			<div className="title">
-				<Title text={title} />
-				<Nav pages={pages} />
+		<header className="header-container">
+			<div className="header">
+				<div className="title">
+					<Title text={title} />
+					<Nav pages={pages} />
+				</div>
 			</div>
 		</header>
 	);
 };
 
 const mapStateToProps = (state) => ({
-	isMenuOn: state.UI.isMenuOn,
+	isMenuOn: state.menu.isMenuOn,
 	isMobile: state.UI.isMobile,
 });
 
@@ -58,4 +62,4 @@ const HeaderContainer = ({ isMobile, pages } = {}) => {
 	return !isMobile ? <Header pages={pages} /> : <MobileHeader pages={pages} />;
 };
 
-export default HeaderContainer;
+export default connect(mapStateToProps)(HeaderContainer);

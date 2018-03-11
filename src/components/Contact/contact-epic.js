@@ -18,11 +18,11 @@ const mailEpic = (slug) => (action$, state) =>
 	action$.ofType('SUBMIT_CONTACT_FORM').mergeMap((action) =>
 		mail(slug)(body(state))
 			.map((response) => {
-				process.env.NODE_ENV !== 'production' ? console.log(response) : null;
+				if (process.env.NODE_ENV !== 'production') console.log(response);
 				return submitFormSucess(successMessage);
 			})
 			.catch((error) => {
-				process.env.NODE_ENV !== 'production' ? console.log(error) : null;
+				if (process.env.NODE_ENV !== 'production') console.log(error);
 				return Observable.of(submitFormError(errorMessage));
 			})
 	);

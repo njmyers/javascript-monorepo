@@ -4,40 +4,24 @@
 .mobile-menu
 	+flexbox
 	width: 100%
+	height: 100%
 	align-items: center
-	justify-content: space-between
+	justify-content: center
 	flex-direction: column
-	background: $blue
-	position: fixed
-	z-index: 2
-	+transition(0.5s ease opacity)
+	background: transparentize($grey-darkest, 0.1)
+	z-index: 999
+	+transition(0.5s opacity)
 	.menu-item
 		color: $white
 		+flexbox
 		align-items: center
 		justify-content: center
-		font-size: 1.2em
-		height: 50px
+		margin: 1% 0
+		font-size: 1.4em
 		width: 100%
-		border-top: 1px solid white
 		@include all-mobile
-			// font-size: 1.2em
+			font-size: 1.2em
 		@include all-phone
-			border-radius: 0
 			font-size: 1em
 	.menu-item:hover
-		background: $grey
-		color: white
-
-// .menu:first-child
-// 	padding-left: 0
-
-// .menu-item
-// 	height: 40px
-// 	// width: 20%
-// 	color: $white
-// 	text-decoration: none
-// 	font-size: 1.5em
-// 	border-radius: 10px
-// 	+transition(background 0.25s, color 0.25s)
-// 	cursor: pointer
+		color: $white-hover

@@ -1,29 +1,39 @@
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import MobileNavComponent from './MobileNavComponent';
-import { menuOff } from '../../Root/mobile-actions';
 
-function scrollTop() {
-	window.scroll({
-		top: 0,
-		left: 0,
+import { menuOff } from '../menu-actions';
+
+import './mobile-nav-default.sass';
+
+const MobileNav = ({ pages, mobileMenuStyle, menuOff } = {}) => {
+	const Links = pages.filter((each) => Object.keys(each).includes('label')).map((each) => {
+		const to = `/${each.slug}`;
+		return (
+			<Link key={each.slug} className="menu-item" to={to} onClick={menuOff}>
+				<span>{each.label}</span>
+			</Link>
+		);
 	});
-}
 
-const mapStateToProps = (state, ownProps) => {
-	return {
-		UI: state.UI,
-	};
+	return (
+		<nav style={mobileMenuStyle} className="mobile-menu">
+			{Links}
+		</nav>
+	);
 };
 
-const mapDispatchToProps = (dispatch, ownProps) => {
-	return {
-		menuOff: () => {
-			scrollTop();
-			dispatch(menuOff());
-		},
-	};
-};
+const scrollTop = () => window.scroll({ top: 0, left: 0 });
 
-const MobileNav = connect(mapStateToProps, mapDispatchToProps)(MobileNavComponent);
+const mapStateToProps = (state) => ({
+	mobileMenuStyle: state.menu.mobileMenuStyle,
+});
 
-export default MobileNav;
+const mapDispatchToProps = (dispatch) => ({
+	menuOff: () => {
+		scrollTop();
+		dispatch(menuOff());
+	},
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(MobileNav);

@@ -1,5 +1,4 @@
 import uniqBy from 'lodash/uniqBy';
-import { Howl } from 'howler';
 
 // const sampleTrack = {
 // 	name: 'name',

@@ -1,6 +1,5 @@
 import { connect } from 'react-redux';
 import RootComponent from './RootComponent';
-import { windowDetector } from './mobile-actions';
 import { updateContentHeight } from './ui-sizing-actions';
 import { withRouter } from 'react-router-dom';
 import { loadFacebookAPI } from '../Facebook/facebook-actions';
@@ -14,7 +13,6 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
 	return {
-		windowDetector: (width, height) => dispatch(windowDetector(width, height)),
 		loadFacebookAPI: () => dispatch(loadFacebookAPI()),
 	};
 };

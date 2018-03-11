@@ -3,7 +3,7 @@ import { compose } from 'redux';
 import debounce from 'lodash/debounce';
 import isEqual from 'lodash/isEqual';
 import { AudioMeter, PlayPauseNext, TrackInfo, Volume } from './Controls';
-import Size from '../HOC/Size';
+import Size from 'react-size-components';
 
 import './audio.sass';
 
