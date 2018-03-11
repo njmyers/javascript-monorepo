@@ -4,6 +4,7 @@
 	"description": "Higher order components for sizing functions",
 	"main": "build/index.js",
 	"scripts": {
+		"prepublish": "npm run build",
 		"build": "webpack",
 		"test": "jest --watchAll"
 	},
