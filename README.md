@@ -63,27 +63,25 @@ Measures
 If you would prefer to have the parent control the sizes you can pass a cb function to the wrapped component. It will update you when the size and state of your component changes. This is useful it you would prefer to keep a child stateless or if you want to pass some sizing information to a higher state like redux or a controlling parent component
 
 ```js
-import Size from 'react-size-components
+import Size from 'react-size-components';
 
 const Child = (props) => {
-    return(
-        <p>What size am I?</p>
-    )
-}
+	return <p>What size am I?</p>;
+};
 
-const Wrapped = Size({ inView: true })(Child)
+const Wrapped = Size({ inView: true })(Child);
 
 class Parent extends Component {
-    constructor(props) {
-        super(props)
-    }
+	constructor(props) {
+		super(props);
+	}
 
-    handleSize = (sizes) => {
-        console.log(sizes)
-    }
+	handleSize = (sizes) => {
+		console.log(sizes);
+	};
 
-    render() {
-        return <Wrapped cb={this.handleSize} />
-    }
+	render() {
+		return <Wrapped cb={this.handleSize} />;
+	}
 }
 ```
