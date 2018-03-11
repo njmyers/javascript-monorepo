@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import { resizeWindow } from '../utils/listen';
 
-import Size from './HOC/Size';
+import Size from 'react-size-components';
 
 class LoremIpsum extends Component {
 	render() {

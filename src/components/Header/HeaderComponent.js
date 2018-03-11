@@ -1,56 +1,61 @@
 import React, { Component } from 'react';
-import debounce from 'lodash/debounce';
-import sizeMe from '../../utils/size-me';
+import { connect } from 'react-redux';
 
 import Nav from './Nav';
 import Title from './Title';
 import MobileNav from './MobileNav';
 
+import Size from './';
+
+import { menuOn, menuOff } from '../Root/mobile-actions';
+
 import './header-default.sass';
 
-class Header extends Component {
-	constructor(props) {
-		super(props);
-		this.handleUpdate = debounce(this.handleUpdate.bind(this), 50);
-	}
+const title = process.env.REACT_APP_SITE_TITLE;
 
-	handleUpdate() {
-		this.props.updateContentSize(this.props.size);
-	}
+const MobileHeaderMarkup = ({ isMenuOn, menuOff, menuOn, pages } = {}) => {
+	return (
+		<header className="mobile-header-container">
+			<div className="mobile-header">
+				<i
+					className="fa fa-bars fa-large hamburger"
+					onClick={isMenuOn ? menuOff : menuOn}
+				/>
+				<div className="title">
+					<Title text={title} />
+				</div>
+			</div>
+			<MobileNav pages={pages} />
+		</header>
+	);
+};
 
-	// componentDidUpdate() {
-	// 	this.handleUpdate();
-	// }
+const HeaderMarkup = ({ isMobile, isMenuOn, menuOn, menuOff, pages }) => {
+	return (
+		<header className="header">
+			<div className="title">
+				<Title text={title} />
+				<Nav pages={pages} />
+			</div>
+		</header>
+	);
+};
 
-	render() {
-		const title = process.env.REACT_APP_SITE_TITLE;
+const mapStateToProps = (state) => ({
+	isMenuOn: state.UI.isMenuOn,
+	isMobile: state.UI.isMobile,
+});
 
-		if (this.props.isMobile) {
-			return (
-				<header className="mobile-header-container">
-					<div className="mobile-header">
-						<i
-							className="fa fa-bars fa-large hamburger"
-							onClick={this.props.isMenuOn ? this.props.menuOff : this.props.menuOn}
-						/>
-						<div className="title">
-							<Title text={title} />
-						</div>
-					</div>
-					<MobileNav pages={this.props.pages} />
-				</header>
-			);
-		} else {
-			return (
-				<header className="header">
-					<div className="title">
-						<Title text={title} />
-						<Nav pages={this.props.pages} />
-					</div>
-				</header>
-			);
-		}
-	}
-}
+const mapDispatchToProps = (dispatch) => ({
+	menuOn: () => dispatch(menuOn()),
+	menuOff: () => dispatch(menuOff()),
+});
 
-export default Header;
+const MobileHeader = connect(mapStateToProps, mapDispatchToProps)(MobileHeaderMarkup);
+const Header = connect(mapStateToProps, mapDispatchToProps)(HeaderMarkup);
+
+const HeaderContainer = ({ isMobile, pages } = {}) => {
+	return !isMobile ? <Header pages={pages} /> : <MobileHeader pages={pages} />;
+};
+
+export default HeaderContainer;
