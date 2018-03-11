@@ -5,7 +5,7 @@ A very small and lightweight library for measuring your components. Uses the sub
 `npm install --save react-size-components`
 
 ```js
-import Size from 'react-size-components
+import Size from 'react-size-components';
 
 /* These are the default settings */
 const config = {
@@ -14,9 +14,9 @@ const config = {
 	inView: false,
 	mobile: false,
 	minMaxHeight: false,
-}
+};
 
-Size(config)(Component)
+Size(config)(Component);
 ```
 
 ## Component Size
