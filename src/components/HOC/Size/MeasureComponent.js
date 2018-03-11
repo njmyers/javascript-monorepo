@@ -1,19 +1,15 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import debounce from 'lodash.debounce';
-import isEqualWith from 'lodash.isequalwith';
-import isEqual from 'lodash.isequal';
-import { resizeWindow } from '../../utils/listen';
+import debounce from 'lodash/debounce';
+import isEqual from 'lodash/isEqual';
+import { resizeWindow, scrollWindow } from './listen';
 
-function Sizes(WrappedComponent) {
-	return class SizeAction extends Component {
+const MeasureComponent = (Wrapped) => {
+	return class ComponentAction extends Component {
 		constructor(props) {
 			super(props);
-			this.name = WrappedComponent.name;
 			this.state = {
-				name: this.name,
-				clientRect: undefined,
-				page: this.props.page,
+				clientRect: {},
 			};
 
 			this.polled = 0;
@@ -23,6 +19,7 @@ function Sizes(WrappedComponent) {
 		getMeasurements() {
 			const boundingRect = this.DOMNode ? this.DOMNode.getBoundingClientRect() : undefined;
 
+			console.log(this.DOMNode);
 			// transform to regular js object for comparisons and iterations
 			const clientRect = boundingRect
 				? {
@@ -34,37 +31,21 @@ function Sizes(WrappedComponent) {
 						width: boundingRect.width,
 						x: boundingRect.x,
 						y: boundingRect.y,
-				  }
+					}
 				: undefined;
 
 			return { clientRect };
 		}
 
-		/* call this instead of setState so that you always hook into the cb */
-		hotUpdate = (object) => {
-			if (typeof object === 'object') {
-				this.setState(object);
-			} else
-				process.env.NODE_ENV === 'development'
-					? console.log(
-							'you tried to update state without an object, please pass an object'
-					  )
-					: null;
-		};
-
 		/* Listeners */
-		handleResize = () => {
+		handleChange = () => {
 			const measurements = this.compareMeasurements();
-			measurements ? this.hotUpdate(measurements) : null;
+			measurements ? this.setState(measurements) : null;
 		};
 
 		compareMeasurements() {
 			const measurements = this.getMeasurements();
-			const thisMeasurements = {
-				clientRect: this.state.clientRect,
-			};
-
-			return !isEqual(measurements, thisMeasurements) ? measurements : false;
+			return !isEqual(this.state, measurements) ? measurements : false;
 		}
 
 		refresh() {
@@ -72,7 +53,7 @@ function Sizes(WrappedComponent) {
 			const measurements = this.compareMeasurements();
 
 			if (measurements) {
-				this.hotUpdate(measurements);
+				this.setState(measurements);
 				this.refresh();
 			} else {
 				// poll twice after measurements are the same
@@ -89,18 +70,21 @@ function Sizes(WrappedComponent) {
 			this.DOMNode = ReactDOM.findDOMNode(this);
 			this.refresh();
 
-			this.resizeWindowSubscription = resizeWindow.subscribe(() => this.handleResize());
+			this.resizeWindowSubscription = resizeWindow.subscribe(() => this.handleChange());
+			this.scrollWindowSubscription = scrollWindow.subscribe(() => this.handleChange());
 		}
 
 		componentWillUnmount() {
 			this.resizeWindowSubscription.unsubscribe();
+			this.scrollWindowSubscription.unsubscribe();
 		}
+
+		mergeStateAndProps = () => ({ ...this.props.sizes, ...this.state });
 
 		render() {
-			const mergeSizes = { ...this.props.sizes, ...this.state };
-			return <WrappedComponent {...this.props} sizes={mergeSizes} />;
+			return <Wrapped {...this.props} sizes={this.mergeStateAndProps()} />;
 		}
 	};
-}
+};
 
-export default Sizes;
+export default MeasureComponent;

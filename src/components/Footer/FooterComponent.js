@@ -18,9 +18,9 @@ class Footer extends Component {
 		this.props.updateContentSize(this.props.size);
 	}
 
-	componentDidUpdate() {
-		this.handleUpdate();
-	}
+	// componentDidUpdate() {
+	// 	this.handleUpdate();
+	// }
 
 	render() {
 		// const style = this.props.audioPlayer.display

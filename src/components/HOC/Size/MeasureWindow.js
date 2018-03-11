@@ -1,24 +1,20 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import debounce from 'lodash.debounce';
-import isEqualWith from 'lodash.isequalwith';
-import isEqual from 'lodash.isequal';
-import { resizeWindow } from '../../utils/listen';
+import debounce from 'lodash/debounce';
+import isEqual from 'lodash/isEqual';
+import { resizeWindow } from './listen';
 
-function Window(WrappedComponent) {
+const MeasureWindow = (Wrapped) => {
 	return class WindowAction extends Component {
 		constructor(props) {
 			super(props);
-			this.name = WrappedComponent.name;
 			this.state = {
-				window: {
+				windowSize: {
 					innerHeight: window.innerHeight,
 					innerWidth: window.innerWidth,
 					outerHeight: window.outerHeight,
 					outerWidth: window.outerWidth,
 				},
-				name: this.name,
-				page: this.props.page,
 			};
 
 			this.polled = 0;
@@ -28,7 +24,7 @@ function Window(WrappedComponent) {
 		/* Measurments */
 
 		getMeasurements = () => ({
-			window: {
+			windowSize: {
 				innerHeight: window.innerHeight,
 				innerWidth: window.innerWidth,
 				outerHeight: window.outerHeight,
@@ -36,38 +32,22 @@ function Window(WrappedComponent) {
 			},
 		});
 
-		/* call this instead of setState so that you always hook into the cb */
-		hotUpdate = (object) => {
-			if (typeof object === 'object') {
-				this.setState(object);
-			} else
-				process.env.NODE_ENV === 'development'
-					? console.log(
-							'you tried to update state without an object, please pass an object'
-					  )
-					: null;
-		};
-
 		/* Listeners */
 		handleResize = () => {
 			const measurements = this.compareMeasurements();
-			measurements ? this.hotUpdate(measurements) : null;
+			measurements ? this.setState(measurements) : null;
 		};
 
 		compareMeasurements() {
 			const measurements = this.getMeasurements();
-			const thisMeasurements = {
-				window: this.state.window,
-			};
-
-			return !isEqual(measurements, thisMeasurements) ? measurements : false;
+			return !isEqual(this.state, measurements) ? measurements : false;
 		}
 
 		refresh() {
 			const measurements = this.compareMeasurements();
 
 			if (measurements) {
-				this.hotUpdate(measurements);
+				this.setState(measurements);
 				this.refresh();
 			} else {
 				// poll twice after measurements are the same
@@ -91,11 +71,12 @@ function Window(WrappedComponent) {
 			this.resizeWindowSubscription.unsubscribe();
 		}
 
+		mergeStateAndProps = () => ({ ...this.props.sizes, ...this.state });
+
 		render() {
-			const mergeSizes = { ...this.props.sizes, ...this.state };
-			return <WrappedComponent {...this.props} sizes={mergeSizes} />;
+			return <Wrapped {...this.props} sizes={this.mergeStateAndProps()} />;
 		}
 	};
-}
+};
 
-export default Window;
+export default MeasureWindow;

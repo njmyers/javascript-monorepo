@@ -3,7 +3,7 @@ import { compose } from 'redux';
 import debounce from 'lodash/debounce';
 import isEqual from 'lodash/isEqual';
 import { AudioMeter, PlayPauseNext, TrackInfo, Volume } from './Controls';
-import InView from '../HOC/InView';
+import Size from '../HOC/Size';
 
 import './audio.sass';
 
@@ -13,7 +13,7 @@ class Audio extends Component {
 	}
 
 	componentWillReceiveProps(nextProps) {
-		if (!isEqual(nextProps.inView.clientRect, this.props.inView.clientRect)) {
+		if (!isEqual(nextProps.sizes.clientRect, this.props.sizes.clientRect)) {
 			this.props.playerSize(nextProps.inView.clientRect);
 		}
 	}
@@ -36,4 +36,4 @@ const DisplayWrapper = (Wrapped) => (props) => {
 	return props.display ? <Wrapped {...props} /> : null;
 };
 
-export default compose(DisplayWrapper, InView)(Audio);
+export default compose(DisplayWrapper, Size())(Audio);

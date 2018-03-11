@@ -24,27 +24,10 @@ class Root extends Component {
 		this.GA_ID = process.env.REACT_APP_GOOGLE_ANALYTICS_ID;
 		ReactGA.initialize(this.GA_ID);
 		ReactGA.pageview(window.location.pathname + window.location.search);
-
-		this.onResizeWindow = this.onResizeWindow.bind(this);
-	}
-
-	onResizeWindow() {
-		this.props.windowDetector(window.innerWidth, window.innerHeight);
-	}
-
-	componentWillMount() {
-		this.props.windowDetector(window.innerWidth, window.innerHeight);
-		this.resizeWindowSubscription = resizeWindow.subscribe(() => this.onResizeWindow());
-		this.resizeWindowSubscription2 = resizeWindow.subscribe(() => console.log());
-		this.resizeWindowSubscription2 = resizeWindow.subscribe(() => console.log());
 	}
 
 	componentDidMount() {
 		this.props.loadFacebookAPI();
-	}
-
-	componentWillUnmount() {
-		this.resizeWindowSubscription.unsubscribe();
 	}
 
 	render() {

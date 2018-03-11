@@ -18,9 +18,9 @@ class Header extends Component {
 		this.props.updateContentSize(this.props.size);
 	}
 
-	componentDidUpdate() {
-		this.handleUpdate();
-	}
+	// componentDidUpdate() {
+	// 	this.handleUpdate();
+	// }
 
 	render() {
 		const title = process.env.REACT_APP_SITE_TITLE;

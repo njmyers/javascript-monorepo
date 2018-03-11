@@ -13,9 +13,9 @@ class Main extends Component {
 		this.props.updateContentSize(this.props.size);
 	}
 
-	componentDidUpdate() {
-		this.handleUpdate();
-	}
+	// componentDidUpdate() {
+	// 	this.handleUpdate();
+	// }
 
 	render() {
 		// const marginTop = this.props.isMobile ? `${this.props.headerSize.height}px` : '0px';
