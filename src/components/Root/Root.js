@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { updateContentSize } from './ui-sizing-actions';
-import { loadFacebookAPI } from '../Facebook/facebook-actions';
 import { withRouter } from 'react-router-dom';
+import { updateContentSize, updateOrientation, updateIsMobile } from './ui-sizing-actions';
+import { loadFacebookAPI } from '../Facebook/facebook-actions';
 
 import ReactGA from 'react-ga';
 
@@ -15,8 +15,6 @@ import Header from '../Header';
 import Footer from '../Footer';
 
 import './root-default.sass';
-
-import Size from 'react-size-components';
 
 const Audio = AsyncLoader(() => import('../Audio'));
 
@@ -38,12 +36,22 @@ class Root extends Component {
 		this.loadGA;
 	}
 
-	handleSize(size) {
-		const { id, clientRect } = size;
+	/* Callback for child sizes */
+	handleSize(sizes) {
+		const { id, clientRect } = sizes;
 		const { height } = clientRect;
 		if (this.props.UI[id].height !== height) {
-			this.props.updateContentSize(size.id, { height });
+			this.props.updateContentSize(sizes.id, { height });
 		}
+
+		if (id === 'contentSize') this.handleMain(sizes);
+	}
+
+	/* Handle Main Sizes */
+	handleMain(sizes) {
+		const { isMobile, orientation } = sizes;
+		if (isMobile !== this.props.UI.isMobile) this.props.updateIsMobile(isMobile);
+		if (orientation !== this.props.UI.orientation) this.props.updateOrientation(orientation);
 	}
 
 	render() {
@@ -65,7 +73,14 @@ const mapStateToProps = (state, ownProps) => ({
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
 	updateContentSize: (key, payload) => dispatch(updateContentSize(key)(payload)),
+	updateOrientation: (payload) => dispatch(updateOrientation(payload)),
+	updateIsMobile: (payload) => dispatch(updateIsMobile(payload)),
 	loadFacebookAPI: () => dispatch(loadFacebookAPI()),
 });
+
+const sizes = {
+	isMobile: true,
+	orientation: true,
+};
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Root));

@@ -13,6 +13,8 @@ const blankUI = {
 export default function UIReducer(state = blankUI, action) {
 	switch (action.type) {
 		case 'UPDATE_CONTENT_SIZE':
+		case 'UPDATE_MOBILE':
+		case 'UPDATE_ORIENTATION':
 			return Object.assign({}, state, {
 				[action.key]: action.payload,
 			});
