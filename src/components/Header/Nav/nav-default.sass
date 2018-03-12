@@ -10,7 +10,7 @@
 		width: 100%
 	align-items: center
 	justify-content: space-between
-	.menu-item
+	&__item
 		margin: 0
 		+transition(background 0.35s, color 0.35s)
 		box-sizing: border-box
@@ -28,7 +28,6 @@
 			font-size: 1.2em
 			padding: 4px 10px
 			margin: 0 0 6px 0
-
-	.menu-item:hover
-		background: $grey
-		color: white
+			&:hover
+				background: $grey
+				color: white

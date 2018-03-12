@@ -11,7 +11,7 @@ function Nav(props) {
 	const Links = props.pages.filter((each) => Object.keys(each).includes('label')).map((each) => {
 		const to = `/${each.slug}`;
 		return (
-			<Link key={each.slug} className="menu-item" to={to}>
+			<Link key={each.slug} className="menu__item" to={to}>
 				<span>{each.label}</span>
 			</Link>
 		);

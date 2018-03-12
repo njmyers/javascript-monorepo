@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
@@ -10,7 +10,7 @@ const MobileNav = ({ pages, mobileMenuStyle, menuOff } = {}) => {
 	const Links = pages.filter((each) => Object.keys(each).includes('label')).map((each) => {
 		const to = `/${each.slug}`;
 		return (
-			<Link key={each.slug} className="menu-item" to={to} onClick={menuOff}>
+			<Link key={each.slug} className="mobile-menu__item" to={to} onClick={menuOff}>
 				<span>{each.label}</span>
 			</Link>
 		);

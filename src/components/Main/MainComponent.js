@@ -1,41 +1,23 @@
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
-import sizeMe from '../../utils/size-me';
-import debounce from 'lodash/debounce';
+import Size from 'react-size-components';
 
 class Main extends Component {
-	constructor(props) {
-		super(props);
-		this.handleUpdate = debounce(this.handleUpdate.bind(this), 50);
-	}
-
-	handleUpdate() {
-		this.props.updateContentSize(this.props.size);
-	}
-
-	// componentDidUpdate() {
-	// 	this.handleUpdate();
-	// }
-
 	render() {
-		// const marginTop = this.props.isMobile ? `${this.props.headerSize.height}px` : '0px';
-		// const minHeight = `calc(101vh - ${this.props.headerSize.height +
-		// 	this.props.footerSize.height}px)`;
+		const minHeight = `calc(101vh - ${this.props.headerSize.height +
+			this.props.footerSize.height}px)`;
 
 		const style = {
-			// marginTop,
-			// minHeight,
+			minHeight,
 		};
 
 		return (
-			<div style={style} className="content">
+			<main style={style} className="main">
 				<MyRoutes pages={this.props.pages} />
-			</div>
+			</main>
 		);
 	}
 }
-
-export default Main;
 
 function MyRoutes(props) {
 	const routes = props.pages.map((each) => {
@@ -46,8 +28,10 @@ function MyRoutes(props) {
 	});
 
 	return (
-		<main className="main">
+		<section className="main__content">
 			<Switch>{routes}</Switch>
-		</main>
+		</section>
 	);
 }
+
+export default Size()(Main);

@@ -6,7 +6,7 @@ const file = process.argv[2];
 
 const ext = path.extname(file);
 const stub = file.split(ext)[0];
-const degree = 0.3;
+const degree = '.3';
 
 const sass = fs.readFileSync(path.resolve(__dirname, file), 'utf8');
 

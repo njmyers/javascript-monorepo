@@ -1,0 +1,17 @@
+@import '../../Global/mixins.sass'
+@import '../../Global/colors.sass'
+
+.socials
+  +flexbox
+  align-items: center
+  justify-content: space-evenly
+  margin: 10px 0
+  &__icon
+    margin: 0 4px
+  &__text
+    margin: 0 6px 0 0
+  &__link
+    color: $white
+    +transition(0.25s color ease)
+    &:hover
+      color: $white-hover  

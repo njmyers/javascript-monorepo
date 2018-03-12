@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { compose } from 'redux';
-import debounce from 'lodash/debounce';
 import isEqual from 'lodash/isEqual';
 import { AudioMeter, PlayPauseNext, TrackInfo, Volume } from './Controls';
 import Size from 'react-size-components';
@@ -8,10 +7,6 @@ import Size from 'react-size-components';
 import './audio.sass';
 
 class Audio extends Component {
-	constructor(props) {
-		super(props);
-	}
-
 	componentWillReceiveProps(nextProps) {
 		if (!isEqual(nextProps.sizes.clientRect, this.props.sizes.clientRect)) {
 			this.props.playerSize(nextProps.inView.clientRect);

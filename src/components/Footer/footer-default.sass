@@ -2,28 +2,19 @@
 @import '../Global/colors.sass'
 
 .footer
-	background: $blue
+	background: $black-hover
 	padding: 20px 0 20px 0
 	color: $white
 	+flexbox
 	justify-content: center
 	align-items: center
 	flex-direction: column
-	p
+	&__text
+		font-size: 0.9em
+		font-style: italic
 		margin: 8px 0 0 0
-	a
+	&__link
 		color: $white
 		+transition(0.25s color ease)
-	a:hover
-		color: $white-hover
-
-.footer-text
-	font-size: 0.6em
-	font-style: italic
-
-.social
-	+flexbox
-	align-items: center
-	justify-content: space-evenly
-	i 
-		margin: 0 4px
+		&:hover
+			color: $white-hover

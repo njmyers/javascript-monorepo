@@ -16,7 +16,6 @@ const menuReducer = (state = initialMenu, action) => {
 	switch (action.type) {
 		case 'DEVICE':
 		case 'ORIENTATION':
-		case 'DEVICE':
 		case 'MENU_STATE':
 			return {
 				...state,

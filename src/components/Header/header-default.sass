@@ -3,11 +3,13 @@
 @import '../Global/fonts.sass'
 @import '../Main/main-default.sass'
 
-.header-container
+.header__container,
+.mobile-header__container
 	box-sizing: border-box
 	width: 100%
 	position: sticky
 	top: 0
+	// lets keep the header container over the top of the full page menu
 	z-index: 1001
 
 .header,
@@ -22,7 +24,7 @@
 	align-items: center
 	justify-content: space-between
 
-.hamburger
+.mobile-header__hamburger
 	cursor: pointer
 	margin: 0
 	padding: 0
@@ -32,10 +34,3 @@
 	&:hover
 		background: none
 		color: $white
-
-.title
-	+flexbox
-	flex-direction: column
-	width: 92%
-	@include all-phone
-		padding-top: 0

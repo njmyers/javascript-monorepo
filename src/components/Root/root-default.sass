@@ -11,9 +11,15 @@ body
 p,
 a,
 ul,
+ol,
 li
 	font-family: $primary-font
 	font-weight: 300
+
+ul,
+ol,
+li 
+	list-style-type: circle
 
 h1,
 h2,
@@ -28,6 +34,7 @@ h2
 	font-size: 1.3em
 
 a
+	text-decoration: none
 	color: $blue
 	+transition(0.25s color)
 a:hover
@@ -40,21 +47,17 @@ button
 	box-sizing: border-box
 	cursor: pointer
 	font-size: 1.2em
-	background: transparentize($blue, 0.3)
+	background: $black-hover
 	+transition(0.25s ease background)
 	box-shadow: 1px 1px 1px 0px rgba(0, 0, 0, 0.18);
-
-button:hover
-	background: transparentize($blue, 0.45)
-button:focus
-	outline: none
-
-a
-	text-decoration: none
+	&:hover
+		background: transparentize($black-hover, 0.45)
+	&:focus
+		outline: none
 
 img
 	max-width: 100%
 
-#root
+.root
 	+flexbox
 	flex-direction: column
