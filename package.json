@@ -6,7 +6,8 @@
 	"scripts": {
 		"prepublish": "npm run build",
 		"build": "webpack",
-		"test": "jest --watchAll"
+		"test": "jest --watchAll",
+		"patch-release": "npm version patch && npm publish && git push --follow-tags"
 	},
 	"author": "Nick Myers",
 	"license": "ISC",

@@ -18,7 +18,6 @@ const MeasureComponent = (Wrapped) => {
 		getMeasurements() {
 			const boundingRect = this.DOMNode ? this.DOMNode.getBoundingClientRect() : undefined;
 
-			console.log(this.DOMNode);
 			// transform to regular js object for comparisons and iterations
 			const clientRect = boundingRect
 				? {
