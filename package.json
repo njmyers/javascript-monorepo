@@ -4,7 +4,7 @@
 	"description": "Higher order components for sizing functions",
 	"main": "build/index.js",
 	"scripts": {
-		"prepublish": "npm run build",
+		"prepublishOnly": "npm run build",
 		"build": "webpack",
 		"test": "jest --watchAll",
 		"patch-release": "npm version patch && npm publish && git push --follow-tags"
