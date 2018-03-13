@@ -23,13 +23,6 @@ function MinMaxHeight(Wrapped) {
 			}
 		};
 
-		handleResize = () => {
-			this.setState({
-				maxHeight: 0,
-				minHeight: 99999999,
-			});
-		};
-
 		/* Lifecycle */
 		componentDidMount() {
 			this.compareHeight(this.props);
@@ -37,11 +30,6 @@ function MinMaxHeight(Wrapped) {
 
 		componentWillReceiveProps(nextProps) {
 			this.compareHeight(nextProps);
-			this.resizeWindowSubscription = resizeWindow.subscribe(this.handleResize);
-		}
-
-		componentWillUnmount() {
-			this.resizeWindowSubscription.unsubscribe();
 		}
 
 		mergeStateAndProps = () => ({ ...this.props.sizes, ...this.state });
