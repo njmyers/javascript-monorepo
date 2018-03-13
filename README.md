@@ -82,7 +82,7 @@ class Parent extends Component {
 	};
 
 	render() {
-		return <Wrapped cb={this.handleSize} />;
+		return <Wrapped onSize={this.handleSize} />;
 	}
 }
 ```

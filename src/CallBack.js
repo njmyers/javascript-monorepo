@@ -15,14 +15,14 @@ const CallBack = (Wrapped) => {
 
 		/* debounce callback for component updates */
 		hotUpdate(props) {
-			this.props.cb(this.mergeStateAndNextProps(props));
+			this.props.onSize(this.mergeStateAndNextProps(props));
 		}
 
 		/* inject id and name for reference by parent function */
 		mergeStateAndNextProps = (props) => ({ ...props.sizes, ...this.state });
 
 		render() {
-			this.props.cb ? this.hotUpdate(this.props) : null;
+			this.props.onSize ? this.hotUpdate(this.props) : null;
 			return <Wrapped {...this.props} />;
 		}
 	};
