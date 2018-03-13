@@ -3,6 +3,7 @@
 
 .menu
 	+flexbox
+	margin: 10px 0 0 0
 	width: 75%
 	@include desktop
 		width: 60%
@@ -23,11 +24,6 @@
 		cursor: pointer
 		font-size: 1.5em
 		padding: 5px 10px
-		margin: 0 0 14px 0
-		@include all-mobile
-			font-size: 1.2em
-			padding: 4px 10px
-			margin: 0 0 6px 0
-			&:hover
-				background: $grey
-				color: white
+		&:hover
+			background: $white
+			color: $black

@@ -4,5 +4,10 @@ export const updateContentSize = (key) => (payload) => ({
 	payload,
 });
 
-export const updateOrientation = (payload) => ({ type: 'UPDATE_ORIENTATION', payload });
-export const updateIsMobile = (payload) => ({ type: 'UPDATE_MOBILE', payload });
+export const updateOrientation = (payload) => ({
+	type: 'UPDATE_ORIENTATION',
+	key: 'orientation',
+	payload,
+});
+
+export const updateIsMobile = (payload) => ({ type: 'UPDATE_MOBILE', key: 'isMobile', payload });

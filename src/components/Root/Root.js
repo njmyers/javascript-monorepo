@@ -57,9 +57,9 @@ class Root extends Component {
 	render() {
 		return (
 			<React.Fragment>
-				<Header pages={PageIndex} cb={this.handleSize} id="headerSize" />
-				<Main pages={PageIndex} cb={this.handleSize} id="contentSize" />
-				<Footer pages={PageIndex} cb={this.handleSize} id="footerSize" />
+				<Header pages={PageIndex} onSize={this.handleSize} id="headerSize" />
+				<Main pages={PageIndex} onSize={this.handleSize} id="contentSize" />
+				<Footer pages={PageIndex} onSize={this.handleSize} id="footerSize" />
 				<Audio />
 			</React.Fragment>
 		);

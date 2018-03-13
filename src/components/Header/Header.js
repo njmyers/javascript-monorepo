@@ -55,7 +55,7 @@ const MobileHeader = connect(mapStateToProps, mapDispatchToProps)(MobileHeaderMa
 const Header = connect(mapStateToProps, mapDispatchToProps)(HeaderMarkup);
 
 const HeaderContainer = ({ isMobile, pages } = {}) => {
-	return !isMobile ? <Header pages={pages} /> : <MobileHeader pages={pages} />;
+	return !isMobile ? <MobileHeader pages={pages} /> : <MobileHeader pages={pages} />;
 };
 
 export default connect(mapStateToProps)(Size()(HeaderContainer));

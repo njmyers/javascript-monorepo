@@ -3,7 +3,8 @@ const size = {
 };
 
 const blankUI = {
-	isMobile: true,
+	isMobile: undefined,
+	orientation: undefined,
 	footerSize: size,
 	headerSize: size,
 	contentSize: size,

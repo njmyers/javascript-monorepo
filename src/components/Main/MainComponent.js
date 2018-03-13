@@ -34,4 +34,4 @@ function MyRoutes(props) {
 	);
 }
 
-export default Size({ isMobile: true, orientation: true })(Main);
+export default Size({ mobile: true })(Main);
