@@ -69,12 +69,10 @@ const MeasureComponent = (Wrapped) => {
 			this.refresh();
 
 			this.resizeWindowSubscription = resizeWindow.subscribe(() => this.handleChange());
-			this.scrollWindowSubscription = scrollWindow.subscribe(() => this.handleChange());
 		}
 
 		componentWillUnmount() {
 			this.resizeWindowSubscription.unsubscribe();
-			this.scrollWindowSubscription.unsubscribe();
 		}
 
 		mergeStateAndProps = () => ({ ...this.props.sizes, ...this.state });
