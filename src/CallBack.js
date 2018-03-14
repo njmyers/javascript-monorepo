@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import _ from 'lodash';
 
 const CallBack = (Wrapped) => {
 	return class CallBackInjector extends Component {
@@ -9,20 +8,21 @@ const CallBack = (Wrapped) => {
 				name: Wrapped.name,
 				id: this.props.id,
 			};
-
-			this.hotUpdate = _.debounce(this.hotUpdate, 100);
-		}
-
-		/* debounce callback for component updates */
-		hotUpdate(props) {
-			this.props.onSize(this.mergeStateAndNextProps(props));
 		}
 
 		/* inject id and name for reference by parent function */
 		mergeStateAndNextProps = (props) => ({ ...props.sizes, ...this.state });
 
+		/* debounce callback for component updates */
+		hotUpdate = (props) => {
+			this.props.onSize(this.mergeStateAndNextProps(props));
+		};
+
+		componentWillReceiveProps(nextProps) {
+			if (!_.isEqual(this.props, nextProps) && this.props.onSize) this.hotUpdate(nextProps);
+		}
+
 		render() {
-			this.props.onSize ? this.hotUpdate(this.props) : null;
 			return <Wrapped {...this.props} />;
 		}
 	};
