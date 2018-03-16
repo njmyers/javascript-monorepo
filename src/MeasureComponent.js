@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import { debounce } from 'smalldash/build/async';
-import { equals } from 'smalldash/build/object';
+import { debounce } from 'smalldash/functions/async';
+import { equals } from 'smalldash/functions/object';
 
 import { resizeWindow, scrollWindow } from './listen';
 

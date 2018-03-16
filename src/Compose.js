@@ -1,5 +1,5 @@
 import React from 'react';
-import { compose } from 'smalldash/build/functional';
+import { compose } from 'smalldash/functions/functional';
 
 import CallBack from './CallBack';
 import MeasureWindow from './MeasureWindow';

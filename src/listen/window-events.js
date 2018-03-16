@@ -1,4 +1,4 @@
-import { debounce } from 'smalldash/build/async';
+import { debounce } from 'smalldash/functions/async';
 import createEventSubscription from './create-event-subscription';
 
 const createWindowSubscription = createEventSubscription(window);
