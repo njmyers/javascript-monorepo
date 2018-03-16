@@ -1,5 +1,5 @@
-import composeAsync from './compose-async';
-import debounce from './debounce';
-import pipeAsync from './pipe-async';
+// @create-index
 
-export { composeAsync, debounce, pipeAsync };
+export { default as debounce } from './debounce.js';
+export { default as throttle } from './throttle.js';
+

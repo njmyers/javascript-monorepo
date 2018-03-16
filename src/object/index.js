@@ -1,2 +1,4 @@
-import equals from './equals';
-export { equals };
+// @create-index
+
+export { default as equals } from './equals.js';
+

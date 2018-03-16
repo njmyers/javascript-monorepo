@@ -1,3 +1,5 @@
-import uniq from './uniq';
+// @create-index
 
-export { uniq };
+export { default as fill } from './fill.js';
+export { default as uniq } from './uniq.js';
+

@@ -1,5 +1,5 @@
-import pipe from './pipe';
-import compose from './compose';
-import sideEffects from './side-effects';
+// @create-index
 
-export { pipe, compose, sideEffects };
+export { default as compose } from './compose.js';
+export { default as pipe } from './pipe.js';
+

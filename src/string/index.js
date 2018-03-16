@@ -1,12 +1,5 @@
-import path from 'path';
-import capitalize from './capitalize';
+// @create-index
 
-const cache = {};
+export { default as capitalize } from './capitalize.js';
+export { default as percent } from './percent.js';
 
-function importAll(r) {
-	r.keys().forEach((key) => (cache[key] = r(key)));
-}
-
-importAll(require.context('./', false, /\.js$/));
-
-export { capitalize };
