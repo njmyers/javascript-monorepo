@@ -2,16 +2,11 @@ var path = require('path');
 
 module.exports = {
 	entry: {
-		array: './src/array',
-		object: './src/object',
-		functional: './src/functional',
-		async: './src/async',
-		string: './src/string',
 		module: './src',
 	},
 	devtool: 'source-map',
 	output: {
-		path: path.resolve(__dirname, 'functions'),
+		path: path.resolve(__dirname),
 		filename: '[name].js',
 		libraryTarget: 'umd',
 	},

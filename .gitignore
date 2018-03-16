@@ -33,3 +33,5 @@ modernizr.js
 
 /offline
 .vscode
+
+module.js
