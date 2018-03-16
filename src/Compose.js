@@ -1,5 +1,5 @@
 import React from 'react';
-import { compose } from 'smalldash/functions/functional';
+import __ from 'smalldash';
 
 import CallBack from './CallBack';
 import MeasureWindow from './MeasureWindow';
@@ -28,7 +28,7 @@ export default ({
 		measureWindow = inView || mobile ? true : measureWindow;
 		measureComponent = inView || minMaxHeight ? true : measureComponent;
 
-		const Wrappers = compose(
+		const Wrappers = __.compose(
 			addMinMaxHeight(minMaxHeight),
 			addInView(inView),
 			addComponent(measureComponent),
@@ -36,6 +36,6 @@ export default ({
 			addWindow(measureWindow)
 		)([]);
 
-		return compose(...Wrappers, CallBack)(WrappedComponent);
+		return __.compose(...Wrappers, CallBack)(WrappedComponent);
 	};
 };

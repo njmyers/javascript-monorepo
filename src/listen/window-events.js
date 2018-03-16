@@ -1,7 +1,7 @@
-import { debounce } from 'smalldash/functions/async';
+import __ from 'smalldash';
 import createEventSubscription from './create-event-subscription';
 
 const createWindowSubscription = createEventSubscription(window);
 
-export const resizeWindow = createWindowSubscription('resize')(debounce, 400);
-export const scrollWindow = createWindowSubscription('scroll')(debounce, 400);
+export const resizeWindow = createWindowSubscription('resize')(__.debounce, 400);
+export const scrollWindow = createWindowSubscription('scroll')(__.debounce, 400);

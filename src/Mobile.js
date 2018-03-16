@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import { equals } from 'smalldash/functions/object';
+import __ from 'smalldash';
 
 function IsMobile(Wrapped) {
 	return class IsMobileAction extends Component {
@@ -30,7 +30,7 @@ function IsMobile(Wrapped) {
 					isMobile: this.isMobile(sizes),
 					orientation: this.getOrientation(sizes),
 				};
-				!equals(state, this.state) ? this.setState(state) : null;
+				!__.equals(state, this.state) ? this.setState(state) : null;
 			}
 		};
 
