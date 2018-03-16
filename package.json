@@ -1,0 +1,35 @@
+{
+	"name": "smalldash",
+	"version": "1.0.0",
+	"description":
+		"collection of utilities available for import as individual functions for smaller packages sizes",
+	"main": "build/module.js",
+	"scripts": {
+		"prepublishOnly": "npm run build",
+		"build": "webpack",
+		"test": "jest --watchAll",
+		"patch-release": "npm version patch && npm publish && git push --follow-tags"
+	},
+	"author": "Nick Myers",
+	"license": "ISC",
+	"devDependencies": {
+		"babel-cli": "^6.26.0",
+		"babel-core": "^6.26.0",
+		"babel-loader": "^7.1.4",
+		"babel-plugin-transform-class-properties": "^6.24.1",
+		"babel-plugin-transform-object-rest-spread": "^6.26.0",
+		"babel-plugin-transform-react-jsx": "^6.24.1",
+		"babel-plugin-transform-regenerator": "^6.26.0",
+		"babel-preset-env": "^1.6.1",
+		"husky": "^0.14.3",
+		"jest": "^22.4.2",
+		"lint-staged": "^7.0.0",
+		"prettier": "^1.11.1",
+		"regenerator-runtime": "^0.11.1",
+		"webpack-cli": "^2.0.11"
+	},
+	"dependencies": {
+		"deep-equal": "^1.0.1",
+		"webpack": "^3.0.0"
+	}
+}
