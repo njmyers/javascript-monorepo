@@ -11,7 +11,7 @@ module.exports = {
 	},
 	devtool: 'source-map',
 	output: {
-		path: path.resolve(__dirname, 'build'),
+		path: path.resolve(__dirname, 'functions'),
 		filename: '[name].js',
 		libraryTarget: 'umd',
 	},
@@ -20,7 +20,7 @@ module.exports = {
 			{
 				test: /\.js$/,
 				include: path.resolve(__dirname, 'src'),
-				exclude: /(node_modules|build)/,
+				exclude: /(node_modules|functions)/,
 				use: {
 					loader: 'babel-loader',
 					options: {

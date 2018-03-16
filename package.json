@@ -3,7 +3,7 @@
 	"version": "1.0.0",
 	"description":
 		"collection of utilities available for import as individual functions for smaller packages sizes",
-	"main": "build/module.js",
+	"main": "functions/module.js",
 	"scripts": {
 		"prepublishOnly": "npm run build",
 		"build": "webpack",
