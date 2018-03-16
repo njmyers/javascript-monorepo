@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import __ from 'smalldash';
+import * as __ from 'smalldash';
 
 function IsMobile(Wrapped) {
 	return class IsMobileAction extends Component {

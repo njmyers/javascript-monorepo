@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import __ from 'smalldash';
+import * as __ from 'smalldash';
 import { resizeWindow } from './listen';
 
 const MeasureWindow = (Wrapped) => {

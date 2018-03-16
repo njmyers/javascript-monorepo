@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import __ from 'smalldash';
+import * as __ from 'smalldash';
 
 const CallBack = (Wrapped) => {
 	return class CallBackInjector extends Component {

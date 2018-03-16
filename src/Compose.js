@@ -1,5 +1,5 @@
 import React from 'react';
-import __ from 'smalldash';
+import * as __ from 'smalldash';
 
 import CallBack from './CallBack';
 import MeasureWindow from './MeasureWindow';

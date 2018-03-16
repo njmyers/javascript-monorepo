@@ -1,4 +1,4 @@
-import __ from 'smalldash';
+import * as __ from 'smalldash';
 
 function SubPub() {
 	const subscribers = {};

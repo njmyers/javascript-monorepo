@@ -1,4 +1,4 @@
-import __ from 'smalldash';
+import * as __ from 'smalldash';
 import createEventSubscription from './create-event-subscription';
 
 const createWindowSubscription = createEventSubscription(window);
