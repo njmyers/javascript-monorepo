@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import _ from 'lodash';
+import { debounce } from 'smalldash/build/async';
+import { equals } from 'smalldash/build/object';
+
 import { resizeWindow, scrollWindow } from './listen';
 
 const MeasureComponent = (Wrapped) => {
@@ -12,7 +14,7 @@ const MeasureComponent = (Wrapped) => {
 			};
 
 			this.polled = 0;
-			this.refresh = _.debounce(this.refresh.bind(this), 300);
+			this.refresh = debounce(this.refresh.bind(this), 300);
 		}
 
 		getMeasurements() {
@@ -43,7 +45,7 @@ const MeasureComponent = (Wrapped) => {
 
 		compareMeasurements() {
 			const measurements = this.getMeasurements();
-			return !_.isEqual(this.state, measurements) ? measurements : false;
+			return !equals(this.state, measurements) ? measurements : false;
 		}
 
 		refresh() {

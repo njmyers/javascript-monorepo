@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { equals } from 'smalldash/build/object';
 
 const CallBack = (Wrapped) => {
 	return class CallBackInjector extends Component {
@@ -19,7 +20,7 @@ const CallBack = (Wrapped) => {
 		};
 
 		componentWillReceiveProps(nextProps) {
-			if (!_.isEqual(this.props, nextProps) && this.props.onSize) this.hotUpdate(nextProps);
+			if (!equals(this.props, nextProps) && this.props.onSize) this.hotUpdate(nextProps);
 		}
 
 		render() {

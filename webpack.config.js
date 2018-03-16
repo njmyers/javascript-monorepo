@@ -39,33 +39,5 @@ module.exports = {
 			amd: 'react-dom',
 			umd: 'react-dom',
 		},
-		lodash: {
-			root: '_',
-			commonjs2: 'lodash',
-			commonjs: 'lodash',
-			amd: 'lodash',
-			umd: 'lodash',
-		},
-		debounce: {
-			root: 'debounce',
-			commonjs2: 'lodash/debounce',
-			commonjs: 'lodash/debounce',
-			amd: 'lodash/debounce',
-			umd: 'lodash/debounce',
-		},
-		throttle: {
-			root: 'throttle',
-			commonjs2: 'lodash/throttle',
-			commonjs: 'lodash/throttle',
-			amd: 'lodash/throttle',
-			umd: 'lodash/throttle',
-		},
-		isEqual: {
-			root: 'isEqual',
-			commonjs2: 'lodash/isEqual',
-			commonjs: 'lodash/isEqual',
-			amd: 'lodash/isEqual',
-			umd: 'lodash/isEqual',
-		},
 	},
 };

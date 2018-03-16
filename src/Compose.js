@@ -1,13 +1,12 @@
 import React from 'react';
+import { compose } from 'smalldash/build/functional';
+
 import CallBack from './CallBack';
 import MeasureWindow from './MeasureWindow';
 import MeasureComponent from './MeasureComponent';
 import InView from './InView';
 import Mobile from './Mobile';
 import MinMaxHeight from './MinMaxHeight';
-
-const pipe = (fn, ...fns) => (...args) => (!fns.length ? fn(...args) : pipe(...fns)(fn(...args)));
-const compose = (...fns) => (...args) => pipe(...fns.reverse())(...args);
 
 const addOptions = (option) => (bool) => (arr) => (bool ? [...arr, option] : arr);
 

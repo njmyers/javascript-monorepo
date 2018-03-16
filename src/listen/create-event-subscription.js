@@ -1,4 +1,4 @@
-import _ from 'lodash';
+import { debounce } from 'smalldash/build/async';
 
 function SubPub() {
 	const subscribers = {};
@@ -28,7 +28,7 @@ function SubPub() {
 	});
 }
 
-export default (object) => (eventType) => (fn = _.debounce, ...args) => {
+export default (object) => (eventType) => (fn = debounce, ...args) => {
 	const listener = new SubPub();
 	object.addEventListener(
 		eventType,
