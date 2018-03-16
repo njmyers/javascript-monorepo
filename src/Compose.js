@@ -30,7 +30,7 @@ export default ({
 
 		const Wrappers = __.compose(
 			addMinMaxHeight(minMaxHeight),
-			addInView(inView),
+			// addInView(inView),
 			addComponent(measureComponent),
 			addMobile(mobile),
 			addWindow(measureWindow)

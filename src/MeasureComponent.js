@@ -9,7 +9,7 @@ const MeasureComponent = (Wrapped) => {
 		constructor(props) {
 			super(props);
 			this.state = {
-				clientRect: {},
+				component: {},
 			};
 
 			this.polled = 0;
@@ -20,20 +20,14 @@ const MeasureComponent = (Wrapped) => {
 			const boundingRect = this.DOMNode ? this.DOMNode.getBoundingClientRect() : undefined;
 
 			// transform to regular js object for comparisons and iterations
-			const clientRect = boundingRect
+			const component = boundingRect
 				? {
-						bottom: boundingRect.bottom,
-						top: boundingRect.top,
-						left: boundingRect.left,
-						right: boundingRect.right,
 						height: boundingRect.height,
 						width: boundingRect.width,
-						x: boundingRect.x,
-						y: boundingRect.y,
 				  }
 				: undefined;
 
-			return { clientRect };
+			return { component };
 		}
 
 		/* Listeners */
