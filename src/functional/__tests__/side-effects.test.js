@@ -1,4 +1,4 @@
-import pipeAsync from '../async/pipe-async';
+import pipeAsync from '../../async/pipe-async';
 import sideEffects from '../side-effects';
 
 const addSlowly = (timeout) => (value) => {

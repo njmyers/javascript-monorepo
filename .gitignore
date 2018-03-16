@@ -9,6 +9,7 @@
 # production
 /build
 /functions
+/dist
 
 # generated files
 .directory
@@ -35,3 +36,4 @@ modernizr.js
 .vscode
 
 module.js
+module.js.map

@@ -1,11 +1,14 @@
 {
 	"name": "smalldash",
 	"version": "1.0.1",
-	"description": "collection of utilities available for import as individual functions for smaller packages sizes",
-	"main": "module.js",
+	"description":
+		"collection of utilities available for import as individual functions for smaller packages sizes",
+	"main": "dist/module.js",
 	"scripts": {
 		"prepublishOnly": "npm run build",
-		"build": "webpack",
+		"prebuild": "node ./scripts/create-index.js",
+		"build": "webpack --display-modules",
+		"postbuild": "jest",
 		"test": "jest --watchAll",
 		"patch-release": "npm version patch && npm publish && git push --follow-tags"
 	},

@@ -1,5 +1,3 @@
-// @create-index
-
-export { default as fill } from './fill.js';
-export { default as uniq } from './uniq.js';
-
+export { default as createArray } from './create-array';
+export { default as fill } from './fill';
+export { default as uniq } from './uniq';

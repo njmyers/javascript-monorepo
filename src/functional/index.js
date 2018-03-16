@@ -1,5 +1,3 @@
-// @create-index
-
-export { default as compose } from './compose.js';
-export { default as pipe } from './pipe.js';
-
+export { default as compose } from './compose';
+export { default as pipe } from './pipe';
+export { default as sideEffects } from './side-effects';
