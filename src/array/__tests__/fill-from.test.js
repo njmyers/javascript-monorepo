@@ -1,10 +1,8 @@
-import fill from '../fill';
+import fillFrom from '../fill-from';
 
-const same = (val) => val;
-
-test('fill array with zeros', () => {
-	const expected = [0, 0, 0, 0, 0];
-	const filled = fill(same)([])(5);
+test('fill array with sequence', () => {
+	const expected = [0, 1, 2, 3, 4];
+	const filled = fillFrom(5);
 
 	console.log(filled);
 

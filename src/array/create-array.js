@@ -1,2 +1,3 @@
 import fill from './fill';
-export default fill();
+const same = (val) => val;
+export default fill(same)();

@@ -1,2 +1,4 @@
-const fill = (arr = []) => (num, val = 0) => (!num ? arr : fill([val, ...arr])(num - 1, val));
+const fill = (fn) => (arr = []) => (num, val = 0) =>
+	!num ? arr : fill(fn)([...arr, val])(num - 1, fn(val));
+
 export default fill;
