@@ -1,3 +1,4 @@
-import fill from './fill';
-const add = (val) => val + 1;
-export default (...args) => fill(add)()(...args.reverse());
+export const fillBy = (increment) => (arr = []) => (start = 0, end) =>
+	start <= end ? fillBy(increment)([...arr, start])(start + increment, end) : arr;
+
+export default fillBy(1)();
