@@ -10,7 +10,6 @@ import PageIndex from './PageIndex';
 
 import AsyncLoader from '../Root/AsyncLoader';
 import Main from '../Main';
-import ScrollTop from '../ScrollTop';
 import Header from '../Header';
 import Footer from '../Footer';
 
@@ -33,7 +32,7 @@ class Root extends Component {
 
 	componentDidMount() {
 		this.props.loadFacebookAPI();
-		this.loadGA;
+		this.loadGA();
 	}
 
 	/* Callback for child sizes */

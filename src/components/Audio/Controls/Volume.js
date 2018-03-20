@@ -4,8 +4,6 @@ import { compose } from 'redux';
 
 import { playerVolume, playerMute } from '../audio-actions';
 
-import Button from './Button';
-
 // meter scale increase to create more 'steps'
 const scale = 100;
 const scaleValue = (value, max = 1) => (!isNaN(value / max) ? Math.ceil(value / max * scale) : 0);

@@ -1,7 +1,4 @@
 import React from 'react';
-
-import Test from '../Test';
-
 import AsyncLoader from './AsyncLoader';
 /*
 	Use AsyncLoader for sweet page based code splitting
@@ -15,11 +12,6 @@ const PageIndex = [
 		slug: 'contact',
 		component: Contact,
 		label: 'Contact',
-	},
-	{
-		slug: 'test',
-		component: Test,
-		label: 'Test',
 	},
 	{
 		slug: '*',

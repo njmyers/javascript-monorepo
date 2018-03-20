@@ -1,5 +1,4 @@
-import uniq from 'lodash/uniq';
-import uniqBy from 'lodash/uniqBy';
+import { uniq } from 'smalldash';
 import parse from 'parse-link-header';
 
 const blankPost = {
@@ -19,10 +18,12 @@ const blankPost = {
  */
 
 const extractCurrent = (header) => {
-	const parsed = parse(header.link);
-	return parsed.next
-		? Number(parsed.next.page) - 1
-		: parsed.prev ? Number(parsed.prev.page) + 1 : undefined;
+	if (header.link) {
+		const parsed = parse(header.link);
+		return parsed.next
+			? Number(parsed.next.page) - 1
+			: parsed.prev ? Number(parsed.prev.page) + 1 : undefined;
+	} else return 1;
 };
 
 const validateFetched = (header, fetched) => {
@@ -47,7 +48,7 @@ const WPReducer = (slice) => (state = blankPost, action) => {
 		case 'POSTS_RESOLVE':
 			return {
 				...state,
-				data: uniqBy([...state.data, ...ensureArray(action.payload)], 'id'),
+				data: uniq([...state.data, ...ensureArray(action.payload)], (object) => object.id),
 				status: 'resolved',
 				loadedAt: new Date(),
 			};

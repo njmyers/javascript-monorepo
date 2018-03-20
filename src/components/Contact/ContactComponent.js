@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import './forms-default.sass';
 
-const Fragment = React.Fragment;
-
 class Contact extends Component {
 	render() {
 		return (

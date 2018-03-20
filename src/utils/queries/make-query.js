@@ -1,4 +1,4 @@
-import compose from 'lodash/fp/compose';
+import { compose } from 'smalldash';
 import queryString from '../queries/query-string';
 import addDefaults from '../queries/add-defaults';
 

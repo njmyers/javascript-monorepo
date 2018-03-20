@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import SiteMap from './SiteMap';
 import Socials from './Socials';
 

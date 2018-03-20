@@ -1,4 +1,4 @@
-import uniqBy from 'lodash/uniqBy';
+import { uniq } from 'smalldash';
 
 // const sampleTrack = {
 // 	name: 'name',
@@ -82,7 +82,7 @@ const audioPlayerReducer = (state = audioPlayerState, action) => {
 				currentTime: 0,
 			};
 		case 'AUDIO_PLAYER_LOAD_TRACK':
-			const tracks = uniqBy([...state.tracks, action.payload], 'id');
+			const tracks = uniq([...state.tracks, action.payload], (object) => object.id);
 			return {
 				...state,
 				tracks,

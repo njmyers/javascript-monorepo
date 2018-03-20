@@ -1,4 +1,4 @@
-import compose from 'lodash/fp/compose';
+import { compose } from 'smalldash';
 import addSlug from './add-slug';
 import makeQuery from './make-query';
 

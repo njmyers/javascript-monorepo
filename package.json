@@ -21,7 +21,6 @@
 		"react-redux": "^5.0.7",
 		"react-router-dom": "^4.2.2",
 		"react-size-components": "^1.0.6",
-		"react-sizeme": "^2.3.6",
 		"reduce-reducers": "^0.1.2",
 		"redux": "^3.7.2",
 		"redux-logger": "^3.0.6",
@@ -29,6 +28,7 @@
 		"redux-thunk": "^2.2.0",
 		"rxjs": "^5.5.6",
 		"s3-deploy-scripts": "^0.1.5",
+		"smalldash": "^1.0.3",
 		"webfontloader": "^1.6.28"
 	},
 	"devDependencies": {
