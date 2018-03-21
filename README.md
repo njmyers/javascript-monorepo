@@ -9,7 +9,7 @@ Control of the player can be managed by one of two ways.
 
 ## Installation
 
-Install using npm `npm install --save react-you-tube`;
+Install using npm `npm install --save react-youtube-component`;
 
 Use in your react project.
 
