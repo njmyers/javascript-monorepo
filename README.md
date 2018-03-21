@@ -28,21 +28,21 @@ Create your component. Then use it as component. Add your parameters as accordin
 const YouTube = createYouTube();
 
 class Page extends Component {
-	constructor(props) {
-		super(props);
-		this.playerVars = {
-			autoplay: 0,
-			color: 0,
-			controls: 1,
-			// add as you wish
-		};
-	}
+    constructor(props) {
+        super(props);
+        this.playerVars = {
+            autoplay: 0,
+            color: 0,
+            controls: 1,
+            // add as you wish
+        };
+    }
 
-	render() {
-		return (
-			<YouTube height="640" width="390" videoId="h_D3VFfhvs4" playerVars={this.playerVars} />
-		);
-	}
+    render() {
+        return (
+            <YouTube height="640" width="390" videoId="h_D3VFfhvs4" playerVars={this.playerVars} />
+        );
+    }
 }
 ```
 
@@ -52,50 +52,50 @@ Interact with your component. Register event callbacks and/or save a reference t
 const YouTube = createYouTube();
 
 class Page extends Component {
-	constructor(props) {
-		super(props);
-		this.playerVars = {
-			autoplay: 0,
-			color: 0,
-			controls: 1,
-			// add as you wish
-		};
-	}
+    constructor(props) {
+        super(props);
+        this.playerVars = {
+            autoplay: 0,
+            color: 0,
+            controls: 1,
+            // add as you wish
+        };
+    }
 
-	onStateChange = (event) => {
-		// do something with the state change event
-	};
+    onStateChange = (event) => {
+        // do something with the state change event
+    };
 
-	onReady = (event) => {
-		// your player is now ready
-	};
+    onReady = (event) => {
+        // your player is now ready
+    };
 
-	onPlayer = (player) => {
-		// save your player reference for later
-		this.player = player;
-	};
+    onPlayer = (player) => {
+        // save your player reference for later
+        this.player = player;
+    };
 
-	onClick = (event) => {
-		// interact with your player using javascript methods
-		if (this.player) this.player.loadVideoById('Zi_XLOBDo_Y');
-	};
+    onClick = (event) => {
+        // interact with your player using javascript methods
+        if (this.player) this.player.loadVideoById('Zi_XLOBDo_Y');
+    };
 
-	render() {
-		return (
-			<div>
-				<YouTube
-					height="640"
-					width="390"
-					videoId="h_D3VFfhvs4"
-					playerVars={this.playerVars}
-					onStateChange={this.onStateChange}
-					onReady={this.onReady}
-					onPlayer={this.onPlayer}
-				/>
-				<button onClick={this.onClick}>Load Another Video</button>
-			</div>
-		);
-	}
+    render() {
+        return (
+            <div>
+                <YouTube
+                    height="640"
+                    width="390"
+                    videoId="h_D3VFfhvs4"
+                    playerVars={this.playerVars}
+                    onStateChange={this.onStateChange}
+                    onReady={this.onReady}
+                    onPlayer={this.onPlayer}
+                />
+                <button onClick={this.onClick}>Load Another Video</button>
+            </div>
+        );
+    }
 }
 ```
 
