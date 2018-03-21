@@ -14,8 +14,8 @@ Install using npm `npm install --save react-you-tube`;
 Use in your react project.
 
 ```js
-const createYouTube = require('react-you-tube');
-import createYouTube from 'react-you-tube';
+const createYouTube = require('react-youtube-component');
+import createYouTube from 'react-youtube-component';
 ```
 
 ## Usage
