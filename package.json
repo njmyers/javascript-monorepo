@@ -1,6 +1,6 @@
 {
     "name": "react-you-tube",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Higher order component for downloading and using the YouTube iFrame API",
     "main": "build/index.js",
     "scripts": {
@@ -13,7 +13,10 @@
     "author": "Nick Myers",
     "license": "ISC",
     "lint-staged": {
-        "src/**/*.{js,jsx,json,md}": ["prettier --write", "git add"]
+        "src/**/*.{js,jsx,json,md}": [
+            "prettier --write",
+            "git add"
+        ]
     },
     "peerDependencies": {
         "react": "^16.2.0",
