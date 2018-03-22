@@ -1,4 +1,4 @@
-const throttle = (func, limit) => {
+const throttle = (fn, limit) => {
 	let lastCall;
 	let timestamp;
 
