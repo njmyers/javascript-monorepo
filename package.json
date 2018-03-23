@@ -7,7 +7,6 @@
 		"axios": "^0.18.0",
 		"babel-polyfill": "^6.26.0",
 		"core-js": "^2.5.3",
-		"functional-composition": "^1.1.1",
 		"howler": "^2.0.9",
 		"lodash": "^4.17.5",
 		"npm-run-all": "^4.1.2",
@@ -57,9 +56,6 @@
 		"prettier": "prettier src/**/*.{js,jsx,json,md} --write"
 	},
 	"lint-staged": {
-		"src/**/*.{js,jsx,json,md}": [
-			"prettier --write",
-			"git add"
-		]
+		"src/**/*.{js,jsx,json,md}": ["prettier --write", "git add"]
 	}
 }
