@@ -6,6 +6,7 @@
 		"@njmyers/react-scripts": "^1.1.1",
 		"axios": "^0.18.0",
 		"babel-polyfill": "^6.26.0",
+		"core-js": "^2.5.3",
 		"functional-composition": "^1.1.1",
 		"howler": "^2.0.9",
 		"npm-run-all": "^4.1.2",
@@ -20,7 +21,6 @@
 		"react-redux": "^5.0.7",
 		"react-router-dom": "^4.2.2",
 		"react-size-components": "^1.0.6",
-		"reduce-reducers": "^0.1.2",
 		"redux": "^3.7.2",
 		"redux-logger": "^3.0.6",
 		"redux-observable": "^0.18.0",
@@ -56,6 +56,9 @@
 		"prettier": "prettier src/**/*.{js,jsx,json,md} --write"
 	},
 	"lint-staged": {
-		"src/**/*.{js,jsx,json,md}": ["prettier --write", "git add"]
+		"src/**/*.{js,jsx,json,md}": [
+			"prettier --write",
+			"git add"
+		]
 	}
 }
