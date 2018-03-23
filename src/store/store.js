@@ -1,23 +1,22 @@
 import { createStore } from 'redux';
 import middleware from './middleware';
-
-import { throttle } from 'smalldash';
+import throttle from 'lodash.throttle';
 import reducer from './root-reducer';
 import { loadLocalApplication, saveLocalApplication } from './local-storage';
 import { ensureDateObject } from '../utils/dates';
+import useStorage from './use-storage';
 
-const TIMESTAMP = new Date();
-const REFRESH = 86400 * 31 * 1000; // monthly
-const INVALIDATE = '2018-03-02T22:17:33.910Z';
+const REFRESH = 86400 * 1000; // daily
+const INVALIDATE = 1521761285634; // Date.now()
 
 const application = loadLocalApplication();
 const persistedState = application ? application.state : undefined;
-const saveDate = application ? ensureDateObject(application.date) : TIMESTAMP;
+
+// no date means 0 will automatically invalidate
+const stateDate = application ? application.date : 0;
 
 const store =
-	process.env.NODE_ENV !== 'development' ||
-	saveDate - TIMESTAMP < REFRESH ||
-	TIMESTAMP < ensureDateObject(INVALIDATE)
+	process.env.NODE_ENV !== 'development' && useStorage(REFRESH, INVALIDATE)(stateDate)
 		? middleware(createStore)(reducer, persistedState)
 		: middleware(createStore)(reducer);
 
@@ -26,7 +25,7 @@ if (process.env.NODE_ENV !== 'development') {
 		throttle(() => {
 			const application = {
 				state: store.getState(),
-				date: TIMESTAMP,
+				date: Date.now(),
 			};
 
 			saveLocalApplication(application);
