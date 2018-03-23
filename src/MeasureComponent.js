@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import _ from 'lodash';
+import debounce from 'lodash/debounce';
 import * as __ from 'smalldash';
 
 import { resizeWindow, scrollWindow } from './listen';
@@ -14,7 +14,7 @@ const MeasureComponent = (Wrapped) => {
 			};
 
 			this.polled = 0;
-			this.refresh = _.debounce(this.refresh.bind(this), 300);
+			this.refresh = debounce(this.refresh.bind(this), 300);
 		}
 
 		getMeasurements() {
