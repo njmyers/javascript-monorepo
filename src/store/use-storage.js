@@ -17,6 +17,6 @@ export const useStorageStub = (refresh) => (invalidate) => (stateDate) => {
  * @param {number} refresh amount of milliseconds since last visit to allow caches
  * @param {number} invalidate date.now() literal point in time to invalidate all caches for returning visitors
  */
-const useStorage = (refresh, invalidate) => useStorage(refresh)(invalidate + refresh);
+const useStorage = (refresh, invalidate) => useStorageStub(refresh)(invalidate + refresh);
 
 export default useStorage;
