@@ -39,6 +39,13 @@ module.exports = {
 			amd: 'react-dom',
 			umd: 'react-dom',
 		},
+		lodash: {
+			root: '_',
+			commonjs2: 'lodash',
+			commonjs: 'lodash',
+			amd: 'lodash',
+			umd: 'lodash',
+		},
 		smalldash: {
 			root: '__',
 			commonjs2: 'smalldash',

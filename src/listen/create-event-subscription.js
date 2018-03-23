@@ -1,4 +1,4 @@
-import * as __ from 'smalldash';
+import _ from 'lodash';
 
 function SubPub() {
 	const subscribers = {};
@@ -28,7 +28,7 @@ function SubPub() {
 	});
 }
 
-export default (object) => (eventType) => (fn = __.debounce, ...args) => {
+export default (object) => (eventType) => (fn = _.debounce, ...args) => {
 	const listener = new SubPub();
 	object.addEventListener(
 		eventType,

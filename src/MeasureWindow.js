@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
+import _ from 'lodash';
 import * as __ from 'smalldash';
 import { resizeWindow } from './listen';
 
@@ -17,7 +18,7 @@ const MeasureWindow = (Wrapped) => {
 			};
 
 			this.polled = 0;
-			this.refresh = __.debounce(this.refresh.bind(this), 300);
+			this.refresh = _.debounce(this.refresh.bind(this), 300);
 		}
 
 		/* Measurments */
