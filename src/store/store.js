@@ -1,6 +1,6 @@
 import { createStore } from 'redux';
 import middleware from './middleware';
-import throttle from 'lodash.throttle';
+import { throttle } from 'smalldash';
 import reducer from './root-reducer';
 import { loadLocalApplication, saveLocalApplication } from './local-storage';
 import { ensureDateObject } from '../utils/dates';
