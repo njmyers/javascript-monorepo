@@ -9,11 +9,14 @@ import Size from 'react-size-components';
 
 /* These are the default settings */
 const config = {
-	measureComponent: true,
-	measureWindow: false,
-	inView: false,
-	mobile: false,
-	minMaxHeight: false,
+    component: false,
+    measureWindow: false,
+    inView: false,
+    mobile: false,
+    breakpoint: 768,
+    orientation: false,
+    resizeWindow: false,
+    scrollWindow: false,
 };
 
 Size(config)(Component);
@@ -21,7 +24,7 @@ Size(config)(Component);
 
 ## Component Size
 
-`measureComponent: true` measures the clientRect of the wrapped component and adds it to clientRect on this.props.sizes.
+`component: true` measures the clientRect of the wrapped component and adds it to clientRect on this.props.sizes.
 
 `this.props.sizes.clientRect`
 
@@ -66,23 +69,23 @@ If you would prefer to have the parent control the sizes you can pass a cb funct
 import Size from 'react-size-components';
 
 const Child = (props) => {
-	return <p>What size am I?</p>;
+    return <p>What size am I?</p>;
 };
 
 const Wrapped = Size({ inView: true })(Child);
 
 class Parent extends Component {
-	constructor(props) {
-		super(props);
-	}
+    constructor(props) {
+        super(props);
+    }
 
-	handleSize = (sizes) => {
-		// control styles  or pass to higher state
-		console.log(sizes);
-	};
+    handleSize = (sizes) => {
+        // control styles  or pass to higher state
+        console.log(sizes);
+    };
 
-	render() {
-		return <Wrapped onSize={this.handleSize} />;
-	}
+    render() {
+        return <Wrapped onSize={this.handleSize} />;
+    }
 }
 ```

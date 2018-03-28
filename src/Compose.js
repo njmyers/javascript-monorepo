@@ -1,41 +1,49 @@
 import React from 'react';
 import * as __ from 'smalldash';
 
-import CallBack from './CallBack';
-import MeasureWindow from './MeasureWindow';
-import MeasureComponent from './MeasureComponent';
-import InView from './InView';
-import Mobile from './Mobile';
-import MinMaxHeight from './MinMaxHeight';
+import {
+	injectCallback,
+	injectWindowSize,
+	injectComponentSize,
+	injectInView,
+	injectMobile,
+	injectOrientation,
+	injectScrollSubscription,
+	injectResizeSubscription,
+} from './injectors';
 
-const addOptions = (option) => (bool) => (arr) => (bool ? [...arr, option] : arr);
+const addOption = (option) => (bool) => (arr) => (bool ? [...arr, option] : arr);
 
-const addWindow = addOptions(MeasureWindow);
-const addComponent = addOptions(MeasureComponent);
-const addInView = addOptions(InView);
-const addMobile = addOptions(Mobile);
-const addMinMaxHeight = addOptions(MinMaxHeight);
-
-export default ({
-	measureComponent = true,
+const Compose = ({
+	component = false,
 	measureWindow = false,
 	inView = false,
 	mobile = false,
-	minMaxHeight = false,
+	orientation = false,
+	breakpoint = 768,
+	resizeWindow = false,
+	scrollWindow = false,
 } = {}) => {
 	return (WrappedComponent) => {
-		// inView requires measurements
-		measureWindow = inView || mobile ? true : measureWindow;
-		measureComponent = inView || minMaxHeight ? true : measureComponent;
+		// add measureWindow for props that depend on it
+		measureWindow = inView || mobile || orientation ? true : measureWindow;
+		// same with component boolean
+		component = inView ? true : component;
+		// same
+		resizeWindow = measureWindow || component ? true : resizeWindow;
 
 		const Wrappers = __.compose(
-			addMinMaxHeight(minMaxHeight),
-			// addInView(inView),
-			addComponent(measureComponent),
-			addMobile(mobile),
-			addWindow(measureWindow)
+			addOption(injectCallback)(true),
+			addOption(injectComponentSize)(component),
+			addOption(injectOrientation)(orientation),
+			addOption(injectMobile(breakpoint))(mobile),
+			addOption(injectWindowSize)(measureWindow),
+			addOption(injectResizeSubscription)(resizeWindow),
+			addOption(injectScrollSubscription)(scrollWindow)
 		)([]);
 
-		return __.compose(...Wrappers, CallBack)(WrappedComponent);
+		return __.compose(...Wrappers)(WrappedComponent);
 	};
 };
+
+export default Compose;

@@ -1,8 +1,11 @@
-import React, { Component } from 'react';
-import * as __ from 'smalldash';
+import React, { PureComponent } from 'react';
 
+/**
+ * This is the callback injection function. It uses react to make comparisons
+ * @param {Component} Wrapped the component to wrap
+ */
 const CallBack = (Wrapped) => {
-	return class CallBackInjector extends Component {
+	return class CallBackInjector extends PureComponent {
 		constructor(props) {
 			super(props);
 			this.state = {
@@ -19,8 +22,12 @@ const CallBack = (Wrapped) => {
 			this.props.onSize(this.mergeStateAndNextProps(props));
 		};
 
+		componentDidMount() {
+			if (this.props.onSize) this.hotUpdate(this.props);
+		}
+
 		componentWillReceiveProps(nextProps) {
-			if (!__.equals(this.props, nextProps) && this.props.onSize) this.hotUpdate(nextProps);
+			if (this.props.onSize) this.hotUpdate(nextProps);
 		}
 
 		render() {

@@ -1,4 +1,4 @@
-import debounce from 'lodash/debounce';
+'use strict';
 
 function SubPub() {
 	const subscribers = {};
@@ -28,7 +28,7 @@ function SubPub() {
 	});
 }
 
-export default (object) => (eventType) => (fn = debounce, ...args) => {
+export default (object) => (eventType) => (fn, ...args) => {
 	const listener = new SubPub();
 	object.addEventListener(
 		eventType,
@@ -36,5 +36,6 @@ export default (object) => (eventType) => (fn = debounce, ...args) => {
 			listener.publish(event);
 		}, ...args)
 	);
-	return listener;
+
+	return Object.seal({ subscribe: listener.subscribe });
 };
