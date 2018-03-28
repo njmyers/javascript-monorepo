@@ -5,14 +5,14 @@ import { action } from '@storybook/addon-actions';
 import { linkTo } from '@storybook/addon-links';
 import { withReadme, withDocs } from 'storybook-readme';
 
-import general from './general.md';
+import readme from './README.md';
 // import Child from './Child';
 // import Parent from './Parent';
 // import ID from './ID';
 
 storiesOf('1) Module Infomation', module)
-    .addDecorator(withReadme(general))
-    .addDecorator(withDocs(general))
+    .addDecorator(withReadme(readme))
+    .addDecorator(withDocs(readme))
     .add('welcome', () => (
         <Fragment>
             <h1>Welcome to the Interactive Demo</h1>
