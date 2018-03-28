@@ -9,13 +9,11 @@ import withDocs from '../with-docs';
 import readme from './README.md';
 import Child from './Child';
 import Parent from './Parent';
-import ID from './ID';
 
-storiesOf('2) Basic Component Size', module)
+storiesOf('5) Orientation Detection', module)
     .addDecorator(withReadme(readme))
     .addDecorator(withDocs(readme))
-    .add('child component size', () => <Child />)
-    .add('child component size with parent callback', () => (
-        <Parent onSize={action('component size callback')} />
-    ))
-    .add('inject id into child callback', () => <ID onSize={action('component size callback')} />);
+    .add('child with orientation flag', () => <Child />)
+    .add('child with orientation flag and parent callback', () => (
+        <Parent onSize={action('orientation flag callback')} />
+    ));

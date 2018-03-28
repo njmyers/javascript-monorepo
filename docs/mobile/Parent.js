@@ -23,7 +23,7 @@ class Parent extends Component {
         return (
             <div>
                 <h1>Parent Component</h1>
-                <p>I can do something cool with these callbacks...</p>
+                <li>I can do something cool with these callbacks...</li>
                 {this.state.sizes.map((size, index) => {
                     return (
                         <React.Fragment>

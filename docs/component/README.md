@@ -2,10 +2,6 @@
 
 <!-- STORY -->
 
-The most basic usage of Size is to measure a component's width and height. To use all you have to do is pass in the component flag.
-
-`{ component: true }`
-
 ### Using as Child
 
 We use the Size function as a HOC by first passing in our configuration object and then the component we would like to have size information for.
@@ -18,8 +14,8 @@ const Child = ({ sizes } = {}) => {
     return (
         <React.Fragment>
             <h2>Child Component</h2>
-            <p>My width is: {sizes.component.width}</p>
-            <p>My height is: {sizes.component.height}</p>
+            <li>My width is: {sizes.component.width}</li>
+            <li>My height is: {sizes.component.height}</li>
         </React.Fragment>
     );
 };
@@ -56,7 +52,7 @@ class Parent extends Component {
         return (
             <div>
                 <h1>Parent Component</h1>
-                <p>I can do something cool with these callbacks...</p>
+                <li>I can do something cool with these callbacks...</li>
                 {this.state.sizes.map((size, index) => {
                     return (
                         <React.Fragment>
@@ -82,7 +78,7 @@ export default Parent;
         return (
             <div>
                 <h1>Parent Component</h1>
-                <p>I can do something cool with these callbacks...</p>
+                <li>I can do something cool with these callbacks...</li>
                 {this.state.sizes.map((size, index) => {
                     return (
                         <React.Fragment>

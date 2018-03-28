@@ -13,4 +13,4 @@ const Child = ({ sizes } = {}) => {
     );
 };
 
-export default Size({ measureWindow: true, measureComponent: false })(Child);
+export default Size({ measureWindow: true })(Child);

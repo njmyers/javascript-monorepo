@@ -1,12 +1,12 @@
 ## Basic Mobile Detection
 
+<!-- STORY -->
+
 To use all you have to do is pass in a flag and optional breakpoint to Size config.
 
 `{ mobile: true, breakpoint: 1000 }`
 
 Breakpoint will default to 768 if unspecified.
-
-<!-- STORY -->
 
 ```js
 import React from 'react';

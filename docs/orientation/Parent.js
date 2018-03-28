@@ -27,17 +27,12 @@ class Parent extends Component {
                 {this.state.sizes.map((size, index) => {
                     return (
                         <React.Fragment>
-                            <h3>
-                                Callback #{index + 1} from {size.id}
-                            </h3>
-                            <li>My window inner width is: {size.window.innerWidth}</li>
-                            <li>My window inner height is: {size.window.innerHeight}</li>
-                            <li>My window outer width is: {size.window.outerWidth}</li>
-                            <li>My window outer height is: {size.window.outerHeight}</li>
+                            <h3>Callback #{index + 1}</h3>
+                            <li>My orientation is: {size.orientation}</li>
                         </React.Fragment>
                     );
                 })}
-                <Child id="window-size-child" onSize={this.onSize} />
+                <Child onSize={this.onSize} />
             </div>
         );
     }
