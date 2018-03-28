@@ -1,6 +1,6 @@
 {
     "name": "react-size-components",
-    "version": "1.0.17",
+    "version": "1.0.18",
     "description": "Higher order components for sizing functions",
     "main": "build/index.js",
     "scripts": {
