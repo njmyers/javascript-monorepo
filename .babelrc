@@ -1,8 +1,8 @@
 {
-	"plugins": [
-		"transform-class-properties",
-		"transform-react-jsx",
-		"transform-object-rest-spread"
-	],
-	"presets": [["env", { "debug": true }]]
+    "plugins": [
+        "transform-class-properties",
+        "transform-react-jsx",
+        "transform-object-rest-spread"
+    ],
+    "presets": ["env"]
 }

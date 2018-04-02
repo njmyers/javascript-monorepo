@@ -38,7 +38,7 @@ const CreatePlayer = (Wrapped) =>
             this.player = new YT.Player(this.DOMNode, {
                 width,
                 height,
-                videoId,
+                // videoId,
                 playerVars,
                 events: {
                     onReady,
@@ -68,7 +68,11 @@ const CreatePlayer = (Wrapped) =>
         };
 
         render() {
-            return <Wrapped {...this.props} {...this.conditionalPassToChildren()} />;
+            return (
+                <div>
+                    <Wrapped {...this.props} {...this.conditionalPassToChildren()} />;
+                </div>
+            );
         }
     };
 
