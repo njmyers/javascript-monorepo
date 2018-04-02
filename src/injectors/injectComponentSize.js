@@ -7,9 +7,9 @@ const MeasureComponent = (Wrapped) => {
      */
     return class ComponentSize extends PureComponent {
         getMeasurements = () => {
-            const boundingRect = this.DOMNode ? this.DOMNode.getBoundingClientRect() : {};
-            // transform to regular js object for comparisons by react downstream
-            return { height: boundingRect.height, width: boundingRect.width };
+            const height = this.DOMNode ? this.DOMNode.clientHeight : 0;
+            const width = this.DOMNode ? this.DOMNode.clientWidth : 0;
+            return { height, width };
         };
 
         mergeSizes = () => ({ ...this.props.sizes, component: this.getMeasurements() });
@@ -31,8 +31,8 @@ const MeasureComponent = (Wrapped) => {
          * @param {*} nextProps next props to receive from parent components
          */
         componentWillReceiveProps(nextProps) {
-            if (nextProps.sizes.resizeWindow && !this.subscription)
-                this.subscription = nextProps.sizes.resizeWindow.subscribe(this.onResize);
+            if (nextProps.sizes.resize && !this.subscription)
+                this.subscription = nextProps.sizes.resize.subscribe(this.onResize);
         }
 
         /**

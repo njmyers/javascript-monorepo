@@ -1,2 +1,2 @@
 import createSubscriptionInjector from './createSubscriptionInjector';
-export default createSubscriptionInjector('resizeWindow');
+export default createSubscriptionInjector('resize');

@@ -1,2 +1,2 @@
 import createSubscriptionInjector from './createSubscriptionInjector';
-export default createSubscriptionInjector('scrollWindow');
+export default createSubscriptionInjector('scroll');

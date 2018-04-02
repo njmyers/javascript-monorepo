@@ -9,6 +9,7 @@ import withDocs from '../with-docs';
 import readme from './README.md';
 import Parent from './Parent';
 import SlowParent from './SlowParent';
+import Test from './Test';
 
 storiesOf('7) Performance', module)
     .addDecorator(withReadme(readme))
@@ -18,4 +19,5 @@ storiesOf('7) Performance', module)
     ))
     .add('lots of size aware components manually with event listeners', () => (
         <SlowParent timeStamp={action('timestamp since for render cycle')} />
-    ));
+    ))
+    .add('test', () => <Test />);
