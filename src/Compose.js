@@ -45,7 +45,6 @@ const Compose = ({
         resizeWindow = measureWindow || component ? true : resizeWindow;
 
         const Wrappers = __.compose(
-            // addOption(injectCallback)(true),
             addOption(injectComponentSize)(component),
             addOption(injectOrientation)(orientation),
             addOption(injectMobile(breakpoint))(mobile),
@@ -53,8 +52,6 @@ const Compose = ({
             addOption(injectResizeSubscription)(resizeWindow),
             addOption(injectScrollSubscription)(scrollWindow)
         )([]);
-
-        console.log(Wrappers);
 
         return __.compose(...Wrappers, ...createCustomInjectors(custom), injectCallback)(
             WrappedComponent
