@@ -27,7 +27,6 @@ const CallBack = (Wrapped) => {
         }
 
         componentWillReceiveProps(nextProps) {
-            console.log('injector receiving props');
             if (this.props.onSize && this.props !== nextProps) this.hotUpdate(nextProps);
         }
 
