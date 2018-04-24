@@ -8,12 +8,9 @@ import withDocs from '../with-docs';
 
 import readme from './README.md';
 import Child from './Child';
-import Parent from './Parent';
+// import Parent from './Parent';
 
-storiesOf('6) Custom Size Props', module)
+storiesOf('7) In View', module)
     .addDecorator(withReadme(readme))
     .addDecorator(withDocs(readme))
-    .add('custom flags and props', () => <Child />)
-    .add('custom flags and props with onSize callback', () => (
-        <Parent onSize={action('custom flag callback')} />
-    ));
+    .add('child with inView flag', () => <Child />);

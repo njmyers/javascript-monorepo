@@ -6,14 +6,16 @@ import injectOrientation from './injectOrientation';
 import injectResizeSubscription from './injectResizeSubscription';
 import injectScrollSubscription from './injectScrollSubscription';
 import injectCallback from './injectCallback';
+import createBasicPropInjector from './createBasicPropInjector';
 
 export {
-	injectCallback,
-	injectComponentSize,
-	injectWindowSize,
-	injectInView,
-	injectMobile,
-	injectOrientation,
-	injectResizeSubscription,
-	injectScrollSubscription,
+    injectCallback,
+    injectComponentSize,
+    injectWindowSize,
+    injectInView,
+    injectMobile,
+    injectOrientation,
+    injectResizeSubscription,
+    injectScrollSubscription,
+    createBasicPropInjector,
 };

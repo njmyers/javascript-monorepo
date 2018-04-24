@@ -10,6 +10,7 @@ import readme from './README.md';
 import Child from './Child';
 import Parent from './Parent';
 import ID from './ID';
+import Debounce from './Debounce';
 
 storiesOf('2) Basic Component Size', module)
     .addDecorator(withReadme(readme))
@@ -18,4 +19,5 @@ storiesOf('2) Basic Component Size', module)
     .add('child component size with parent callback', () => (
         <Parent onSize={action('component size callback')} />
     ))
-    .add('inject id into child callback', () => <ID onSize={action('component size callback')} />);
+    .add('inject id into child callback', () => <ID onSize={action('component size callback')} />)
+    .add('debounce callbacks', () => <Debounce onSize={action('component size callback')} />);

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Child from './Child';
 
-class ID extends Component {
+class Parent extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -27,18 +27,16 @@ class ID extends Component {
                 {this.state.sizes.map((size, index) => {
                     return (
                         <React.Fragment>
-                            <h3>
-                                Callback #{index + 1} from {size.id}
-                            </h3>
-                            <li>height: {size.component.height}</li>
-                            <li>width: {size.component.width}</li>
+                            <h3>Callback #{index + 1}</h3>
+                            <li>Am I mobile: {size.mobile.toString()}</li>
+                            <li>My breakpoint is: {size.breakpoint}</li>
                         </React.Fragment>
                     );
                 })}
-                <Child id="component-size-child" onSize={this.onSize} />
+                <Child onSize={this.onSize} />
             </div>
         );
     }
 }
 
-export default ID;
+export default Parent;

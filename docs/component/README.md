@@ -73,6 +73,8 @@ export default Parent;
 
 ### Using as Parent with ID
 
+Here we inject an id into our callback. This is helpful if you have multiple sized components being controlled from a single parent and you need to process their datat differently.
+
 ```js
     render() {
         return (

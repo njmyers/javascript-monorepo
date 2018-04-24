@@ -26,7 +26,7 @@ class Parent extends Component {
                 <li>I can do something cool with these callbacks...</li>
                 {this.state.sizes.map((size, index) => {
                     return (
-                        <React.Fragment>
+                        <React.Fragment key={index}>
                             <h3>Callback #{index + 1}</h3>
                             <li>height: {size.component.height}</li>
                             <li>width: {size.component.width}</li>

@@ -2,6 +2,8 @@
 
 <!-- STORY -->
 
+### Using as Child
+
 To use all you have to do is pass in a flag and optional breakpoint to Size config.
 
 `{ mobile: true, breakpoint: 1000 }`
@@ -24,3 +26,7 @@ const Child = ({ sizes } = {}) => {
 
 export default Size({ mobile: true, breakpoint: 1000 })(Child);
 ```
+
+### Using as Parent
+
+Same as component and window sizing examples. Inject your ID's and debounce to process your data if need be but this is the window we are talking about here.

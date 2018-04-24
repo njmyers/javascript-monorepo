@@ -2,9 +2,6 @@ import React, { PureComponent } from 'react';
 import ReactDOM from 'react-dom';
 
 const MeasureComponent = (Wrapped) => {
-    /**
-     * This is a component Action description
-     */
     return class ComponentSize extends PureComponent {
         getMeasurements = () => {
             const height = this.DOMNode ? this.DOMNode.clientHeight : 0;

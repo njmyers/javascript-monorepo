@@ -1,23 +1,26 @@
 import React, { Component } from 'react';
+import debounce from 'lodash/debounce';
 import Child from './Child';
 
-class ID extends Component {
+class Debounce extends Component {
     constructor(props) {
         super(props);
         this.state = {
             called: 0,
             sizes: [],
         };
+
+        this.onSize = debounce(this.onSize.bind(this), 500);
     }
 
-    onSize = (sizes) => {
+    onSize(sizes) {
         this.setState({
             called: this.state.called + 1,
             sizes: [...this.state.sizes, sizes],
         });
 
         this.props.onSize(sizes);
-    };
+    }
 
     render() {
         return (
@@ -26,19 +29,17 @@ class ID extends Component {
                 <li>I can do something cool with these callbacks...</li>
                 {this.state.sizes.map((size, index) => {
                     return (
-                        <React.Fragment>
-                            <h3>
-                                Callback #{index + 1} from {size.id}
-                            </h3>
+                        <React.Fragment key={index}>
+                            <h3>Callback #{index + 1}</h3>
                             <li>height: {size.component.height}</li>
                             <li>width: {size.component.width}</li>
                         </React.Fragment>
                     );
                 })}
-                <Child id="component-size-child" onSize={this.onSize} />
+                <Child onSize={this.onSize} />
             </div>
         );
     }
 }
 
-export default ID;
+export default Debounce;

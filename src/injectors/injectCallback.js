@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 
 /**
- * This is the callback injection function. It uses react to make comparisons
+ * This is the callback injection function. It uses react and shallow object comparisons     meaning if it is receiving props then it already has new data.
  * @param {Component} Wrapped the component to wrap
  */
 const CallBack = (Wrapped) => {
@@ -17,7 +17,6 @@ const CallBack = (Wrapped) => {
         /* inject id and name for reference by parent function */
         mergeStateAndNextProps = (props) => ({ ...props.sizes, ...this.state });
 
-        /* debounce callback for component updates */
         hotUpdate = (props) => {
             this.props.onSize(this.mergeStateAndNextProps(props));
         };

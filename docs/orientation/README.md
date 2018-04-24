@@ -2,7 +2,7 @@
 
 <!-- STORY -->
 
-To use all you have to do is pass in a flag.
+To use all you have to do is pass in the orientation flag on the configuration object.
 
 `{ orientation: true }`
 

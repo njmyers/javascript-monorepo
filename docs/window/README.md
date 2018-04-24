@@ -4,6 +4,8 @@
 
 ### Using as Child
 
+Here we pass in our size configuration object and then the component that needs access to the window sizes.
+
 ```js
 import React from 'react';
 import Size from 'react-size-components';
@@ -24,6 +26,8 @@ export default Size({ measureWindow: true })(Child);
 ```
 
 ### Using as Parent
+
+Here we use a child to measure the window sizes but use a callback to control and process the data. You can also inject an ID here but it wouldn't be very useful as there is only one window!
 
 ```js
 // in another file

@@ -10,9 +10,8 @@ import {
     injectOrientation,
     injectScrollSubscription,
     injectResizeSubscription,
+    createBasicPropInjector,
 } from './injectors';
-
-import createBasicPropInjector from './injectors/createBasicPropInjector';
 
 const addOption = (option) => (bool) => (arr) => (bool ? [...arr, option] : arr);
 
@@ -25,6 +24,10 @@ const createCustomInjectors = (arr) =>
         })
         .filter((each) => each !== undefined);
 
+/**
+ *
+ * @param {object} options this is the configuration object. It specifies which measurements to take.
+ */
 const Compose = ({
     component = false,
     measureWindow = false,
@@ -44,8 +47,10 @@ const Compose = ({
         // same
         resizeWindow = measureWindow || component ? true : resizeWindow;
 
+        scrollWindow = inView ? true : scrollWindow;
+
         const Wrappers = __.compose(
-            // addOption(injectCallback)(true),
+            addOption(injectInView)(inView),
             addOption(injectComponentSize)(component),
             addOption(injectOrientation)(orientation),
             addOption(injectMobile(breakpoint))(mobile),
@@ -53,8 +58,6 @@ const Compose = ({
             addOption(injectResizeSubscription)(resizeWindow),
             addOption(injectScrollSubscription)(scrollWindow)
         )([]);
-
-        console.log(Wrappers);
 
         return __.compose(...Wrappers, ...createCustomInjectors(custom), injectCallback)(
             WrappedComponent
