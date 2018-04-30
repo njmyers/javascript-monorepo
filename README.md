@@ -1,91 +1,503 @@
-# React Sizing Components
 
-A very small and lightweight library for measuring your components. Uses the subscribe/publish method of notifying your component lifecycles. Only one listener for all of you components is great! They all get notified together and reduce usage.
+# React Size Components
 
-`npm install --save react-size-components`
+<!-- STORY -->
+
+React Size Components (RSC) is a small and lightweight library for measuring and monitoring the size and position of your components in relation to the browser window. It is a versatile HOC that wraps your component and makes available only the size data that you request for your particular component.
+
+Listening to browser events like resize and scroll can be intensive tasks, so RSC Uses the a subscribe/publish method of listening. This means there is only one event listener for all of your sized components.
+
+Comparing measurements can also be very intensive tasks so RSC uses PureComponents and never mutates it's internal state. The props that gets passed down will come as quickly as possible so your component can provide a responsive user experience. We request animation frames so that components are aware of there size as they are being changed by the user. Of course you can always debounce later for even more performance!
+
+RSC aims to supports SSR (Server Side Rendering). No references the window object are made until the `componentDidMount` lifecycle method. All listeners are lazily subscribed to when they become available. SSR is still an experimental feature so please let me know if you encounter issues.
+
+#### Note
+
+If you are reading this on GitHub, trying browsing the [interactive demo](https://njmyers.github.io/react-size-components) created using [storybook](https://storybook.js.org). I think you will find it much easier to understand what is happening!
+
+## Component Sizing
+
+Component sizing is probably the most frequent use of RSC. It is helpful anytime you need to know the height and/or width of a component. RSC takes care of ensuring your node is available, measuring the node, subscribing to future size changes and finally making that data available to you.
+
+<!-- STORY -->
+
+### Using as Child
+
+Creating a size aware child component is the simplest usage of RSC. Call the Size function by first passing in the configuration object and then the component you would like to have size data on. The sizes object will be added to props and made available in your component in `props.sizes.component`
 
 ```js
+import React from 'react';
 import Size from 'react-size-components';
 
-/* These are the default settings */
-const config = {
-    component: false,
-    measureWindow: false,
-    inView: false,
-    mobile: false,
-    breakpoint: 768,
-    orientation: false,
-    resizeWindow: false,
-    scrollWindow: false,
+const Child = ({ sizes } = {}) => {
+    return (
+        <React.Fragment>
+            <h2>Child Component</h2>
+            <li>My width is: {sizes.component.width}</li>
+            <li>My height is: {sizes.component.height}</li>
+        </React.Fragment>
+    );
 };
 
-Size(config)(Component);
+export default Size({ component: true })(Child);
 ```
 
-## Component Size
+### Using as Parent
 
-`component: true` measures the clientRect of the wrapped component and adds it to clientRect on this.props.sizes.
-
-`this.props.sizes.clientRect`
-
-## Window Size
-
-`measureWindow: true` measures the window inner and outer widths/heights and adds them to windowSizes on this.props.sizes
+Here we give control of the size data to the parent by passing the callback function `onSize` as a prop to the wrapped component. This function takes a single object as an argument that contains all of the same data that would normally be passed onto the child component.
 
 ```js
-this.props.sizes.windowSizes;
-/*
-{
-    innerHeight: number
-    innerWidth: number
-    outerHeight: number
-    outerWidth: number
-}
-*/
-```
-
-## inView
-
-Tells whether or not the component is inView. Boolean flag added.
-
-```js
-this.props.sizes.inView;
-// true/false
-```
-
-## mobile
-
-Adds mobile flags for isMobile and orientation
-
-## minMaxHeight
-
-Measures
-
-## Callback
-
-If you would prefer to have the parent control the sizes you can pass a cb function to the wrapped component. It will update you when the size and state of your component changes. This is useful it you would prefer to keep a child stateless or if you want to pass some sizing information to a higher state like redux or a controlling parent component
-
-```js
-import Size from 'react-size-components';
-
-const Child = (props) => {
-    return <p>What size am I?</p>;
-};
-
-const Wrapped = Size({ inView: true })(Child);
+// in another file
+import React, { Component } from 'react';
+import Child from './Child';
 
 class Parent extends Component {
     constructor(props) {
         super(props);
+        this.state = {
+            called: 0,
+            sizes: [],
+        };
     }
 
-    handleSize = (sizes) => {
-        // control styles  or pass to higher state
-        console.log(sizes);
+    onSize = (sizes) => {
+        this.setState({
+            called: this.state.called + 1,
+            sizes: [...this.state.sizes, sizes],
+        });
+
+        this.props.onSize(sizes);
     };
 
     render() {
-        return <Wrapped onSize={this.handleSize} />;
+        return (
+            <div>
+                <h1>Parent Component</h1>
+                <li>I can do something cool with these callbacks...</li>
+                {this.state.sizes.map((size, index) => {
+                    return (
+                        <React.Fragment key={index}>
+                            <h3>Callback #{index + 1}</h3>
+                            <li>height: {size.component.height}</li>
+                            <li>width: {size.component.width}</li>
+                        </React.Fragment>
+                    );
+                })}
+                <Child onSize={this.onSize} />
+            </div>
+        );
     }
 }
+
+export default Parent;
+```
+
+### Using as Parent with ID
+
+Here we inject an id into our callback. This is helpful if you have multiple sized components being controlled from a single parent and you need to process their data differently.
+
+```js
+    render() {
+        return (
+            <div>
+                <h1>Parent Component</h1>
+                <li>I can do something cool with these callbacks...</li>
+                {this.state.sizes.map((size, index) => {
+                    return (
+                        <React.Fragment>
+                            <h3>
+                                Callback #{index + 1} from {size.id}
+                            </h3>
+                            <li>height: {size.component.height}</li>
+                            <li>width: {size.component.width}</li>
+                        </React.Fragment>
+                    );
+                })}
+                <Child id="component-size-child" onSize={this.onSize} />
+            </div>
+        );
+    }
+```
+
+### Debounce Callbacks
+
+The above usages may be too much data for your parent. Improve performance by debouncing the `onSize` callback function.
+
+```js
+import React, { Component } from 'react';
+import debounce from 'lodash/debounce';
+import Child from './Child';
+
+class Debounce extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            called: 0,
+            sizes: [],
+        };
+
+        this.onSize = debounce(this.onSize.bind(this), 500);
+    }
+
+    onSize(sizes) {
+        this.setState({
+            called: this.state.called + 1,
+            sizes: [...this.state.sizes, sizes],
+        });
+
+        this.props.onSize(sizes);
+    }
+```
+
+## Window Sizing
+
+<!-- STORY -->
+
+RSC can also measure the browser window. You may be asking why use RSC to measure the browser window when you can just call `window.innerHeight` and be done? There are a few reasons and if they apply to your situation then they are very good reasons. If they don't then you should most certainly just call `window.innerHeight`
+
+1.  You want to compare the window sizes to another piece of data already found in RSC
+2.  You want to subscribe to the window size and listen for changes
+3.  You don't want to spam the browser with multiple resize or scroll event listeners
+4.  You need to isolate window calls into React lifecycle methods to support SSR
+5.  You want to use my super cool component
+
+### Using as Child
+
+If you need a window aware component call the Size function with the configuration object `{ measureWindow: true }`. The window sizes will be added to props and be made available to your component in `props.sizes.window`
+
+```js
+import React from 'react';
+import Size from 'react-size-components';
+
+const Child = ({ sizes } = {}) => {
+    return (
+        <React.Fragment>
+            <h2>Child Component</h2>
+            <li>My window inner width is: {sizes.window.innerWidth}</li>
+            <li>My window inner height is: {sizes.window.innerHeight}</li>
+            <li>My window outer width is: {sizes.window.outerWidth}</li>
+            <li>My window outer height is: {sizes.window.outerHeight}</li>
+        </React.Fragment>
+    );
+};
+
+export default Size({ measureWindow: true })(Child);
+```
+
+### Using as Parent
+
+Once again you can give control of the window size data to the parent by providing a callback. I can't think of a situation where you would need to sort different window sizes but you could also inject an id if you needed it.
+
+```js
+// in another file
+import React, { Component } from 'react';
+import Child from './Child';
+
+class Parent extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            called: 0,
+            sizes: [],
+        };
+    }
+
+    onSize = (sizes) => {
+        this.setState({
+            called: this.state.called + 1,
+            sizes: [...this.state.sizes, sizes],
+        });
+
+        this.props.onSize(sizes);
+    };
+
+    render() {
+        return (
+            <div>
+                <h1>Parent Component</h1>
+                <li>I can do something cool with these callbacks...</li>
+                {this.state.sizes.map((size, index) => {
+                    return (
+                        <React.Fragment>
+                            <h3>Callback #{index + 1}</h3>
+                            <li>My window inner width is: {size.window.innerWidth}</li>
+                            <li>My window inner height is: {size.window.innerHeight}</li>
+                            <li>My window outer width is: {size.window.outerWidth}</li>
+                            <li>My window outer height is: {size.window.outerHeight}</li>
+                        </React.Fragment>
+                    );
+                })}
+                <Child onSize={this.onSize} />
+            </div>
+        );
+    }
+}
+
+export default Parent;
+```
+
+## Mobile Detection
+
+RSC also can make your components aware of mobile breakpoints. Helpful for rendering different views based on screen sizes.
+
+<!-- STORY -->
+
+### Using as Child
+
+To use call the Size function with a configuration object containing the mobile boolean and an optional breakpoint.
+
+`{ mobile: true, breakpoint: 1000 }`
+
+Breakpoint will default to 768 if unspecified.
+
+```js
+import React from 'react';
+import Size from 'react-size-components';
+
+const Child = ({ sizes } = {}) => {
+    return (
+        <React.Fragment>
+            <h2>Child Component</h2>
+            <li>Am I mobile: {sizes.mobile.toString()}</li>
+            <li>My breakpoint is: {sizes.breakpoint}</li>
+        </React.Fragment>
+    );
+};
+
+export default Size({ mobile: true, breakpoint: 1000 })(Child);
+```
+
+### Using as Parent
+
+Same as component and window sizing examples. Inject your ID's and/or debounce to process your data if need be.
+
+## Basic Orientation Detection
+
+Screen size is not the only variable that can affect your view. Screen orientation has a large role in determining how your view should look and RSC also takes care of this.
+
+<!-- STORY -->
+
+To use all you have to do is pass in the orientation boolean on the Size configuration object.
+
+`{ orientation: true }`
+
+```js
+import React from 'react';
+import Size from 'react-size-components';
+
+const Child = ({ sizes } = {}) => {
+    return (
+        <React.Fragment>
+            <h2>Child Component</h2>
+            <li>My orientation is: {sizes.orientation}</li>
+        </React.Fragment>
+    );
+};
+
+export default Size({ orientation: true })(Child);
+```
+
+## Advanced Features
+
+<!-- STORY -->
+
+### Creating Custom Flags
+
+We can also create custom flags based on comparison functions. Pass in an array of comparisons and each one will be added to sizes props. Please see below code for documentation on using custom flags and functions.
+
+```js
+import React from 'react';
+import Size from 'react-size-components';
+
+const Child = ({ sizes } = {}) => {
+    return (
+        <React.Fragment>
+            <h2>Child Component</h2>
+            <li>My custom flag isBiggerThan1000 is: {sizes.isBiggerThan1000.toString()}</li>
+            <li>My custom flag isBiggerThan1200 is: {sizes.isBiggerThan1200.toString()}</li>
+        </React.Fragment>
+    );
+};
+
+const isBiggerThan1000 = (sizes) => (sizes.window ? sizes.window.innerWidth > 1000 : undefined);
+const isBiggerThan1200 = (sizes) => (sizes.window ? sizes.window.innerWidth > 1200 : undefined);
+
+const custom = [
+    {
+        name: 'isBiggerThan1000',
+        fn: isBiggerThan1000,
+    },
+    {
+        name: 'isBiggerThan1200',
+        fn: isBiggerThan1200,
+    },
+];
+
+export default Size({ measureWindow: true, custom })(Child);
+```
+
+### Using Custom with onSize Callback
+
+This will work. All custom props are also passed to the onSize callback.
+
+### Notes for Custom Functions
+
+Please be aware that you must manually turn on whichever flags your comparison functions depend on. If you write a configuration like this it will not work.
+
+```js
+const isBiggerThan1000 = (sizes) => (sizes.window ? sizes.window.innerWidth > 1000 : undefined);
+
+const custom = [
+    {
+        name: 'isBiggerThan1000',
+        fn: isBiggerThan1000,
+    },
+];
+
+// uh oh no window measuring has taken place :(
+export default Size({ custom })(Child);
+```
+
+## InView Placement Aware Components
+
+<!-- STORY -->
+
+### Using as Child
+
+Now your components can not only be aware of their size but they can also be aware of their placement on the page. The component listens for scroll actions and updates the flag according to whether or not it is viewable in the current browser window.
+
+To access simply add the inView flag to the configuration object and inView will be accessible in the sizes prop.
+
+`{ inView: true }`
+
+```js
+import React from 'react';
+import Size from 'react-size-components';
+
+const Child = ({ sizes, id = 'undefined' } = {}) => {
+    return (
+        <React.Fragment>
+            <h2>Child Component</h2>
+            <li>My id is: {id}</li>
+            <li>I am in view: {sizes.inView.toString()}</li>
+            <p>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Qui accusamus sapiente
+                quasi, dolores porro libero dolore perspiciatis itaque! Esse tempora reiciendis,
+                voluptates non perferendis ab quasi doloremque dolorum consectetur dolor.
+            </p>
+        </React.Fragment>
+    );
+};
+
+export default Size({ inView: true })(Child);
+```
+
+### Using in a List of Position Aware Children
+
+This feature can be used for infinite scrolling pages and updating routes or other data based on the current scroll position. Inject an ID into the callback so that the new inView data received can be processed by the parent component.
+
+```js
+import React, { Component } from 'react';
+import Child from './Child';
+import { uniq } from 'smalldash';
+
+class MultipleChildren extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            sizes: [],
+        };
+    }
+
+    onView = (sizes) => {
+        this.state.sizes.forEach((current) => {
+            if (current.id === sizes.id) {
+                if (current.inView !== sizes.inView) {
+                    this.props.action({ id: sizes.id, inView: sizes.inView });
+                }
+            }
+        });
+
+        this.setState({
+            sizes: uniq([sizes, ...this.state.sizes], (obj) => obj.id),
+        });
+    };
+
+    render() {
+        return (
+            <React.Fragment>
+                <Child onSize={this.onView} id="1" />
+                <Child onSize={this.onView} id="2" />
+                <Child onSize={this.onView} id="3" />
+                <Child onSize={this.onView} id="4" />
+                <Child onSize={this.onView} id="5" />
+                <Child onSize={this.onView} id="6" />
+                <Child onSize={this.onView} id="7" />
+            </React.Fragment>
+        );
+    }
+}
+
+export default MultipleChildren;
+```
+
+## Advanced Features
+
+<!-- STORY -->
+
+### Creating Custom Flags
+
+We can also create custom flags based on comparison functions. Pass in an array of comparisons and each one will be added to sizes props. Please see below code for documentation on using custom flags and functions.
+
+```js
+import React from 'react';
+import Size from 'react-size-components';
+
+const Child = ({ sizes } = {}) => {
+    return (
+        <React.Fragment>
+            <h2>Child Component</h2>
+            <li>My custom flag isBiggerThan1000 is: {sizes.isBiggerThan1000.toString()}</li>
+            <li>My custom flag isBiggerThan1200 is: {sizes.isBiggerThan1200.toString()}</li>
+        </React.Fragment>
+    );
+};
+
+const isBiggerThan1000 = (sizes) => (sizes.window ? sizes.window.innerWidth > 1000 : undefined);
+const isBiggerThan1200 = (sizes) => (sizes.window ? sizes.window.innerWidth > 1200 : undefined);
+
+const custom = [
+    {
+        name: 'isBiggerThan1000',
+        fn: isBiggerThan1000,
+    },
+    {
+        name: 'isBiggerThan1200',
+        fn: isBiggerThan1200,
+    },
+];
+
+export default Size({ measureWindow: true, custom })(Child);
+```
+
+### Using Custom with onSize Callback
+
+This will work. All custom props are also passed to the onSize callback.
+
+### Notes for Custom Functions
+
+Please be aware that you must manually turn on whichever flags your comparison functions depend on. If you write a configuration like this it will not work.
+
+```js
+const isBiggerThan1000 = (sizes) => (sizes.window ? sizes.window.innerWidth > 1000 : undefined);
+
+const custom = [
+    {
+        name: 'isBiggerThan1000',
+        fn: isBiggerThan1000,
+    },
+];
+
+// uh oh no window measuring has taken place :(
+export default Size({ custom })(Child);
 ```
