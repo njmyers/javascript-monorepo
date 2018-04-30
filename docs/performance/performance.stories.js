@@ -11,7 +11,7 @@ import Parent from './Parent';
 import SlowParent from './SlowParent';
 import Test from './Test';
 
-storiesOf('7) Performance', module)
+storiesOf('8) Performance', module)
     .addDecorator(withReadme(readme))
     .addDecorator(withDocs(readme))
     .add('lots of size aware components made with size', () => (

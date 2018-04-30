@@ -1,10 +1,12 @@
-## Basic Mobile Detection
+## Mobile Detection
+
+RSC also can make your components aware of mobile breakpoints. Helpful for rendering different views based on screen sizes.
 
 <!-- STORY -->
 
 ### Using as Child
 
-To use all you have to do is pass in a flag and optional breakpoint to Size config.
+To use call the Size function with a configuration object containing the mobile boolean and an optional breakpoint.
 
 `{ mobile: true, breakpoint: 1000 }`
 
@@ -29,4 +31,4 @@ export default Size({ mobile: true, breakpoint: 1000 })(Child);
 
 ### Using as Parent
 
-Same as component and window sizing examples. Inject your ID's and debounce to process your data if need be but this is the window we are talking about here.
+Same as component and window sizing examples. Inject your ID's and/or debounce to process your data if need be.

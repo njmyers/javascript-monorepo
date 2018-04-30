@@ -12,12 +12,12 @@ import Parent from './Parent';
 import ID from './ID';
 import Debounce from './Debounce';
 
-storiesOf('2) Basic Component Size', module)
+storiesOf('2) Component Size', module)
     .addDecorator(withReadme(readme))
     .addDecorator(withDocs(readme))
-    .add('child component size', () => <Child />)
-    .add('child component size with parent callback', () => (
+    .add('component size', () => <Child />)
+    .add('component size with parent callback', () => (
         <Parent onSize={action('component size callback')} />
     ))
-    .add('inject id into child callback', () => <ID onSize={action('component size callback')} />)
+    .add('inject id into callback', () => <ID onSize={action('component size callback')} />)
     .add('debounce callbacks', () => <Debounce onSize={action('component size callback')} />);

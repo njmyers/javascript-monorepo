@@ -10,7 +10,7 @@ import readme from './README.md';
 import Child from './Child';
 import Parent from './Parent';
 
-storiesOf('5) Orientation Detection', module)
+storiesOf('5) Orientation Flag', module)
     .addDecorator(withReadme(readme))
     .addDecorator(withDocs(readme))
     .add('child with orientation flag', () => <Child />)

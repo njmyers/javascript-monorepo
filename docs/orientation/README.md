@@ -1,8 +1,10 @@
 ## Basic Orientation Detection
 
+Screen size is not the only variable that can affect your view. Screen orientation has a large role in determining how your view should look and RSC also takes care of this.
+
 <!-- STORY -->
 
-To use all you have to do is pass in the orientation flag on the configuration object.
+To use all you have to do is pass in the orientation boolean on the Size configuration object.
 
 `{ orientation: true }`
 

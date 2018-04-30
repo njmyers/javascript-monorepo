@@ -11,13 +11,10 @@ import Child from './Child';
 import Parent from './Parent';
 import ID from './ID';
 
-storiesOf('3) Basic Window Size', module)
+storiesOf('3) Window Size', module)
     .addDecorator(withReadme(readme))
     .addDecorator(withDocs(readme))
-    .add('child window size', () => <Child />)
-    .add('child window size with parent callback', () => (
+    .add('window size', () => <Child />)
+    .add('window size with parent callback', () => (
         <Parent onSize={action('window size callback')} />
-    ))
-    .add('inject id into child callback window size', () => (
-        <ID onSize={action('window size callback')} />
     ));

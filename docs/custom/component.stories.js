@@ -10,7 +10,7 @@ import readme from './README.md';
 import Child from './Child';
 import Parent from './Parent';
 
-storiesOf('6) Custom Size Props', module)
+storiesOf('6) Custom Flags', module)
     .addDecorator(withReadme(readme))
     .addDecorator(withDocs(readme))
     .add('custom flags and props', () => <Child />)
