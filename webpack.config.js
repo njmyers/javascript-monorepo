@@ -24,11 +24,6 @@ module.exports = {
             },
         ],
     },
-    // plugins: [
-    //     new UglifyJsPlugin({
-    //         sourceMap: true,
-    //     }),
-    // ],
     externals: {
         react: {
             root: 'React',
