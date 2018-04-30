@@ -1,17 +1,20 @@
-import * as React from 'react';
+import React, { PureComponent } from 'react';
 import ReactDOM from 'react-dom';
 
 const injectWindowSize = (Wrapped) => {
-    return class WindowSize extends React.PureComponent {
+    return class WindowSize extends PureComponent {
         /**
          * Get measurements from the window object
          */
-        getMeasurements = () => ({
-            innerHeight: window.innerHeight,
-            innerWidth: window.innerWidth,
-            outerHeight: window.outerHeight,
-            outerWidth: window.outerWidth,
-        });
+        getMeasurements = () =>
+            this.DOMNode
+                ? {
+                      innerHeight: window.innerHeight,
+                      innerWidth: window.innerWidth,
+                      outerHeight: window.outerHeight,
+                      outerWidth: window.outerWidth,
+                  }
+                : {};
 
         /**
          * merge the size object with the new sizes
