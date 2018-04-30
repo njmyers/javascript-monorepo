@@ -11,18 +11,12 @@ function InView(Wrapped) {
 
         /* Check inView */
         isInView = () => {
-            console.log('isinview called');
-            const offsetTop = this.DOMNode ? this.DOMNode.offsetTop : 0;
-            const clientTop = this.DOMNode ? this.DOMNode.getBoundingClientRect().top : 0;
+            const top = this.DOMNode ? this.DOMNode.getBoundingClientRect().top : 0;
+            const height = this.props.sizes ? this.props.sizes.component.height : 0;
 
-            console.log(clientTop);
+            const innerHeight = this.props.sizes.window ? this.props.sizes.window.innerHeight : 0;
 
-            const clientHeight = this.props.sizes ? this.props.sizes.component.height : 0;
-            const innerHeight = this.props.sizes.windowSize
-                ? this.props.sizes.windowSize.innerHeight
-                : 0;
-
-            return clientTop < 0 ? Math.abs(clientTop) - clientHeight < 0 : clientTop < innerHeight;
+            return top < 0 ? Math.abs(top) - height < 0 : top < innerHeight;
         };
 
         mergeSizes = () => ({ ...this.props.sizes, inView: this.isInView() });
@@ -40,6 +34,7 @@ function InView(Wrapped) {
         componentDidMount() {
             // make sure to set reference to this node before attempting to size
             this.DOMNode = ReactDOM.findDOMNode(this);
+            // this.forceUpdate();
         }
 
         /**
