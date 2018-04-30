@@ -1,15 +1,17 @@
 import React from 'react';
 import Size from '../../src';
 
-const Child = ({ sizes } = {}) => {
-    const element = document.getElementById('child-header');
-    console.log(element ? element.getBoundingClientRect() : null);
-    console.log(element ? element.clientTop : null);
-
+const Child = ({ sizes, id = 'undefined' } = {}) => {
     return (
         <React.Fragment>
-            <h2 id="child-header">Child Component</h2>
-            <li>Am I inView: {JSON.stringify(sizes)}</li>
+            <h2>Child Component</h2>
+            <li>My id is: {id}</li>
+            <li>I am in view: {sizes.inView.toString()}</li>
+            <p>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Qui accusamus sapiente
+                quasi, dolores porro libero dolore perspiciatis itaque! Esse tempora reiciendis,
+                voluptates non perferendis ab quasi doloremque dolorum consectetur dolor.
+            </p>
         </React.Fragment>
     );
 };

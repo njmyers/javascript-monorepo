@@ -8,9 +8,12 @@ import withDocs from '../with-docs';
 
 import readme from './README.md';
 import Child from './Child';
-// import Parent from './Parent';
+import MultipleChildren from './MultipleChildren';
 
-storiesOf('7) In View', module)
+storiesOf('7) Position Aware', module)
     .addDecorator(withReadme(readme))
     .addDecorator(withDocs(readme))
-    .add('child with inView flag', () => <Child />);
+    .add('single position aware child', () => <Child />)
+    .add('list of position aware children', () => (
+        <MultipleChildren action={action('this component just changed in view state')} />
+    ));
