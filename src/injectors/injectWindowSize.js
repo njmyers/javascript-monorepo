@@ -5,6 +5,8 @@ const injectWindowSize = (Wrapped) => {
     return class WindowSize extends PureComponent {
         /**
          * Get measurements from the window object
+         * If this.DOMNode exists then we know the component has mounted
+         * This is a safety check to prevent window calls when SSR
          */
         getMeasurements = () =>
             this.DOMNode
@@ -44,7 +46,7 @@ const injectWindowSize = (Wrapped) => {
         }
 
         /**
-         * Unsubscribe from window listener if it has been set up
+         * check window listener and unsubscribe if it has been set up
          */
         componentWillUnmount() {
             if (this.subscription) this.subscription.unsubscribe();
