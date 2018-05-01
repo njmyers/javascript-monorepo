@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 
 /**
- * This is the callback injection function. It uses react and shallow object comparisons     meaning if it is receiving props then it already has new data.
+ * This is the callback injection function. It uses react and shallow object comparisons meaning if it is receiving props then it already has new data.
  * @param {Component} Wrapped the component to wrap
  */
 const CallBack = (Wrapped) => {
