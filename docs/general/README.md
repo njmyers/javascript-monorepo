@@ -6,9 +6,11 @@ React Size Components (RSC) is a small and lightweight library for measuring and
 
 Listening to browser events like resize and scroll can be intensive tasks, so RSC Uses the a subscribe/publish method of listening. This means there is only one event listener for all of your sized components.
 
-Comparing measurements can also be very intensive tasks so RSC uses PureComponents and never mutates it's internal state. The props that gets passed down will come as quickly as possible so your component can provide a responsive user experience. We request animation frames so that components are aware of there size as they are being changed by the user. Of course you can always debounce later for even more performance!
+Comparing measurements can also be very intensive tasks so RSC uses PureComponents and never mutates it's internal state. The props that gets passed down will come as quickly as possible so your component can provide a responsive user experience. The core of RSC uses request animation frames so that components are aware of there size as they are being changed by the user. Of course you can always debounce later for even more performance!
 
-RSC aims to supports SSR (Server Side Rendering). No references the window object are made until the `componentDidMount` lifecycle method. All listeners are lazily subscribed to when they become available. SSR is still an experimental feature so please let me know if you encounter issues. For a demonstration of SSR capabilities clone this [repository](https://github.com/njmyers/react-size-components) and run the command `npm run start-ssr`.
+RSC supports creating custom props in addition to the props that are available by default. It also makes available the subscription objects referenced above so you can subscribe to window events for improved performance.
+
+RSC aims to supports SSR (Server Side Rendering). No references the window object are made until the `componentDidMount` lifecycle method. All listeners are lazily subscribed to when they become available. As SSR is very complex I would appreciate any feedback that you have regarding this feature. For a demonstration of SSR capabilities clone this [repository](https://github.com/njmyers/react-size-components) and run the command `npm run start-ssr`.
 
 #### Note
 
