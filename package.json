@@ -10,7 +10,7 @@
         "test": "jest --watchAll",
         "patch-release": "npm version patch && npm publish && git push --follow-tags",
         "build-readme": "node scripts/readme.js",
-        "precommit": "run-s build-readme lint-staged",
+        "precommit": "yarn run build-readme && yarn run lint-staged",
         "start": "run-p storybook",
         "deploy-storybook": "storybook-to-ghpages",
         "storybook": "start-storybook -p 6006",
