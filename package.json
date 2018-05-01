@@ -16,18 +16,15 @@
         "precommit": "yarn run build-readme && yarn run lint-staged",
         "start": "run-p storybook",
         "deploy-storybook": "storybook-to-ghpages",
-        "storybook": "start-storybook -p 6006",
         "build-storybook": "build-storybook",
+        "storybook": "start-storybook -p 6006",
         "build-ssr": "webpack --config ssr/webpack.config.js",
         "prestart-ssr": "npm run build-ssr",
         "start-ssr": "babel-node ssr/server.js",
         "publish-all": "run-s deploy-storybook build patch-release"
     },
     "lint-staged": {
-        "src/**/*.{js,jsx,json}": [
-            "prettier --write",
-            "git add"
-        ]
+        "src/**/*.{js,jsx,json}": ["prettier --write", "git add"]
     },
     "peerDependencies": {
         "lodash": "^4.17.5",
