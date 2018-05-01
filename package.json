@@ -1,10 +1,12 @@
 {
     "name": "react-size-components",
+    "author": "Nick Myers",
+    "license": "ISC",
     "version": "1.0.24",
     "description": "Higher order components for sizing functions",
     "main": "build/index.js",
     "scripts": {
-        "prepublishOnly": "npm run build",
+        "prepublishOnly": "yarn run build",
         "watch": "webpack --watch",
         "build": "webpack",
         "test": "jest --watchAll",
@@ -17,13 +19,12 @@
         "build-storybook": "build-storybook",
         "build-ssr": "webpack --config ssr/webpack.config.js",
         "prestart-ssr": "npm run build-ssr",
-        "start-ssr": "babel-node ssr/server.js"
+        "start-ssr": "babel-node ssr/server.js",
+        "publish-all": "run-s deploy-storybook build patch-release"
     },
     "lint-staged": {
         "src/**/*.{js,jsx,json}": ["prettier --write", "git add"]
     },
-    "author": "Nick Myers",
-    "license": "ISC",
     "peerDependencies": {
         "lodash": "^4.17.5",
         "react": "^16.2.0",
