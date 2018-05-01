@@ -20,9 +20,7 @@ const template = ({ title, body } = {}) =>
 </style>
 
 <body>
-    <div id="root">
-        ${body}
-    </div>
+    <div id="root">${body}</div>
     <script type="text/javascript" src="/build/bundle.js"></script>
 </body>
 </html>`;
