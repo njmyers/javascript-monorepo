@@ -13,7 +13,9 @@ const docs = [
     'performance',
 ];
 
-const createPaths = (folder) => path.resolve(__dirname, 'docs', folder, 'README.md');
+const cwd = process.cwd();
+
+const createPaths = (folder) => path.resolve(cwd, 'docs', folder, 'README.md');
 const read = (path) => fs.readFileSync(path, 'utf8');
 
 const string = docs
@@ -21,6 +23,6 @@ const string = docs
     .map(read)
     .reduce((a, b) => a + '\n' + b, '');
 
-const readmePath = path.join(__dirname, 'README.md');
+const readmePath = path.join(cwd, 'README.md');
 
 fs.writeFileSync(readmePath, string);

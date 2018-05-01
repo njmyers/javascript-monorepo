@@ -9,6 +9,8 @@
         "build": "webpack",
         "test": "jest --watchAll",
         "patch-release": "npm version patch && npm publish && git push --follow-tags",
+        "build-readme": "node scripts/readme.js",
+        "precommit": "run-s build-readme lint-staged",
         "start": "run-p storybook",
         "deploy-storybook": "storybook-to-ghpages",
         "storybook": "start-storybook -p 6006",
@@ -16,6 +18,9 @@
         "build-ssr": "webpack --config ssr/webpack.config.js",
         "prestart-ssr": "npm run build-ssr",
         "start-ssr": "babel-node ssr/server.js"
+    },
+    "lint-staged": {
+        "src/**/*.{js,jsx,json}": ["prettier --write", "git add"]
     },
     "author": "Nick Myers",
     "license": "ISC",
