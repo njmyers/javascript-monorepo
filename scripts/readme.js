@@ -8,8 +8,8 @@ const docs = [
     'window',
     'mobile',
     'orientation',
-    'custom',
     'inview',
+    'custom',
     'performance',
 ];
 

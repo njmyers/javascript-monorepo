@@ -10,7 +10,7 @@ import readme from './README.md';
 import Child from './Child';
 import MultipleChildren from './MultipleChildren';
 
-storiesOf('7) Position Aware', module)
+storiesOf('6) Position Aware', module)
     .addDecorator(withReadme(readme))
     .addDecorator(withDocs(readme))
     .add('single position aware child', () => <Child />)

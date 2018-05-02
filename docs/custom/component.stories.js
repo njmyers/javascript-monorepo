@@ -9,11 +9,13 @@ import withDocs from '../with-docs';
 import readme from './README.md';
 import Child from './Child';
 import Parent from './Parent';
+import Advanced from './Advanced';
 
-storiesOf('6) Custom Flags', module)
+storiesOf('7) Custom Flags', module)
     .addDecorator(withReadme(readme))
     .addDecorator(withDocs(readme))
     .add('custom flags and props', () => <Child />)
     .add('custom flags and props with onSize callback', () => (
         <Parent onSize={action('custom flag callback')} />
-    ));
+    ))
+    .add('advanced custom flags and subscriptions', () => <Advanced />);
