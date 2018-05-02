@@ -1,5 +1,3 @@
-import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
 import createBasicPropInjector from './createBasicPropInjector';
 
 /**
@@ -12,4 +10,4 @@ const getOrientation = (sizes) => {
         : undefined;
 };
 
-export default createBasicPropInjector('orientation')(getOrientation);
+export default createBasicPropInjector({ name: 'orientation', fn: getOrientation });

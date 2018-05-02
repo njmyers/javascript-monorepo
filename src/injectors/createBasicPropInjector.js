@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 
 /**
  * Use this function to inject a basic property into sizes based on a comparison function
@@ -9,7 +9,7 @@ import * as React from 'react';
  * @param {function} fn a function to do a comparison on values of sizes
  * @return {function} a wrapped react component
  */
-const createBasicPropInjector = (name) => (fn) => (Wrapped) => {
+const createBasicPropInjector = ({ name, fn } = {}) => (Wrapped) => {
     return (props) => {
         return <Wrapped {...props} sizes={{ ...props.sizes, [name]: fn(props.sizes) }} />;
     };

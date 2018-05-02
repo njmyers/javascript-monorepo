@@ -11,6 +11,7 @@ import {
     injectScrollSubscription,
     injectResizeSubscription,
     createBasicPropInjector,
+    createAdvancedPropInjector,
 } from './injectors';
 
 /**
@@ -29,7 +30,9 @@ const createCustomInjectors = (arr) =>
     arr
         .map((injector) => {
             return typeof injector.name === 'string' && typeof injector.fn === 'function'
-                ? createBasicPropInjector(injector.name)(injector.fn)
+                ? typeof injector.subscriptions === 'object' || typeof injector.schema === 'object'
+                    ? createAdvancedPropInjector(injector)
+                    : createBasicPropInjector(injector)
                 : undefined;
         })
         .filter((each) => each !== undefined);

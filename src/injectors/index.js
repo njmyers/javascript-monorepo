@@ -7,6 +7,7 @@ import injectResizeSubscription from './injectResizeSubscription';
 import injectScrollSubscription from './injectScrollSubscription';
 import injectCallback from './injectCallback';
 import createBasicPropInjector from './createBasicPropInjector';
+import createAdvancedPropInjector from './createAdvancedPropInjector';
 
 export {
     injectCallback,
@@ -18,4 +19,5 @@ export {
     injectResizeSubscription,
     injectScrollSubscription,
     createBasicPropInjector,
+    createAdvancedPropInjector,
 };
