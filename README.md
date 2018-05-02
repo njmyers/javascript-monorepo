@@ -17,7 +17,7 @@ RSC aims to supports SSR (Server Side Rendering). No references the window objec
 
 If you are reading this on GitHub, trying browsing the [interactive demo](https://njmyers.github.io/react-size-components) created using [storybook](https://storybook.js.org). I think you will find it much easier to understand what is happening!
 
-# Table of Contents
+## Table of Contents
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
