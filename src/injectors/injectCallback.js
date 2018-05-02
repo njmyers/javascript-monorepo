@@ -1,11 +1,11 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 
 /**
  * This is the callback injection function. It uses react and shallow object comparisons meaning if it is receiving props then it already has new data.
  * @param {Component} Wrapped the component to wrap
  */
 const CallBack = (Wrapped) => {
-    return class CallBackInjector extends PureComponent {
+    return class CallBackInjector extends React.PureComponent {
         constructor(props) {
             super(props);
             this.state = {

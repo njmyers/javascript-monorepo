@@ -1,6 +1,6 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
-import throttle from 'lodash/throttle';
+import _ from 'lodash';
 
 /**
  * This function will create an HOC that will wrap the react component.
@@ -11,7 +11,7 @@ import throttle from 'lodash/throttle';
  * @param {object} schema initial object state for safe object access
  */
 const createAdvancedPropInjector = ({ subscriptions, name, fn, schema = '' } = {}) => (Wrapped) => {
-    return class AdvancedProp extends PureComponent {
+    return class AdvancedProp extends React.PureComponent {
         constructor(props) {
             super(props);
             this.onScroll = throttle(this.onScroll.bind(this), 400);

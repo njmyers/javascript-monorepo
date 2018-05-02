@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 
 /**
  * Basic subscription publish function. Returns an object with subscribe and publish functions.
@@ -67,7 +67,7 @@ const lazilyCreateListeners = windowEventCache();
  * @return {class} the wrapped component
  */
 const createSubscriptionInjector = (listener) => (Wrapped) => {
-    return class SubscribeListener extends PureComponent {
+    return class SubscribeListener extends React.PureComponent {
         constructor(props) {
             super(props);
         }

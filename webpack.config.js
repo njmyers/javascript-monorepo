@@ -39,19 +39,12 @@ module.exports = {
             amd: 'react-dom',
             umd: 'react-dom',
         },
-        debounce: {
-            root: 'debounce',
-            commonjs2: 'lodash/debounce',
-            commonjs: 'lodash/debounce',
-            amd: 'lodash/debounce',
-            umd: 'lodash/debounce',
-        },
-        throttle: {
-            root: 'throttle',
-            commonjs2: 'lodash/throttle',
-            commonjs: 'lodash/throttle',
-            amd: 'lodash/throttle',
-            umd: 'lodash/throttle',
+        lodash: {
+            root: '_',
+            commonjs2: 'lodash',
+            commonjs: 'lodash',
+            amd: 'lodash',
+            umd: 'lodash',
         },
         smalldash: {
             root: '__',
