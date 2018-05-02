@@ -20,4 +20,3 @@ storiesOf('8) Performance', module)
     .add('lots of size aware components manually with event listeners', () => (
         <SlowParent timeStamp={action('timestamp since for render cycle')} />
     ));
-// .add('test', () => <Test />);
