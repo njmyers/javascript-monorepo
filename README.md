@@ -17,6 +17,34 @@ RSC aims to supports SSR (Server Side Rendering). No references the window objec
 
 If you are reading this on GitHub, trying browsing the [interactive demo](https://njmyers.github.io/react-size-components) created using [storybook](https://storybook.js.org). I think you will find it much easier to understand what is happening!
 
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+<!-- END doctoc -->
+
+- [Component Sizing](#component-sizing)
+  - [Using as Child](#using-as-child)
+  - [Using as Parent](#using-as-parent)
+  - [Using as Parent with ID](#using-as-parent-with-id)
+  - [Debounce Callbacks](#debounce-callbacks)
+- [Window Sizing](#window-sizing)
+  - [Using as Child](#using-as-child-1)
+  - [Using as Parent](#using-as-parent-1)
+- [Mobile Detection](#mobile-detection)
+  - [Using as Child](#using-as-child-2)
+  - [Using as Parent](#using-as-parent-2)
+- [Basic Orientation Detection](#basic-orientation-detection)
+- [InView Placement Aware Components](#inview-placement-aware-components)
+  - [Using as Child](#using-as-child-3)
+  - [Using in a List of Position Aware Children](#using-in-a-list-of-position-aware-children)
+- [Advanced Features](#advanced-features)
+  - [Creating Custom Flags](#creating-custom-flags)
+  - [Using Custom with onSize Callback](#using-custom-with-onsize-callback)
+  - [Notes for Custom Functions](#notes-for-custom-functions)
+  - [Advanced Custom Flags](#advanced-custom-flags)
+- [Performance](#performance)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 ## Component Sizing
 
 Component sizing is probably the most frequent use of RSC. It is helpful anytime you need to know the height and/or width of a component. RSC takes care of ensuring your node is available, measuring the node, subscribing to future size changes and finally making that data available to you.
