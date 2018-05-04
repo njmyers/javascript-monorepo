@@ -27,7 +27,7 @@ Now you can use the package in your project.
 ```js
 const Size = require('react-size-components');
 /// or
-import size from 'react-size-components';
+import Size from 'react-size-components';
 ```
 
 #### Note
