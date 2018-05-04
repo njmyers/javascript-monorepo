@@ -2,7 +2,7 @@
     "name": "react-size-components",
     "author": "Nick Myers",
     "license": "ISC",
-    "version": "1.1.4",
+    "version": "1.1.5",
     "description": "Higher order components for sizing functions",
     "main": "build/index.js",
     "scripts": {
