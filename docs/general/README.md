@@ -2,6 +2,8 @@
 
 <!-- STORY -->
 
+## About
+
 React Size Components (RSC) is a small and lightweight library for measuring and monitoring the size and position of your components in relation to the browser window. It is a versatile HOC that wraps your component and makes available only the size data that you request for your particular component.
 
 Listening to browser events like resize and scroll can be intensive tasks, so RSC Uses the a subscribe/publish method of listening. This means there is only one event listener for all of your sized components.
@@ -11,6 +13,21 @@ Comparing measurements can also be very intensive tasks so RSC uses PureComponen
 RSC supports creating custom props in addition to the props that are available by default. It also makes available the subscription objects referenced above so you can subscribe to window events for improved performance.
 
 RSC aims to supports SSR (Server Side Rendering). No references the window object are made until the `componentDidMount` lifecycle method. All listeners are lazily subscribed to when they become available. As SSR is very complex I would appreciate any feedback that you have regarding this feature. For a demonstration of SSR capabilities clone this [repository](https://github.com/njmyers/react-size-components) and run the command `npm run start-ssr`.
+
+## Installation
+
+To add RSC to your project, run one of the following commands in your project root.
+
+`npm install react-size-components --save`
+`yarn add react-size-components`
+
+Now you can use the package in your project.
+
+```js
+const Size = require('react-size-components');
+/// or
+import size from 'react-size-components';
+```
 
 #### Note
 
