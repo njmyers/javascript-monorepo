@@ -14,7 +14,7 @@ const createAdvancedPropInjector = ({ subscriptions, name, fn, schema = '' } = {
     return class AdvancedProp extends React.PureComponent {
         constructor(props) {
             super(props);
-            this.onScroll = throttle(this.onScroll.bind(this), 400);
+            this.onScroll = _.throttle(this.onScroll.bind(this), 400);
         }
 
         /**
