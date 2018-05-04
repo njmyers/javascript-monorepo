@@ -3,7 +3,9 @@
     "author": "Nick Myers",
     "license": "ISC",
     "version": "1.1.6",
-    "description": "Higher order components for sizing functions",
+    "description": "Higher order components for sizing functions in react",
+    "homepage": "https://njmyers.github.io/react-size-components",
+    "repository": "github:njmyers/react-size-components",
     "main": "build/index.js",
     "scripts": {
         "prepublishOnly": "yarn run build",
@@ -25,10 +27,7 @@
         "doctoc": "doctoc README.md"
     },
     "lint-staged": {
-        "src/**/*.{js,jsx,json}": [
-            "prettier --write",
-            "git add"
-        ]
+        "src/**/*.{js,jsx,json}": ["prettier --write", "git add"]
     },
     "peerDependencies": {
         "lodash": "^4.17.5",
