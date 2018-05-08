@@ -1,13 +1,13 @@
 import { createHowl } from './audio-get-set';
 
 export const updateUI = (currentTime, duration) => ({
-	type: 'AUDIO_PLAYER_UPDATE_UI',
-	payload: { currentTime, duration },
+    type: 'AUDIO_PLAYER_UPDATE_UI',
+    payload: { currentTime, duration },
 });
 
 export const playerError = (err) => ({
-	type: 'AUDIO_PLAYER_ERROR',
-	payload: err,
+    type: 'AUDIO_PLAYER_ERROR',
+    payload: err,
 });
 
 /* Track Playing Status */
@@ -28,16 +28,16 @@ export const playerSelect = (payload) => ({ type: 'AUDIO_PLAYER_SELECT', payload
 
 /* Add New */
 export const loadTrack = ({ id, urls, name, artist } = {}) => ({
-	type: 'AUDIO_PLAYER_LOAD_TRACK',
-	payload: {
-		id,
-		urls,
-		name,
-		artist,
+    type: 'AUDIO_PLAYER_LOAD_TRACK',
+    payload: {
+        id,
+        urls,
+        name,
+        artist,
 
-		// Side Effect
-		howl: createHowl(urls),
-	},
+        // Side Effect
+        howl: createHowl(urls),
+    },
 });
 
 /* Update Size */

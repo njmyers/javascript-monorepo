@@ -13,16 +13,16 @@ import './fonts';
 const reload = () => window.reload();
 
 ReactDOM.render(
-	<Provider store={store}>
-		<Router>
-			<Switch>
-				<Route path="/robots.txt" onEnter={reload} />
-				<Route path="/sitemap.xml" onEnter={reload} />
-				<Root />
-			</Switch>
-		</Router>
-	</Provider>,
-	document.getElementById('root')
+    <Provider store={store}>
+        <Router>
+            <Switch>
+                <Route path="/robots.txt" onEnter={reload} />
+                <Route path="/sitemap.xml" onEnter={reload} />
+                <Root />
+            </Switch>
+        </Router>
+    </Provider>,
+    document.getElementById('root')
 );
 
 registerServiceWorker();
