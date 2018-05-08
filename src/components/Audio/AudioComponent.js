@@ -8,8 +8,8 @@ import './audio.sass';
 
 class Audio extends Component {
     componentWillReceiveProps(nextProps) {
-        if (!equals(nextProps.sizes.clientRect, this.props.sizes.clientRect)) {
-            this.props.playerSize(nextProps.inView.clientRect);
+        if (!equals(nextProps.sizes.component, this.props.sizes.component)) {
+            this.props.playerSize(nextProps.sizes.component);
         }
     }
 
@@ -31,4 +31,4 @@ const DisplayWrapper = (Wrapped) => (props) => {
     return props.display ? <Wrapped {...props} /> : null;
 };
 
-export default compose(DisplayWrapper, Size())(Audio);
+export default compose(DisplayWrapper, Size({ component: true }))(Audio);
