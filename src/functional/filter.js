@@ -1,2 +1,2 @@
-import filterLeft from 'filter-left';
+import filterLeft from './filter-left';
 export default filterLeft;
