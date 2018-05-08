@@ -7,8 +7,8 @@ const epicMiddleware = createEpicMiddleware(rootEpic);
 const middlewares = [thunk, epicMiddleware];
 
 if (process.env.NODE_ENV === 'development') {
-	const { logger } = require('redux-logger');
-	middlewares.push(logger);
+    const { logger } = require('redux-logger');
+    middlewares.push(logger);
 }
 
 export default compose(applyMiddleware(...middlewares));

@@ -16,22 +16,22 @@ const persistedState = application ? application.state : undefined;
 const stateDate = application ? application.date : 0;
 
 const store =
-	process.env.NODE_ENV !== 'development' && useStorage(REFRESH, INVALIDATE)(stateDate)
-		? middleware(createStore)(reducer, persistedState)
-		: middleware(createStore)(reducer);
+    process.env.NODE_ENV !== 'development' && useStorage(REFRESH, INVALIDATE)(stateDate)
+        ? middleware(createStore)(reducer, persistedState)
+        : middleware(createStore)(reducer);
 
 if (process.env.NODE_ENV !== 'development') {
-	store.subscribe(
-		throttle(() => {
-			const application = {
-				state: store.getState(),
-				date: Date.now(),
-			};
+    store.subscribe(
+        throttle(() => {
+            const application = {
+                state: store.getState(),
+                date: Date.now(),
+            };
 
-			saveLocalApplication(application);
-		}),
-		1000
-	);
+            saveLocalApplication(application);
+        }),
+        1000
+    );
 }
 
 export default store;

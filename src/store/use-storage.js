@@ -9,7 +9,7 @@ const week = 1000 * 60 * 60 * 24 * 7;
  * @param {number} stateDate datestamp from persisted state cache
  */
 export const useStorageStub = (refresh) => (invalidate) => (stateDate) => {
-	return Date.now() - stateDate < refresh && invalidate < stateDate;
+    return Date.now() - stateDate < refresh && invalidate < stateDate;
 };
 
 /**

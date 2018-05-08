@@ -6,11 +6,11 @@ import audioPlayerReducer from '../components/Audio/audio-reducer';
 import menuReducer from '../components/Header/menu-reducer';
 
 const rootReducer = combineReducers({
-	shows: WPReducer('shows'),
-	contact: contactReducer,
-	UI: UIReducer,
-	menu: menuReducer,
-	audioPlayer: audioPlayerReducer,
+    shows: WPReducer('shows'),
+    contact: contactReducer,
+    UI: UIReducer,
+    menu: menuReducer,
+    audioPlayer: audioPlayerReducer,
 });
 
 export default rootReducer;
