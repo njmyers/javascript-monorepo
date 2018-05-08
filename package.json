@@ -47,7 +47,7 @@
         "test": "react-scripts test --env=jsdom",
         "eject": "react-scripts eject",
         "precommit": "lint-staged",
-        "prettier": "prettier --write **/*.{js,jsx,json,md}"
+        "prettier": "prettier --write src/components/**/*.{js,jsx,json,md}"
     },
     "lint-staged": {
         "src/**/*.{js,jsx,json,md}": ["prettier --write", "git add"]

@@ -26,10 +26,10 @@ export const setGlobalMute = (bool) => Howler.mute(bool);
 
 /* Create New Howl From Sources */
 const defaults = {
-	loop: false,
-	autoplay: false,
-	html5: true,
-	preload: true,
+    loop: false,
+    autoplay: false,
+    html5: true,
+    preload: true,
 };
 
 const validateSources = (src) => (Array.isArray(src) ? src : [src]);

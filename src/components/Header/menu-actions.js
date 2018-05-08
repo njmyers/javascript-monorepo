@@ -24,20 +24,20 @@ export const setOrientation = (payload) => ({ type: 'ORIENTATION', key: 'orienta
 export const setMobile = (payload) => ({ type: 'DEVICE', key: 'isMobile', payload });
 
 export const opacityZero = animateMenu({
-	opacity: 0,
+    opacity: 0,
 });
 
 export const opacityOne = animateMenu({
-	opacity: 1,
+    opacity: 1,
 });
 
 export const moveMenuOffScreen = animateMenu({
-	position: 'absolute',
-	left: '-9999px',
-	opacity: 0,
+    position: 'absolute',
+    left: '-9999px',
+    opacity: 0,
 });
 
 export const moveMenuOnScreen = animateMenu({
-	position: 'fixed',
-	left: '0',
+    position: 'fixed',
+    left: '0',
 });

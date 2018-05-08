@@ -14,8 +14,8 @@ const newline = /\n+/;
 const colors = sass.split(newline);
 
 const hoverized = colors.map((color) => {
-	const stem = color.split(':')[0];
-	return `${stem}-hover: transparentize(${stem}, ${degree})`;
+    const stem = color.split(':')[0];
+    return `${stem}-hover: transparentize(${stem}, ${degree})`;
 });
 
 const importStatement = `@import '${stub}.sass'\n`;

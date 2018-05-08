@@ -18,68 +18,68 @@ import './root-default.sass';
 const Audio = AsyncLoader(() => import('../Audio'));
 
 class Root extends Component {
-	constructor(props) {
-		super(props);
+    constructor(props) {
+        super(props);
 
-		this.handleSize = this.handleSize.bind(this);
-	}
+        this.handleSize = this.handleSize.bind(this);
+    }
 
-	loadGA() {
-		const GA_ID = process.env.REACT_APP_GOOGLE_ANALYTICS_ID;
-		ReactGA.initialize(GA_ID);
-		ReactGA.pageview(window.location.pathname + window.location.search);
-	}
+    loadGA() {
+        const GA_ID = process.env.REACT_APP_GOOGLE_ANALYTICS_ID;
+        ReactGA.initialize(GA_ID);
+        ReactGA.pageview(window.location.pathname + window.location.search);
+    }
 
-	componentDidMount() {
-		this.props.loadFacebookAPI();
-		this.loadGA();
-	}
+    componentDidMount() {
+        this.props.loadFacebookAPI();
+        this.loadGA();
+    }
 
-	/* Callback for child sizes */
-	handleSize(sizes) {
-		const { id, clientRect } = sizes;
-		const { height } = clientRect;
-		if (this.props.UI[id].height !== height) {
-			this.props.updateContentSize(sizes.id, { height });
-		}
+    /* Callback for child sizes */
+    handleSize(sizes) {
+        const { id, clientRect } = sizes;
+        const { height } = clientRect;
+        if (this.props.UI[id].height !== height) {
+            this.props.updateContentSize(sizes.id, { height });
+        }
 
-		if (id === 'contentSize') this.handleMain(sizes);
-	}
+        if (id === 'contentSize') this.handleMain(sizes);
+    }
 
-	/* Handle Main Sizes */
-	handleMain(sizes) {
-		const { isMobile, orientation } = sizes;
-		if (isMobile !== this.props.UI.isMobile) this.props.updateIsMobile(isMobile);
-		if (orientation !== this.props.UI.orientation) this.props.updateOrientation(orientation);
-	}
+    /* Handle Main Sizes */
+    handleMain(sizes) {
+        const { isMobile, orientation } = sizes;
+        if (isMobile !== this.props.UI.isMobile) this.props.updateIsMobile(isMobile);
+        if (orientation !== this.props.UI.orientation) this.props.updateOrientation(orientation);
+    }
 
-	render() {
-		return (
-			<React.Fragment>
-				<Header pages={PageIndex} onSize={this.handleSize} id="headerSize" />
-				<Main pages={PageIndex} onSize={this.handleSize} id="contentSize" />
-				<Footer pages={PageIndex} onSize={this.handleSize} id="footerSize" />
-				<Audio />
-			</React.Fragment>
-		);
-	}
+    render() {
+        return (
+            <React.Fragment>
+                <Header pages={PageIndex} onSize={this.handleSize} id="headerSize" />
+                <Main pages={PageIndex} onSize={this.handleSize} id="contentSize" />
+                <Footer pages={PageIndex} onSize={this.handleSize} id="footerSize" />
+                <Audio />
+            </React.Fragment>
+        );
+    }
 }
 
 const mapStateToProps = (state, ownProps) => ({
-	UI: state.UI,
-	audioPlayer: state.audioPlayer,
+    UI: state.UI,
+    audioPlayer: state.audioPlayer,
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-	updateContentSize: (key, payload) => dispatch(updateContentSize(key)(payload)),
-	updateOrientation: (payload) => dispatch(updateOrientation(payload)),
-	updateIsMobile: (payload) => dispatch(updateIsMobile(payload)),
-	loadFacebookAPI: () => dispatch(loadFacebookAPI()),
+    updateContentSize: (key, payload) => dispatch(updateContentSize(key)(payload)),
+    updateOrientation: (payload) => dispatch(updateOrientation(payload)),
+    updateIsMobile: (payload) => dispatch(updateIsMobile(payload)),
+    loadFacebookAPI: () => dispatch(loadFacebookAPI()),
 });
 
 const sizes = {
-	isMobile: true,
-	orientation: true,
+    isMobile: true,
+    orientation: true,
 };
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Root));
