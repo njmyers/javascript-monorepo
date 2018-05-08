@@ -24,6 +24,15 @@ function MyRoutes(props) {
         const path = `/${each.slug}`;
         if (each.exact)
             return <Route key={each.slug} exact path={path} component={each.component} />;
+        else if (each.status)
+            return (
+                <Route
+                    key={each.slug}
+                    path={path}
+                    component={each.component}
+                    status={each.status}
+                />
+            );
         else return <Route key={each.slug} path={path} component={each.component} />;
     });
 
