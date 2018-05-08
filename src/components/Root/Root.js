@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { updateContentSize, updateOrientation, updateIsMobile } from './ui-sizing-actions';
-import { loadFacebookAPI } from '../Facebook/facebook-actions';
 
 import ReactGA from 'react-ga';
 
@@ -29,7 +28,6 @@ class Root extends Component {
     }
 
     componentDidMount() {
-        this.props.loadFacebookAPI();
         this.loadGA();
     }
 
@@ -71,7 +69,6 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
     updateContentSize: (key, payload) => dispatch(updateContentSize(key)(payload)),
     updateOrientation: (payload) => dispatch(updateOrientation(payload)),
     updateIsMobile: (payload) => dispatch(updateIsMobile(payload)),
-    loadFacebookAPI: () => dispatch(loadFacebookAPI()),
 });
 
 const sizes = {
