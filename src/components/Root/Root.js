@@ -15,8 +15,6 @@ import Footer from '../Footer';
 
 import './root-default.sass';
 
-const Audio = AsyncLoader(() => import('../Audio'));
-
 class Root extends Component {
     constructor(props) {
         super(props);
@@ -59,7 +57,6 @@ class Root extends Component {
                 <Header pages={PageIndex} onSize={this.handleSize} id="headerSize" />
                 <Main pages={PageIndex} onSize={this.handleSize} id="contentSize" />
                 <Footer pages={PageIndex} onSize={this.handleSize} id="footerSize" />
-                <Audio />
             </React.Fragment>
         );
     }
