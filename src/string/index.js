@@ -2,6 +2,7 @@ export { default as acceptStrings } from './accept-strings';
 export { default as camelToKebab } from './camel-to-kebab';
 export { default as camelToSentence } from './camel-to-sentence';
 export { default as camelToSnake } from './camel-to-snake';
+export { default as camelToTitle } from './camel-to-title';
 export { default as camelTo } from './camel-to';
 export { default as capitalize } from './capitalize';
 export { default as caseToCase } from './case-to-case';
