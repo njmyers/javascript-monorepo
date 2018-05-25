@@ -5,7 +5,7 @@ import { renderToString } from 'react-dom/server';
 import Page from './Page';
 import template from './template';
 
-const port = 3000;
+const port = 5000;
 const server = express();
 
 // Add our react build folder as a static path for express. Use path since this project is in a sub-folder.
