@@ -15,6 +15,12 @@ const createAdvancedPropInjector = ({ subscriptions, name, fn, schema = '' } = {
         constructor(props) {
             super(props);
             this.onScroll = _.throttle(this.onScroll.bind(this), 400);
+
+            // store subscriptions in state
+            this.state = {
+                scroll: undefined,
+                resize: undefined,
+            };
         }
 
         /**
@@ -33,24 +39,35 @@ const createAdvancedPropInjector = ({ subscriptions, name, fn, schema = '' } = {
             this.DOMNode = ReactDOM.findDOMNode(this);
         }
 
+        computeOnName = (name) => 'on' + name.slice(0, 1).toUpperCase() + name.slice(1);
+
+        storeSubscriptionToState = (props, which) => {
+            if (props.sizes[which] && !this.state[which] && subscriptions[which])
+                this.setState((state) => ({
+                    [which]: props.sizes[which].subscribe(this[this.computeOnName(which)]),
+                }));
+        };
+
         /**
          * Lazily set up subscriptions to window object
          * @param {*} nextProps nextProps to receive from parent components
          */
         componentWillReceiveProps(nextProps) {
-            if (nextProps.sizes.scroll && !this.scroll && subscriptions.scroll)
-                this.scroll = nextProps.sizes.scroll.subscribe(this.onScroll);
+            this.storeSubscriptionToState(nextProps, 'scroll');
+            this.storeSubscriptionToState(nextProps, 'resize');
+            // if (nextProps.sizes.scroll && !this.state.scroll && subscriptions.scroll)
+            //     this.scroll = nextProps.sizes.scroll.subscribe(this.onScroll);
 
-            if (nextProps.sizes.resize && !this.resize && subscriptions.resize)
-                this.resize = nextProps.sizes.resize.subscribe(this.onResize);
+            // if (nextProps.sizes.resize && !this.resize && subscriptions.resize)
+            //     this.resize = nextProps.sizes.resize.subscribe(this.onResize);
         }
 
         /**
          * Unsubscribe from window listener if it has been set up
          */
         componentWillUnmount() {
-            if (this.scroll) this.scroll.unsubscribe();
-            if (this.resize) this.resize.unsubscribe();
+            if (this.state.scroll) this.state.scroll.unsubscribe();
+            if (this.state.resize) this.state.resize.unsubscribe();
         }
 
         render() {
