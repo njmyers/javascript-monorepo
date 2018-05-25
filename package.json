@@ -2,7 +2,7 @@
     "name": "react-size-components",
     "author": "Nick Myers",
     "license": "ISC",
-    "version": "1.1.8",
+    "version": "1.1.9",
     "description": "Higher order components for sizing functions in react",
     "homepage": "https://njmyers.github.io/react-size-components",
     "repository": "github:njmyers/react-size-components",
