@@ -104,9 +104,7 @@ const custom = [
     },
 ];
 
-export default Size({ resizeWindow: true, scrollWindow: true, custom })(Advanced);
+export default Size({ custom })(Advanced);
 ```
-
-As you can see, we must make the resize and scroll window subscriptions available to be able to use them in our advanced functionality. The same would apply for any other existing size data we wanted to use.
 
 Now our component knows exactly where it is on the page!

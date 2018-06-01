@@ -153,7 +153,7 @@ Here we inject an id into our callback. This is helpful if you have multiple siz
                 <li>I can do something cool with these callbacks...</li>
                 {this.state.sizes.map((size, index) => {
                     return (
-                        <React.Fragment>
+                        <React.Fragment key={index}>
                             <h3>
                                 Callback #{index + 1} from {size.id}
                             </h3>
@@ -267,7 +267,7 @@ class Parent extends Component {
                 <li>I can do something cool with these callbacks...</li>
                 {this.state.sizes.map((size, index) => {
                     return (
-                        <React.Fragment>
+                        <React.Fragment key={index}>
                             <h3>Callback #{index + 1}</h3>
                             <li>My window inner width is: {size.window.innerWidth}</li>
                             <li>My window inner height is: {size.window.innerHeight}</li>
@@ -535,10 +535,8 @@ const custom = [
     },
 ];
 
-export default Size({ resizeWindow: true, scrollWindow: true, custom })(Advanced);
+export default Size({ custom })(Advanced);
 ```
-
-As you can see, we must make the resize and scroll window subscriptions available to be able to use them in our advanced functionality. The same would apply for any other existing size data we wanted to use.
 
 Now our component knows exactly where it is on the page!
 

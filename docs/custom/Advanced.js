@@ -36,4 +36,4 @@ const custom = [
     },
 ];
 
-export default Size({ resizeWindow: true, scrollWindow: true, custom })(Advanced);
+export default Size({ custom })(Advanced);
