@@ -28,4 +28,4 @@ export default equals;
 // 	return result;
 // };
 
-export default equals;
+// export default equals;
