@@ -15,10 +15,8 @@ const CallBack = (Wrapped) => {
         }
 
         /* inject id and name for reference by parent function */
-        mergeStateAndNextProps = (props) => ({ ...props.sizes, ...this.state });
-
         hotUpdate = (props) => {
-            this.props.onSize(this.mergeStateAndNextProps(props));
+            this.props.onSize({ ...props.sizes, ...this.state });
         };
 
         componentDidMount() {
@@ -26,7 +24,8 @@ const CallBack = (Wrapped) => {
         }
 
         componentWillReceiveProps(nextProps) {
-            if (this.props.onSize && this.props !== nextProps) this.hotUpdate(nextProps);
+            if (this.props.onSize && this.props.sizes !== nextProps.sizes)
+                this.hotUpdate(nextProps);
         }
 
         render() {
