@@ -38,6 +38,20 @@ const createCustomInjectors = (arr) =>
         .filter((each) => each !== undefined);
 
 /**
+ * Finds whether or not to add listener injector based on a custom configuration
+ * @param {string} listener
+ * @param {object} custom array of custom size configurations
+ */
+const scheduleCustomListeners = (listener) => (custom) =>
+    custom
+        .map((each) => (each.subscriptions ? each.subscriptions : undefined))
+        .filter((each) => each !== undefined)
+        .reduce((a, b) => Boolean(Boolean(a[listener]) + Boolean(b[listener])), false);
+
+const scheduleCustomResize = scheduleCustomListeners('resize');
+const scheduleCustomScroll = scheduleCustomListeners('scroll');
+
+/**
  * Adds HOC to the wrapped depending on the configuration object. Some HOC have dependencies on other HOC so this satisfies that logic as well.
  * @param {object} options this is the configuration object. It specifies which measurements to take.
  * @param {component} WrappedComponent the react component to wrap.
@@ -49,19 +63,20 @@ const Compose = ({
     mobile = false,
     orientation = false,
     breakpoint = 768,
-    resizeWindow = false,
-    scrollWindow = false,
+    resize = false,
+    scroll = false,
     custom = [],
 } = {}) => {
     return (WrappedComponent) => {
+        // TODO: simplify this logic... everything should be advanced injectors with flags
         // add measureWindow for props that depend on it
         measureWindow = inView || mobile || orientation ? true : measureWindow;
         // add component sizing for props that depend on it
         component = inView ? true : component;
         // add window resize listener for props that depend on it
-        resizeWindow = measureWindow || component ? true : resizeWindow;
+        resize = measureWindow || component || scheduleCustomResize(custom) ? true : resize;
         // add window scroll listener for props that depend on it
-        scrollWindow = inView ? true : scrollWindow;
+        scroll = inView || scheduleCustomScroll(custom) ? true : scroll;
         // create array of wrappers
         // ORDER IS SUPER IMPORTANT!!!
         const Wrappers = __.compose(
@@ -70,8 +85,8 @@ const Compose = ({
             addOption(injectOrientation)(orientation),
             addOption(injectMobile(breakpoint))(mobile),
             addOption(injectWindowSize)(measureWindow),
-            addOption(injectResizeSubscription)(resizeWindow),
-            addOption(injectScrollSubscription)(scrollWindow)
+            addOption(injectResizeSubscription)(resize),
+            addOption(injectScrollSubscription)(scroll)
         )([]);
 
         // Compose our Wrappers(React HOC) so we wrap.
