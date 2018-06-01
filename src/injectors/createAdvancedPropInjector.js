@@ -47,13 +47,17 @@ const createAdvancedPropInjector = ({ subscriptions, name, fn, schema = '' } = {
         /**
          * Sets reference to DOMNode and stores it in component state
          */
-        componentDidMount = () => this.setState({ DOMNode: ReactDOM.findDOMNode(this) });
+        componentDidMount = () => {
+            this.setState({ DOMNode: ReactDOM.findDOMNode(this) }, this.computeProperties);
+        };
 
         storeSubscriptionToState = (props, which) => {
-            if (props.sizes[which] && !this.state[which] && subscriptions[which])
-                this.setState((state) => ({
-                    [which]: props.sizes[which].subscribe(this[which]),
-                }));
+            this.setState(
+                (state) =>
+                    props.sizes[which] && !state[which] && subscriptions[which]
+                        ? { [which]: props.sizes[which].subscribe(this[which]) }
+                        : null
+            );
         };
 
         /**
