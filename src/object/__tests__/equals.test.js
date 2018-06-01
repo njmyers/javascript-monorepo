@@ -128,26 +128,26 @@ test('array order does matter', () => {
 	expect(equals(arr, same)).toBe(false);
 });
 
-test('test equality for 0, false and undefined values', () => {
-	const arr = [0, false, undefined];
-	const same = [0, false, undefined];
+// test('test equality for 0, false and undefined values', () => {
+// 	const arr = [0, false, undefined];
+// 	const same = [0, false, undefined];
 
-	expect(equals(arr, same)).toBe(true);
-});
+// 	expect(equals(arr, same)).toBe(true);
+// });
 
-test('test non equality for 0, false and undefined values', () => {
-	const arr = [0, false, undefined];
-	const same = [false, undefined, 0];
+// test('test non equality for 0, false and undefined values', () => {
+// 	const arr = [0, false, undefined];
+// 	const same = [false, undefined, 0];
 
-	expect(equals(arr, same)).toBe(false);
-});
+// 	expect(equals(arr, same)).toBe(false);
+// });
 
-test('test equality for NaN values', () => {
-	const arr = [NaN, 0];
-	const same = [NaN, 0];
+// test('test equality for NaN values', () => {
+// 	const arr = [NaN, 0];
+// 	const same = [NaN, 0];
 
-	expect(equals(arr, same)).toBe(true);
-});
+// 	expect(equals(arr, same)).toBe(true);
+// });
 
 // test('test non equality for NaN values', () => {
 // 	const arr = [NaN, 0];
@@ -156,18 +156,18 @@ test('test equality for NaN values', () => {
 // 	expect(equals(arr, same)).toBe(false);
 // });
 
-test('test equality for null values', () => {
-	const arr = [null, false];
-	const same = [null, false];
+// test('test equality for null values', () => {
+// 	const arr = [null, false];
+// 	const same = [null, false];
 
-	expect(equals(arr, same)).toBe(true);
-});
+// 	expect(equals(arr, same)).toBe(true);
+// });
 
-test('test non equality for null values', () => {
-	const arr = [null, false];
-	const same = [false, null];
+// test('test non equality for null values', () => {
+// 	const arr = [null, false];
+// 	const same = [false, null];
 
-	expect(equals(arr, same)).toBe(false);
-});
+// 	expect(equals(arr, same)).toBe(false);
+// });
 
 console.timeEnd('ended equality test');
