@@ -8,7 +8,7 @@ const comparator = (sizes, node) => {
 };
 
 export default createAdvancePropInjector({
-    subscriptions: { scroll: true },
+    subscriptions: { scroll: true, resize: true },
     name: 'inView',
     fn: comparator,
 });
