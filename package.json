@@ -27,10 +27,7 @@
         "doctoc": "doctoc README.md"
     },
     "lint-staged": {
-        "src/**/*.{js,jsx,json}": [
-            "prettier --write",
-            "git add"
-        ]
+        "src/**/*.{js,jsx,json}": ["prettier --write", "git add"]
     },
     "peerDependencies": {
         "lodash": "^4.17.5",

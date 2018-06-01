@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import * as __ from 'smalldash';
 import _ from 'lodash';
 
 /**
@@ -14,37 +15,44 @@ const createAdvancedPropInjector = ({ subscriptions, name, fn, schema = '' } = {
     return class AdvancedProp extends React.PureComponent {
         constructor(props) {
             super(props);
-            this.onScroll = _.throttle(this.onScroll.bind(this), 400);
-
+            // TODO: add an option to input throttling/debouncing mechanism.
+            this.scroll = _.throttle(this.computeProperties.bind(this), 400);
+            this.resize = this.computeProperties.bind(this);
             // store subscriptions in state
             this.state = {
+                DOMNode: undefined,
                 scroll: undefined,
                 resize: undefined,
+                [name]: schema,
             };
         }
 
         /**
-         * Merge the old props with the return value of the comparator function
-         * Make sure to check the existence of this.DOMNode ensures that we don't call anything before componentDidMount
+         * This function does...
+         * 1. Computes properties according to the passed in function.
+         * 2. Does a comparison of the property values not the object reference.
+         * 3. Sets state and triggers an update if the values do not match
+         * 4. Uses setState as a function of state so that we take advantage of the asynchronous
+         *    and batched nature of setState.
+         *
+         * @param {object} nextProps this is props upon which to do comparisons. Defaults to this.props but can me manually defined for instance with nextProps in a lifecycle method.
          */
-        mergeSizes = () =>
-            this.DOMNode
-                ? { ...this.props.sizes, [name]: fn(this.props.sizes, this.DOMNode) }
-                : { ...this.props.sizes, [name]: schema };
+        computeProperties = (nextProps = this.props) => {
+            this.setState((state) => {
+                const nextSizes = state.DOMNode ? fn(nextProps.sizes, state.DOMNode) : schema;
+                return !__.equals(nextSizes, nextProps.sizes[name]) ? { [name]: nextSizes } : null;
+            });
+        };
 
-        onScroll = () => this.forceUpdate();
-        onResize = () => this.forceUpdate();
-
-        componentDidMount() {
-            this.DOMNode = ReactDOM.findDOMNode(this);
-        }
-
-        computeOnName = (name) => 'on' + name.slice(0, 1).toUpperCase() + name.slice(1);
+        /**
+         * Sets reference to DOMNode and stores it in component state
+         */
+        componentDidMount = () => this.setState({ DOMNode: ReactDOM.findDOMNode(this) });
 
         storeSubscriptionToState = (props, which) => {
             if (props.sizes[which] && !this.state[which] && subscriptions[which])
                 this.setState((state) => ({
-                    [which]: props.sizes[which].subscribe(this[this.computeOnName(which)]),
+                    [which]: props.sizes[which].subscribe(this[which]),
                 }));
         };
 
@@ -55,11 +63,7 @@ const createAdvancedPropInjector = ({ subscriptions, name, fn, schema = '' } = {
         componentWillReceiveProps(nextProps) {
             this.storeSubscriptionToState(nextProps, 'scroll');
             this.storeSubscriptionToState(nextProps, 'resize');
-            // if (nextProps.sizes.scroll && !this.state.scroll && subscriptions.scroll)
-            //     this.scroll = nextProps.sizes.scroll.subscribe(this.onScroll);
-
-            // if (nextProps.sizes.resize && !this.resize && subscriptions.resize)
-            //     this.resize = nextProps.sizes.resize.subscribe(this.onResize);
+            this.computeProperties(nextProps);
         }
 
         /**
@@ -71,7 +75,12 @@ const createAdvancedPropInjector = ({ subscriptions, name, fn, schema = '' } = {
         }
 
         render() {
-            return <Wrapped {...this.props} sizes={this.mergeSizes()} />;
+            return (
+                <Wrapped
+                    {...this.props}
+                    sizes={{ ...this.props.sizes, [name]: this.state[name] }}
+                />
+            );
         }
     };
 };
