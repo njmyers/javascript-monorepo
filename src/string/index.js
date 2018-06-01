@@ -1,5 +1,6 @@
 export { default as acceptStrings } from './accept-strings';
 export { default as camelToKebab } from './camel-to-kebab';
+export { default as camelToPascal } from './camel-to-pascal';
 export { default as camelToSentence } from './camel-to-sentence';
 export { default as camelToSnake } from './camel-to-snake';
 export { default as camelToTitle } from './camel-to-title';
