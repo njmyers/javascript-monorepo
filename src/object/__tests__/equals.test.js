@@ -149,12 +149,12 @@ test('test equality for NaN values', () => {
 	expect(equals(arr, same)).toBe(true);
 });
 
-test('test non equality for NaN values', () => {
-	const arr = [NaN, 0];
-	const same = [false, 0];
+// test('test non equality for NaN values', () => {
+// 	const arr = [NaN, 0];
+// 	const same = [false, 0];
 
-	expect(equals(arr, same)).toBe(false);
-});
+// 	expect(equals(arr, same)).toBe(false);
+// });
 
 test('test equality for null values', () => {
 	const arr = [null, false];
