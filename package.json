@@ -1,6 +1,6 @@
 {
 	"name": "smalldash",
-	"version": "1.0.9",
+	"version": "1.0.10",
 	"description": "collection of utilities available for import as individual functions for smaller packages sizes",
 	"main": "dist/module.js",
 	"scripts": {
