@@ -46,6 +46,13 @@ module.exports = {
             amd: 'lodash',
             umd: 'lodash',
         },
+        throttle: {
+            root: 'throttle',
+            commonjs2: 'lodash.throttle',
+            commonjs: 'lodash.throttle',
+            amd: 'lodash.throttle',
+            umd: 'lodash.throttle',
+        },
         smalldash: {
             root: '__',
             commonjs2: 'smalldash',
