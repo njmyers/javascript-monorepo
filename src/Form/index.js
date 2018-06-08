@@ -1,9 +1,9 @@
 import Input from './Input';
-import Select from './Select';
+// import Select from './Select';
 
 const Forms = {
   Input,
-  Select,
+  // Select,
 };
 
 export default Forms;

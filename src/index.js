@@ -1,4 +1,4 @@
-import Forms from './Forms';
+import Form from './Form';
 import Library from './Library';
 
-export { Library, Forms };
+export { Library, Form };
