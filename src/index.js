@@ -1,4 +1,3 @@
-import Form from './Form';
-import Library from './Library';
-
-export { Library, Form };
+export { default as StatusSwitch } from './StatusSwitch';
+export { default as BEM } from './BEM';
+export { default as Form } from './Form';

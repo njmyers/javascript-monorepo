@@ -1,9 +1,13 @@
 import Input from './Input';
-// import Select from './Select';
+import TextArea from './TextArea';
+import Select from './Select';
+import Submit from './Submit';
 
-const Forms = {
+const Form = {
   Input,
-  // Select,
+  TextArea,
+  Select,
+  Submit,
 };
 
-export default Forms;
+export default Form;

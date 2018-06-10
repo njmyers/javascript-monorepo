@@ -9,18 +9,18 @@ type Props = {
   required: boolean,
   block: string,
   modifiers?: string | Array<string> | void,
-  className?: string,
+  className: string,
+  classModifier?: string | Array<string> | void,
   focus: boolean,
   onChange?: Function,
   placeholder?: string,
   value: string | number,
-  autofocus: boolean,
 };
 
-class Input extends React.PureComponent<Props> {
+class TextArea extends React.PureComponent<Props> {
   static defaultProps = {
     type: 'text',
-    name: 'input',
+    name: 'text',
     required: false,
     block: 'formInput',
     focus: false,
@@ -28,7 +28,7 @@ class Input extends React.PureComponent<Props> {
   };
 
   // ref to this input
-  input: ?HTMLInputElement;
+  input: ?HTMLTextAreaElement;
   // label defaults to property name
   label = this.props.label ? this.props.label : this.props.name;
 
@@ -40,7 +40,7 @@ class Input extends React.PureComponent<Props> {
   render() {
     return (
       <BEM block={this.props.block}>
-        <div modifiers={this.props.modifiers} className={this.props.className}>
+        <div modifiers={this.props.modifiers}>
           <label
             element="label"
             htmlFor={this.props.name}
@@ -48,10 +48,9 @@ class Input extends React.PureComponent<Props> {
           >
             {this.label}
           </label>
-          <input
-            autofocus={this.props.autofocus}
+          <textarea
             ref={(node) => (this.input = node)}
-            element="input"
+            element="textArea"
             modifiers={this.props.modifiers}
             type={this.props.type}
             value={this.props.value}
@@ -66,4 +65,4 @@ class Input extends React.PureComponent<Props> {
   }
 }
 
-export default Input;
+export default TextArea;

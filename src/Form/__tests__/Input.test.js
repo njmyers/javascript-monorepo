@@ -40,23 +40,21 @@ describe('the input works', () => {
   });
 
   test('the input renders default classNames', () => {
-    const wrapper = shallow(<Input />);
+    const wrapper = mount(<Input />);
     expect(wrapper.find('div').props().className).toBe('formInput');
     expect(wrapper.find('label').props().className).toBe('formInput_label');
     expect(wrapper.find('input').props().className).toBe('formInput_input');
   });
 
   test('the input renders input classNames', () => {
-    const wrapper = shallow(<Input className="addressInput" />);
+    const wrapper = mount(<Input block="addressInput" />);
     expect(wrapper.find('div').props().className).toBe('addressInput');
     expect(wrapper.find('label').props().className).toBe('addressInput_label');
     expect(wrapper.find('input').props().className).toBe('addressInput_input');
   });
 
   test('the input renders adds modifier classNames', () => {
-    const wrapper = shallow(
-      <Input className="addressInput" classModifier="active" />
-    );
+    const wrapper = mount(<Input block="addressInput" modifiers="active" />);
     expect(wrapper.find('div').props().className).toBe(
       'addressInput addressInput-active'
     );
@@ -69,8 +67,8 @@ describe('the input works', () => {
   });
 
   test('the input renders adds multiple modifier classNames', () => {
-    const wrapper = shallow(
-      <Input className="addressInput" classModifier={['active', 'red']} />
+    const wrapper = mount(
+      <Input block="addressInput" modifiers={['active', 'red']} />
     );
     expect(wrapper.find('div').props().className).toBe(
       'addressInput addressInput-active addressInput-red'
