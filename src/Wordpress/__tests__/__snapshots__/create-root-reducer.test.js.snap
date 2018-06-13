@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`createRootReducer function the root reducer creates a store 1`] = `
+Object {
+  "posts": Object {
+    "data": Array [],
+    "fetchedPages": Array [],
+    "filter": "",
+    "loadedAt": "",
+    "status": "blank",
+    "totalPages": "",
+  },
+}
+`;
+
+exports[`createRootReducer function the root reducer creates a store with multiple post types 1`] = `
+Object {
+  "categories": Object {
+    "data": Array [],
+    "fetchedPages": Array [],
+    "filter": "",
+    "loadedAt": "",
+    "status": "blank",
+    "totalPages": "",
+  },
+  "posts": Object {
+    "data": Array [],
+    "fetchedPages": Array [],
+    "filter": "",
+    "loadedAt": "",
+    "status": "blank",
+    "totalPages": "",
+  },
+}
+`;

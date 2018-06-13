@@ -72,7 +72,6 @@ class BEM extends React.PureComponent<Props> {
 
   render() {
     return Children.deepMap(this.props.children, (element: React.Node) => {
-      console.log('deep mapping');
       return React.isValidElement(element)
         ? typeof element.type !== 'function'
           ? React.cloneElement(element, this.mergeClassNames(element.props))

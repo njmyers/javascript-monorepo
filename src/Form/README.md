@@ -1,8 +1,8 @@
-# Form Components
+## Form Components
 
 A selection of React form components. Meant to assist in adding labels and making accessibility automatic. Also helps in generating css classes and modifiers.
 
-## Input
+### Input
 
 ```js
 import React from 'react';

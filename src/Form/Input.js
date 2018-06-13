@@ -14,7 +14,6 @@ type Props = {
   onChange?: Function,
   placeholder?: string,
   value: string | number,
-  autofocus: boolean,
 };
 
 class Input extends React.PureComponent<Props> {
@@ -49,7 +48,6 @@ class Input extends React.PureComponent<Props> {
             {this.label}
           </label>
           <input
-            autofocus={this.props.autofocus}
             ref={(node) => (this.input = node)}
             element="input"
             modifiers={this.props.modifiers}

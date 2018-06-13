@@ -4,18 +4,27 @@
   "private": true,
   "main": "build/index.js",
   "dependencies": {
+    "axios": "^0.18.0",
+    "parse-link-header": "^1.0.1",
     "react": "^16.4.0",
     "react-children-utilities": "^1.0.1",
     "react-dom": "^16.4.0",
-    "react-scripts": "1.1.4"
+    "react-scripts": "1.1.4",
+    "redux": "^4.0.0",
+    "redux-observable": "^0.19.0",
+    "rxjs": "^6.2.0",
+    "smalldash": "^1.1.1"
   },
   "scripts": {
     "precommit": "lint-staged",
     "start": "react-scripts start",
+    "flow": "flow",
     "build": "webpack",
     "watch": "webpack --watch",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "storybook": "start-storybook -p 9009",
+    "build-storybook": "build-storybook"
   },
   "lint-staged": {
     "src/**/*.{js,jsx,json,md}": [
@@ -24,6 +33,11 @@
     ]
   },
   "devDependencies": {
+    "@storybook/addon-actions": "^3.4.7",
+    "@storybook/addon-links": "^3.4.7",
+    "@storybook/addon-options": "^3.4.7",
+    "@storybook/addons": "^3.4.7",
+    "@storybook/react": "^3.4.7",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.4",
@@ -34,6 +48,7 @@
     "babel-plugin-transform-react-jsx": "^6.24.1",
     "babel-preset-env": "^1.6.1",
     "babel-preset-flow": "^6.23.0",
+    "babel-runtime": "^6.26.0",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
     "husky": "^0.14.3",
