@@ -2,8 +2,8 @@ import { configure } from '@storybook/react';
 import { setOptions } from '@storybook/addon-options';
 
 setOptions({
-  name: 'React Size Components',
-  url: 'https://njmyers.github.io/react-size-components',
+  name: 'React Component Library',
+  url: 'https://njmyers.github.io/component-library',
   goFullScreen: false,
   showStoriesPanel: true,
   showAddonPanel: true,
