@@ -1,7 +1,7 @@
 // @flow
 import * as React from 'react';
-import Spinner from './Spinner';
-import ErrorMessage from './ErrorMessage';
+import Loading from '../Loading';
+import ErrorMessage from '../ErrorMessage';
 
 type Props = {
   loading: React.ComponentType<{}>,
@@ -13,7 +13,7 @@ type Props = {
 class StatusSwitch extends React.Component<Props> {
   static defaultProps = {
     error: ErrorMessage,
-    loading: Spinner,
+    loading: Loading,
     status: 'initial',
     children: null,
   };

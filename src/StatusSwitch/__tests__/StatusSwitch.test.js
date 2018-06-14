@@ -1,7 +1,7 @@
 import React from 'react';
 import StatusSwitch from '../StatusSwitch';
-import ErrorMessage from '../ErrorMessage';
-import Spinner from '../Spinner';
+import ErrorMessage from '../../ErrorMessage';
+import Loading from '../../Loading';
 
 import renderer from 'react-test-renderer';
 
@@ -11,7 +11,7 @@ const Child = (props) => <p>This is some test material.</p>;
 const nullTree = renderer.create(<Null />).toJSON();
 const childTree = renderer.create(<Child />).toJSON();
 const errorTree = renderer.create(<ErrorMessage />).toJSON();
-const spinnerTree = renderer.create(<Spinner />).toJSON();
+const loadingTree = renderer.create(<Loading />).toJSON();
 
 describe('the status switch works', () => {
   test('it renders without crashing', () => {
@@ -68,7 +68,7 @@ describe('the status switch works', () => {
       </StatusSwitch>
     );
     const tree = component.toJSON();
-    expect(tree).toMatchObject(spinnerTree);
+    expect(tree).toMatchObject(loadingTree);
   });
 
   test('it renders default spinner correctly when adding inline render prop for error', () => {
@@ -118,7 +118,7 @@ describe('the status switch works', () => {
     expect(component.toJSON()).toMatchObject(childTree);
     // set state directly to loading
     component.root.instance.setState({ status: 'loading' });
-    expect(component.toJSON()).toMatchObject(spinnerTree);
+    expect(component.toJSON()).toMatchObject(loadingTree);
     // set state directly to error
     component.root.instance.setState({ status: 'error' });
     expect(component.toJSON()).toMatchObject(errorTree);
@@ -134,7 +134,7 @@ describe('the status switch works', () => {
       </StatusSwitch>
     );
     const tree = component.toJSON();
-    expect(tree).toMatchObject(spinnerTree);
+    expect(tree).toMatchObject(loadingTree);
   });
 
   test('it renders error state override when using array of status', () => {
