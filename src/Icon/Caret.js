@@ -1,20 +1,65 @@
 // @flow
 import * as React from 'react';
 
+type Direction = 'up' | 'down' | 'left' | 'right';
+
 type Props = {
-  fill: string | number,
+  color: string,
+  thickness: number,
+  direction: Direction,
   radius: number,
 };
 
-const Arrow = ({ fill, radius }: Props) => (
-  <svg height="100%" width="100%">
-    <circle cx="50%" cy="50%" r={`${radius}%`} fill={fill} />
+/**
+ * Transforms a direction string into a rotation in degrees
+ * @param  {string} direction direction description
+ * @return {number}           rotation in degrees
+ */
+const rotation = (direction: Direction) => {
+  switch (direction) {
+    case 'up':
+    default:
+      return 0;
+    case 'right':
+      return 90;
+    case 'down':
+      return 180;
+    case 'left':
+      return 270;
+  }
+};
+
+const Caret = ({ color, thickness, direction, radius }: Props) => (
+  // Could've done this much simpler with a rotated square?
+  <svg height="100%" width="100%" transform={`rotate(${rotation(direction)})`}>
+    <rect
+      x={`${50}%`}
+      y={`${0}%`}
+      width={`${Math.sqrt(2) * 50}%`}
+      height={`${thickness}%`}
+      rx={radius}
+      ry={radius}
+      fill={color}
+      transform="rotate(45 50 0)"
+    />
+    <rect
+      x={`${50}%`}
+      y={`${0 - thickness}%`}
+      width={`${Math.sqrt(2) * 50}%`}
+      height={`${thickness}%`}
+      rx={radius}
+      ry={radius}
+      fill={color}
+      transform="rotate(135 50 0)"
+    />
   </svg>
 );
 
-Arrow.defaultProps = {
-  fill: '#000000',
-  radius: 48,
+Caret.defaultProps = {
+  color: '#000000',
+  thickness: 15,
+  direction: 'up',
+  radius: 4,
 };
 
-export default Arrow;
+export default Caret;
