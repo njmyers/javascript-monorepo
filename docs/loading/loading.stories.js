@@ -1,7 +1,6 @@
 import React, { Fragment } from 'react';
 
 import { storiesOf } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
 // import { linkTo } from '@storybook/addon-links';
 // import withReadme from 'storybook-readme/with-readme';
 // import withDocs from '../with-docs';
@@ -11,8 +10,13 @@ import { action } from '@storybook/addon-actions';
 // import Parent from './Parent';
 // import Advanced from './Advanced';
 
-// import Wordpress from '../../src/Wordpress';
+import 'normalize.css';
 
-const Dud = () => null;
+import Loading from '../../src/Loading';
 
-storiesOf('1) Wordpress', module).add('wordpress', () => <Dud />);
+storiesOf('2) Loading', module).add('Demo', () => (
+  <Fragment>
+    <p>Some Text</p>
+    <Loading />
+  </Fragment>
+));
