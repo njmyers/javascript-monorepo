@@ -1,8 +1,110 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`tests for asynchronously loading a component it displays a loader while loading a component 1`] = `"loading"`;
+exports[`tests for asynchronously loading a component it displays a loader while loading a component 1`] = `
+<aside
+  style={
+    Object {
+      "alignItems": "center",
+      "background": "rgba(255, 255, 255, 0.8)",
+      "bottom": 0,
+      "display": "flex",
+      "height": "100%",
+      "justifyContent": "center",
+      "left": 0,
+      "position": "absolute",
+      "right": 0,
+      "top": 0,
+      "width": "100%",
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "alignItems": "center",
+        "display": "grid",
+        "gridGap": "1rem",
+        "gridTemplateColumns": "1fr 1fr 1fr",
+        "justifyContent": "center",
+      }
+    }
+  >
+    <div
+      style={
+        Object {
+          "height": "10px",
+          "opacity": 1,
+          "width": "10px",
+        }
+      }
+    >
+      <svg
+        height="100%"
+        width="100%"
+      >
+        <circle
+          cx="50%"
+          cy="50%"
+          fill="rgba(0, 0, 0, 1)"
+          r="48%"
+        />
+      </svg>
+    </div>
+    <div
+      style={
+        Object {
+          "height": "10px",
+          "opacity": 1,
+          "width": "10px",
+        }
+      }
+    >
+      <svg
+        height="100%"
+        width="100%"
+      >
+        <circle
+          cx="50%"
+          cy="50%"
+          fill="rgba(0, 0, 0, 1)"
+          r="48%"
+        />
+      </svg>
+    </div>
+    <div
+      style={
+        Object {
+          "height": "10px",
+          "opacity": 1,
+          "width": "10px",
+        }
+      }
+    >
+      <svg
+        height="100%"
+        width="100%"
+      >
+        <circle
+          cx="50%"
+          cy="50%"
+          fill="rgba(0, 0, 0, 1)"
+          r="48%"
+        />
+      </svg>
+    </div>
+  </div>
+</aside>
+`;
 
-exports[`tests for asynchronously loading a component it displays an error when imported file doesn't exist 1`] = `"error"`;
+exports[`tests for asynchronously loading a component it displays an error when imported file doesn't exist 1`] = `
+<p
+  className="error"
+>
+  There was a problem loading 
+  data
+  . Please try again.
+</p>
+`;
 
 exports[`tests for asynchronously loading a component it loads a component 1`] = `
 <p>

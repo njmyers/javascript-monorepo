@@ -1,8 +1,14 @@
 import React from 'react';
+import Loading from '../../Loading';
+import ErrorMessage from '../../ErrorMessage';
+
 import TestComponent from '../TestComponent';
 import loadComponent from '../loadComponent';
 
 import renderer from 'react-test-renderer';
+
+const loadingTree = renderer.create(<Loading />).toJSON();
+const errorTree = renderer.create(<ErrorMessage />).toJSON();
 
 const timeout = (time = 500) =>
   new Promise((res, rej) => {
@@ -11,23 +17,19 @@ const timeout = (time = 500) =>
 
 describe('tests for asynchronously loading a component', () => {
   test('it displays a loader while loading a component', () => {
-    const Loading = () => 'loading';
     const LoadedTest = loadComponent(() => import('../TestComponent'));
     const loadedComponent = renderer.create(<LoadedTest />);
-    const component = renderer.create(<Loading />);
 
-    expect(loadedComponent.toJSON()).toBe(component.toJSON());
+    expect(loadedComponent.toJSON()).toMatchObject(loadingTree);
     expect(loadedComponent.toJSON()).toMatchSnapshot();
   });
 
   test("it displays an error when imported file doesn't exist", () => {
-    const ErrorComponent = () => 'error';
     const LoadedTest = loadComponent(() => import('../NotExist'));
     const loadedComponent = renderer.create(<LoadedTest />);
-    const component = renderer.create(<ErrorComponent />);
 
     return timeout(100).then(() => {
-      expect(loadedComponent.toJSON()).toBe(component.toJSON());
+      expect(loadedComponent.toJSON()).toMatchObject(errorTree);
       expect(loadedComponent.toJSON()).toMatchSnapshot();
     });
   });

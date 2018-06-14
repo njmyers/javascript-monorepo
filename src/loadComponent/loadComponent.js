@@ -1,9 +1,10 @@
 // @flow
 import * as React from 'react';
+import StatusSwitch from '../StatusSwitch';
 
 type Props = {
-  loading: React.ComponentType<{}>,
-  error: React.ComponentType<{}>,
+  loading?: React.ComponentType<{}>,
+  error?: React.ComponentType<{}>,
 };
 
 type State = {
@@ -21,10 +22,7 @@ type Module = {
  */
 function loadComponent(importComponent: () => Promise<Module>, options: Props) {
   class AsyncComponent extends React.Component<Props, State> {
-    static defaultProps = {
-      error: () => 'error',
-      loading: () => 'loading',
-    };
+    static defaultProps = {};
 
     state = {
       status: 'loading',
@@ -47,24 +45,20 @@ function loadComponent(importComponent: () => Promise<Module>, options: Props) {
 
     render() {
       const Wrapped: React.ComponentType<{}> = this.state.component;
-      const ErrorComponent = this.props.error;
-      const Loading = this.props.loading;
-
-      switch (this.state.status) {
-        case 'error':
-          return <ErrorComponent />;
-        default:
-        case 'loading':
-          return <Loading />;
-        case 'resolved':
-          return <Wrapped {...this.props} />;
-      }
+      return (
+        <StatusSwitch
+          loading={this.props.loading}
+          error={this.props.error}
+          status={this.state.status}
+        >
+          <Wrapped {...this.props} />
+        </StatusSwitch>
+      );
     }
   }
 
   // overwrite fallback components with options object
   AsyncComponent.defaultProps = {
-    ...AsyncComponent.defaultProps,
     ...options,
   };
 
