@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`tests for asynchronously loading a component it displays a loader while loading a component 1`] = `"loading"`;
+
+exports[`tests for asynchronously loading a component it displays an error when imported file doesn't exist 1`] = `"error"`;
+
+exports[`tests for asynchronously loading a component it loads a component 1`] = `
+<p>
+  Test Component
+</p>
+`;
+
+exports[`tests for asynchronously loading a component it overwrites custom loader 1`] = `"some loading thing"`;
+
+exports[`tests for asynchronously loading a component it passes props 1`] = `
+<p>
+  value
+</p>
+`;
