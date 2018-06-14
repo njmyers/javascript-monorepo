@@ -1,0 +1,108 @@
+// @flow
+import * as React from 'react';
+import Modal from '../Modal';
+import { Circle } from '../Icons';
+
+type Props = {
+  color: string,
+  style: {},
+  frameRate: number,
+  step: number,
+};
+
+type State = {
+  one: number,
+  two: number,
+  three: number,
+  interval: IntervalID | null,
+};
+
+class Loading extends React.PureComponent<Props, State> {
+  static defaultProps = {
+    color: 'rgba(0, 0, 0, 1)',
+    style: {
+      width: '10px',
+      height: '10px',
+    },
+    frameRate: 10,
+    step: 2,
+  };
+
+  state = {
+    one: 100,
+    two: 100,
+    three: 100,
+    interval: null,
+  };
+
+  containerStyle = {
+    display: 'grid',
+    gridTemplateColumns: '1fr 1fr 1fr',
+    gridGap: '1rem',
+    justifyContent: 'center',
+    alignItems: 'center',
+  };
+
+  componentDidMount() {
+    this.start();
+  }
+
+  componentWillUnmount() {
+    this.stop();
+  }
+
+  reset = ({ one, two, three }: State) => {
+    if (one >= 100 && two >= 100 && three >= 100) {
+      this.stop();
+      setTimeout(this.start, this.props.frameRate * 100);
+      return { one: 0, two: 0, three: 0 };
+    } else {
+      return null;
+    }
+  };
+
+  count = ({ one, two, three }: State) => ({
+    one: one < 100 ? one + this.props.step : one,
+    two: one >= 100 ? two + this.props.step : two,
+    three: two >= 100 ? three + this.props.step : three,
+  });
+
+  frame = () => {
+    this.setState(this.count);
+    this.setState(this.reset);
+  };
+
+  start = () => {
+    this.setState({
+      interval: setInterval(this.frame, this.props.frameRate),
+    });
+  };
+
+  stop = () => {
+    if (this.state.interval) clearInterval(this.state.interval);
+    this.setState({
+      interval: null,
+    });
+  };
+
+  computeStyle = (num: number) => ({ ...this.props.style, opacity: num / 100 });
+
+  render() {
+    return (
+      <Modal>
+        <div style={this.containerStyle}>
+          <div style={this.computeStyle(this.state.one)}>
+            <Circle fill={this.props.color} />
+          </div>
+          <div style={this.computeStyle(this.state.two)}>
+            <Circle fill={this.props.color} />
+          </div>
+          <div style={this.computeStyle(this.state.three)}>
+            <Circle fill={this.props.color} />
+          </div>
+        </div>
+      </Modal>
+    );
+  }
+}
+export default Loading;
