@@ -18,26 +18,26 @@
   "scripts": {
     "precommit": "lint-staged",
     "start": "react-scripts start",
-    "flow": "flow",
+    "readme": "node scripts/readme.js",
     "build": "webpack",
     "watch": "webpack --watch",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 9009",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "prettier": "prettier --write src/**/*.{test.js,js,jsx,json,md}"
   },
   "lint-staged": {
-    "src/**/*.{js,jsx,json,md}": [
-      "prettier --write",
-      "git add"
-    ]
+    "src/**/*.{js,jsx,json,md}": ["prettier --write", "git add"]
   },
   "devDependencies": {
+    "normalize.css": "^8.0.0",
     "@storybook/addon-actions": "^3.4.7",
     "@storybook/addon-links": "^3.4.7",
     "@storybook/addon-options": "^3.4.7",
     "@storybook/addons": "^3.4.7",
     "@storybook/react": "^3.4.7",
+    "storybook-readme": "^3.3.0",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.4",
