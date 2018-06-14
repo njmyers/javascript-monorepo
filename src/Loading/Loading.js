@@ -1,7 +1,9 @@
 // @flow
 import * as React from 'react';
 import Modal from '../Modal';
-import { Circle } from '../Icons';
+import Icon from '../Icon';
+
+const Circle = Icon.Circle;
 
 type Props = {
   color: string,
@@ -51,15 +53,10 @@ class Loading extends React.PureComponent<Props, State> {
     this.stop();
   }
 
-  reset = ({ one, two, three }: State) => {
-    if (one >= 100 && two >= 100 && three >= 100) {
-      this.stop();
-      setTimeout(this.start, this.props.frameRate * 100);
-      return { one: 0, two: 0, three: 0 };
-    } else {
-      return null;
-    }
-  };
+  reset = ({ one, two, three }: State) =>
+    one >= 100 && two >= 100 && three >= 100
+      ? { one: 0, two: 0, three: 0 }
+      : null;
 
   count = ({ one, two, three }: State) => ({
     one: one < 100 ? one + this.props.step : one,
@@ -92,17 +89,18 @@ class Loading extends React.PureComponent<Props, State> {
       <Modal>
         <div style={this.containerStyle}>
           <div style={this.computeStyle(this.state.one)}>
-            <Circle fill={this.props.color} />
+            <Circle color={this.props.color} />
           </div>
           <div style={this.computeStyle(this.state.two)}>
-            <Circle fill={this.props.color} />
+            <Circle color={this.props.color} />
           </div>
           <div style={this.computeStyle(this.state.three)}>
-            <Circle fill={this.props.color} />
+            <Circle color={this.props.color} />
           </div>
         </div>
       </Modal>
     );
   }
 }
+
 export default Loading;
