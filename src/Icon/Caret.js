@@ -29,6 +29,13 @@ const rotation = (direction: Direction) => {
   }
 };
 
+/**
+ * Caret icon component using svg
+ * @param {string} color     color of the icon
+ * @param {number} thickness the thickness of the icon as a percentage
+ * @param {string} direction the direction of the icon
+ * @param {number} radius    the radius for the rounded corners
+ */
 const Caret = ({ color, thickness, direction, radius }: Props) => (
   // Could've done this much simpler with a rotated square?
   <svg height="100%" width="100%" transform={`rotate(${rotation(direction)})`}>

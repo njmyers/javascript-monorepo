@@ -7,6 +7,9 @@ import Cross from './Cross';
 import Caret from './Caret';
 import Ring from './Ring';
 import RingSlash from './RingSlash';
+import Plus from './Plus';
+import Minus from './Minus';
+import Bag from './Bag';
 
 function configure(newProps: {}) {
   const Copy = {};
@@ -31,6 +34,9 @@ const Icons = {
   Caret,
   Ring,
   RingSlash,
+  Plus,
+  Minus,
+  Bag,
   configure,
 };
 
