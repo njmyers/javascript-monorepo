@@ -42,13 +42,12 @@ const iconStories = storiesOf('4) Icons', module)
   .addDecorator(withReadme(readme))
   .addDecorator(withDocs(readme));
 
-Object.entries(Icon).forEach((icon) => {
-  const name = icon[0];
-  const Icon = icon[1];
+Object.keys(Icon).forEach((name) => {
+  const Display = Icon[name];
 
   iconStories.add(name, () => (
     <Box name={name}>
-      <Icon />
+      <Display />
     </Box>
   ));
 });
