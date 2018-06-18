@@ -1,5 +1,5 @@
 {
-  "name": "@njmyers/component-library",
+  "name": "njmyers-component-library",
   "version": "0.1.0",
   "main": "build/index.js",
   "repository": "njmyers/component-library",
