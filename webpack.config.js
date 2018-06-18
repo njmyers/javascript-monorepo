@@ -46,5 +46,12 @@ module.exports = {
       amd: 'react-children-utilities',
       umd: 'react-children-utilities',
     },
+    'react-size-components': {
+      root: 'withSize',
+      commonjs2: 'react-size-components',
+      commonjs: 'react-size-components',
+      amd: 'react-size-components',
+      umd: 'react-size-components',
+    },
   },
 };
