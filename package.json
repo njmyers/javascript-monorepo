@@ -1,5 +1,5 @@
 {
-  "name": "njmyers-component-library",
+  "name": "@njmyers/component-library",
   "version": "0.1.0",
   "private": true,
   "main": "build/index.js",
@@ -29,10 +29,7 @@
     "prettier": "prettier --write src/**/*.{test.js,js,jsx,json,md}"
   },
   "lint-staged": {
-    "src/**/*.{js,jsx,json,md}": [
-      "prettier --write",
-      "git add"
-    ]
+    "src/**/*.{js,jsx,json,md}": ["prettier --write", "git add"]
   },
   "devDependencies": {
     "@storybook/addon-actions": "^3.4.7",
