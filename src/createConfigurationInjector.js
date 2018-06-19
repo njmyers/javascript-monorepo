@@ -71,14 +71,14 @@ const createConfigurationInjector = (configurations) => (Wrapped) => {
      * Sets reference to DOMNode and stores it in component state
      * Schedules listeners
      */
-    componentDidMount = () => {
+    componentDidMount() {
       // store DOM
       this.setState({ DOMNode: ReactDOM.findDOMNode(this) });
       // schedule listeners
       this.scheduleSubscriptions();
       // first call
       this.computeProperties();
-    };
+    }
 
     /**
      * Unsubscribe from all window listener if it has been set up
