@@ -16,11 +16,14 @@
     "smalldash": "^1.1.1"
   },
   "scripts": {
+    "prepublishOnly": "yarn run build",
     "precommit": "lint-staged",
     "start": "yarn run storybook",
     "readme": "node scripts/readme.js",
     "build": "webpack",
     "watch": "webpack --watch",
+    "patch-release":
+      "npm version patch && npm publish && git push --follow-tags",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 9009",
