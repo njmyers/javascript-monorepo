@@ -25,7 +25,7 @@ To add RSC to your project, run one of the following commands in your project ro
 Now you can use the package in your project.
 
 ```js
-const Size = require('react-size-components');
+const withSize = require('react-size-components');
 /// or
 import withSize from 'react-size-components';
 ```
