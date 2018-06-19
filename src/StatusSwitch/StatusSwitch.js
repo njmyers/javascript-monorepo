@@ -6,7 +6,7 @@ import ErrorMessage from '../ErrorMessage';
 type Props = {
   loading: React.ComponentType<{}>,
   error: React.ComponentType<{}>,
-  status: string,
+  status: string | Array<string>,
   children?: React.Node,
 };
 
