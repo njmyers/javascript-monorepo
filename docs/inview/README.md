@@ -15,18 +15,19 @@ import React from 'react';
 import Size from 'react-size-components';
 
 const Child = ({ sizes, id = 'undefined' } = {}) => {
-    return (
-        <React.Fragment>
-            <h2>Child Component</h2>
-            <li>My id is: {id}</li>
-            <li>I am in view: {sizes.inView.toString()}</li>
-            <p>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Qui accusamus sapiente
-                quasi, dolores porro libero dolore perspiciatis itaque! Esse tempora reiciendis,
-                voluptates non perferendis ab quasi doloremque dolorum consectetur dolor.
-            </p>
-        </React.Fragment>
-    );
+  return (
+    <React.Fragment>
+      <h2>Child Component</h2>
+      <li>My id is: {id}</li>
+      <li>I am in view: {sizes.inView.toString()}</li>
+      <p>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Qui accusamus
+        sapiente quasi, dolores porro libero dolore perspiciatis itaque! Esse
+        tempora reiciendis, voluptates non perferendis ab quasi doloremque
+        dolorum consectetur dolor.
+      </p>
+    </React.Fragment>
+  );
 };
 
 export default Size({ inView: true })(Child);
@@ -42,40 +43,40 @@ import Child from './Child';
 import { uniq } from 'smalldash';
 
 class MultipleChildren extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            sizes: [],
-        };
-    }
-
-    onView = (sizes) => {
-        this.state.sizes.forEach((current) => {
-            if (current.id === sizes.id) {
-                if (current.inView !== sizes.inView) {
-                    this.props.action({ id: sizes.id, inView: sizes.inView });
-                }
-            }
-        });
-
-        this.setState({
-            sizes: uniq([sizes, ...this.state.sizes], (obj) => obj.id),
-        });
+  constructor(props) {
+    super(props);
+    this.state = {
+      sizes: [],
     };
+  }
 
-    render() {
-        return (
-            <React.Fragment>
-                <Child onSize={this.onView} id="1" />
-                <Child onSize={this.onView} id="2" />
-                <Child onSize={this.onView} id="3" />
-                <Child onSize={this.onView} id="4" />
-                <Child onSize={this.onView} id="5" />
-                <Child onSize={this.onView} id="6" />
-                <Child onSize={this.onView} id="7" />
-            </React.Fragment>
-        );
-    }
+  onView = (sizes) => {
+    this.state.sizes.forEach((current) => {
+      if (current.id === sizes.id) {
+        if (current.inView !== sizes.inView) {
+          this.props.action({ id: sizes.id, inView: sizes.inView });
+        }
+      }
+    });
+
+    this.setState({
+      sizes: uniq([sizes, ...this.state.sizes], (obj) => obj.id),
+    });
+  };
+
+  render() {
+    return (
+      <React.Fragment>
+        <Child onSize={this.onView} id="1" />
+        <Child onSize={this.onView} id="2" />
+        <Child onSize={this.onView} id="3" />
+        <Child onSize={this.onView} id="4" />
+        <Child onSize={this.onView} id="5" />
+        <Child onSize={this.onView} id="6" />
+        <Child onSize={this.onView} id="7" />
+      </React.Fragment>
+    );
+  }
 }
 
 export default MultipleChildren;

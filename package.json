@@ -25,9 +25,12 @@
     "prestart-ssr": "npm run build-ssr",
     "start-ssr": "babel-node ssr/server.js",
     "publish-all": "run-s deploy-storybook build patch-release",
-    "doctoc": "doctoc README.md"
+    "doctoc": "doctoc README.md",
+    "prettier": "prettier --write '{src,ssr,docs}/**/*.{md,js,jsx,json}'"
   },
-  "lint-staged": {},
+  "lint-staged": {
+    "{src,ssr,docs}/**/*.{md,js,jsx,json}": ["prettier --write", "git add"]
+  },
   "peerDependencies": {
     "lodash": "^4.17.5",
     "react": "^16.2.0",

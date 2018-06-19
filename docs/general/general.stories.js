@@ -10,6 +10,6 @@ import readme from './README.md';
 import General from './General';
 
 storiesOf('1) Module Infomation', module)
-    .addDecorator(withReadme(readme))
-    .addDecorator(withDocs(readme))
-    .add('welcome', () => <General />);
+  .addDecorator(withReadme(readme))
+  .addDecorator(withDocs(readme))
+  .add('welcome', () => <General />);

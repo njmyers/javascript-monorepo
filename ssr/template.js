@@ -4,7 +4,7 @@
  * @param {string} body HTML string of content. This will be a pre-rendered string from react
  */
 const template = ({ title, body } = {}) =>
-    `<!DOCTYPE html>
+  `<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8"/>

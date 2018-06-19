@@ -1,33 +1,33 @@
 // @flow
 
 type SubscriptionPublisher = {
-    subscribe: () => { unsubscribe: () => boolean },
-    publish: () => void,
+  subscribe: () => { unsubscribe: () => boolean },
+  publish: () => void,
 };
 
 /**
  * Basic subscription publish function. Returns an object with subscribe and publish functions.
  */
 export const SubPub = (): SubscriptionPublisher => {
-    const subscribers = {};
+  const subscribers = {};
 
-    const createKey = () => {
-        return Math.random()
-            .toString(16)
-            .slice(-8);
-    };
+  const createKey = () => {
+    return Math.random()
+      .toString(16)
+      .slice(-8);
+  };
 
-    return Object.seal({
-        subscribe: (subscriber) => {
-            const key = createKey();
-            subscribers[key] = subscriber;
-            return { unsubscribe: () => delete subscribers[key] };
-        },
+  return Object.seal({
+    subscribe: (subscriber) => {
+      const key = createKey();
+      subscribers[key] = subscriber;
+      return { unsubscribe: () => delete subscribers[key] };
+    },
 
-        publish: () => {
-            Object.keys(subscribers).map((key) => subscribers[key]());
-        },
-    });
+    publish: () => {
+      Object.keys(subscribers).map((key) => subscribers[key]());
+    },
+  });
 };
 
 /**
@@ -35,19 +35,19 @@ export const SubPub = (): SubscriptionPublisher => {
  * @param {string} eventType
  */
 export const createListener = (eventType) => {
-    const listener = new SubPub();
-    let working = false;
+  const listener = new SubPub();
+  let working = false;
 
-    window.addEventListener(eventType, (e) => {
-        if (!working) {
-            working = true;
-            window.requestAnimationFrame(listener.publish);
-            working = false;
-            // setTimeout(() => (working = false), 66);
-        }
-    });
+  window.addEventListener(eventType, (e) => {
+    if (!working) {
+      working = true;
+      window.requestAnimationFrame(listener.publish);
+      working = false;
+      // setTimeout(() => (working = false), 66);
+    }
+  });
 
-    return Object.seal({ subscribe: listener.subscribe });
+  return Object.seal({ subscribe: listener.subscribe });
 };
 
 /**
@@ -58,8 +58,8 @@ export const createListener = (eventType) => {
  * @param {string} eventType which window event to create a listener for
  */
 export const windowEventCache = (listeners = {}) => (eventType) => {
-    if (!listeners[eventType]) listeners[eventType] = createListener(eventType);
-    return listeners[eventType];
+  if (!listeners[eventType]) listeners[eventType] = createListener(eventType);
+  return listeners[eventType];
 };
 
 export default windowEventCache();

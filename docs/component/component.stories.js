@@ -13,11 +13,15 @@ import ID from './ID';
 import Debounce from './Debounce';
 
 storiesOf('2) Component Size', module)
-    .addDecorator(withReadme(readme))
-    .addDecorator(withDocs(readme))
-    .add('component size', () => <Child />)
-    .add('component size with parent callback', () => (
-        <Parent onSize={action('component size callback')} />
-    ))
-    .add('inject id into callback', () => <ID onSize={action('component size callback')} />)
-    .add('debounce callbacks', () => <Debounce onSize={action('component size callback')} />);
+  .addDecorator(withReadme(readme))
+  .addDecorator(withDocs(readme))
+  .add('component size', () => <Child />)
+  .add('component size with parent callback', () => (
+    <Parent onSize={action('component size callback')} />
+  ))
+  .add('inject id into callback', () => (
+    <ID onSize={action('component size callback')} />
+  ))
+  .add('debounce callbacks', () => (
+    <Debounce onSize={action('component size callback')} />
+  ));

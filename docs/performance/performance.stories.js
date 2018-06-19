@@ -12,11 +12,11 @@ import SlowParent from './SlowParent';
 import Test from './Test';
 
 storiesOf('8) Performance', module)
-    .addDecorator(withReadme(readme))
-    .addDecorator(withDocs(readme))
-    .add('lots of size aware components made with size', () => (
-        <Parent timeStamp={action('timestamp since for render cycle')} />
-    ))
-    .add('lots of size aware components manually with event listeners', () => (
-        <SlowParent timeStamp={action('timestamp since for render cycle')} />
-    ));
+  .addDecorator(withReadme(readme))
+  .addDecorator(withDocs(readme))
+  .add('lots of size aware components made with size', () => (
+    <Parent timeStamp={action('timestamp since for render cycle')} />
+  ))
+  .add('lots of size aware components manually with event listeners', () => (
+    <SlowParent timeStamp={action('timestamp since for render cycle')} />
+  ));

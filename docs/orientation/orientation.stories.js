@@ -11,9 +11,9 @@ import Child from './Child';
 import Parent from './Parent';
 
 storiesOf('5) Orientation Flag', module)
-    .addDecorator(withReadme(readme))
-    .addDecorator(withDocs(readme))
-    .add('child with orientation flag', () => <Child />)
-    .add('child with orientation flag and parent callback', () => (
-        <Parent onSize={action('orientation flag callback')} />
-    ));
+  .addDecorator(withReadme(readme))
+  .addDecorator(withDocs(readme))
+  .add('child with orientation flag', () => <Child />)
+  .add('child with orientation flag and parent callback', () => (
+    <Parent onSize={action('orientation flag callback')} />
+  ));

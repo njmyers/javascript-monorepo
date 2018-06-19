@@ -11,9 +11,11 @@ import Child from './Child';
 import MultipleChildren from './MultipleChildren';
 
 storiesOf('6) Position Aware', module)
-    .addDecorator(withReadme(readme))
-    .addDecorator(withDocs(readme))
-    .add('single position aware child', () => <Child />)
-    .add('list of position aware children', () => (
-        <MultipleChildren action={action('this component just changed in view state')} />
-    ));
+  .addDecorator(withReadme(readme))
+  .addDecorator(withDocs(readme))
+  .add('single position aware child', () => <Child />)
+  .add('list of position aware children', () => (
+    <MultipleChildren
+      action={action('this component just changed in view state')}
+    />
+  ));

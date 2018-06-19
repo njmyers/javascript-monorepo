@@ -13,14 +13,14 @@ server.use('/build', express.static(path.join(__dirname, 'build')));
 
 // Simple demo so no need for complex rendering. Simply render the the react page as a string and send it in the express response.
 server.get('/', (req, res) => {
-    res.send(
-        template({
-            title: 'Server Side Rendering Demo',
-            body: renderToString(<Page />),
-        })
-    );
+  res.send(
+    template({
+      title: 'Server Side Rendering Demo',
+      body: renderToString(<Page />),
+    })
+  );
 });
 
 server.listen(port, () => {
-    console.log(`SSR (Server Side Rendering) demo running on port ${port}`);
+  console.log(`SSR (Server Side Rendering) demo running on port ${port}`);
 });

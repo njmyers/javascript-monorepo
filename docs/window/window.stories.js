@@ -12,9 +12,9 @@ import Parent from './Parent';
 import ID from './ID';
 
 storiesOf('3) Window Size', module)
-    .addDecorator(withReadme(readme))
-    .addDecorator(withDocs(readme))
-    .add('window size', () => <Child />)
-    .add('window size with parent callback', () => (
-        <Parent onSize={action('window size callback')} />
-    ));
+  .addDecorator(withReadme(readme))
+  .addDecorator(withDocs(readme))
+  .add('window size', () => <Child />)
+  .add('window size with parent callback', () => (
+    <Parent onSize={action('window size callback')} />
+  ));

@@ -17,13 +17,13 @@ import React from 'react';
 import Size from 'react-size-components';
 
 const Child = ({ sizes } = {}) => {
-    return (
-        <React.Fragment>
-            <h2>Child Component</h2>
-            <li>Am I mobile: {sizes.mobile.toString()}</li>
-            <li>My breakpoint is: {sizes.breakpoint}</li>
-        </React.Fragment>
-    );
+  return (
+    <React.Fragment>
+      <h2>Child Component</h2>
+      <li>Am I mobile: {sizes.mobile.toString()}</li>
+      <li>My breakpoint is: {sizes.breakpoint}</li>
+    </React.Fragment>
+  );
 };
 
 export default Size({ mobile: true, breakpoint: 1000 })(Child);

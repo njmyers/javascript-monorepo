@@ -11,10 +11,10 @@ import Child, { Breakpoint } from './Child';
 import Parent from './Parent';
 
 storiesOf('4) Mobile Flag', module)
-    .addDecorator(withReadme(readme))
-    .addDecorator(withDocs(readme))
-    .add('mobile flag', () => <Child />)
-    .add('mobile flag and alternate breakpoint', () => <Breakpoint />)
-    .add('mobile flag with parent callback', () => (
-        <Parent onSize={action('mobile flag callback')} />
-    ));
+  .addDecorator(withReadme(readme))
+  .addDecorator(withDocs(readme))
+  .add('mobile flag', () => <Child />)
+  .add('mobile flag and alternate breakpoint', () => <Breakpoint />)
+  .add('mobile flag with parent callback', () => (
+    <Parent onSize={action('mobile flag callback')} />
+  ));

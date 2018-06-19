@@ -79,13 +79,13 @@ import React from 'react';
 import Size from 'react-size-components';
 
 const Child = ({ sizes } = {}) => {
-    return (
-        <React.Fragment>
-            <h2>Child Component</h2>
-            <li>My width is: {sizes.component.width}</li>
-            <li>My height is: {sizes.component.height}</li>
-        </React.Fragment>
-    );
+  return (
+    <React.Fragment>
+      <h2>Child Component</h2>
+      <li>My width is: {sizes.component.width}</li>
+      <li>My height is: {sizes.component.height}</li>
+    </React.Fragment>
+  );
 };
 
 export default Size({ component: true })(Child);
@@ -101,41 +101,41 @@ import React, { Component } from 'react';
 import Child from './Child';
 
 class Parent extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            called: 0,
-            sizes: [],
-        };
-    }
-
-    onSize = (sizes) => {
-        this.setState({
-            called: this.state.called + 1,
-            sizes: [...this.state.sizes, sizes],
-        });
-
-        this.props.onSize(sizes);
+  constructor(props) {
+    super(props);
+    this.state = {
+      called: 0,
+      sizes: [],
     };
+  }
 
-    render() {
-        return (
-            <div>
-                <h1>Parent Component</h1>
-                <li>I can do something cool with these callbacks...</li>
-                {this.state.sizes.map((size, index) => {
-                    return (
-                        <React.Fragment key={index}>
-                            <h3>Callback #{index + 1}</h3>
-                            <li>height: {size.component.height}</li>
-                            <li>width: {size.component.width}</li>
-                        </React.Fragment>
-                    );
-                })}
-                <Child onSize={this.onSize} />
-            </div>
-        );
-    }
+  onSize = (sizes) => {
+    this.setState({
+      called: this.state.called + 1,
+      sizes: [...this.state.sizes, sizes],
+    });
+
+    this.props.onSize(sizes);
+  };
+
+  render() {
+    return (
+      <div>
+        <h1>Parent Component</h1>
+        <li>I can do something cool with these callbacks...</li>
+        {this.state.sizes.map((size, index) => {
+          return (
+            <React.Fragment key={index}>
+              <h3>Callback #{index + 1}</h3>
+              <li>height: {size.component.height}</li>
+              <li>width: {size.component.width}</li>
+            </React.Fragment>
+          );
+        })}
+        <Child onSize={this.onSize} />
+      </div>
+    );
+  }
 }
 
 export default Parent;
@@ -219,15 +219,15 @@ import React from 'react';
 import Size from 'react-size-components';
 
 const Child = ({ sizes } = {}) => {
-    return (
-        <React.Fragment>
-            <h2>Child Component</h2>
-            <li>My window inner width is: {sizes.window.innerWidth}</li>
-            <li>My window inner height is: {sizes.window.innerHeight}</li>
-            <li>My window outer width is: {sizes.window.outerWidth}</li>
-            <li>My window outer height is: {sizes.window.outerHeight}</li>
-        </React.Fragment>
-    );
+  return (
+    <React.Fragment>
+      <h2>Child Component</h2>
+      <li>My window inner width is: {sizes.window.innerWidth}</li>
+      <li>My window inner height is: {sizes.window.innerHeight}</li>
+      <li>My window outer width is: {sizes.window.outerWidth}</li>
+      <li>My window outer height is: {sizes.window.outerHeight}</li>
+    </React.Fragment>
+  );
 };
 
 export default Size({ measureWindow: true })(Child);
@@ -243,43 +243,43 @@ import React, { Component } from 'react';
 import Child from './Child';
 
 class Parent extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            called: 0,
-            sizes: [],
-        };
-    }
-
-    onSize = (sizes) => {
-        this.setState({
-            called: this.state.called + 1,
-            sizes: [...this.state.sizes, sizes],
-        });
-
-        this.props.onSize(sizes);
+  constructor(props) {
+    super(props);
+    this.state = {
+      called: 0,
+      sizes: [],
     };
+  }
 
-    render() {
-        return (
-            <div>
-                <h1>Parent Component</h1>
-                <li>I can do something cool with these callbacks...</li>
-                {this.state.sizes.map((size, index) => {
-                    return (
-                        <React.Fragment key={index}>
-                            <h3>Callback #{index + 1}</h3>
-                            <li>My window inner width is: {size.window.innerWidth}</li>
-                            <li>My window inner height is: {size.window.innerHeight}</li>
-                            <li>My window outer width is: {size.window.outerWidth}</li>
-                            <li>My window outer height is: {size.window.outerHeight}</li>
-                        </React.Fragment>
-                    );
-                })}
-                <Child onSize={this.onSize} />
-            </div>
-        );
-    }
+  onSize = (sizes) => {
+    this.setState({
+      called: this.state.called + 1,
+      sizes: [...this.state.sizes, sizes],
+    });
+
+    this.props.onSize(sizes);
+  };
+
+  render() {
+    return (
+      <div>
+        <h1>Parent Component</h1>
+        <li>I can do something cool with these callbacks...</li>
+        {this.state.sizes.map((size, index) => {
+          return (
+            <React.Fragment key={index}>
+              <h3>Callback #{index + 1}</h3>
+              <li>My window inner width is: {size.window.innerWidth}</li>
+              <li>My window inner height is: {size.window.innerHeight}</li>
+              <li>My window outer width is: {size.window.outerWidth}</li>
+              <li>My window outer height is: {size.window.outerHeight}</li>
+            </React.Fragment>
+          );
+        })}
+        <Child onSize={this.onSize} />
+      </div>
+    );
+  }
 }
 
 export default Parent;
@@ -304,13 +304,13 @@ import React from 'react';
 import Size from 'react-size-components';
 
 const Child = ({ sizes } = {}) => {
-    return (
-        <React.Fragment>
-            <h2>Child Component</h2>
-            <li>Am I mobile: {sizes.mobile.toString()}</li>
-            <li>My breakpoint is: {sizes.breakpoint}</li>
-        </React.Fragment>
-    );
+  return (
+    <React.Fragment>
+      <h2>Child Component</h2>
+      <li>Am I mobile: {sizes.mobile.toString()}</li>
+      <li>My breakpoint is: {sizes.breakpoint}</li>
+    </React.Fragment>
+  );
 };
 
 export default Size({ mobile: true, breakpoint: 1000 })(Child);
@@ -335,12 +335,12 @@ import React from 'react';
 import Size from 'react-size-components';
 
 const Child = ({ sizes } = {}) => {
-    return (
-        <React.Fragment>
-            <h2>Child Component</h2>
-            <li>My orientation is: {sizes.orientation}</li>
-        </React.Fragment>
-    );
+  return (
+    <React.Fragment>
+      <h2>Child Component</h2>
+      <li>My orientation is: {sizes.orientation}</li>
+    </React.Fragment>
+  );
 };
 
 export default Size({ orientation: true })(Child);
@@ -363,18 +363,19 @@ import React from 'react';
 import Size from 'react-size-components';
 
 const Child = ({ sizes, id = 'undefined' } = {}) => {
-    return (
-        <React.Fragment>
-            <h2>Child Component</h2>
-            <li>My id is: {id}</li>
-            <li>I am in view: {sizes.inView.toString()}</li>
-            <p>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Qui accusamus sapiente
-                quasi, dolores porro libero dolore perspiciatis itaque! Esse tempora reiciendis,
-                voluptates non perferendis ab quasi doloremque dolorum consectetur dolor.
-            </p>
-        </React.Fragment>
-    );
+  return (
+    <React.Fragment>
+      <h2>Child Component</h2>
+      <li>My id is: {id}</li>
+      <li>I am in view: {sizes.inView.toString()}</li>
+      <p>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Qui accusamus
+        sapiente quasi, dolores porro libero dolore perspiciatis itaque! Esse
+        tempora reiciendis, voluptates non perferendis ab quasi doloremque
+        dolorum consectetur dolor.
+      </p>
+    </React.Fragment>
+  );
 };
 
 export default Size({ inView: true })(Child);
@@ -390,40 +391,40 @@ import Child from './Child';
 import { uniq } from 'smalldash';
 
 class MultipleChildren extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            sizes: [],
-        };
-    }
-
-    onView = (sizes) => {
-        this.state.sizes.forEach((current) => {
-            if (current.id === sizes.id) {
-                if (current.inView !== sizes.inView) {
-                    this.props.action({ id: sizes.id, inView: sizes.inView });
-                }
-            }
-        });
-
-        this.setState({
-            sizes: uniq([sizes, ...this.state.sizes], (obj) => obj.id),
-        });
+  constructor(props) {
+    super(props);
+    this.state = {
+      sizes: [],
     };
+  }
 
-    render() {
-        return (
-            <React.Fragment>
-                <Child onSize={this.onView} id="1" />
-                <Child onSize={this.onView} id="2" />
-                <Child onSize={this.onView} id="3" />
-                <Child onSize={this.onView} id="4" />
-                <Child onSize={this.onView} id="5" />
-                <Child onSize={this.onView} id="6" />
-                <Child onSize={this.onView} id="7" />
-            </React.Fragment>
-        );
-    }
+  onView = (sizes) => {
+    this.state.sizes.forEach((current) => {
+      if (current.id === sizes.id) {
+        if (current.inView !== sizes.inView) {
+          this.props.action({ id: sizes.id, inView: sizes.inView });
+        }
+      }
+    });
+
+    this.setState({
+      sizes: uniq([sizes, ...this.state.sizes], (obj) => obj.id),
+    });
+  };
+
+  render() {
+    return (
+      <React.Fragment>
+        <Child onSize={this.onView} id="1" />
+        <Child onSize={this.onView} id="2" />
+        <Child onSize={this.onView} id="3" />
+        <Child onSize={this.onView} id="4" />
+        <Child onSize={this.onView} id="5" />
+        <Child onSize={this.onView} id="6" />
+        <Child onSize={this.onView} id="7" />
+      </React.Fragment>
+    );
+  }
 }
 
 export default MultipleChildren;

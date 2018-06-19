@@ -12,10 +12,10 @@ import Parent from './Parent';
 import Advanced from './Advanced';
 
 storiesOf('7) Custom Flags', module)
-    .addDecorator(withReadme(readme))
-    .addDecorator(withDocs(readme))
-    .add('custom flags and props', () => <Child />)
-    .add('custom flags and props with onSize callback', () => (
-        <Parent onSize={action('custom flag callback')} />
-    ))
-    .add('advanced custom flags and subscriptions', () => <Advanced />);
+  .addDecorator(withReadme(readme))
+  .addDecorator(withDocs(readme))
+  .add('custom flags and props', () => <Child />)
+  .add('custom flags and props with onSize callback', () => (
+    <Parent onSize={action('custom flag callback')} />
+  ))
+  .add('advanced custom flags and subscriptions', () => <Advanced />);
