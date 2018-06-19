@@ -1,6 +1,6 @@
 {
   "name": "njmyers-component-library",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "main": "build/index.js",
   "repository": "njmyers/component-library",
   "dependencies": {
@@ -22,8 +22,7 @@
     "readme": "node scripts/readme.js",
     "build": "webpack",
     "watch": "webpack --watch",
-    "patch-release":
-      "npm version patch && npm publish && git push --follow-tags",
+    "patch-release": "npm version patch && npm publish && git push --follow-tags",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 9009",
@@ -31,7 +30,10 @@
     "prettier": "prettier --write src/**/*.{test.js,js,jsx,json,md}"
   },
   "lint-staged": {
-    "src/**/*.{js,jsx,json,md}": ["prettier --write", "git add"]
+    "src/**/*.{js,jsx,json,md}": [
+      "prettier --write",
+      "git add"
+    ]
   },
   "devDependencies": {
     "@storybook/addon-actions": "^3.4.7",
