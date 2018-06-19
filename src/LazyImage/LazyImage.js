@@ -86,33 +86,17 @@ class LazyImage extends React.Component<Props, State> {
     this.setState(this.resolved);
   };
 
-  placeholderStyle = () => {
-    return this.state === 'resolved'
-      ? {
-          ...this.props.style,
-          filter: 'blur(10px)',
-          opacity: 1,
-        }
-      : {
-          ...this.props.style,
-          filter: 'blur(10px)',
-          opacity: 1,
-        };
-  };
+  placeholderStyle = () => ({
+    ...this.props.style,
+    filter: 'blur(10px)',
+    opacity: 1,
+  });
 
-  imageStyle = () => {
-    return this.state === 'resolved'
-      ? {
-          ...this.props.style,
-          transition: '0.25s opacity',
-          opacity: 0,
-        }
-      : {
-          ...this.props.style,
-          transition: '0.25s opacity',
-          opacity: 1,
-        };
-  };
+  imageStyle = () => ({
+    ...this.props.style,
+    transition: '0.25s opacity',
+    opacity: this.state === 'resolved' ? 0 : 1,
+  });
 
   afterStyle = () => ({
     ...this.props.afterStyle,
@@ -131,13 +115,13 @@ class LazyImage extends React.Component<Props, State> {
           <div element="containerAfter" style={this.afterStyle()}>
             <img
               element="placeholder"
-              name="placeholder"
+              name={this.props.name}
               style={this.placeholderStyle()}
               ref={(element) => (this.placeholder = element)}
             />
             <img
               element="image"
-              name="image"
+              name={this.props.name}
               style={this.imageStyle()}
               ref={(element) => (this.image = element)}
             />
