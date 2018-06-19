@@ -63,7 +63,6 @@ class LazyImage extends React.Component<Props, State> {
 
   componentDidUpdate(prevProps) {
     if (this.state.status === 'initial') {
-      console.log(this.props.sizes);
       if (this.props.sizes.inView && !prevProps.sizes.inView) {
         this.loadImage(this.props.placeholder, this.placeholder);
         this.loadImage(this.props.src, this.image);

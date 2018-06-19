@@ -7954,9 +7954,9 @@ react-scripts@^1.1.4:
   optionalDependencies:
     fsevents "^1.1.3"
 
-react-size-components@^1.2.1:
-  version "1.2.1"
-  resolved "https://registry.yarnpkg.com/react-size-components/-/react-size-components-1.2.1.tgz#7dbba263e8b5d0589abb69a08488f4dae8ed6533"
+react-size-components@^1.3.0:
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/react-size-components/-/react-size-components-1.3.0.tgz#8275c644cfff79b0eb2c6085c9adc6a06421bb53"
   dependencies:
     lodash "^4.17.5"
     react "^16.2.0"
