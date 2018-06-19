@@ -1,8 +1,12 @@
-const orientation = {
-    name: 'orientation',
-    schema: 'landscape',
-    fn: (sizes) => (sizes.window.innerWidth > sizes.window.innerHeight ? 'landscape' : 'portrait'),
-    subscriptions: { resize: true },
+// @flow
+import type { Configuration } from './types';
+
+const orientation: Configuration = {
+  name: 'orientation',
+  schema: 'landscape',
+  fn: (node) =>
+    window.innerWidth > window.innerHeight ? 'landscape' : 'portrait',
+  subscriptions: { resize: true },
 };
 
 export default orientation;

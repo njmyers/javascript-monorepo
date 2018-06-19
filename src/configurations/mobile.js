@@ -1,10 +1,13 @@
-const createMobile = (breakpoint = 768) => ({
-    name: 'mobile',
-    schema: false,
-    fn: (sizes) => sizes.window.innerWidth < breakpoint,
-    subscriptions: {
-        resize: true,
-    },
+// @flow
+import type { Configuration } from './types';
+
+const createMobile = (breakpoint: number = 768): Configuration => ({
+  name: 'mobile',
+  schema: false,
+  fn: (node) => window.innerWidth < breakpoint,
+  subscriptions: {
+    resize: true,
+  },
 });
 
 export default createMobile;

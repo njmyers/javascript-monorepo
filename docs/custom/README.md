@@ -11,27 +11,33 @@ import React from 'react';
 import Size from 'react-size-components';
 
 const Child = ({ sizes } = {}) => {
-    return (
-        <React.Fragment>
-            <h2>Child Component</h2>
-            <li>My custom flag isBiggerThan1000 is: {sizes.isBiggerThan1000.toString()}</li>
-            <li>My custom flag isBiggerThan1200 is: {sizes.isBiggerThan1200.toString()}</li>
-        </React.Fragment>
-    );
+  return (
+    <React.Fragment>
+      <h2>Child Component</h2>
+      <li>
+        My custom flag isBiggerThan1000 is: {sizes.isBiggerThan1000.toString()}
+      </li>
+      <li>
+        My custom flag isBiggerThan1200 is: {sizes.isBiggerThan1200.toString()}
+      </li>
+    </React.Fragment>
+  );
 };
 
-const isBiggerThan1000 = (sizes) => (sizes.window ? sizes.window.innerWidth > 1000 : undefined);
-const isBiggerThan1200 = (sizes) => (sizes.window ? sizes.window.innerWidth > 1200 : undefined);
+const isBiggerThan1000 = (sizes) =>
+  sizes.window ? sizes.window.innerWidth > 1000 : undefined;
+const isBiggerThan1200 = (sizes) =>
+  sizes.window ? sizes.window.innerWidth > 1200 : undefined;
 
 const custom = [
-    {
-        name: 'isBiggerThan1000',
-        fn: isBiggerThan1000,
-    },
-    {
-        name: 'isBiggerThan1200',
-        fn: isBiggerThan1200,
-    },
+  {
+    name: 'isBiggerThan1000',
+    fn: isBiggerThan1000,
+  },
+  {
+    name: 'isBiggerThan1200',
+    fn: isBiggerThan1200,
+  },
 ];
 
 export default Size({ measureWindow: true, custom })(Child);
@@ -46,13 +52,14 @@ This will work. All custom props are also passed to the onSize callback.
 Please be aware that you must manually turn on whichever flags your comparison functions depend on. If you write a configuration like this it will not work.
 
 ```js
-const isBiggerThan1000 = (sizes) => (sizes.window ? sizes.window.innerWidth > 1000 : undefined);
+const isBiggerThan1000 = (sizes) =>
+  sizes.window ? sizes.window.innerWidth > 1000 : undefined;
 
 const custom = [
-    {
-        name: 'isBiggerThan1000',
-        fn: isBiggerThan1000,
-    },
+  {
+    name: 'isBiggerThan1000',
+    fn: isBiggerThan1000,
+  },
 ];
 
 // uh oh no window measuring has taken place :(
@@ -70,38 +77,38 @@ import React from 'react';
 import Size from 'react-size-components';
 
 const Advanced = ({ sizes } = {}) => {
-    return (
-        <React.Fragment>
-            <h2>Advanced Child Component</h2>
-            <li>My position from the top is: {sizes.position.top}</li>
-            <li>My position from the bottom is: {sizes.position.bottom}</li>
-        </React.Fragment>
-    );
+  return (
+    <React.Fragment>
+      <h2>Advanced Child Component</h2>
+      <li>My position from the top is: {sizes.position.top}</li>
+      <li>My position from the bottom is: {sizes.position.bottom}</li>
+    </React.Fragment>
+  );
 };
 
 const calculatePosition = (sizes, node) => {
-    const rect = node.getBoundingClientRect();
-    return {
-        top: Math.round(rect.top),
-        bottom: Math.round(rect.bottom),
-    };
+  const rect = node.getBoundingClientRect();
+  return {
+    top: Math.round(rect.top),
+    bottom: Math.round(rect.bottom),
+  };
 };
 
 const schema = {
-    top: 0,
-    bottom: 0,
+  top: 0,
+  bottom: 0,
 };
 
 const custom = [
-    {
-        name: 'position',
-        fn: calculatePosition,
-        subscriptions: {
-            resize: true,
-            scroll: true,
-        },
-        schema,
+  {
+    name: 'position',
+    fn: calculatePosition,
+    subscriptions: {
+      resize: true,
+      scroll: true,
     },
+    schema,
+  },
 ];
 
 export default Size({ custom })(Advanced);

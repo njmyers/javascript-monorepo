@@ -1,7 +1,14 @@
+// @flow
+
+type SubscriptionPublisher = {
+    subscribe: () => { unsubscribe: () => boolean },
+    publish: () => void,
+};
+
 /**
  * Basic subscription publish function. Returns an object with subscribe and publish functions.
  */
-export const SubPub = () => {
+export const SubPub = (): SubscriptionPublisher => {
     const subscribers = {};
 
     const createKey = () => {
