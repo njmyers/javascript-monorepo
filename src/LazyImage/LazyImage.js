@@ -8,11 +8,18 @@ type Props = {
   placeholder: string,
   sizes: {
     inView: boolean,
+    component: {
+      height: number,
+      width: number,
+    },
   },
   block: string,
   ratio: number,
   style: {},
   containerStyle: {},
+  afterStyle: {},
+  onClick?: Function,
+  name?: string,
 };
 
 type State = {
@@ -115,7 +122,12 @@ class LazyImage extends React.Component<Props, State> {
   render() {
     return (
       <BEM block={this.props.block}>
-        <div element="container" style={this.props.containerStyle}>
+        <div
+          element="container"
+          style={this.props.containerStyle}
+          name={this.props.name}
+          onClick={this.props.onClick}
+        >
           <div element="containerAfter" style={this.afterStyle()}>
             <img
               element="placeholder"
