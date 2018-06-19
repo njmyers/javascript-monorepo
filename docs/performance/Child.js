@@ -1,5 +1,5 @@
 import React from 'react';
-import Size from '../../src';
+import withSize from '../../src';
 
 const Child = ({ sizes } = {}) => {
   const style = {
@@ -19,4 +19,4 @@ const Child = ({ sizes } = {}) => {
   );
 };
 
-export default Size({ component: true })(Child);
+export default withSize({ component: true })(Child);

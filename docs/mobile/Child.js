@@ -1,5 +1,5 @@
 import React from 'react';
-import Size from '../../src';
+import withSize from '../../src';
 
 const Child = ({ sizes } = {}) => {
   return (
@@ -11,5 +11,5 @@ const Child = ({ sizes } = {}) => {
   );
 };
 
-export const Breakpoint = Size({ mobile: true, breakpoint: 1000 })(Child);
-export default Size({ mobile: true })(Child);
+export const Breakpoint = withSize({ mobile: true, breakpoint: 1000 })(Child);
+export default withSize({ mobile: true })(Child);

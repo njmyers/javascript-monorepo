@@ -1,5 +1,5 @@
 import React from 'react';
-import Size from '../../src';
+import withSize from '../../src';
 
 const Advanced = ({ sizes } = {}) => {
   return (
@@ -11,7 +11,7 @@ const Advanced = ({ sizes } = {}) => {
   );
 };
 
-const calculatePosition = (sizes, node) => {
+const calculatePosition = (node) => {
   const rect = node.getBoundingClientRect();
   return {
     top: Math.round(rect.top),
@@ -36,4 +36,4 @@ const custom = [
   },
 ];
 
-export default Size({ custom })(Advanced);
+export default withSize({ custom })(Advanced);

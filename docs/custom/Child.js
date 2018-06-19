@@ -1,5 +1,5 @@
 import React from 'react';
-import Size from '../../src';
+import withSize from '../../src';
 
 const Child = ({ sizes } = {}) => {
   console.log(sizes);
@@ -36,4 +36,4 @@ const custom = [
   },
 ];
 
-export default Size({ custom })(Child);
+export default withSize({ custom })(Child);

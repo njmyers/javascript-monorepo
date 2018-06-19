@@ -27,7 +27,7 @@ Now you can use the package in your project.
 ```js
 const Size = require('react-size-components');
 /// or
-import Size from 'react-size-components';
+import withSize from 'react-size-components';
 ```
 
 #### Note
@@ -76,7 +76,7 @@ Creating a size aware child component is the simplest usage of RSC. Call the Siz
 
 ```js
 import React from 'react';
-import Size from 'react-size-components';
+import withSize from 'react-size-components';
 
 const Child = ({ sizes } = {}) => {
   return (
@@ -88,7 +88,7 @@ const Child = ({ sizes } = {}) => {
   );
 };
 
-export default Size({ component: true })(Child);
+export default withSize({ component: true })(Child);
 ```
 
 ### Using as Parent
@@ -216,7 +216,7 @@ If you need a window aware component call the Size function with the configurati
 
 ```js
 import React from 'react';
-import Size from 'react-size-components';
+import withSize from 'react-size-components';
 
 const Child = ({ sizes } = {}) => {
   return (
@@ -230,7 +230,7 @@ const Child = ({ sizes } = {}) => {
   );
 };
 
-export default Size({ measureWindow: true })(Child);
+export default withSize({ measureWindow: true })(Child);
 ```
 
 ### Using as Parent
@@ -301,7 +301,7 @@ Breakpoint will default to 768 if unspecified.
 
 ```js
 import React from 'react';
-import Size from 'react-size-components';
+import withSize from 'react-size-components';
 
 const Child = ({ sizes } = {}) => {
   return (
@@ -313,7 +313,7 @@ const Child = ({ sizes } = {}) => {
   );
 };
 
-export default Size({ mobile: true, breakpoint: 1000 })(Child);
+export default withSize({ mobile: true, breakpoint: 1000 })(Child);
 ```
 
 ### Using as Parent
@@ -332,7 +332,7 @@ To use all you have to do is pass in the orientation boolean on the Size configu
 
 ```js
 import React from 'react';
-import Size from 'react-size-components';
+import withSize from 'react-size-components';
 
 const Child = ({ sizes } = {}) => {
   return (
@@ -343,7 +343,7 @@ const Child = ({ sizes } = {}) => {
   );
 };
 
-export default Size({ orientation: true })(Child);
+export default withSize({ orientation: true })(Child);
 ```
 
 ## InView Placement Aware Components
@@ -360,7 +360,7 @@ To access simply add the inView flag to the configuration object and inView will
 
 ```js
 import React from 'react';
-import Size from 'react-size-components';
+import withSize from 'react-size-components';
 
 const Child = ({ sizes, id = 'undefined' } = {}) => {
   return (
@@ -378,7 +378,7 @@ const Child = ({ sizes, id = 'undefined' } = {}) => {
   );
 };
 
-export default Size({ inView: true })(Child);
+export default withSize({ inView: true })(Child);
 ```
 
 ### Using in a List of Position Aware Children
@@ -440,7 +440,7 @@ We can also create custom flags based on comparison functions. Pass in an array 
 
 ```js
 import React from 'react';
-import Size from 'react-size-components';
+import withSize from 'react-size-components';
 
 const Child = ({ sizes } = {}) => {
   return (
@@ -472,7 +472,7 @@ const custom = [
   },
 ];
 
-export default Size({ measureWindow: true, custom })(Child);
+export default withSize({ measureWindow: true, custom })(Child);
 ```
 
 ### Using Custom with onSize Callback
@@ -495,7 +495,7 @@ const custom = [
 ];
 
 // uh oh no window measuring has taken place :(
-export default Size({ custom })(Child);
+export default withSize({ custom })(Child);
 ```
 
 ### Advanced Custom Flags
@@ -506,7 +506,7 @@ Advanced mode is turned on by adding a subscriptions object and/or a schema obje
 
 ```js
 import React from 'react';
-import Size from 'react-size-components';
+import withSize from 'react-size-components';
 
 const Advanced = ({ sizes } = {}) => {
   return (
@@ -518,7 +518,7 @@ const Advanced = ({ sizes } = {}) => {
   );
 };
 
-const calculatePosition = (sizes, node) => {
+const calculatePosition = (node) => {
   const rect = node.getBoundingClientRect();
   return {
     top: Math.round(rect.top),
@@ -543,7 +543,7 @@ const custom = [
   },
 ];
 
-export default Size({ custom })(Advanced);
+export default withSize({ custom })(Advanced);
 ```
 
 Now our component knows exactly where it is on the page!

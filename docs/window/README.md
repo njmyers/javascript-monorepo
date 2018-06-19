@@ -16,7 +16,7 @@ If you need a window aware component call the Size function with the configurati
 
 ```js
 import React from 'react';
-import Size from 'react-size-components';
+import withSize from 'react-size-components';
 
 const Child = ({ sizes } = {}) => {
   return (
@@ -30,7 +30,7 @@ const Child = ({ sizes } = {}) => {
   );
 };
 
-export default Size({ measureWindow: true })(Child);
+export default withSize({ measureWindow: true })(Child);
 ```
 
 ### Using as Parent

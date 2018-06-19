@@ -8,7 +8,7 @@ We can also create custom flags based on comparison functions. Pass in an array 
 
 ```js
 import React from 'react';
-import Size from 'react-size-components';
+import withSize from 'react-size-components';
 
 const Child = ({ sizes } = {}) => {
   return (
@@ -40,7 +40,7 @@ const custom = [
   },
 ];
 
-export default Size({ measureWindow: true, custom })(Child);
+export default withSize({ measureWindow: true, custom })(Child);
 ```
 
 ### Using Custom with onSize Callback
@@ -63,7 +63,7 @@ const custom = [
 ];
 
 // uh oh no window measuring has taken place :(
-export default Size({ custom })(Child);
+export default withSize({ custom })(Child);
 ```
 
 ### Advanced Custom Flags
@@ -74,7 +74,7 @@ Advanced mode is turned on by adding a subscriptions object and/or a schema obje
 
 ```js
 import React from 'react';
-import Size from 'react-size-components';
+import withSize from 'react-size-components';
 
 const Advanced = ({ sizes } = {}) => {
   return (
@@ -86,7 +86,7 @@ const Advanced = ({ sizes } = {}) => {
   );
 };
 
-const calculatePosition = (sizes, node) => {
+const calculatePosition = (node) => {
   const rect = node.getBoundingClientRect();
   return {
     top: Math.round(rect.top),
@@ -111,7 +111,7 @@ const custom = [
   },
 ];
 
-export default Size({ custom })(Advanced);
+export default withSize({ custom })(Advanced);
 ```
 
 Now our component knows exactly where it is on the page!

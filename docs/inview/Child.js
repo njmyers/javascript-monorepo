@@ -1,5 +1,5 @@
 import React from 'react';
-import Size from '../../src';
+import withSize from '../../src';
 
 const Child = ({ sizes, id = 'undefined' } = {}) => {
   return (
@@ -17,4 +17,4 @@ const Child = ({ sizes, id = 'undefined' } = {}) => {
   );
 };
 
-export default Size({ inView: true })(Child);
+export default withSize({ inView: true })(Child);

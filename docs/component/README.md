@@ -10,7 +10,7 @@ Creating a size aware child component is the simplest usage of RSC. Call the Siz
 
 ```js
 import React from 'react';
-import Size from 'react-size-components';
+import withSize from 'react-size-components';
 
 const Child = ({ sizes } = {}) => {
   return (
@@ -22,7 +22,7 @@ const Child = ({ sizes } = {}) => {
   );
 };
 
-export default Size({ component: true })(Child);
+export default withSize({ component: true })(Child);
 ```
 
 ### Using as Parent

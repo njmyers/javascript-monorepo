@@ -12,7 +12,7 @@ To access simply add the inView flag to the configuration object and inView will
 
 ```js
 import React from 'react';
-import Size from 'react-size-components';
+import withSize from 'react-size-components';
 
 const Child = ({ sizes, id = 'undefined' } = {}) => {
   return (
@@ -30,7 +30,7 @@ const Child = ({ sizes, id = 'undefined' } = {}) => {
   );
 };
 
-export default Size({ inView: true })(Child);
+export default withSize({ inView: true })(Child);
 ```
 
 ### Using in a List of Position Aware Children

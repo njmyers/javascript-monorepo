@@ -1,5 +1,5 @@
 import React from 'react';
-import Size from '../../src';
+import withSize from '../../src';
 
 const Child = ({ sizes } = {}) => {
   return (
@@ -10,4 +10,4 @@ const Child = ({ sizes } = {}) => {
   );
 };
 
-export default Size({ orientation: true })(Child);
+export default withSize({ orientation: true })(Child);

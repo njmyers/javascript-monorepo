@@ -10,7 +10,7 @@ To use all you have to do is pass in the orientation boolean on the Size configu
 
 ```js
 import React from 'react';
-import Size from 'react-size-components';
+import withSize from 'react-size-components';
 
 const Child = ({ sizes } = {}) => {
   return (
@@ -21,5 +21,5 @@ const Child = ({ sizes } = {}) => {
   );
 };
 
-export default Size({ orientation: true })(Child);
+export default withSize({ orientation: true })(Child);
 ```

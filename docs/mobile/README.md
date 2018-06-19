@@ -14,7 +14,7 @@ Breakpoint will default to 768 if unspecified.
 
 ```js
 import React from 'react';
-import Size from 'react-size-components';
+import withSize from 'react-size-components';
 
 const Child = ({ sizes } = {}) => {
   return (
@@ -26,7 +26,7 @@ const Child = ({ sizes } = {}) => {
   );
 };
 
-export default Size({ mobile: true, breakpoint: 1000 })(Child);
+export default withSize({ mobile: true, breakpoint: 1000 })(Child);
 ```
 
 ### Using as Parent
