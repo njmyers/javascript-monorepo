@@ -112,22 +112,23 @@ import debounce from 'lodash/debounce';
 import Child from './Child';
 
 class Debounce extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            called: 0,
-            sizes: [],
-        };
+  constructor(props) {
+    super(props);
+    this.state = {
+      called: 0,
+      sizes: [],
+    };
 
-        this.onSize = debounce(this.onSize.bind(this), 500);
-    }
+    this.onSize = debounce(this.onSize.bind(this), 500);
+  }
 
-    onSize(sizes) {
-        this.setState({
-            called: this.state.called + 1,
-            sizes: [...this.state.sizes, sizes],
-        });
+  onSize(sizes) {
+    this.setState({
+      called: this.state.called + 1,
+      sizes: [...this.state.sizes, sizes],
+    });
 
-        this.props.onSize(sizes);
-    }
+    this.props.onSize(sizes);
+  }
+}
 ```
