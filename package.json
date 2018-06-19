@@ -21,9 +21,10 @@
     "deploy-storybook": "storybook-to-ghpages",
     "build-storybook": "build-storybook",
     "storybook": "start-storybook -p 6006",
+    "watch-ssr": "webpack --config ssr/webpack.config.js --watch",
     "build-ssr": "webpack --config ssr/webpack.config.js",
-    "prestart-ssr": "npm run build-ssr",
     "start-ssr": "babel-node ssr/server.js",
+    "ssr": "run-p watch-ssr start-ssr",
     "publish-all": "run-s deploy-storybook build patch-release",
     "doctoc": "doctoc README.md",
     "prettier": "prettier --write '{src,ssr,docs}/**/*.{md,js,jsx,json}'"

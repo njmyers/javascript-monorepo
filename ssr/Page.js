@@ -9,6 +9,8 @@ const LoremIpsum = ({ sizes } = {}) => {
     padding: '30px',
   };
 
+  console.log(sizes);
+
   return (
     <React.Fragment>
       <article style={style}>
@@ -37,24 +39,32 @@ const LoremIpsum = ({ sizes } = {}) => {
 };
 
 // Define some custom size flags
-const tablet = (sizes) =>
-  sizes.window.innerWidth < 1440 && sizes.window.innerWidth >= 768;
-const laptop = (sizes) => sizes.window.innerWidth >= 1440;
+const tablet = (node) => window.innerWidth < 1440 && window.innerWidth >= 768;
+const laptop = (node) => window.innerWidth >= 1440;
 
 // custom flags for our options object
 const custom = [
   {
     name: 'tablet',
     fn: tablet,
+    schema: '',
+    subscriptions: {
+      resize: true,
+    },
   },
   {
     name: 'laptop',
     fn: laptop,
+    schema: '',
+    subscriptions: {
+      resize: true,
+    },
   },
 ];
 
 // Lets enable all modes so we can test all of the code for SSR functionality.
 const SizedLorem = Size({
+  measureWindow: true,
   component: true,
   mobile: true,
   orientation: true,
