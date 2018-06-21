@@ -2,11 +2,11 @@ const fs = require('fs');
 const path = require('path');
 
 // order of README.md files to be assembled
-const docs = ['status-switch', 'form', 'bem'];
+const docs = ['StatusSwitch', 'Form', 'BEM'];
 
 const cwd = process.cwd();
 
-const createPaths = (folder) => path.resolve(cwd, 'docs', folder, 'README.md');
+const createPaths = (folder) => path.resolve(cwd, 'src', folder, 'README.md');
 const read = (path) => fs.readFileSync(path, 'utf8');
 
 const string = docs

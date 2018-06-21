@@ -3,13 +3,13 @@ import React, { Fragment } from 'react';
 import { storiesOf } from '@storybook/react';
 import { linkTo } from '@storybook/addon-links';
 import withReadme from 'storybook-readme/with-readme';
-import withDocs from '../with-docs';
+import withDocs from '../../../.storybook/with-docs';
 
-import readme from './README.md';
+import readme from '../README.md';
 
 import 'normalize.css';
 
-import Icon from '../../src/Icon';
+import Icon from '../index';
 
 const Box = ({ name, children }) => {
   const article = {

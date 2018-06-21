@@ -13,6 +13,10 @@ module.exports = {
         loaders: ['style-loader', 'css-loader'],
         include: path.resolve(__dirname, '../'),
       },
+      {
+        test: /\.(gif|png|jpe?g|svg)$/i,
+        loaders: ['file-loader'],
+      },
     ],
   },
 };

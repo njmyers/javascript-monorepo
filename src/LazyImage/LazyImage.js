@@ -74,6 +74,19 @@ class LazyImage extends React.Component<Props, State> {
     this.loadImage(this.props.src, this.image);
   }
 
+  /**
+   * Allows for dynamic reset of img src
+   * @param  {[type]} prevProps [description]
+   * @return {[type]}           [description]
+   */
+  componentDidUpdate(prevProps: Props) {
+    if (this.props.src !== prevProps.src) {
+      this.setState({ status: 'initial' });
+      this.loadImage(this.props.placeholder, this.placeholder);
+      this.loadImage(this.props.src, this.image);
+    }
+  }
+
   loading = ({ status }: State) =>
     status !== 'resolved' ? { status: 'loading' } : null;
 

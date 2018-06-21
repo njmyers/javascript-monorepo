@@ -1,5 +1,5 @@
 import * as React from 'react';
-import StatusSwitch from '../../src/StatusSwitch';
+import StatusSwitch from '../StatusSwitch';
 
 class Demo extends React.Component {
   state = {
