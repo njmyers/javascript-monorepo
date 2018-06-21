@@ -26,6 +26,7 @@ const baseStyles = {
   padding: 0,
   width: '100%',
   height: 'auto',
+  backfaceVisibility: 'inherit',
 };
 
 // https://stackoverflow.com/questions/31444891/mystery-white-space-underneath-image-tag/31445364#31445364
@@ -109,9 +110,7 @@ class LazyImage extends React.Component<Props, State> {
     return (
       <div
         style={this.props.containerStyle}
-        className={
-          this.props.className ? `${this.props.className}_imgContainer` : null
-        }
+        className={this.props.className ? `${this.props.className}` : null}
         name={this.props.name}
         onClick={this.props.onClick}
       >
