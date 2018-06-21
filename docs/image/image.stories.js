@@ -12,30 +12,17 @@ import 'normalize.css';
 import LazyImage from '../../src/LazyImage';
 
 const src =
-  'https://artetexture.s3.amazonaws.com/2018/06/SEA_Board_L-600x450.jpg';
+  'https://jlwoodwindrepair.imgix.net/2018/06/coss.jpg?fit=crop&fm=pjpg&h=650&ixlib=php-1.1.0&rect=0%2C48%2C2400%2C963&w=1620&wpsize=testimonial-crop';
 
 const placeholder =
-  'https://artetexture.s3.amazonaws.com/2018/06/SEA_Board_L-30x23.jpg';
+  'https://jlwoodwindrepair.imgix.net/2018/06/coss.jpg?fit=crop&fm=pjpg&h=65&ixlib=php-1.1.0&rect=0%2C48%2C2400%2C963&w=162&wpsize=testimonial-crop&blur=100';
 
 storiesOf('5) LazyImage', module).add('Demo', () => (
   <Fragment>
-    <div style={{ width: '500px' }}>
-      <LazyImage src={src} placeholder={placeholder} ratio={4 / 3} />
-    </div>
-    <div style={{ width: '500px' }}>
-      <LazyImage src={src} placeholder={placeholder} ratio={4 / 3} />
-    </div>
-    <div style={{ width: '500px' }}>
-      <LazyImage src={src} placeholder={placeholder} ratio={4 / 3} />
-    </div>
-    <div style={{ width: '500px' }}>
-      <LazyImage src={src} placeholder={placeholder} ratio={4 / 3} />
-    </div>
-    <div style={{ width: '500px' }}>
-      <LazyImage src={src} placeholder={placeholder} ratio={4 / 3} />
-    </div>
-    <div style={{ width: '500px' }}>
-      <LazyImage src={src} placeholder={placeholder} ratio={4 / 3} />
+    <div>
+      <div>
+        <LazyImage src={src} placeholder={placeholder} />
+      </div>
     </div>
   </Fragment>
 ));
