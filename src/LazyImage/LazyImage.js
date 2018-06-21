@@ -13,6 +13,8 @@ type Props = {
   placeholderStyle: {},
   imageStyle: {},
   containerStyle: {},
+  // for sass/css file
+  className: string,
 };
 
 type State = {
@@ -94,19 +96,28 @@ class LazyImage extends React.Component<Props, State> {
     return (
       <div
         style={this.props.containerStyle}
+        className={
+          this.props.className ? `${this.props.className}_imgContainer` : null
+        }
         name={this.props.name}
         onClick={this.props.onClick}
       >
         <img
-          name={this.props.name}
           style={this.placeholderStyle()}
+          className={
+            this.props.className ? `${this.props.className}_placeholder` : null
+          }
+          name={this.props.name}
           ref={(element) => (this.placeholder = element)}
           alt={this.metaData(this.props.alt)}
           title={this.metaData(this.props.title)}
         />
         <img
-          name={this.props.name}
           style={this.props.imageStyle}
+          className={
+            this.props.className ? `${this.props.className}_img` : null
+          }
+          name={this.props.name}
           ref={(element) => (this.image = element)}
           onLoad={() => this.setState(this.resolved)}
           alt={this.props.alt}

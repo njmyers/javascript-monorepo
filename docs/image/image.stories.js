@@ -8,6 +8,7 @@ import withDocs from '../with-docs';
 // import readme from './README.md';
 
 import 'normalize.css';
+import './image.sass';
 
 import LazyImage from '../../src/LazyImage';
 
@@ -17,12 +18,15 @@ const src =
 const placeholder =
   'https://jlwoodwindrepair.imgix.net/2018/06/coss.jpg?fit=crop&fm=pjpg&h=65&ixlib=php-1.1.0&rect=0%2C48%2C2400%2C963&w=162&wpsize=testimonial-crop&blur=100';
 
-storiesOf('5) LazyImage', module).add('Demo', () => (
-  <Fragment>
-    <div>
-      <div>
-        <LazyImage src={src} placeholder={placeholder} />
-      </div>
-    </div>
-  </Fragment>
-));
+storiesOf('5) LazyImage', module)
+  .add('Demo', () => (
+    <Fragment>
+      <LazyImage src={src} placeholder={placeholder} />
+    </Fragment>
+  ))
+
+  .add('Add Class Name', () => (
+    <Fragment>
+      <LazyImage className="imageClass" src={src} placeholder={placeholder} />
+    </Fragment>
+  ));
