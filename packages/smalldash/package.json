@@ -1,7 +1,8 @@
 {
 	"name": "smalldash",
 	"version": "1.1.1",
-	"description": "collection of utilities available for import as individual functions for smaller packages sizes",
+	"description":
+		"collection of utilities available for import as individual functions for smaller packages sizes",
 	"main": "dist/module.js",
 	"scripts": {
 		"prepublishOnly": "npm run build",
@@ -29,10 +30,10 @@
 		"prettier": "^1.11.1",
 		"regenerator-runtime": "^0.11.1",
 		"sinon": "^4.4.8",
-		"webpack-cli": "^2.0.11"
+		"webpack-cli": "^2.0.11",
+		"webpack": "^3.0.0"
 	},
 	"dependencies": {
-		"deep-equal": "^1.0.1",
-		"webpack": "^3.0.0"
+		"deep-equal": "^1.0.1"
 	}
 }

@@ -3,7 +3,7 @@ import React, { Fragment } from 'react';
 import { storiesOf } from '@storybook/react';
 import { linkTo } from '@storybook/addon-links';
 import withReadme from 'storybook-readme/with-readme';
-import withDocs from '../../../.storybook/with-docs';
+import withDocs from '../../../../../.storybook/with-docs';
 
 import readme from '../README.md';
 
