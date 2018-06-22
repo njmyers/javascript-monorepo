@@ -22,7 +22,7 @@
     "watch": "webpack --watch",
     "patch-release":
       "npm version patch && npm publish && git push --follow-tags",
-    "test": "jest"
+    "test": "jest --watchAll"
   },
   "devDependencies": {}
 }

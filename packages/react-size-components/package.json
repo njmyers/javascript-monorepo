@@ -21,12 +21,7 @@
     "build-ssr": "webpack --config ssr/webpack.config.js",
     "start-ssr": "babel-node ssr/server.js",
     "ssr": "run-p watch-ssr start-ssr",
-    "publish-all": "run-s deploy-storybook build patch-release",
-    "doctoc": "doctoc README.md",
-    "prettier": "prettier --write '{src,ssr,docs}/**/*.{md,js,jsx,json}'"
-  },
-  "lint-staged": {
-    "{src,ssr,docs}/**/*.{md,js,jsx,json}": ["prettier --write", "git add"]
+    "doctoc": "doctoc README.md"
   },
   "peerDependencies": {
     "lodash": "^4.17.5",

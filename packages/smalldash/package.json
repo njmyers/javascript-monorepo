@@ -8,7 +8,6 @@
 		"prepublishOnly": "npm run build",
 		"prebuild": "node ./scripts/create-index.js",
 		"build": "webpack --display-modules",
-		"postbuild": "jest",
 		"test": "jest --watchAll",
 		"patch-release": "npm version patch && npm publish && git push --follow-tags"
 	},
