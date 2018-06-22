@@ -1,6 +1,6 @@
 {
   "name": "njmyers-component-library",
-  "version": "0.1.9",
+  "version": "0.1.10",
   "main": "build/index.js",
   "repository": "njmyers/component-library",
   "dependencies": {
@@ -24,5 +24,38 @@
       "npm version patch && npm publish && git push --follow-tags",
     "test": "jest --watchAll"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.4",
+    "babel-plugin-react-docgen": "^1.8.3",
+    "babel-plugin-syntax-dynamic-import": "^6.18.0",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-plugin-transform-react-jsx": "^6.24.1",
+    "babel-plugin-transform-regenerator": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-flow": "^6.23.0",
+    "babel-runtime": "^6.26.0",
+    "doctoc": "^1.3.1",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "flow-bin": "^0.74.0",
+    "husky": "^0.14.3",
+    "invariant": "^2.2.4",
+    "jest": "^23.1.0",
+    "lerna": "^2.11.0",
+    "lint-staged": "^7.0.0",
+    "node-sass": "^4.9.0",
+    "normalize.css": "^8.0.0",
+    "npm-run-all": "^4.1.2",
+    "prettier": "^1.11.1",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1",
+    "react-test-renderer": "^16.4.1",
+    "sass-loader": "^7.0.3",
+    "storybook-readme": "^3.3.0",
+    "webpack": "^3.0.0",
+    "webpack-cli": "^2.0.11"
+  }
 }
