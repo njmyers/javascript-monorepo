@@ -1,0 +1,20 @@
+@import '../../Global/mixins.sass'
+@import '../../Global/colors.sass'
+
+.site-map
+	+flexbox
+	width: 95%
+	flex-wrap: wrap
+	justify-content: center
+	margin: 4px 0 8px 0
+	&__divider
+		margin: 0 10px
+		@include all-phone
+			margin: 0 6px
+	&__link
+		text-decoration: none
+		color: $white
+		cursor: pointer
+		+transition(0.25s color ease)
+		&:hover
+			color: $white-hover

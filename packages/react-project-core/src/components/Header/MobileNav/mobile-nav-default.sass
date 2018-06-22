@@ -1,0 +1,27 @@
+@import '../../Global/mixins.sass'
+@import '../../Global/colors.sass'
+
+.mobile-menu
+	+flexbox
+	width: 100%
+	height: 100%
+	align-items: center
+	justify-content: center
+	flex-direction: column
+	background: transparentize($grey-darkest, 0.1)
+	z-index: 999
+	+transition(0.5s opacity)
+	&__item
+		color: $white
+		+flexbox
+		align-items: center
+		justify-content: center
+		margin: 1% 0
+		font-size: 1.4em
+		width: 100%
+		@include all-mobile
+			font-size: 1.2em
+		@include all-phone
+			font-size: 1em
+		&:hover
+			color: $white-hover
