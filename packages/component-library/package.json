@@ -20,8 +20,7 @@
     "readme": "node scripts/readme.js",
     "build": "webpack",
     "watch": "webpack --watch",
-    "patch-release":
-      "npm version patch && npm publish && git push --follow-tags",
+    "patch-release": "npm version patch && npm publish && git push --follow-tags",
     "test": "jest --watchAll"
   },
   "devDependencies": {

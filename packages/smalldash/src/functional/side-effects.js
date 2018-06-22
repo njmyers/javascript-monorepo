@@ -4,8 +4,8 @@
  * @param {args} arguments pass through argument
  */
 const sideEffects = (fn) => (args) => {
-	fn(args);
-	return args;
+  fn(args);
+  return args;
 };
 
 export default sideEffects;

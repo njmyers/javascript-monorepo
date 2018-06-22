@@ -8,13 +8,15 @@ import log from '../log/log';
 const createURL = applyDefaults({ per_page: 10 });
 
 /* Axios API Stub Method */
-const api = axios.create({ baseURL: `${process.env.REACT_APP_WP_API_URL}/wp-json/wp/v2` });
+const api = axios.create({
+  baseURL: `${process.env.REACT_APP_WP_API_URL}/wp-json/wp/v2`,
+});
 
 export default (slug) => (query) => {
-	const URL =
-		process.env.NODE_ENV !== 'production'
-			? log(createURL(slug)(query))
-			: createURL(slug)(query);
+  const URL =
+    process.env.NODE_ENV !== 'production'
+      ? log(createURL(slug)(query))
+      : createURL(slug)(query);
 
-	return Observable.from(api.get(URL));
+  return Observable.from(api.get(URL));
 };

@@ -1,4 +1,3 @@
-
 ## Status Switch
 
 Wrap your React Components in a StatusSwitch to conditionally render based on status props.

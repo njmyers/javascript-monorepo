@@ -2,12 +2,12 @@ import { uniq } from 'smalldash';
 import parse from 'parse-link-header';
 
 const blankPost = {
-	status: 'blank',
-	loadedAt: '',
-	data: [],
-	totalPages: '',
-	fetchedPages: [],
-	filter: '',
+  status: 'blank',
+  loadedAt: '',
+  data: [],
+  totalPages: '',
+  fetchedPages: [],
+  filter: '',
 };
 
 /* 
@@ -18,56 +18,63 @@ const blankPost = {
  */
 
 const extractCurrent = (header) => {
-	if (header.link) {
-		const parsed = parse(header.link);
-		return parsed.next
-			? Number(parsed.next.page) - 1
-			: parsed.prev ? Number(parsed.prev.page) + 1 : undefined;
-	} else return 1;
+  if (header.link) {
+    const parsed = parse(header.link);
+    return parsed.next
+      ? Number(parsed.next.page) - 1
+      : parsed.prev
+        ? Number(parsed.prev.page) + 1
+        : undefined;
+  } else return 1;
 };
 
 const validateFetched = (header, fetched) => {
-	return uniq([extractCurrent(header), ...fetched]).filter((num) => typeof num === 'number');
+  return uniq([extractCurrent(header), ...fetched]).filter(
+    (num) => typeof num === 'number'
+  );
 };
 
 const validateTotal = (header, total) => {
-	return header['x-wp-totalpages'] ? header['x-wp-totalpages'] : total;
+  return header['x-wp-totalpages'] ? header['x-wp-totalpages'] : total;
 };
 
 const ensureArray = (thing) => (Array.isArray(thing) ? thing : [thing]);
 
 const WPReducer = (slice) => (state = blankPost, action) => {
-	if (action.slug !== slice) return state;
+  if (action.slug !== slice) return state;
 
-	switch (action.type) {
-		case 'POSTS_REQUEST':
-			return {
-				...state,
-				status: 'loading',
-			};
-		case 'POSTS_RESOLVE':
-			return {
-				...state,
-				data: uniq([...state.data, ...ensureArray(action.payload)], (object) => object.id),
-				status: 'resolved',
-				loadedAt: new Date(),
-			};
-		case 'POSTS_HEADER':
-			return {
-				...state,
-				totalPages: validateTotal(action.payload, state.totalPages),
-				fetchedPages: validateFetched(action.payload, state.fetchedPages),
-			};
-		case 'POSTS_FILTER_UPDATE':
-			return {
-				...state,
-				filter: action.payload,
-			};
-		case 'POSTS_REQUEST_ERROR':
-			return { ...state, error: action.payload, status: 'error' };
-		default:
-			return state;
-	}
+  switch (action.type) {
+    case 'POSTS_REQUEST':
+      return {
+        ...state,
+        status: 'loading',
+      };
+    case 'POSTS_RESOLVE':
+      return {
+        ...state,
+        data: uniq(
+          [...state.data, ...ensureArray(action.payload)],
+          (object) => object.id
+        ),
+        status: 'resolved',
+        loadedAt: new Date(),
+      };
+    case 'POSTS_HEADER':
+      return {
+        ...state,
+        totalPages: validateTotal(action.payload, state.totalPages),
+        fetchedPages: validateFetched(action.payload, state.fetchedPages),
+      };
+    case 'POSTS_FILTER_UPDATE':
+      return {
+        ...state,
+        filter: action.payload,
+      };
+    case 'POSTS_REQUEST_ERROR':
+      return { ...state, error: action.payload, status: 'error' };
+    default:
+      return state;
+  }
 };
 
 export default WPReducer;

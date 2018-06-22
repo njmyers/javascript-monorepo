@@ -7,35 +7,36 @@ import 'rxjs/add/observable/of';
 import 'rxjs/add/observable/concat';
 import { combineEpics } from 'redux-observable';
 import {
-    menuState,
-    opacityZero,
-    opacityOne,
-    moveMenuOffScreen,
-    moveMenuOnScreen,
+  menuState,
+  opacityZero,
+  opacityOne,
+  moveMenuOffScreen,
+  moveMenuOnScreen,
 } from './menu-actions';
 
 const menuOnEpic = (actions$) =>
-    actions$
-        .ofType('MENU_ON')
-        .mergeMapTo(
-            Observable.of(moveMenuOnScreen).concat(
-                Observable.concat(Observable.of(opacityOne), Observable.of(menuState(true))).delay(
-                    10
-                )
-            )
-        );
+  actions$
+    .ofType('MENU_ON')
+    .mergeMapTo(
+      Observable.of(moveMenuOnScreen).concat(
+        Observable.concat(
+          Observable.of(opacityOne),
+          Observable.of(menuState(true))
+        ).delay(10)
+      )
+    );
 
 const menuOffEpic = (actions$) =>
-    actions$
-        .ofType('MENU_OFF')
-        .mergeMapTo(
-            Observable.of(opacityZero).concat(
-                Observable.concat(
-                    Observable.of(moveMenuOffScreen),
-                    Observable.of(menuState(false))
-                ).delay(600)
-            )
-        );
+  actions$
+    .ofType('MENU_OFF')
+    .mergeMapTo(
+      Observable.of(opacityZero).concat(
+        Observable.concat(
+          Observable.of(moveMenuOffScreen),
+          Observable.of(menuState(false))
+        ).delay(600)
+      )
+    );
 
 const menuEpic = combineEpics(menuOnEpic, menuOffEpic);
 

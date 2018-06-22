@@ -2,9 +2,9 @@ import pipeAsync from '../../async/pipe-async';
 import sideEffects from '../side-effects';
 
 const addSlowly = (timeout) => (value) => {
-	return new Promise((res, rej) => {
-		setTimeout(() => res(value + 1), timeout);
-	});
+  return new Promise((res, rej) => {
+    setTimeout(() => res(value + 1), timeout);
+  });
 };
 
 const addOneSlowly = addSlowly(100);
@@ -14,21 +14,26 @@ const addOneSlowly = addSlowly(100);
 let mockState = {};
 
 const addValueToState = (value) => {
-	mockState = { value };
+  mockState = { value };
 };
 
 const affectState = sideEffects(addValueToState);
 
 test('create side effect chain on async pipe', async () => {
-	mockState = {};
+  mockState = {};
 
-	const grabThirdValue = pipeAsync(addOneSlowly, addOneSlowly, affectState, addOneSlowly);
+  const grabThirdValue = pipeAsync(
+    addOneSlowly,
+    addOneSlowly,
+    affectState,
+    addOneSlowly
+  );
 
-	try {
-		const response = await grabThirdValue(1);
-		expect(mockState).toMatchObject({ value: 3 });
-		expect(response).toBe(4);
-	} catch (e) {
-		expect(e).not.toBeInstanceOf(Error);
-	}
+  try {
+    const response = await grabThirdValue(1);
+    expect(mockState).toMatchObject({ value: 3 });
+    expect(response).toBe(4);
+  } catch (e) {
+    expect(e).not.toBeInstanceOf(Error);
+  }
 });

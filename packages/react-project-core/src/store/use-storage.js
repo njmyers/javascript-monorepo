@@ -9,7 +9,7 @@ const week = 1000 * 60 * 60 * 24 * 7;
  * @param {number} stateDate datestamp from persisted state cache
  */
 export const useStorageStub = (refresh) => (invalidate) => (stateDate) => {
-    return Date.now() - stateDate < refresh && invalidate < stateDate;
+  return Date.now() - stateDate < refresh && invalidate < stateDate;
 };
 
 /**
@@ -17,6 +17,7 @@ export const useStorageStub = (refresh) => (invalidate) => (stateDate) => {
  * @param {number} refresh amount of milliseconds since last visit to allow caches
  * @param {number} invalidate date.now() literal point in time to invalidate all caches for returning visitors
  */
-const useStorage = (refresh, invalidate) => useStorageStub(refresh)(invalidate + refresh);
+const useStorage = (refresh, invalidate) =>
+  useStorageStub(refresh)(invalidate + refresh);
 
 export default useStorage;

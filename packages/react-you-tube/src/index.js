@@ -4,11 +4,14 @@ import CreatePlayer from './CreatePlayer';
 import * as __ from 'smalldash';
 
 const DefaultComponent = (props) => {
-    return null;
+  return null;
 };
 
 // specifies default null component if none is provided
 const createYouTube = (Component = DefaultComponent) =>
-    __.compose(IFrameAPI, CreatePlayer)(Component);
+  __.compose(
+    IFrameAPI,
+    CreatePlayer
+  )(Component);
 
 export default createYouTube;

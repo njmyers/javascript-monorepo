@@ -4,6 +4,7 @@
  * @param {functions} fns remainder functions waiting to be applied
  * @param {arguments} args the arguments to curry to next function
  */
-const pipe = (fn, ...fns) => (...args) => (!fns.length ? fn(...args) : pipe(...fns)(fn(...args)));
+const pipe = (fn, ...fns) => (...args) =>
+  !fns.length ? fn(...args) : pipe(...fns)(fn(...args));
 
 export default pipe;

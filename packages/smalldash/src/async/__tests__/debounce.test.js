@@ -6,72 +6,72 @@ import debounce from 'lodash/debounce';
 let clock;
 
 beforeEach(() => {
-	clock = sinon.useFakeTimers();
+  clock = sinon.useFakeTimers();
 });
 
 afterEach(() => {
-	clock.restore();
+  clock.restore();
 });
 
 test('basic debounce testing', () => {
-	const callback = sinon.spy();
-	const debounced = debounce(callback, 1000);
+  const callback = sinon.spy();
+  const debounced = debounce(callback, 1000);
 
-	debounced();
-	debounced();
-	debounced();
-	debounced();
-	debounced();
-	debounced();
+  debounced();
+  debounced();
+  debounced();
+  debounced();
+  debounced();
+  debounced();
 
-	sinon.assert.notCalled(callback);
+  sinon.assert.notCalled(callback);
 
-	clock.tick(999);
+  clock.tick(999);
 
-	sinon.assert.notCalled(callback);
+  sinon.assert.notCalled(callback);
 
-	clock.tick(1);
+  clock.tick(1);
 
-	sinon.assert.calledOnce(callback);
+  sinon.assert.calledOnce(callback);
 
-	clock.tick(10000);
+  clock.tick(10000);
 
-	sinon.assert.calledOnce(callback);
+  sinon.assert.calledOnce(callback);
 });
 
 test('multiple debounces testing', () => {
-	const callback = sinon.spy();
-	const debounced = debounce(callback, 1000);
+  const callback = sinon.spy();
+  const debounced = debounce(callback, 1000);
 
-	debounced();
-	debounced();
-	debounced();
-	debounced();
-	debounced();
-	debounced();
+  debounced();
+  debounced();
+  debounced();
+  debounced();
+  debounced();
+  debounced();
 
-	clock.tick(999);
+  clock.tick(999);
 
-	sinon.assert.notCalled(callback);
+  sinon.assert.notCalled(callback);
 
-	clock.tick(1);
+  clock.tick(1);
 
-	sinon.assert.calledOnce(callback);
+  sinon.assert.calledOnce(callback);
 
-	debounced();
-	debounced();
-	debounced();
-	debounced();
-	debounced();
-	debounced();
+  debounced();
+  debounced();
+  debounced();
+  debounced();
+  debounced();
+  debounced();
 
-	clock.tick(999);
+  clock.tick(999);
 
-	sinon.assert.calledOnce(callback);
+  sinon.assert.calledOnce(callback);
 
-	clock.tick(1);
+  clock.tick(1);
 
-	sinon.assert.calledTwice(callback);
+  sinon.assert.calledTwice(callback);
 });
 
 // test('leading testing', () => {

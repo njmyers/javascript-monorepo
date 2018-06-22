@@ -11,7 +11,11 @@ import 'rxjs/add/operator/ignoreElements';
 import { combineEpics } from 'redux-observable';
 
 import { updateUI, playerStop, playerStart } from './audio-actions';
-import { getHowlCurrentTime, getHowlDuration, getHowlEnded } from './audio-get-set';
+import {
+  getHowlCurrentTime,
+  getHowlDuration,
+  getHowlEnded,
+} from './audio-get-set';
 
 import sideEffects from './audio-side-effects';
 import timer from './timer';
@@ -29,28 +33,32 @@ import timer from './timer';
  * @param {object} store redux store with getStore() method
  */
 const sideEffectsEpic = (actions$, store) =>
-    actions$
-        .ofType(
-            'AUDIO_PLAYER_PLAY',
-            'AUDIO_PLAYER_STOP',
-            'AUDIO_PLAYER_PAUSE',
-            'AUDIO_PLAYER_SEEK',
-            'AUDIO_PLAYER_VOLUME',
-            'AUDIO_PLAYER_MUTE',
-            'AUDIO_PLAYER_SCROLL',
-            'AUDIO_PLAYER_SELECT'
-        )
-        .do((action) => sideEffects(action, store))
-        .ignoreElements();
+  actions$
+    .ofType(
+      'AUDIO_PLAYER_PLAY',
+      'AUDIO_PLAYER_STOP',
+      'AUDIO_PLAYER_PAUSE',
+      'AUDIO_PLAYER_SEEK',
+      'AUDIO_PLAYER_VOLUME',
+      'AUDIO_PLAYER_MUTE',
+      'AUDIO_PLAYER_SCROLL',
+      'AUDIO_PLAYER_SELECT'
+    )
+    .do((action) => sideEffects(action, store))
+    .ignoreElements();
 
 /**
  * Auto start on changing track actions.
  * @param {stream} actions$ stream of actions provided by redux observable
  */
 const audioPlayerChangeTrack = (actions$) =>
-    actions$
-        .ofType('AUDIO_PLAYER_SCROLL', 'AUDIO_PLAYER_SELECT', 'AUDIO_PLAYER_LOAD_TRACK')
-        .mapTo(playerStart());
+  actions$
+    .ofType(
+      'AUDIO_PLAYER_SCROLL',
+      'AUDIO_PLAYER_SELECT',
+      'AUDIO_PLAYER_LOAD_TRACK'
+    )
+    .mapTo(playerStart());
 
 /**
  * Normal Epic for updating player state based on frame rate
@@ -62,24 +70,28 @@ const audioPlayerChangeTrack = (actions$) =>
 const frame$ = timer();
 
 const audioUIEpic = (actions$, store) =>
-    actions$.ofType('AUDIO_PLAYER_PLAY').mergeMap(() =>
-        frame$
-            .takeUntil(
-                actions$.ofType(
-                    'AUDIO_PLAYER_STOP',
-                    'AUDIO_PLAYER_PAUSE',
-                    'AUDIO_PLAYER_SCROLL',
-                    'AUDIO_PLAYER_SELECT'
-                )
-            )
-            .mergeMap((frame) => {
-                const state = store.getState();
-                return Observable.of(
-                    getHowlEnded(state)
-                        ? playerStop()
-                        : updateUI(getHowlCurrentTime(state), getHowlDuration(state))
-                );
-            })
-    );
+  actions$.ofType('AUDIO_PLAYER_PLAY').mergeMap(() =>
+    frame$
+      .takeUntil(
+        actions$.ofType(
+          'AUDIO_PLAYER_STOP',
+          'AUDIO_PLAYER_PAUSE',
+          'AUDIO_PLAYER_SCROLL',
+          'AUDIO_PLAYER_SELECT'
+        )
+      )
+      .mergeMap((frame) => {
+        const state = store.getState();
+        return Observable.of(
+          getHowlEnded(state)
+            ? playerStop()
+            : updateUI(getHowlCurrentTime(state), getHowlDuration(state))
+        );
+      })
+  );
 
-export default combineEpics(audioUIEpic, sideEffectsEpic, audioPlayerChangeTrack);
+export default combineEpics(
+  audioUIEpic,
+  sideEffectsEpic,
+  audioPlayerChangeTrack
+);

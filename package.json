@@ -2,7 +2,8 @@
   "scripts": {
     "start": "run-p storybook",
     "storybook": "start-storybook -p 9009",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "prettier": "prettier 'packages/**/*.{.test.js,js,jsx,json,md}' --write"
   },
   "devDependencies": {
     "@storybook/addon-actions": "^3.3.15",

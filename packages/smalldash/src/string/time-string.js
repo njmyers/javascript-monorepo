@@ -6,11 +6,13 @@ const minutes = (time) => Math.floor(time / 60);
 const seconds = (time) => Math.floor(time % 60);
 
 const timeString = (char) => (time) => {
-	const valid = validateDecimal(time);
+  const valid = validateDecimal(time);
 
-	return !hours(time)
-		? `${minutes(time)}${char}${padZero(seconds(time))}`
-		: `${hours(time)}${char}${padZero(minutes(time))}${char}${padZero(seconds(time))}`;
+  return !hours(time)
+    ? `${minutes(time)}${char}${padZero(seconds(time))}`
+    : `${hours(time)}${char}${padZero(minutes(time))}${char}${padZero(
+        seconds(time)
+      )}`;
 };
 
 export default timeString(':');

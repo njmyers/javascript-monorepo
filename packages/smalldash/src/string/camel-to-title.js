@@ -3,4 +3,8 @@ import acceptStrings from './accept-strings';
 import capitalize from './capitalize';
 import { compose, sideEffects } from '../functional';
 
-export default compose(capitalize, camelTo(' '), acceptStrings);
+export default compose(
+  capitalize,
+  camelTo(' '),
+  acceptStrings
+);

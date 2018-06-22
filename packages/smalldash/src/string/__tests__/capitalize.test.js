@@ -1,17 +1,17 @@
 import capitalize from '../capitalize';
 
 test('capitalize string', () => {
-	const string = 'this is a test';
-	const expected = 'This Is A Test';
+  const string = 'this is a test';
+  const expected = 'This Is A Test';
 
-	expect(capitalize(string)).toBe(expected);
+  expect(capitalize(string)).toBe(expected);
 });
 
 test('capitalize string with seperator', () => {
-	const string = 'this-is-a-test';
-	const expected = 'This-Is-A-Test';
+  const string = 'this-is-a-test';
+  const expected = 'This-Is-A-Test';
 
-	expect(capitalize(string, '-')).toBe(expected);
+  expect(capitalize(string, '-')).toBe(expected);
 });
 
 // test('capitalize string with regex seperator', () => {
