@@ -82,7 +82,12 @@ class LazyImage extends React.Component<Props, State> {
    */
   componentDidUpdate(prevProps: Props) {
     if (this.props.src !== prevProps.src) {
+      // reset component lifecycle
       this.setState({ status: 'initial' });
+      // set both srcs to empty to prevent flashes
+      this.placeholder.src = '';
+      this.image.src = '';
+      // start loading process
       this.loadImage(this.props.placeholder, this.placeholder);
       this.loadImage(this.props.src, this.image);
     }
