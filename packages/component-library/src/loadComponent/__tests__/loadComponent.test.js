@@ -41,7 +41,7 @@ describe('tests for asynchronously loading a component', () => {
 
     return timeout(100).then(() => {
       expect(loadedComponent.toJSON()).toMatchObject(component.toJSON());
-      expect(loadedComponent.toJSON()).toMatchSnapshot();
+      // expect(loadedComponent.toJSON()).toMatchSnapshot();
     });
   });
 
