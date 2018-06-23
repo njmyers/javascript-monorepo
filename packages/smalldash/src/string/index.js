@@ -7,6 +7,8 @@ export { default as camelToTitle } from './camel-to-title';
 export { default as camelTo } from './camel-to';
 export { default as capitalize } from './capitalize';
 export { default as caseToCase } from './case-to-case';
+export { default as currencyString } from './currency-string';
+export { default as dollarString } from './dollar-string';
 export { default as isLowerCase } from './is-lower-case';
 export { default as isUpperCase } from './is-upper-case';
 export { default as kebabToCamel } from './kebab-to-camel';
