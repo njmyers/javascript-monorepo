@@ -1,6 +1,5 @@
 // @flow
 import * as React from 'react';
-import Children from 'react-children-utilities';
 
 type Props = {
   children: React.Node,
@@ -13,7 +12,7 @@ type ChildProps = {
   modifiers?: string | void | Array<string>,
 };
 
-class BEM extends React.PureComponent<Props> {
+class BEM extends React.Component<Props> {
   static defaultProps = {
     children: null,
     block: '',
@@ -57,6 +56,11 @@ class BEM extends React.PureComponent<Props> {
       .reduce((a, b) => (a ? `${a} ${b}` : b), '');
   };
 
+  /**
+   * Merges existing classNames with new generated classNames
+   * @param  {[type]} props [description]
+   * @return {[type]}       [description]
+   */
   mergeClassNames = (props: ChildProps) => {
     const safeElement = this.typeCheckElement(props.element);
     const safeModifiers = this.typeCheckModifiers(props.modifiers);
@@ -70,13 +74,56 @@ class BEM extends React.PureComponent<Props> {
     return { className };
   };
 
+  /**
+   * Checks whether react element is of DOM type
+   * @param  {[type]}  type [description]
+   * @return {Boolean}      [description]
+   */
+  isDOMElement = ({ type }: React.Element<any>): boolean => {
+    return Boolean(typeof type === 'string');
+  };
+
+  /**
+   * Checks if react element has children
+   * @param  {[type]}  props [description]
+   * @return {Boolean}       [description]
+   */
+  hasChildren = ({ props }: React.Element<any>): boolean => {
+    return Boolean(props && props.children);
+  };
+
+  /**
+   * Deeply maps react children but only if they are valid DOM elements
+   * @param  {[type]} children  [description]
+   * @param  {[type]} deepMapFn [description]
+   * @return {[type]}           [description]
+   */
+  deepDOMMap = (children: React.Node, deepMapFn: (child: Node) => Node) => {
+    return React.Children.map(children, (child) => {
+      return React.isValidElement(child)
+        ? // if not dom element do not traverse
+          this.isDOMElement(child)
+          ? this.hasChildren(child)
+            ? deepMapFn(
+                React.cloneElement(
+                  child,
+                  child.props,
+                  this.deepDOMMap(child.props.children, deepMapFn)
+                )
+              )
+            : deepMapFn(child)
+          : child
+        : child;
+    });
+  };
+
   render() {
-    return Children.deepMap(this.props.children, (element: React.Node) => {
-      return React.isValidElement(element)
-        ? typeof element.type !== 'function'
-          ? React.cloneElement(element, this.mergeClassNames(element.props))
-          : React.cloneElement(element)
-        : null;
+    return this.deepDOMMap(this.props.children, (child) => {
+      return React.cloneElement(child, {
+        ...child.props,
+        ...this.mergeClassNames(child.props),
+      });
+      return child;
     });
   }
 }

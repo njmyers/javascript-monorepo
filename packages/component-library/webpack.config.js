@@ -39,13 +39,6 @@ module.exports = {
       amd: 'react-dom',
       umd: 'react-dom',
     },
-    'react-children-utilities': {
-      root: 'Children',
-      commonjs2: 'react-children-utilities',
-      commonjs: 'react-children-utilities',
-      amd: 'react-children-utilities',
-      umd: 'react-children-utilities',
-    },
     'react-size-components': {
       root: 'withSize',
       commonjs2: 'react-size-components',
