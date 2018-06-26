@@ -98,7 +98,10 @@ class BEM extends React.Component<Props> {
    * @param  {[type]} deepMapFn [description]
    * @return {[type]}           [description]
    */
-  deepDOMMap = (children: React.Node, deepMapFn: (child: Node) => Node) => {
+  deepDOMMap = (
+    children: React.Node,
+    deepMapFn: (child: React.Element<any>) => React.Element<any>
+  ) => {
     return React.Children.map(children, (child) => {
       return React.isValidElement(child)
         ? // if not dom element do not traverse
@@ -123,7 +126,6 @@ class BEM extends React.Component<Props> {
         ...child.props,
         ...this.mergeClassNames(child.props),
       });
-      return child;
     });
   }
 }
