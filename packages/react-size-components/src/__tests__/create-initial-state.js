@@ -28,6 +28,7 @@ test('it correctly reduces schema configuration', () => {
       innerHeight: null,
       innerWidth: null,
     },
+    subscriptions: [],
     component: {
       height: null,
       width: null,
@@ -53,11 +54,12 @@ test('it correctly reduces without schema configuration', () => {
       innerHeight: null,
       innerWidth: null,
     },
+    subscriptions: [],
     component: {
       height: null,
       width: null,
     },
-    flag: null,
+    flag: '',
   };
 
   const initialState = createInitialState(

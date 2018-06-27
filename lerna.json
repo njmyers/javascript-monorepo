@@ -3,5 +3,6 @@
   "packages": ["packages/*"],
   "version": "independent",
   "npmClient": "yarn",
-  "npmClientArgs": ["--production", "--no-optional"]
+  "npmClientArgs": ["--production", "--no-optional"],
+  "hoist": true
 }

@@ -50,9 +50,6 @@
     "prettier": "prettier --write src/components/**/*.{js,jsx,json,md}"
   },
   "lint-staged": {
-    "src/**/*.{js,jsx,json,md}": [
-      "prettier --write",
-      "git add"
-    ]
+    "src/**/*.{js,jsx,json,md}": ["prettier --write", "git add"]
   }
 }
