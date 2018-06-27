@@ -4,6 +4,7 @@ import * as React from 'react';
 type Props = {
   children: React.Node,
   block: string,
+  modifiers?: string | void | Array<string>,
 };
 
 type ChildProps = {
@@ -18,13 +19,13 @@ class BEM extends React.Component<Props> {
     block: '',
   };
 
-  // coerce modifiers to array with at least one empty string
+  // coerce modifiers to array
   typeCheckModifiers = (modifiers: string | Array<string> = '') => {
     return Array.isArray(modifiers)
-      ? ['', ...modifiers]
+      ? [...modifiers]
       : modifiers
-        ? ['', modifiers]
-        : [''];
+        ? [modifiers]
+        : [];
   };
 
   // coerce element to empty string
@@ -63,10 +64,15 @@ class BEM extends React.Component<Props> {
    */
   mergeClassNames = (props: ChildProps) => {
     const safeElement = this.typeCheckElement(props.element);
-    const safeModifiers = this.typeCheckModifiers(props.modifiers);
-
+    // include at least one empty string for unmodified block_element
+    const safeModifiers = [
+      '',
+      ...this.typeCheckModifiers(this.props.modifiers),
+      ...this.typeCheckModifiers(props.modifiers),
+    ];
+    // generate classNames
     const newClasses = this.getAllClasses(safeElement, safeModifiers);
-
+    // safe merge with className property
     const className = props.className
       ? `${props.className} ${newClasses}`
       : newClasses;
@@ -100,33 +106,39 @@ class BEM extends React.Component<Props> {
    */
   deepDOMMap = (
     children: React.Node,
-    deepMapFn: (child: React.Element<any>) => React.Element<any>
+    deepMapFn: (child: React.Element<any>) => React.Element<any>,
+    key: string
   ) => {
     return React.Children.map(children, (child) => {
       return React.isValidElement(child)
-        ? // if not dom element do not traverse
-          this.isDOMElement(child)
+        ? this.isDOMElement(child)
           ? this.hasChildren(child)
             ? deepMapFn(
                 React.cloneElement(
                   child,
                   child.props,
-                  this.deepDOMMap(child.props.children, deepMapFn)
+                  this.deepDOMMap(child.props.children, deepMapFn, key)
                 )
               )
             : deepMapFn(child)
-          : child
+          : child.props[key]
+            ? deepMapFn(child)
+            : child
         : child;
     });
   };
 
   render() {
-    return this.deepDOMMap(this.props.children, (child) => {
-      return React.cloneElement(child, {
-        ...child.props,
-        ...this.mergeClassNames(child.props),
-      });
-    });
+    return this.deepDOMMap(
+      this.props.children,
+      (child) => {
+        return React.cloneElement(child, {
+          ...child.props,
+          ...this.mergeClassNames(child.props),
+        });
+      },
+      'element'
+    );
   }
 }
 
