@@ -14,30 +14,30 @@ type Props = {
  * @param {number} radius    the radius of the rounded corners
  */
 const Hamburger = ({ color, thickness, radius }: Props) => (
-  <svg height="100%" width="100%">
+  <svg viewBox="0 0 102 102" xmlns="http://www.w3.org/2000/svg">
     <rect
-      x="0%"
-      y="0%"
-      width="100%"
-      height={`${thickness}%`}
+      x="1"
+      y="1"
+      width="100"
+      height={`${thickness}`}
       rx={radius}
       ry={radius}
       fill={color}
     />
     <rect
-      x="0%"
-      y={`${50 - thickness / 2}%`}
-      width="100%"
-      height={`${thickness}%`}
+      x="1"
+      y={`${51 - thickness / 2}`}
+      width="100"
+      height={`${thickness}`}
       rx={radius}
       ry={radius}
       fill={color}
     />
     <rect
-      x="0%"
-      y={`${100 - thickness}%`}
-      width="100%"
-      height={`${thickness}%`}
+      x="1"
+      y={`${102 - thickness}`}
+      width="100"
+      height={`${thickness}`}
       rx={radius}
       ry={radius}
       fill={color}

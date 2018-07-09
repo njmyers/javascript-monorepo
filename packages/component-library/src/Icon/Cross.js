@@ -14,26 +14,26 @@ type Props = {
  * @param {number} radius    the radius of the rounded corners
  */
 const Cross = ({ color, thickness, radius }: Props) => (
-  <svg height="100%" width="100%">
+  <svg viewBox="0 0 102 102" xmlns="http://www.w3.org/2000/svg">
     <rect
-      x={`${0 - thickness / 2}%`}
-      y={`${50 - thickness / 2}%`}
-      width={`${100 + thickness}%`}
-      height={`${thickness}%`}
+      x={`${0 - thickness / 2}`}
+      y={`${51 - thickness / 2}`}
+      width={`${102 + thickness}`}
+      height={`${thickness}`}
       rx={radius}
       ry={radius}
       fill={color}
-      transform="rotate(45 50 50)"
+      transform="rotate(45 51 51)"
     />
     <rect
-      x={`${0 - thickness / 2}%`}
-      y={`${50 - thickness / 2}%`}
-      width={`${100 + thickness}%`}
-      height={`${thickness}%`}
+      x={`${0 - thickness / 2}`}
+      y={`${51 - thickness / 2}`}
+      width={`${102 + thickness}`}
+      height={`${thickness}`}
       rx={radius}
       ry={radius}
       fill={color}
-      transform="rotate(-45 50 50)"
+      transform="rotate(-45 51 51)"
     />
   </svg>
 );

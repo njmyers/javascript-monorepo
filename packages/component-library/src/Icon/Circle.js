@@ -12,8 +12,8 @@ type Props = {
  * @param {number} radius   the radius of the circle (don't use this)
  */
 const Circle = ({ color, radius }: Props) => (
-  <svg height="100%" width="100%">
-    <circle cx="50%" cy="50%" r={`${radius}%`} fill={color} />
+  <svg viewBox="0 0 102 102" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="51" cy="51" r={`${radius}`} fill={color} />
   </svg>
 );
 

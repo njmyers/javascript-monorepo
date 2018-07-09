@@ -14,19 +14,17 @@ type Props = {
  * @param {number} thickness thickness of the ring as a percentage
  * @param {number} radius    radius of the circle as percentage
  */
-const RingSlash = ({ color, thickness, radius }: Props) => (
+const RingSlash = ({ color, thickness }: Props) => (
   <React.Fragment>
-    <svg height="100%" width="100%">
+    <svg viewBox="0 0 102 102" xmlns="http://www.w3.org/2000/svg">
       <Ring thickness={thickness} color={color} />
       <rect
-        x={`${0 + thickness / 2}%`}
-        y={`${50 - thickness / 2}%`}
-        width={`${100 - thickness}%`}
-        height={`${thickness}%`}
-        rx={radius}
-        ry={radius}
+        x={`${1 + thickness / 2}`}
+        y={`${51 - thickness / 2}`}
+        width={`${100 - thickness}`}
+        height={`${thickness}`}
         fill={color}
-        transform="rotate(45 50 50)"
+        transform="rotate(45 51 51)"
       />
     </svg>
   </React.Fragment>
@@ -35,7 +33,6 @@ const RingSlash = ({ color, thickness, radius }: Props) => (
 RingSlash.defaultProps = {
   color: '#000000',
   thickness: 15,
-  radius: 4,
 };
 
 export default RingSlash;

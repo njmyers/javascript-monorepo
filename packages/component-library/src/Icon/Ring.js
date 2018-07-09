@@ -16,13 +16,13 @@ type Props = {
  * @param {number} radius    radius of the circle as percentage
  */
 const Ring = ({ fill, color, thickness, radius }: Props) => (
-  <svg height="100%" width="100%">
+  <svg viewBox="0 0 102 102" xmlns="http://www.w3.org/2000/svg">
     <circle
-      cx="50%"
-      cy="50%"
-      r={`${radius - thickness / 2}%`}
+      cx="51"
+      cy="51"
+      r={`${radius - thickness / 2}`}
       stroke={color}
-      strokeWidth={`${thickness}%`}
+      strokeWidth={`${thickness}`}
       fill={fill}
     />
   </svg>

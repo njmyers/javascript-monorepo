@@ -15,7 +15,7 @@ type Props = {
  * @param {number} radius    the radius of the rounded corners
  */
 const Plus = ({ color, thickness, radius }: Props) => (
-  <svg height="100%" width="100%">
+  <svg viewBox="0 0 102 102" xmlns="http://www.w3.org/2000/svg">
     <Minus
       color={color}
       thickness={thickness}

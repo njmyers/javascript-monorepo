@@ -39,16 +39,20 @@ const rotation = (direction: Direction) => {
  */
 const Arrow = ({ color, thickness, direction, radius }: Props) => (
   // Could've done this much simpler with a rotated square?
-  <svg height="100%" width="100%" transform={`rotate(${rotation(direction)})`}>
+  <svg
+    viewBox="0 0 102 102"
+    xmlns="http://www.w3.org/2000/svg"
+    transform={`rotate(${rotation(direction)})`}
+  >
     <rect
-      x={`${thickness}%`}
+      x={`${thickness}`}
       y={`${50 - thickness / 2}%`}
       width={`${100 - thickness}%`}
       height={`${thickness}%`}
       rx={radius}
       ry={radius}
       fill={color}
-      transform="rotate(90 50 50)"
+      transform="rotate(90 51 51)"
     />
     <Caret color={color} thickness={thickness} radius={radius} />
   </svg>

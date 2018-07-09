@@ -21,16 +21,16 @@ const mapDirection = (direction: Direction = 'horizontal') =>
  * @param {string} direction the direction of the centered line
  */
 const Minus = ({ color, thickness, radius, direction }: Props) => (
-  <svg height="100%" width="100%">
+  <svg viewBox="0 0 102 102" xmlns="http://www.w3.org/2000/svg">
     <rect
-      x="0%"
-      y={`${50 - thickness / 2}%`}
-      width="100%"
-      height={`${thickness}%`}
+      x="1"
+      y={`${51 - thickness / 2}`}
+      width="100"
+      height={`${thickness}`}
       rx={radius}
       ry={radius}
       fill={color}
-      transform={`rotate(${mapDirection(direction)} 50 50)`}
+      transform={`rotate(${mapDirection(direction)} 51 51)`}
     />
   </svg>
 );

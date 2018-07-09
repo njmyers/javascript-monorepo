@@ -38,26 +38,30 @@ const rotation = (direction: Direction) => {
  */
 const Caret = ({ color, thickness, direction, radius }: Props) => (
   // Could've done this much simpler with a rotated square?
-  <svg height="100%" width="100%" transform={`rotate(${rotation(direction)})`}>
+  <svg
+    viewBox="0 0 102 102"
+    xmlns="http://www.w3.org/2000/svg"
+    transform={`rotate(${rotation(direction)})`}
+  >
     <rect
-      x={`${50}%`}
-      y={`${0}%`}
-      width={`${Math.sqrt(2) * 50}%`}
-      height={`${thickness}%`}
+      x={`${51}`}
+      y={`${1}`}
+      width={`${Math.sqrt(2) * 51}`}
+      height={`${thickness}`}
       rx={radius}
       ry={radius}
       fill={color}
-      transform="rotate(45 50 0)"
+      transform="rotate(45 51 1)"
     />
     <rect
-      x={`${50}%`}
-      y={`${0 - thickness}%`}
-      width={`${Math.sqrt(2) * 50}%`}
-      height={`${thickness}%`}
+      x={`${51}`}
+      y={`${1 - thickness}`}
+      width={`${Math.sqrt(2) * 51}%`}
+      height={`${thickness}`}
       rx={radius}
       ry={radius}
       fill={color}
-      transform="rotate(135 50 0)"
+      transform="rotate(135 51 1)"
     />
   </svg>
 );
