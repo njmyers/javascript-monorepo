@@ -1,4 +1,10 @@
-const caseToCase = (firstSeperator) => (secondSeperator) => (str) =>
-  str.split(firstSeperator).join(secondSeperator);
+// @flow
+
+type CaseToCase = (
+  first: string
+) => (second: string) => (str: string) => string;
+
+const caseToCase: CaseToCase = (first) => (second) => (str) =>
+  str.split(first).join(second);
 
 export default caseToCase;

@@ -3,25 +3,25 @@
 Wrap your React Components in a StatusSwitch to conditionally render based on status props.
 
 ```js
-import React from 'react'
+import React from 'react';
 
-class Stateful exends {
+class Stateful extends React.Component {
   state = {
-    status: 'initial'
-  }
+    status: 'initial',
+  };
 
-  toLoading = () => this.setState({ status: 'loading' })
+  toLoading = () => this.setState({ status: 'loading' });
 
-  toError = () => this.setState({ status: 'error' })
+  toError = () => this.setState({ status: 'error' });
 
   render() {
     return (
       <StatusSwitch status={this.state.status}>
         <div>
-        <p>Some content</p>
+          <p>Some content</p>
         </div>
       </StatusSwitch>
-    )
+    );
   }
 }
 ```
@@ -34,8 +34,8 @@ class Stateful extends React.Component {
     return (
       <StatusSwitch
         status={this.state.status}
-        error={(props) => <p>Error</p>}
-        loading={(props) => <p>Loading</p>}
+        error={(props) => <p>error</p>}
+        loading={(props) => <p>loading</p>}
       >
         <div>
           <p>Some content</p>

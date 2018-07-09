@@ -33,4 +33,5 @@ export { default as toCamel } from './to-camel';
 export { default as unitString } from './unit-string';
 export { default as validateDecimal } from './validate-decimal';
 export { default as validateHexadecimal } from './validate-hexadecimal';
+export { default as validateLetterString } from './validate-letter-string';
 export { default as validateNumber } from './validate-number';

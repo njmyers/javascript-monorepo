@@ -1,26 +1,15 @@
-/// @flow\
+/// @flow
 import * as React from 'react';
 import withSize from 'react-size-components';
+import createTransitionStyle from '../utils/create-transition-style';
+// types
+import type { AnimationProps } from '../types';
 
 type Props = {
   sizes: {
     isSemiStickyActive: boolean,
   },
   children?: React.Node,
-  style: {},
-  replaceStyle: {},
-  className: string,
-  onState: {},
-  offState: {},
-  transitionSpeed: number,
-  transitionTiming:
-    | 'ease'
-    | 'linear'
-    | 'ease-in'
-    | 'ease-out'
-    | 'ease-in-out'
-    | 'step-start'
-    | 'step-end',
 };
 
 type State = {
@@ -28,14 +17,12 @@ type State = {
   isSemiStickyActive: boolean,
 };
 
-// TODO: Add styles like this ...style ...onState, ...offState, ...replaceStyle
-
 /**
  * Makes a semi sticky component
  * Creates an aside HTML5 element and adds your content inside of it
  * @param {object} style define the styles you want to add to the aside (shallow merge)
  */
-class SemiSticky extends React.Component<Props, State> {
+class SemiSticky extends React.Component<Props & AnimationProps, State> {
   static defaultProps = {
     replaceStyle: {
       position: 'fixed',
@@ -54,19 +41,8 @@ class SemiSticky extends React.Component<Props, State> {
     transitionSpeed: 0.25,
   };
 
-  getTransitionString = () => {
-    const { onState } = this.props;
-    const { transitionSpeed, transitionTiming } = this.props;
-
-    return Object.keys(onState)
-      .map((key: string) => `${transitionSpeed}s ${transitionTiming} ${key}`)
-      .reduce((a, b) => `${a},${b}`);
-  };
-
-  transition = this.getTransitionString();
-
   style = () => ({
-    transition: this.transition,
+    ...createTransitionStyle(this.props),
     ...(this.props.sizes.isSemiStickyActive
       ? this.props.onState
       : this.props.offState),

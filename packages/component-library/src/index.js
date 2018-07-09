@@ -1,3 +1,5 @@
+export { default as SlideShow } from './SlideShow';
+export { default as SemiSticky } from './SemiSticky';
 export { default as StatusSwitch } from './StatusSwitch';
 export { default as BEM } from './BEM';
 export { default as Form } from './Form';

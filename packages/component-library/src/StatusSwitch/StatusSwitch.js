@@ -28,8 +28,8 @@ class StatusSwitch extends React.Component<Props> {
   render() {
     switch (this.cascadeStatus(this.props.status)) {
       case 'loading':
-        const Spinner: React.ComponentType<{}> = this.props.loading;
-        return <Spinner />;
+        const Loading: React.ComponentType<{}> = this.props.loading;
+        return <Loading />;
       case 'error':
         const Error: React.ComponentType<{}> = this.props.error;
         return <Error />;

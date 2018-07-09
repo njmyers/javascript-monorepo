@@ -1,27 +1,52 @@
+# Component Library
+
+This is a collection of useful and maybe useless React components. In general components will follow a few rules in order to increase usability. These rules in paricular are applied in how the components will use inline styles
+
+## Global Usage notes
+
+### Inline Styling
+
+1.  All components accept className prop.
+2.  For a shallow merge of styles, use the style prop on a component.
+3.  To escape all inline styles, pass an empty object to replaceStyle prop.
+4.  For a custom reusable component, redefine the defaultProps with a new replaceStyle object. Don't forget to merge all of the other defaultProps!
+
+```js
+<Component className="class" />
+// behaves as expected - inline styles take precendence over rules applied to className
+<Component style={{ color: 'red' }} />
+// shallowly merges style with the default inline styles of the component
+<Component replaceStyle={{}} />
+// all inline styles are removed
+```
+
+### Animation Props
+
+
 ## Status Switch
 
 Wrap your React Components in a StatusSwitch to conditionally render based on status props.
 
 ```js
-import React from 'react'
+import React from 'react';
 
-class Stateful exends {
+class Stateful extends React.Component {
   state = {
-    status: 'initial'
-  }
+    status: 'initial',
+  };
 
-  toLoading = () => this.setState({ status: 'loading' })
+  toLoading = () => this.setState({ status: 'loading' });
 
-  toError = () => this.setState({ status: 'error' })
+  toError = () => this.setState({ status: 'error' });
 
   render() {
     return (
       <StatusSwitch status={this.state.status}>
         <div>
-        <p>Some content</p>
+          <p>Some content</p>
         </div>
       </StatusSwitch>
-    )
+    );
   }
 }
 ```
@@ -34,8 +59,8 @@ class Stateful extends React.Component {
     return (
       <StatusSwitch
         status={this.state.status}
-        error={(props) => <p>Error</p>}
-        loading={(props) => <p>Loading</p>}
+        error={(props) => <p>error</p>}
+        loading={(props) => <p>loading</p>}
       >
         <div>
           <p>Some content</p>
@@ -46,11 +71,11 @@ class Stateful extends React.Component {
 }
 ```
 
-## Form Components
+### Form Components
 
 A selection of React form components. Meant to assist in adding labels and making accessibility automatic. Also helps in generating css classes and modifiers.
 
-### Input
+#### Input
 
 ```js
 import React from 'react';
@@ -80,9 +105,80 @@ class Form extends Component {
 }
 ```
 
-## BEM
+### SemiSticky
 
-### Background (Frustration)
+SemiSticky is a position aware component that animates in and out on scroll positions. It is inspired by the CSS property `position: sticky` but allows for usage in a much wider variety of situations. SemiSticky uses the AnimationProps for determining it's style. Please see AnimationProps for more information about usage.
+
+SemiSticky uses a single prop to determine the scroll position of it's on state. That prop is called `top` and it signifies the amount of pixels from the top of the page that the component should apply it's onState styles. Anything greater then top will apply the onState styles and anything less then top will apply the offState styles.
+
+A common usage patter is for fixed position headers and footers that will show themselves based on a user's scroll position.
+
+```js
+import React from 'react'
+
+class Main extends React.Component {
+  render() {
+    return (
+      <SemiSticky top={400}>
+        <Header>
+      </SemiSticky>
+    )
+  }
+}
+```
+
+In the above example, the Header component will hide from view when the user scrolls down 400 pixels. Sounds simple enough but to implement yourself takes many lines of code! Feel free to add your own onState and offState styles and SemiSticky will automatically generate CSS transitions.
+
+If you would like to shallowly merge styles, use the `style` prop. If you want to replace the default inline styles, use the `replaceStyle` prop. You can also apply `className` prop but keep in mind that all of the inline styles will take precedence.
+
+### Modal
+
+Modal creates ... a modal. It uses `ReactDOM.createPortal` so it renders your element outside of the HTML tree. However it is still controlled by whichever react parent component it is used in. By default Modal renders to the id 'modal-root'. Please be sure to add 'modal-root' to your HTML file or else nothing will be rendered by this component.
+
+The default export from Modal is the styled modal. It contains background, transitions and all sorts of fun inline css. If you would like to use only the portal creation you can find it as a named export `UnstyledModal`.
+
+```js
+import { Modal, UnstyledModal } from 'njmyers-component-library';
+```
+
+#### Usage
+
+Simply add your children and use the parent component to control the status as 'on' or 'off'.
+
+```js
+import React from 'react';
+import { Modal } from 'njmyers-component-library';
+
+class ModalParent extends React.Component {
+  state = {
+    status: 'on'
+  }
+
+  turnOffModal = () => {
+    this.setState({
+      status: 'off'
+    })
+  }
+
+  componentDidMount() {
+    setTimeout(this.turnOffModal, 4000)
+  }
+
+  render() {
+    return (
+      <Modal status={this.state.status} />
+        <p>Annoying advertisement</p>
+      </Modal>
+    )
+  }
+}
+```
+
+In the above example, the 'annoying advertisement' will render itself in aside under the 'modal-root' id for 4 seconds and then will animate to its offState styles. When ModalParent unmounts the modal component will be removed from 'modal-root'.
+
+### BEM
+
+#### Background (Frustration)
 
 I've read many articles about using BEM syntax. As I understand it the main points are as follows.
 
@@ -119,7 +215,7 @@ TODO ADD EXAMPLE
 
 Now of course this is a good thing as we want our source code to be cleaner and easier to read. However it comes at the cost of possible reducing the specificity of your compilied css code. Why do we have to make a sacrifice?
 
-### Solution
+#### Solution
 
 Now we have a brand new component for writing BEM classNames to your components. We hopefully get the best of both worlds by being able to using the full power of BEM in terms of specificity while using a much cleaner syntax in React. Behold the power of `<BEM>`
 
@@ -325,7 +421,7 @@ And now you can write your sass the same way
 
 Anyways you may think differently but this syntax makes alot of sense for me!
 
-### Notes
+#### Notes
 
 BEM will only add classes to dom elements and not to Components. In the below example the p entities will receive classNames `"block_element"` and `"block_otherElement"` repectively. No classNames will be added to the `<SpecialComponent />`. This is a design feature not an error. We would assume that you will use another instance of BEM inside your special component as it is special enough to warrant it's own component! This frees you up for using the create rich environment of composing components together.
 

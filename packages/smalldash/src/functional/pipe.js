@@ -1,3 +1,5 @@
+// @flow
+
 /**
  * compose functions from left to right automatically currying arguments
  * @param {function} fn first function to pop off the stack and apply

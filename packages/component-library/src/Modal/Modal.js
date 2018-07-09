@@ -173,5 +173,5 @@ class StyledModal extends React.PureComponent<StyledProps & ModalProps> {
   }
 }
 
-export { Modal };
+export { Modal as UnstyledModal };
 export default StyledModal;

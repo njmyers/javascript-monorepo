@@ -13,11 +13,3 @@ test('capitalize string with seperator', () => {
 
   expect(capitalize(string, '-')).toBe(expected);
 });
-
-// test('capitalize string with regex seperator', () => {
-// 	const string = 'this/is/a/test';
-// 	const expected = 'This/Is/A/Test';
-// 	const regex = /\//gi;
-// 	console.log(regex instanceof RegExp);
-// 	expect(capitalize(string, regex)).toBe(expected);
-// });

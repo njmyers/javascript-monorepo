@@ -1,6 +1,6 @@
-## BEM
+### BEM
 
-### Background (Frustration)
+#### Background (Frustration)
 
 I've read many articles about using BEM syntax. As I understand it the main points are as follows.
 
@@ -37,7 +37,7 @@ TODO ADD EXAMPLE
 
 Now of course this is a good thing as we want our source code to be cleaner and easier to read. However it comes at the cost of possible reducing the specificity of your compilied css code. Why do we have to make a sacrifice?
 
-### Solution
+#### Solution
 
 Now we have a brand new component for writing BEM classNames to your components. We hopefully get the best of both worlds by being able to using the full power of BEM in terms of specificity while using a much cleaner syntax in React. Behold the power of `<BEM>`
 
@@ -243,7 +243,7 @@ And now you can write your sass the same way
 
 Anyways you may think differently but this syntax makes alot of sense for me!
 
-### Notes
+#### Notes
 
 BEM will only add classes to dom elements and not to Components. In the below example the p entities will receive classNames `"block_element"` and `"block_otherElement"` repectively. No classNames will be added to the `<SpecialComponent />`. This is a design feature not an error. We would assume that you will use another instance of BEM inside your special component as it is special enough to warrant it's own component! This frees you up for using the create rich environment of composing components together.
 
