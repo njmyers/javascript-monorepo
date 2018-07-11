@@ -9,7 +9,7 @@ import Child from './Child';
 import Parent from './Parent';
 import ID from './ID';
 
-storiesOf('3) Window Size', module)
+storiesOf('Size Components/3) Window Size', module)
   .addDecorator(withDocs(readme))
   .add('window size', () => <Child />)
   .add('window size with parent callback', () => (

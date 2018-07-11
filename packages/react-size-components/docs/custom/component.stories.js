@@ -9,7 +9,7 @@ import Child from './Child';
 import Parent from './Parent';
 import Advanced from './Advanced';
 
-storiesOf('7) Custom Flags', module)
+storiesOf('Size Components/7) Custom Flags', module)
   .addDecorator(withDocs(readme))
   .add('custom flags and props', () => <Child />)
   .add('custom flags and props with onSize callback', () => (

@@ -20,8 +20,7 @@
     "docgen": "node scripts/docgen.js && node scripts/readme.js",
     "build": "run-s docgen webpack",
     "watch": "webpack --watch",
-    "patch-release":
-      "npm version patch && npm publish && git push --follow-tags",
+    "patch-release": "npm version patch && npm publish && git push --follow-tags",
     "test": "jest --watchAll"
   },
   "devDependencies": {

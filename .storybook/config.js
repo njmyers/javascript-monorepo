@@ -18,7 +18,7 @@ setOptions({
   showAddonPanel: true,
   showSearchBox: false,
   addonPanelInRight: true,
-  sortStoriesByKind: false,
+  sortStoriesByKind: true,
 });
 
 storybook.addDecorator((stories, context) => {

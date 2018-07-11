@@ -8,7 +8,7 @@ import readme from './README.md';
 import Child from './Child';
 import MultipleChildren from './MultipleChildren';
 
-storiesOf('6) Position Aware', module)
+storiesOf('Size Components/6) Position Aware', module)
   .addDecorator(withDocs(readme))
   .add('single position aware child', () => <Child />)
   .add('list of position aware children', () => (

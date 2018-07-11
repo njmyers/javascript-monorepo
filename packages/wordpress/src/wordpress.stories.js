@@ -15,4 +15,4 @@ import { action } from '@storybook/addon-actions';
 
 const Dud = () => null;
 
-storiesOf('1) Wordpress', module).add('wordpress', () => <Dud />);
+storiesOf('Wordpress/1) Data Provider', module).add('wordpress', () => <Dud />);

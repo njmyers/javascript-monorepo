@@ -1,5 +1,6 @@
 {
   "scripts": {
+    "bootstrap": "lerna bootstrap",
     "start": "run-p storybook",
     "storybook": "start-storybook -p 9009",
     "build": "build-storybook",

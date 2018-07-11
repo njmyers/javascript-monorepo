@@ -2,7 +2,6 @@ import React, { Fragment } from 'react';
 import { storiesOf } from '@storybook/react';
 import { text, boolean, number, object } from '@storybook/addon-knobs/react';
 import { withDocs, doc } from 'storybook-readme';
-import { withInfo } from '@storybook/addon-info';
 
 import readme from '../README.md';
 
@@ -20,7 +19,7 @@ const {
   transitionTiming,
 } = SemiSticky.defaultProps;
 
-storiesOf('6) SemiSticky', module)
+storiesOf('Component Library/6) SemiSticky', module)
   .addDecorator(withDocs(readme))
   .add('Demo', () => (
     <React.Fragment>

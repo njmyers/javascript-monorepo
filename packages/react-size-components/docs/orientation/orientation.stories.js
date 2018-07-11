@@ -8,7 +8,7 @@ import readme from './README.md';
 import Child from './Child';
 import Parent from './Parent';
 
-storiesOf('5) Orientation Flag', module)
+storiesOf('Size Components/5) Orientation Flag', module)
   .addDecorator(withDocs(readme))
   .add('child with orientation flag', () => <Child />)
   .add('child with orientation flag and parent callback', () => (

@@ -1,15 +1,13 @@
 {
   "name": "react-youtube-component",
   "version": "1.0.4",
-  "description":
-    "Higher order component for downloading and using the YouTube iFrame API",
+  "description": "Higher order component for downloading and using the YouTube iFrame API",
   "main": "build/index.js",
   "scripts": {
     "prepublishOnly": "npm run build",
     "build": "webpack",
     "test": "jest --watchAll",
-    "patch-release":
-      "npm version patch && npm publish && git push --follow-tags"
+    "patch-release": "npm version patch && npm publish && git push --follow-tags"
   },
   "author": "Nick Myers",
   "license": "ISC",

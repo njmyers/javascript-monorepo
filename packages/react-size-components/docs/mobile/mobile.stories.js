@@ -8,7 +8,7 @@ import readme from './README.md';
 import Child, { Breakpoint } from './Child';
 import Parent from './Parent';
 
-storiesOf('4) Mobile Flag', module)
+storiesOf('Size Components/4) Mobile Flag', module)
   .addDecorator(withDocs(readme))
   .add('mobile flag', () => <Child />)
   .add('mobile flag and alternate breakpoint', () => <Breakpoint />)

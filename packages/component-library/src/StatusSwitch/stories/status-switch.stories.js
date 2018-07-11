@@ -14,4 +14,6 @@ import 'normalize.css';
 
 import Demo from './Demo';
 
-storiesOf('3) Status Switch', module).add('demo', () => <Demo />);
+storiesOf('Component Library/3) Status Switch', module).add('demo', () => (
+  <Demo />
+));

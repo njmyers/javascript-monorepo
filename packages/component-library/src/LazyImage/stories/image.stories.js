@@ -13,7 +13,7 @@ import './image.sass';
 
 import LazyImage from '../LazyImage';
 
-storiesOf('5) LazyImage', module)
+storiesOf('Component Library/5) LazyImage', module)
   .addDecorator(withDocs(readme))
   .add('Simple Demo', () => (
     <div style={{ width: '300px' }}>
