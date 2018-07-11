@@ -2,7 +2,14 @@ const fs = require('fs');
 const path = require('path');
 
 // order of README.md files to be assembled
-const docs = ['StatusSwitch', 'Form', 'SemiSticky', 'Modal', 'BEM'];
+const docs = [
+  'StatusSwitch',
+  'Form',
+  'SemiSticky',
+  'LazyImage',
+  'Modal',
+  'BEM',
+];
 
 const cwd = process.cwd();
 
