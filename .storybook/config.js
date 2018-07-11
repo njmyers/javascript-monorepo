@@ -1,7 +1,5 @@
 import * as React from 'react';
 import * as storybook from '@storybook/react';
-// import { withInfo } from '@storybook/addon-info';
-import docs from 'storybook-addon-docgen';
 import { setOptions } from '@storybook/addon-options';
 import { withKnobs } from '@storybook/addon-knobs/react';
 // components
@@ -28,11 +26,7 @@ storybook.addDecorator((stories, context) => {
 });
 
 // automatically import all files ending in *.stories.js
-const req = require.context(
-  '../packages/component-library/src',
-  true,
-  /.stories.js$/
-);
+const req = require.context('../packages/', true, /.stories.js$/);
 
 // webpack voodoo
 const loadStories = () => {
