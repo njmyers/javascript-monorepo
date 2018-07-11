@@ -2,45 +2,46 @@
 import * as React from 'react';
 import withSize from 'react-size-components';
 import createTransitionStyle from '../utils/create-transition-style';
-// types
-import type { AnimationProps } from '../types';
 
-type Props = {
+type AnimationProps = {
+  /** className applied to the container element */
+  className?: string,
+  /** css inline styles applied to the on state */
+  onState: {},
+  /** css inline styles applied to the off state */
+  offState: {},
+  /** completely replace all styles */
+  replaceStyle: {},
+  /** shallowly merge styles */
+  style?: {},
+  /** the speed of the transition */
+  transitionSpeed: number,
+  /** the transition timing function */
+  transitionTiming:
+    | 'ease'
+    | 'linear'
+    | 'ease-in'
+    | 'ease-out'
+    | 'ease-in-out'
+    | 'step-start'
+    | 'step-end',
+};
+
+type InheritedProps = {
+  /** inherited sizing info */
   sizes: {
     isSemiStickyActive: boolean,
   },
+  /** react children (your component) */
   children?: React.Node,
 };
 
-type State = {
-  style: {},
-  isSemiStickyActive: boolean,
-};
-
 /**
- * Makes a semi sticky component
+ * Merges the styles according to the boolean flag
  * Creates an aside HTML5 element and adds your content inside of it
- * @param {object} style define the styles you want to add to the aside (shallow merge)
+ * Also creates an empty div so we have somewhere to measure from
  */
-class SemiSticky extends React.Component<Props & AnimationProps, State> {
-  static defaultProps = {
-    replaceStyle: {
-      position: 'fixed',
-      background: 'rgba(0, 0, 0, 0.8)',
-      width: '100%',
-      top: 0,
-      left: 0,
-    },
-    onState: {
-      transform: 'translateY(0)',
-    },
-    offState: {
-      transform: 'translateY(-100px)',
-    },
-    transitionTiming: 'ease',
-    transitionSpeed: 0.25,
-  };
-
+class StyleMerger extends React.Component<InheritedProps & AnimationProps> {
   style = () => ({
     ...createTransitionStyle(this.props),
     ...(this.props.sizes.isSemiStickyActive
@@ -63,19 +64,42 @@ class SemiSticky extends React.Component<Props & AnimationProps, State> {
 }
 
 type WrapperProps = {
+  /** distance from the document top to engage the on state styles */
   top: number,
 };
 
+type AllProps = WrapperProps & AnimationProps & InheritedProps;
+
 /**
- * Essentially just turning a HOC into a child type usage.
- * Extremely Verbose here
- * Need to rewrite size components so you can use it in HOC or other ways
- * @extends React
+ * SemiSticky is a position aware component that animates in and out on scroll positions.
+ * It is inspired by the CSS property `position: sticky` but allows for usage in a much wider variety of situations.
+ * SemiSticky uses the AnimationProps for determining it's style. Please see AnimationProps for more information about usage.
+ * SemiSticky uses a single prop to determine the scroll position of it's on state.
+ * That prop is called `top` and it signifies the amount of pixels from the top of the page that the component should apply it's onState styles.
+ * Anything greater then top will apply the onState styles and anything less then top will apply the offState styles.
+ * A common usage pattern is for fixed position headers and footers that will show themselves based on a user's scroll position.
  */
-class HOCWrapper extends React.Component<WrapperProps> {
+class SemiSticky extends React.Component<AllProps> {
   static defaultProps = {
-    top: 480,
+    top: 200,
+    replaceStyle: {
+      position: 'fixed',
+      background: 'rgba(0, 0, 0, 0.8)',
+      width: '100%',
+      top: 0,
+      left: 0,
+    },
+    onState: {
+      transform: 'translateY(0)',
+    },
+    offState: {
+      transform: 'translateY(-100px)',
+    },
+    transitionTiming: 'ease',
+    transitionSpeed: 0.25,
   };
+
+  static displayName = 'SemiSticky';
 
   custom = [
     {
@@ -93,8 +117,9 @@ class HOCWrapper extends React.Component<WrapperProps> {
   ];
 
   render() {
-    const Wrapper = withSize({ custom: this.custom })(SemiSticky);
+    const Wrapper = withSize({ custom: this.custom })(StyleMerger);
     return <Wrapper {...this.props} />;
   }
 }
-export default HOCWrapper;
+
+export default SemiSticky;

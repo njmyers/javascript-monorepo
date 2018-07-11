@@ -1,22 +1,20 @@
-import React, { Fragment } from 'react';
-
+import * as React from 'react';
 import { storiesOf } from '@storybook/react';
-import { linkTo } from '@storybook/addon-links';
-import withReadme from 'storybook-readme/with-readme';
+import { withDocs } from 'storybook-readme';
 
 import Changer from './Changer';
 
 import src from './stock.jpg';
 import placeholder from './stock-small.jpg';
 
-// import readme from './README.md';
+import readme from '../README.md';
 
-import 'normalize.css';
 import './image.sass';
 
 import LazyImage from '../LazyImage';
 
 storiesOf('5) LazyImage', module)
+  .addDecorator(withDocs(readme))
   .add('Simple Demo', () => (
     <div style={{ width: '300px' }}>
       <LazyImage src={src} placeholder={placeholder} />

@@ -2,31 +2,32 @@
 import * as React from 'react';
 
 type Props = {
+  /** high-res image src */
   src: string,
+  /** placeholder image src */
   placeholder: string,
+  /** pass-thru onclick function */
   onClick?: Function,
+  /** name attribute for onclick events */
   name?: string,
-  // meta data
+  /** pass-thru alt tag for image */
   alt?: string,
+  /** pass-thru title tag for image */
   title?: string,
-  // style components
+  /** shallow merge of styles applied to the placeholder */
   placeholderStyle: {},
+  /** shallow merge of styles applied to the highres */
   imageStyle: {},
+  /** shallow merge of styles applied to the container */
   containerStyle: {},
-  // for sass/css file
+  /** class name applied to the components in BEM style */
   className: string,
+  /** base styles applied to all elements */
+  baseStyles: {},
 };
 
 type State = {
   status: 'initial' | 'loading' | 'resolved' | 'error',
-};
-
-const baseStyles = {
-  margin: 0,
-  padding: 0,
-  width: '100%',
-  height: 'auto',
-  backfaceVisibility: 'inherit',
 };
 
 // https://stackoverflow.com/questions/31444891/mystery-white-space-underneath-image-tag/31445364#31445364
@@ -37,18 +38,21 @@ const baseStyles = {
  */
 class LazyImage extends React.Component<Props, State> {
   static defaultProps = {
+    baseStyles: {
+      margin: 0,
+      padding: 0,
+      width: '100%',
+      height: 'auto',
+      backfaceVisibility: 'inherit',
+    },
     containerStyle: {
-      ...baseStyles,
       position: 'relative',
       overflow: 'hidden',
       // fix for image element whitespace
       lineHeight: 0,
     },
-    imageStyle: {
-      ...baseStyles,
-    },
+    imageStyle: {},
     placeholderStyle: {
-      ...baseStyles,
       position: 'absolute',
       top: 0,
       left: 0,
@@ -105,8 +109,19 @@ class LazyImage extends React.Component<Props, State> {
   };
 
   placeholderStyle = () => ({
+    ...this.props.baseStyles,
     ...this.props.placeholderStyle,
     opacity: this.state.status === 'resolved' ? 0 : 1,
+  });
+
+  imageStyle = () => ({
+    ...this.props.baseStyles,
+    ...this.props.imageStyle,
+  });
+
+  containerStyle = () => ({
+    ...this.props.baseStyles,
+    ...this.props.containerStyle,
   });
 
   metaData = (str: string | void) => (str ? `${str} placeholder` : '');
@@ -114,7 +129,7 @@ class LazyImage extends React.Component<Props, State> {
   render() {
     return (
       <div
-        style={this.props.containerStyle}
+        style={this.containerStyle()}
         className={this.props.className ? `${this.props.className}` : null}
         name={this.props.name}
         onClick={this.props.onClick}
@@ -130,7 +145,7 @@ class LazyImage extends React.Component<Props, State> {
           title={this.metaData(this.props.title)}
         />
         <img
-          style={this.props.imageStyle}
+          style={this.imageStyle()}
           className={
             this.props.className ? `${this.props.className}_img` : null
           }

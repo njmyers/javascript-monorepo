@@ -3,18 +3,43 @@ import * as React from 'react';
 import Icon from '../Icon';
 import createTransitionStyle from '../utils/create-transition-style';
 
-import type { AnimationProps } from '../types';
+export type AnimationProps = {
+  /** className applied to the container element */
+  className?: string,
+  /** css inline styles applied to the on state */
+  onState: {},
+  /** css inline styles applied to the off state */
+  offState: {},
+  /** completely replace all styles */
+  replaceStyle: {},
+  /** shallowly merge styles */
+  style?: {},
+  /** the speed of the transition */
+  transitionSpeed: number,
+  /** the transition timing function */
+  transitionTiming:
+    | 'ease'
+    | 'linear'
+    | 'ease-in'
+    | 'ease-out'
+    | 'ease-in-out'
+    | 'step-start'
+    | 'step-end',
+};
 
 type Props = {
   children?: React.Node,
-  autoplay: boolean,
+  /** boolean to determine whether the slideshow starts on mount */
+  play: boolean,
+  /** boolean to show or hide buttons */
   buttons: boolean,
+  /** frame rate in milliseconds */
   frameRate: number,
 };
 
 type State = {
   active: number,
-  interval: IntervalID,
+  interval: IntervalID | null,
 };
 
 class SlideShow extends React.Component<Props & AnimationProps, State> {
@@ -30,9 +55,16 @@ class SlideShow extends React.Component<Props & AnimationProps, State> {
     offState: {
       opacity: 0,
     },
+    transitionSpeed: 0.25,
+    transitionTiming: 'ease',
     frameRate: 3000,
-    autoplay: true,
+    play: true,
     buttons: true,
+  };
+
+  state = {
+    active: 0,
+    interval: null,
   };
 
   next = () => {
@@ -48,6 +80,9 @@ class SlideShow extends React.Component<Props & AnimationProps, State> {
   };
 
   start = () => {
+    // always ensure a clear of interval before starting
+    this.stop();
+    // start the interval
     this.setState({
       interval: setInterval(this.next, this.props.frameRate),
     });
@@ -59,15 +94,15 @@ class SlideShow extends React.Component<Props & AnimationProps, State> {
 
   style = (index: number) => ({
     ...createTransitionStyle(this.props),
+    ...this.props.replaceStyle,
+    ...this.props.style,
     ...(Number(index) === Number(this.state.active)
       ? this.props.onState
       : this.props.offState),
-    ...this.props.replaceStyle,
-    ...this.props.style,
   });
 
   componentDidMount() {
-    if (this.props.autoplay) this.start();
+    if (this.props.play) this.start();
   }
 
   componentWillUnmount() {
@@ -76,13 +111,25 @@ class SlideShow extends React.Component<Props & AnimationProps, State> {
 
   render() {
     return (
-      <aside>
-        <Icon.Caret direction="left" />
-        <Icon.Caret direction="right" />
+      <section
+        style={{
+          position: 'relative',
+          margin: 0,
+          padding: 0,
+        }}
+        className={this.props.className}
+      >
+        {/* <div style={{ position: 'absolute', zIndex: 1 }}>
+          <button>
+            <div style={{ width: '50px', height: '50px' }}>
+              <Icon.Caret direction="right" />
+            </div>
+          </button>
+        </div> */}
         {React.Children.map(this.props.children, (child, index) =>
           React.cloneElement(child, { style: this.style(index) })
         )}
-      </aside>
+      </section>
     );
   }
 }

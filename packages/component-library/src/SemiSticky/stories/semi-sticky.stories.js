@@ -1,53 +1,44 @@
 import React, { Fragment } from 'react';
 import { storiesOf } from '@storybook/react';
+import { text, boolean, number, object } from '@storybook/addon-knobs/react';
+import { withDocs, doc } from 'storybook-readme';
+import { withInfo } from '@storybook/addon-info';
 
-import LongPage from './LongPage';
+import readme from '../README.md';
+
 import SemiSticky from '../SemiSticky';
+import LongPage from './LongPage';
 
-storiesOf('SemiSticky', module)
-  .add('Simple Demo', () => (
-    <div>
-      <SemiSticky>
-        <p style={{ color: 'white' }}>Header</p>
-      </SemiSticky>
-      <LongPage />
-    </div>
-  ))
-  .add('Changing Animated States', () => (
-    <div>
-      <SemiSticky onState={{ opacity: 1 }} offState={{ opacity: 0 }}>
-        <p style={{ color: 'white' }}>Header</p>
-      </SemiSticky>
-      <LongPage />
-    </div>
-  ))
-  .add('Adding Style/Animation Information Demo', () => (
-    <div>
+const {
+  top,
+  className,
+  onState,
+  offState,
+  replaceStyle,
+  style,
+  transitionSpeed,
+  transitionTiming,
+} = SemiSticky.defaultProps;
+
+storiesOf('6) SemiSticky', module)
+  .addDecorator(withDocs(readme))
+  .add('Demo', () => (
+    <React.Fragment>
       <SemiSticky
-        replaceStyle={{
-          position: 'fixed',
-          bottom: 0,
-          width: '100%',
-          background: 'rgba(200, 20, 20, 0.8)',
-          height: '150px',
-        }}
-        onState={{
-          transform: 'translateY(0px)',
-        }}
-        offState={{
-          transform: 'translateY(150px)',
-        }}
+        top={number('top', top, { min: 0, step: 25 })}
+        className={text('className', className)}
+        onState={object('onState', onState)}
+        offState={object('offState', offState)}
+        style={object('style', style)}
+        replaceStyle={object('replaceStyle', replaceStyle)}
+        transitionSpeed={number('transitionSpeed', transitionSpeed, {
+          min: 0,
+          step: 0.25,
+        })}
+        transitionTiming={text('transitionTiming', transitionTiming)}
       >
-        <p style={{ color: 'white' }}>Footer</p>
+        <p style={{ color: 'white' }}>{text('childText', 'header')}</p>
       </SemiSticky>
       <LongPage />
-    </div>
-  ))
-  .add('Adjusting Top Entrance', () => (
-    <div>
-      <SemiSticky top={100}>
-        <p style={{ color: 'white' }}>Header</p>
-      </SemiSticky>
-      <LongPage />
-    </div>
+    </React.Fragment>
   ));
