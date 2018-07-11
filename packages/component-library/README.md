@@ -105,24 +105,26 @@ class Form extends Component {
 }
 ```
 
-### SemiSticky
+# SemiSticky
 
 SemiSticky is a position aware component that animates in and out on scroll positions. It is inspired by the CSS property `position: sticky` but allows for usage in a much wider variety of situations. SemiSticky uses the AnimationProps for determining it's style. Please see AnimationProps for more information about usage.
 
 SemiSticky uses a single prop to determine the scroll position of it's on state. That prop is called `top` and it signifies the amount of pixels from the top of the page that the component should apply it's onState styles. Anything greater then top will apply the onState styles and anything less then top will apply the offState styles.
 
-A common usage patter is for fixed position headers and footers that will show themselves based on a user's scroll position.
+## Usage
+
+A common usage pattern is for fixed position headers and footers that will show themselves based on a user's scroll position.
 
 ```js
-import React from 'react'
+import React from 'react';
 
 class Main extends React.Component {
   render() {
     return (
       <SemiSticky top={400}>
-        <Header>
+        <Header />
       </SemiSticky>
-    )
+    );
   }
 }
 ```
@@ -131,6 +133,47 @@ In the above example, the Header component will hide from view when the user scr
 
 If you would like to shallowly merge styles, use the `style` prop. If you want to replace the default inline styles, use the `replaceStyle` prop. You can also apply `className` prop but keep in mind that all of the inline styles will take precedence.
 
+<!-- STORY -->
+
+## Props
+| Prop Name | Type | Required | Default Value | Description |
+|:----------|:-----|:---------|:--------------|:------------|
+|`children`|`ReactNode`|false|-|_react children (your component)_|
+|`className`|`string`|false|-|_className applied to the container element_|
+|`offState`|<code>{}</code>|false|<code>{<br>  transform: 'translateY(-100px)',<br>}</code>|_css inline styles applied to the off state_|
+|`onState`|<code>{}</code>|false|<code>{<br>  transform: 'translateY(0)',<br>}</code>|_css inline styles applied to the on state_|
+|`replaceStyle`|<code>{}</code>|false|<code>{<br>  position: 'fixed',<br>  background: 'rgba(0, 0, 0, 0.8)',<br>  width: '100%',<br>  top: 0,<br>  left: 0,<br>}</code>|_completely replace all styles_|
+|`sizes`|<code>{<br>  isSemiStickyActive: boolean,<br>}</code>|true|-|_inherited sizing info_|
+|`style`|<code>{}</code>|false|-|_shallowly merge styles_|
+|`top`|`number`|false|<code>200</code>|_distance from the document top to engage the on state styles_|
+|`transitionSpeed`|`number`|false|<code>0.25</code>|_the speed of the transition_|
+|`transitionTiming`|<code>&#124; 'ease'<br>&#124; 'linear'<br>&#124; 'ease-in'<br>&#124; 'ease-out'<br>&#124; 'ease-in-out'<br>&#124; 'step-start'<br>&#124; 'step-end'</code>|false|<code>'ease'</code>|_the transition timing function_|
+# LazyImage
+
+A component for lazily loading images
+
+## Usage
+
+```js
+<LazyImage src={src} placeholder={placeholder} />
+```
+
+<!-- STORY -->
+
+## Props
+| Prop Name | Type | Required | Default Value | Description |
+|:----------|:-----|:---------|:--------------|:------------|
+|`alt`|`string`|false|-|_pass-thru alt tag for image_|
+|`baseStyles`|<code>{}</code>|false|<code>{<br>  margin: 0,<br>  padding: 0,<br>  width: '100%',<br>  height: 'auto',<br>  backfaceVisibility: 'inherit',<br>}</code>|_base styles applied to all elements_|
+|`className`|`string`|true|-|_class name applied to the components in BEM style_|
+|`containerStyle`|<code>{}</code>|false|<code>{<br>  position: 'relative',<br>  overflow: 'hidden',<br>  // fix for image element whitespace<br>  lineHeight: 0,<br>}</code>|_shallow merge of styles applied to the container_|
+|`imageStyle`|<code>{}</code>|false|<code>{}</code>|_shallow merge of styles applied to the highres_|
+|`name`|`string`|false|-|_name attribute for onclick events_|
+|`onClick`|`Function`|false|-|_pass-thru onclick function_|
+|`placeholder`|`string`|true|-|_placeholder image src_|
+|`placeholderStyle`|<code>{}</code>|false|<code>{<br>  position: 'absolute',<br>  top: 0,<br>  left: 0,<br>  bottom: 0,<br>  right: 0,<br>  objectFit: 'contain',<br>  transition: '0.25s opacity',<br>}</code>|_shallow merge of styles applied to the placeholder_|
+|`src`|`string`|true|-|_high-res image src_|
+|`title`|`string`|false|-|_pass-thru title tag for image_|
 ### Modal
 
 Modal creates ... a modal. It uses `ReactDOM.createPortal` so it renders your element outside of the HTML tree. However it is still controlled by whichever react parent component it is used in. By default Modal renders to the id 'modal-root'. Please be sure to add 'modal-root' to your HTML file or else nothing will be rendered by this component.
