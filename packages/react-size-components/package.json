@@ -12,7 +12,8 @@
     "watch": "webpack --watch",
     "build": "webpack",
     "test": "jest --watchAll",
-    "patch-release": "npm version patch && npm publish && git push --follow-tags",
+    "patch-release":
+      "npm version patch && npm publish && git push --follow-tags",
     "build-readme": "node scripts/readme.js && npm run doctoc",
     "postbuild-readme": "git add README.md",
     "precommit": "yarn run build-readme && yarn run lint-staged",
@@ -37,7 +38,6 @@
     "smalldash": "^1.1.0"
   },
   "devDependencies": {
-    "@storybook/react": "^3.4.8",
     "babel-cli": "^6.26.0",
     "jest": "^23.1.0",
     "npm-run-all": "^4.1.3",
