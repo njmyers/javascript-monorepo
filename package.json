@@ -1,11 +1,12 @@
 {
   "scripts": {
+    "lerna": "lerna",
     "bootstrap": "lerna bootstrap",
     "build-all": "lerna run build",
     "start": "run-p storybook",
     "storybook": "start-storybook -p 9009",
-    "prestatic": "run-s bootstrap build-all",
-    "static": "build-storybook",
+    "prebuild": "lerna bootstrap && lerna run build",
+    "build": "build-storybook",
     "prettier": "prettier 'packages/**/*.{.test.js,js,jsx,json,md}' --write",
     "test": "jest --watchAll"
   },
