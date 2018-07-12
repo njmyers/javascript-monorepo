@@ -1,5 +1,7 @@
 const path = require('path');
 
+console.log(path.resolve(__dirname, 'with-docs.js'));
+
 module.exports = {
   module: {
     rules: [
@@ -18,5 +20,10 @@ module.exports = {
         loaders: ['file-loader'],
       },
     ],
+  },
+  resolve: {
+    alias: {
+      'with-docs$': path.resolve(__dirname, 'with-docs.js'),
+    },
   },
 };

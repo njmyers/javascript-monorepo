@@ -2,6 +2,7 @@ import * as React from 'react';
 import * as storybook from '@storybook/react';
 import { setOptions } from '@storybook/addon-options';
 import { withKnobs } from '@storybook/addon-knobs/react';
+import '@storybook/addon-console';
 // components
 import Layout from './Layout';
 // styles
