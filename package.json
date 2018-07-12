@@ -3,8 +3,7 @@
   "workspaces": ["packages/*"],
   "scripts": {
     "lerna": "lerna",
-    "bootstrap": "lerna bootstrap",
-    "build-all": "lerna run build",
+    "prestart": "lerna bootstrap && lerna run build",
     "start": "run-p storybook",
     "storybook": "start-storybook -p 9009",
     "prebuild": "lerna bootstrap && lerna run build",
