@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import { storiesOf } from '@storybook/react';
 import { text, boolean, number, object } from '@storybook/addon-knobs/react';
-import { withDocs, doc } from 'storybook-readme';
+import withDocs from 'with-docs';
 
 import readme from '../README.md';
 

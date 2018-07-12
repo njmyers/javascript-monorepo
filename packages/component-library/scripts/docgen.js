@@ -5,7 +5,7 @@ const generateMarkdown = require('./generate-markdown');
 const appRootDir = require('app-root-dir').get();
 
 // order of README.md files to be assembled
-const docs = ['SemiSticky', 'SlideShow', 'LazyImage'];
+const docs = ['SemiSticky', 'SlideShow', 'LazyImage', 'Modal'];
 
 /** Generate JS paths */
 const jsPaths = (name) => path.resolve(appRootDir, 'src', name, `${name}.js`);
