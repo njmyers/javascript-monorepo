@@ -1,65 +1,29 @@
 // @flow
 import * as React from 'react';
-import ReactDOM from 'react-dom';
+import Modal from './ModalUnstyled';
+import createTransitionStyle from '../utils/create-transition-style';
 
-type ModalProps = {
+export type ModalProps = {
+  /** div id where to render the react portal */
   modalRoot: string,
+  /** react children (your component) */
   children?: React.Node,
 };
 
-type ModalState = {
-  modalRoot: HTMLElement | null,
-  aside: HTMLElement | null,
-};
-
-class Modal extends React.PureComponent<ModalProps, ModalState> {
-  static defaultProps = {
-    modalRoot: 'modal-root',
-  };
-
-  state = {
-    modalRoot: null, // HTMLElement | null;
-    aside: null,
-  };
-
-  componentDidMount() {
-    this.setState((state) => ({
-      modalRoot: document.getElementById(this.props.modalRoot),
-      aside: document.createElement('aside'),
-    }));
-  }
-
-  componentDidUpdate(prevProps, prevState) {
-    if (!prevState.modalRoot && this.state.modalRoot && this.state.aside) {
-      this.state.modalRoot.appendChild(this.state.aside);
-    }
-  }
-
-  componentWillUnmount() {
-    if (this.state.modalRoot)
-      this.state.modalRoot.removeChild(this.state.aside);
-  }
-
-  /**
-   * TODO consider rendering this.props.children if the portal is not availble
-   * Better support for SSR?
-   * @return {[type]} [description]
-   */
-  render() {
-    return this.state.aside
-      ? ReactDOM.createPortal(this.props.children, this.state.aside)
-      : null;
-  }
-}
-
-type StyledProps = {
-  style: {},
-  replaceStyle: {},
+type AnimationProps = {
+  /** className applied to the container element */
+  className?: string,
+  /** css inline styles applied to the on state */
   onState: {},
+  /** css inline styles applied to the off state */
   offState: {},
-  className: string,
-  children?: React.Node,
+  /** completely replace all styles */
+  replaceStyle: {},
+  /** shallowly merge styles */
+  style?: {},
+  /** the speed of the transition */
   transitionSpeed: number,
+  /** the transition timing function */
   transitionTiming:
     | 'ease'
     | 'linear'
@@ -68,21 +32,31 @@ type StyledProps = {
     | 'ease-in-out'
     | 'step-start'
     | 'step-end',
+};
+
+type OtherProps = {
+  /** react children (your component) */
+  children?: React.Node,
+  /** z-index of the modal when on */
   zIndexOn: number,
+  /** z-index of the modal when off */
   zIndexOff: number,
+  /** display status of the styled modal */
   status: 'on' | 'off',
 };
 
+type StyledProps = AnimationProps & OtherProps & ModalProps;
+
 type StyledState = {
   zIndex: number,
+  status: 'on' | 'off',
 };
 
-class Styled extends React.Component<StyledProps, StyledState> {
+class StyledModal extends React.Component<StyledProps, StyledState> {
   static defaultProps = {
-    style: {
-      background: 'rgba(255, 255, 255, 0.8)',
-    },
+    style: {},
     replaceStyle: {
+      background: 'rgba(255, 255, 255, 0.8)',
       position: 'fixed',
       width: '100%',
       height: '100%',
@@ -105,50 +79,44 @@ class Styled extends React.Component<StyledProps, StyledState> {
     transitionSpeed: 0.25,
     transitionTiming: 'ease',
     status: 'off',
+    modalRoot: 'modal-root',
   };
 
   state = {
     zIndex: this.props.zIndexOff,
+    status: this.props.status,
   };
-
-  getTransitionString = () => {
-    const { onState } = this.props;
-    const { transitionSpeed, transitionTiming } = this.props;
-
-    return Object.keys(onState)
-      .map((key: string) => `${transitionSpeed}s ${transitionTiming} ${key}`)
-      .reduce((a, b) => `${a},${b}`);
-  };
-
-  transition = this.getTransitionString();
 
   // shallow merge
   style = () => ({
+    ...createTransitionStyle(this.props),
     zIndex: this.state.zIndex,
-    transition: this.transition,
-    ...(this.props.status === 'on' ? this.props.onState : this.props.offState),
+    ...(this.state.status === 'on' ? this.props.onState : this.props.offState),
     ...this.props.replaceStyle,
     ...this.props.style,
   });
 
+  /** This is for z-index out */
   zIndexOut = () => {
     this.setState({
       zIndex: this.props.zIndexOff,
     });
   };
 
-  static getDerivedStateFromProps(props, state) {
-    if (props.status !== state.status && props.status === 'on')
-      return { zIndex: props.zIndexOn };
-    else return null;
+  /** This is for z-index in */
+  static getDerivedStateFromProps(props: StyledProps, state: StyledState) {
+    if (props.status !== state.status) {
+      if (props.status === 'on') {
+        return {
+          zIndex: props.zIndexOn,
+          status: props.status,
+        };
+      } else return { status: props.status };
+    } else return null;
   }
 
-  /**
-   * Auto calculate transition time so zIndex is set after transisition
-   * @param  {[type]} prevProps [description]
-   * @return {[type]}           [description]
-   */
-  componentDidUpdate(prevProps) {
+  /** Auto calculate transition time so zIndex is set after transisition */
+  componentDidUpdate(prevProps: StyledProps) {
     if (prevProps.status === 'on' && this.props.status === 'off') {
       setTimeout(this.zIndexOut, this.props.transitionSpeed * 1000);
     }
@@ -156,18 +124,10 @@ class Styled extends React.Component<StyledProps, StyledState> {
 
   render() {
     return (
-      <div style={this.style()} className={this.props.className}>
-        {this.props.children}
-      </div>
-    );
-  }
-}
-
-class StyledModal extends React.PureComponent<StyledProps & ModalProps> {
-  render() {
-    return (
       <Modal {...this.props}>
-        <Styled {...this.props}>{this.props.children}</Styled>
+        <div style={this.style()} className={this.props.className}>
+          {this.props.children}
+        </div>
       </Modal>
     );
   }
