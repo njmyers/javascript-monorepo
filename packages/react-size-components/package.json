@@ -12,7 +12,8 @@
     "watch": "webpack --watch",
     "build": "webpack",
     "test": "jest --watchAll",
-    "patch-release": "npm version patch && npm publish && git push --follow-tags",
+    "patch-release":
+      "npm version patch && npm publish && git push --follow-tags",
     "build-readme": "node scripts/readme.js && npm run doctoc",
     "postbuild-readme": "git add README.md",
     "precommit": "yarn run build-readme && yarn run lint-staged",
@@ -23,17 +24,17 @@
     "doctoc": "doctoc README.md"
   },
   "dependencies": {
-    "react": "^16.4.1",
-    "react-dom": "^16.4.1",
     "invariant": "^2.2.4",
     "lodash": "^4.17.5",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1",
     "smalldash": "^1.1.0"
   },
   "peerDependencies": {
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0",
     "invariant": "^2.2.4",
     "lodash": "^4.17.5",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
     "smalldash": "^1.1.0"
   },
   "devDependencies": {

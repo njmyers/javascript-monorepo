@@ -4,7 +4,8 @@
     "start": "run-p storybook",
     "storybook": "start-storybook -p 9009",
     "build": "build-storybook",
-    "prettier": "prettier 'packages/**/*.{.test.js,js,jsx,json,md}' --write"
+    "prettier": "prettier 'packages/**/*.{.test.js,js,jsx,json,md}' --write",
+    "test": "jest --watchAll"
   },
   "devDependencies": {
     "@storybook/addon-actions": "^3.3.15",
