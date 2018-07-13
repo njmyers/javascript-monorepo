@@ -1,6 +1,6 @@
 {
   "name": "react-project-core",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "private": true,
   "dependencies": {
     "@njmyers/react-scripts": "^1.1.1",
@@ -19,14 +19,14 @@
     "react-markdown": "^3.2.2",
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.2.2",
-    "react-size-components": "^1.3.2",
+    "react-size-components": "^1.3.3",
     "redux": "^3.7.2",
     "redux-logger": "^3.0.6",
     "redux-observable": "^0.18.0",
     "redux-thunk": "^2.2.0",
     "rxjs": "^5.5.6",
     "s3-deploy-scripts": "^0.1.5",
-    "smalldash": "^1.1.4",
+    "smalldash": "^1.1.5",
     "webfontloader": "^1.6.28",
     "webpack": "^4.16.0"
   },

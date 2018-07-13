@@ -1,8 +1,9 @@
 {
   "name": "react-youtube-component",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Higher order component for downloading and using the YouTube iFrame API",
   "main": "build/index.js",
+  "sideEffects": false,
   "scripts": {
     "prepublishOnly": "npm run build",
     "build": "webpack",
@@ -27,7 +28,7 @@
   "dependencies": {
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
-    "react-size-components": "^1.3.2",
-    "smalldash": "^1.1.4"
+    "react-size-components": "^1.3.3",
+    "smalldash": "^1.1.5"
   }
 }
