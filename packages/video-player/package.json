@@ -1,8 +1,15 @@
 {
+<<<<<<< HEAD
   "name": "@njmyers/video-player",
   "private": true,
   "version": "0.1.0",
   "description": "React video player",
+=======
+  "name": "@njmyers/audio-player",
+  "private": true,
+  "version": "0.1.0",
+  "description": "React audio player",
+>>>>>>> 3653b7276aade615ce38b0f9615118f488dde3fa
   "homepage": "https://component-library.netlify.com/",
   "repository": "https://github.com/njmyers/javascript-monorepo.git",
   "author": "Nick Myers",
