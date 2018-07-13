@@ -2,7 +2,7 @@
   "name": "react-size-components",
   "author": "Nick Myers",
   "license": "ISC",
-  "version": "1.3.5",
+  "version": "1.3.6",
   "description": "Higher order components for sizing functions in react",
   "main": "build/react-size-components.cjs.js",
   "module": "build/react-size-components.esm.js",
@@ -24,7 +24,7 @@
     "lodash": "^4.17.5",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
-    "smalldash": "^1.1.7"
+    "smalldash": "^1.1.8"
   },
   "peerDependencies": {
     "invariant": "^2.2.4",

@@ -1,8 +1,7 @@
 {
   "name": "smalldash",
-  "version": "1.1.7",
-  "description":
-    "collection of utilities available for import as individual functions for smaller packages sizes",
+  "version": "1.1.8",
+  "description": "collection of utilities available for import as individual functions for smaller packages sizes",
   "main": "build/smalldash.cjs.js",
   "module": "build/smalldash.esm.js",
   "browser": "build/smalldash.umd.js",

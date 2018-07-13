@@ -1,8 +1,7 @@
 {
   "name": "react-youtube-component",
-  "version": "1.0.8",
-  "description":
-    "Higher order component for downloading and using the YouTube iFrame API",
+  "version": "1.0.9",
+  "description": "Higher order component for downloading and using the YouTube iFrame API",
   "main": "build/youtube.cjs.js",
   "module": "build/youtube.esm.js",
   "browser": "build/youtube.umd.js",
@@ -28,6 +27,6 @@
   "dependencies": {
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
-    "smalldash": "^1.1.7"
+    "smalldash": "^1.1.8"
   }
 }
