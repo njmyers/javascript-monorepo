@@ -2,6 +2,7 @@
   "name": "react-project-core",
   "version": "0.1.5",
   "private": true,
+  "author": "Nick Myers",
   "scripts": {
     "postbuild": "node ./scripts/post-build.js",
     "precommit": "lint-staged",
@@ -60,6 +61,7 @@
     "webpack": "^4.16.0",
     "webpack-cli": "^3.0.8"
   },
+  "licence": "ISC",
   "lint-staged": {
     "src/**/*.{js,jsx,json,md}": [
       "prettier --write",

@@ -2,7 +2,8 @@
   "name": "smalldash",
   "version": "1.1.8",
   "description": "collection of utilities available for import as individual functions for smaller packages sizes",
-  "license": "ISC",
+  "homepage": "https://component-library.netlify.com/",
+  "repository": "https://github.com/njmyers/javascript-monorepo.git",
   "author": "Nick Myers",
   "main": "build/smalldash.cjs.js",
   "module": "build/smalldash.esm.js",
@@ -22,5 +23,6 @@
     "jest": "^23.1.0",
     "npm-run-all": "^4.1.3",
     "rollup": "^0.62.0"
-  }
+  },
+  "licence": "ISC"
 }

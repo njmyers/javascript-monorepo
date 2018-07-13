@@ -1,6 +1,10 @@
 {
   "name": "njmyers-component-library",
   "version": "0.1.22",
+  "description": "React component library",
+  "homepage": "https://component-library.netlify.com/",
+  "repository": "https://github.com/njmyers/javascript-monorepo.git",
+  "author": "Nick Myers",
   "main": "build/components.cjs.js",
   "module": "build/components.esm.js",
   "scripts": {
@@ -28,5 +32,6 @@
     "react-dom": "^16.4.1",
     "react-size-components": "^1.3.5",
     "smalldash": "^1.1.7"
-  }
+  },
+  "licence": "ISC"
 }

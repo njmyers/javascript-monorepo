@@ -2,7 +2,8 @@
   "name": "react-size-components",
   "version": "1.3.6",
   "description": "Higher order components for sizing functions in react",
-  "license": "ISC",
+  "homepage": "https://component-library.netlify.com/",
+  "repository": "https://github.com/njmyers/javascript-monorepo.git",
   "author": "Nick Myers",
   "main": "build/react-size-components.cjs.js",
   "module": "build/react-size-components.esm.js",
@@ -38,5 +39,6 @@
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "smalldash": "^1.1.0"
-  }
+  },
+  "licence": "ISC"
 }
