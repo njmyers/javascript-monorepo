@@ -1,4 +1,3 @@
-
 # React Size Components
 
 <!-- STORY -->
