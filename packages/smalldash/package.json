@@ -1,15 +1,18 @@
 {
   "name": "smalldash",
   "version": "1.1.5",
-  "description": "collection of utilities available for import as individual functions for smaller packages sizes",
+  "description":
+    "collection of utilities available for import as individual functions for smaller packages sizes",
   "sideEffects": false,
   "main": "dist/module.js",
+  "module": "src/index.js",
   "scripts": {
     "prepublishOnly": "npm run build",
     "prebuild": "node ./scripts/create-index.js",
     "build": "webpack",
     "test": "jest --watchAll",
-    "patch-release": "npm version patch && npm publish && git push --follow-tags",
+    "patch-release":
+      "npm version patch && npm publish && git push --follow-tags",
     "source-map": "source-map-explorer dist/module.js dist/module.js.map"
   },
   "author": "Nick Myers",

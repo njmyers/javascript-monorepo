@@ -2,6 +2,7 @@
   "name": "njmyers-component-library",
   "version": "0.1.19",
   "main": "build/index.js",
+  "module": "src/index.js",
   "sideEffects": false,
   "repository": "njmyers/component-library",
   "dependencies": {
@@ -22,7 +23,8 @@
     "webpack": "webpack --display-modules",
     "build": "run-s docgen webpack",
     "watch": "webpack --watch",
-    "patch-release": "npm version patch && npm publish && git push --follow-tags",
+    "patch-release":
+      "npm version patch && npm publish && git push --follow-tags",
     "test": "jest --watchAll",
     "source-map": "source-map-explorer build/index.js build/index.js.map"
   },

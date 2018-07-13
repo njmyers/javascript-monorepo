@@ -8,12 +8,14 @@
   "repository": "github:njmyers/react-size-components",
   "sideEffects": false,
   "main": "build/index.js",
+  "module": "src/index.js",
   "scripts": {
     "prepublishOnly": "yarn run build",
     "watch": "webpack --watch",
     "build": "webpack",
     "test": "jest --watchAll",
-    "patch-release": "npm version patch && npm publish && git push --follow-tags",
+    "patch-release":
+      "npm version patch && npm publish && git push --follow-tags",
     "build-readme": "node scripts/readme.js && npm run doctoc",
     "postbuild-readme": "git add README.md",
     "precommit": "yarn run build-readme && yarn run lint-staged",
