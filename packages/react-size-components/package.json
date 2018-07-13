@@ -2,7 +2,7 @@
   "name": "react-size-components",
   "author": "Nick Myers",
   "license": "ISC",
-  "version": "1.3.1",
+  "version": "1.3.2",
   "description": "Higher order components for sizing functions in react",
   "homepage": "https://njmyers.github.io/react-size-components",
   "repository": "github:njmyers/react-size-components",
@@ -12,8 +12,7 @@
     "watch": "webpack --watch",
     "build": "webpack",
     "test": "jest --watchAll",
-    "patch-release":
-      "npm version patch && npm publish && git push --follow-tags",
+    "patch-release": "npm version patch && npm publish && git push --follow-tags",
     "build-readme": "node scripts/readme.js && npm run doctoc",
     "postbuild-readme": "git add README.md",
     "precommit": "yarn run build-readme && yarn run lint-staged",
@@ -29,7 +28,7 @@
     "lodash": "^4.17.5",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
-    "smalldash": "^1.1.0"
+    "smalldash": "^1.1.4"
   },
   "peerDependencies": {
     "invariant": "^2.2.4",

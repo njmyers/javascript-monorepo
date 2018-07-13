@@ -1,15 +1,13 @@
 {
   "name": "react-youtube-component",
-  "version": "1.0.4",
-  "description":
-    "Higher order component for downloading and using the YouTube iFrame API",
+  "version": "1.0.5",
+  "description": "Higher order component for downloading and using the YouTube iFrame API",
   "main": "build/index.js",
   "scripts": {
     "prepublishOnly": "npm run build",
     "build": "webpack",
     "test": "jest --watchAll",
-    "patch-release":
-      "npm version patch && npm publish && git push --follow-tags",
+    "patch-release": "npm version patch && npm publish && git push --follow-tags",
     "source-map": "source-map-explorer build/index.js build/index.js.map"
   },
   "author": "Nick Myers",
@@ -29,7 +27,7 @@
   "dependencies": {
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
-    "react-size-components": "^1.3.1",
-    "smalldash": "^1.0.2"
+    "react-size-components": "^1.3.2",
+    "smalldash": "^1.1.4"
   }
 }
