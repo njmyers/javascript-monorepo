@@ -1,6 +1,6 @@
 {
   "name": "react-wordpress",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "private": true,
   "description": "React components for working with the WP-API",
   "keywords": [
@@ -21,8 +21,8 @@
     "test": "jest"
   },
   "dependencies": {
-    "react-size-components": "^1.3.6",
-    "smalldash": "^1.1.8"
+    "react-size-components": "^1.3.7",
+    "smalldash": "^1.1.9"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",

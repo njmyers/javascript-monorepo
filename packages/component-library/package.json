@@ -1,6 +1,6 @@
 {
   "name": "njmyers-component-library",
-  "version": "0.1.22",
+  "version": "0.1.23",
   "description": "React component library",
   "homepage": "https://component-library.netlify.com/",
   "repository": "https://github.com/njmyers/javascript-monorepo.git",
@@ -18,8 +18,8 @@
   "dependencies": {
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
-    "react-size-components": "^1.3.6",
-    "smalldash": "^1.1.8"
+    "react-size-components": "^1.3.7",
+    "smalldash": "^1.1.9"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
