@@ -12,7 +12,7 @@
     "docgen": "node scripts/readme.js && npm run doctoc",
     "doctoc": "doctoc README.md",
     "prepublishOnly": "yarn run build",
-    "rollup": "rollup -c",
+    "rollup": "BABEL_ENV=production rollup -c",
     "pressr": "yarn run build",
     "ssr": "run-p build-ssr start-ssr",
     "start-ssr": "babel-node ssr/server.js",

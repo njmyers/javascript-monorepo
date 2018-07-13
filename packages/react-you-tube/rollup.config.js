@@ -11,6 +11,7 @@ export default [
       name: 'njmyersComponentLibrary',
       file: pkg.browser,
       format: 'umd',
+      sourcemap: true,
       globals: {
         react: 'React',
         'react-dom': 'ReactDOM',
@@ -23,8 +24,8 @@ export default [
     input: 'src/index.js',
     external: ['react', 'react-dom', 'smalldash', 'react-size-components'],
     output: [
-      { file: pkg.main, format: 'cjs' },
-      { file: pkg.module, format: 'es' },
+      { file: pkg.main, format: 'cjs', sourcemap: true },
+      { file: pkg.module, format: 'es', sourcemap: true },
     ],
     plugins: [resolve(), babel({ exclude: 'node_modules/**' })],
   },

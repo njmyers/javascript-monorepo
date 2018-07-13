@@ -10,7 +10,7 @@
     "prebuild": "node ./scripts/create-index.js",
     "build": "run-s rollup",
     "prepublishOnly": "npm run build",
-    "rollup": "rollup -c",
+    "rollup": "BABEL_ENV=production rollup -c",
     "test": "jest --watchAll"
   },
   "browser": "build/smalldash.umd.js",

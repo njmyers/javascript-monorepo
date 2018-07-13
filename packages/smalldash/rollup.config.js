@@ -10,14 +10,15 @@ export default [
       name: '__',
       file: pkg.browser,
       format: 'umd',
+      sourcemap: true,
     },
     plugins: [resolve(), babel({ exclude: 'node_modules/**' }), commonjs()],
   },
   {
     input: 'src/index.js',
     output: [
-      { file: pkg.main, format: 'cjs' },
-      { file: pkg.module, format: 'es' },
+      { file: pkg.main, format: 'cjs', sourcemap: true },
+      { file: pkg.module, format: 'es', sourcemap: true },
     ],
     plugins: [resolve(), babel({ exclude: 'node_modules/**' })],
   },
