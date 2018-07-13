@@ -27,7 +27,8 @@
     "rxjs": "^5.5.6",
     "s3-deploy-scripts": "^0.1.5",
     "smalldash": "^1.0.3",
-    "webfontloader": "^1.6.28"
+    "webfontloader": "^1.6.28",
+    "webpack": "^4.16.0"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
@@ -42,7 +43,8 @@
     "lint-staged": "^6.1.1",
     "prettier": "^1.11.1",
     "sinon": "^4.4.8",
-    "webpack": "3"
+    "webpack": "^4.16.0",
+    "webpack-cli": "^3.0.8"
   },
   "scripts": {
     "predeploy": "run-p build",
@@ -57,6 +59,9 @@
     "prettier": "prettier --write src/components/**/*.{js,jsx,json,md}"
   },
   "lint-staged": {
-    "src/**/*.{js,jsx,json,md}": ["prettier --write", "git add"]
+    "src/**/*.{js,jsx,json,md}": [
+      "prettier --write",
+      "git add"
+    ]
   }
 }
