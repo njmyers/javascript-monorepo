@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import * as __ from 'smalldash';
 
 import {
@@ -35,7 +35,7 @@ const Compose = ({
   resize = false,
   scroll = false,
   custom = [],
-} = {}) => (WrappedComponent) => {
+} = {}) => (WrappedComponent: React.Component<any>) => {
   const configurations = __.compose(
     addOption(inViewConfig)(inView),
     addOption(componentConfig)(component),

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Size from '../src';
+import Size from '../build/react-size-components.esm.js/';
 
 const LoremIpsum = ({ sizes } = {}) => {
   const style = {

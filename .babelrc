@@ -5,7 +5,17 @@
     "transform-object-rest-spread",
     "dynamic-import-node",
     "syntax-dynamic-import",
-    "babel-plugin-react-docgen"
+    "babel-plugin-react-docgen",
+    "external-helpers",
+    "lodash"
   ],
-  "presets": [["env"], "flow"]
+  "presets": [
+    [
+      "env",
+      {
+        "modules": false
+      }
+    ],
+    "flow"
+  ]
 }

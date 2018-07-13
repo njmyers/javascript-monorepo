@@ -2,7 +2,7 @@
 import * as React from 'react';
 import ReactDOM from 'react-dom';
 import * as __ from 'smalldash';
-import _ from 'lodash';
+import _ from 'lodash-es';
 
 import LazyEvent from './LazyEvent';
 import createInitalState from './initializers';
