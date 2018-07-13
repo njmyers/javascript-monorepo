@@ -4,7 +4,7 @@ import { equals } from 'smalldash';
 import { AudioMeter, PlayPauseNext, TrackInfo, Volume } from './Controls';
 import Size from 'react-size-components';
 
-import './audio.sass';
+// import './audio.sass';
 
 class Audio extends Component {
   componentWillReceiveProps(nextProps) {

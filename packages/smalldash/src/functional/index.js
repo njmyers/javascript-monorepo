@@ -1,7 +1,5 @@
 export { default as compose } from './compose';
-export {
-  default as createArrayMethodMutable,
-} from './create-array-method-mutable';
+export { default as createArrayMethodMutable } from './create-array-method-mutable';
 export { default as createArrayMethod } from './create-array-method';
 export { default as filterLeft } from './filter-left';
 export { default as filterRight } from './filter-right';

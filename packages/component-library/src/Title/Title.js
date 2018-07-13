@@ -1,5 +1,5 @@
 import React from 'react';
-import './title-default.sass';
+// import './title-default.sass';
 
 const Title = ({ text } = {}) => {
   const spans = text.split('').map((letter, index) => (

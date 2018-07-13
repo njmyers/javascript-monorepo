@@ -6,7 +6,17 @@ import pkg from './package.json';
 export default [
   {
     input: 'src/index.js',
-    external: ['react', 'react-dom', 'smalldash', 'lodash-es'],
+    external: [
+      'react',
+      'react-dom',
+      'react-redux',
+      'smalldash',
+      'redux',
+      'howler',
+      'redux-observable',
+      'react-size-components',
+      'rxjs',
+    ],
     output: {
       name: 'withSize',
       file: pkg.browser,
@@ -23,7 +33,17 @@ export default [
   },
   {
     input: 'src/index.js',
-    external: ['react', 'react-dom', 'smalldash', 'lodash-es', 'invariant'],
+    external: [
+      'react',
+      'react-dom',
+      'react-redux',
+      'smalldash',
+      'redux',
+      'howler',
+      'redux-observable',
+      'react-size-components',
+      'rxjs',
+    ],
     output: [
       { file: pkg.main, format: 'cjs', sourcemap: true },
       { file: pkg.module, format: 'es', sourcemap: true },
