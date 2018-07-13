@@ -6,6 +6,9 @@
 /storybook-static
 **/storybook-static
 
+/lib
+**/lib
+
 /build
 **/build
 

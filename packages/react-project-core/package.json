@@ -39,6 +39,7 @@
     "babel-plugin-syntax-dynamic-import": "^6.18.0",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "dotenv": "^5.0.1",
+    "flow-remove-types": "^1.2.3",
     "husky": "^0.14.3",
     "lint-staged": "^6.1.1",
     "prettier": "^1.11.1",

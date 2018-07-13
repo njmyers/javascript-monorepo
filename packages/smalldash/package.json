@@ -1,22 +1,27 @@
 {
   "name": "smalldash",
   "version": "1.1.6",
-  "description": "collection of utilities available for import as individual functions for smaller packages sizes",
+  "description":
+    "collection of utilities available for import as individual functions for smaller packages sizes",
   "sideEffects": false,
   "main": "dist/module.js",
-  "module": "src/index.js",
+  "module": "lib/index.js",
   "scripts": {
     "prepublishOnly": "npm run build",
     "prebuild": "node ./scripts/create-index.js",
-    "build": "webpack",
+    "module": "flow-remove-types src/ -d lib/ -i stories\\|__tests__ -p",
+    "webpack": "webpack",
+    "build": "run-s webpack module",
     "test": "jest --watchAll",
-    "patch-release": "npm version patch && npm publish && git push --follow-tags",
+    "patch-release":
+      "npm version patch && npm publish && git push --follow-tags",
     "source-map": "source-map-explorer dist/module.js dist/module.js.map"
   },
   "author": "Nick Myers",
   "license": "ISC",
   "devDependencies": {
     "babel-cli": "^6.26.0",
+    "flow-remove-types": "^1.2.3",
     "jest": "^23.1.0",
     "npm-run-all": "^4.1.3",
     "webpack": "^4.16.0",
