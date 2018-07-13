@@ -3,12 +3,12 @@
   "workspaces": ["packages/*"],
   "scripts": {
     "prebuild": "lerna bootstrap && lerna run build",
-    "build": "BABEL_ENV=storybook build-storybook",
+    "build": "build-storybook",
     "lerna": "lerna",
     "sort": "sort-package-json packages/*/package.json",
     "prestart": "lerna bootstrap && lerna run build",
     "start": "run-p storybook",
-    "storybook": "BABEL_ENV=development start-storybook -p 9009",
+    "storybook": "start-storybook -p 9009",
     "test": "jest --watchAll",
     "prettier": "prettier 'packages/**/*.{.test.js,js,jsx,json,md}' --write",
     "pre-commit": "lint-staged"

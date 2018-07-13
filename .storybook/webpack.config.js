@@ -1,6 +1,6 @@
 const path = require('path');
 
-console.log(path.resolve(__dirname, 'with-docs.js'));
+process.env.BABEL_ENV = 'storybook';
 
 module.exports = {
   module: {
