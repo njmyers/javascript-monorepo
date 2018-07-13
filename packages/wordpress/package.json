@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "react-wordpress",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "React components for working with the WP-API",
   "main": "index.js",
   "module": "lib/index.js",
@@ -9,7 +9,13 @@
     "module": "flow-remove-types src/ -d lib/ -i stories\\|__tests__ -p",
     "test": "jest"
   },
-  "keywords": ["react", "wordpress", "wp-api", "wp-json", "redux"],
+  "keywords": [
+    "react",
+    "wordpress",
+    "wp-api",
+    "wp-json",
+    "redux"
+  ],
   "author": "Nick Myers",
   "license": "ISC",
   "devDependencies": {
@@ -21,7 +27,7 @@
     "webpack-cli": "^3.0.8"
   },
   "dependencies": {
-    "react-size-components": "^1.3.4",
-    "smalldash": "^1.1.6"
+    "react-size-components": "^1.3.5",
+    "smalldash": "^1.1.7"
   }
 }
