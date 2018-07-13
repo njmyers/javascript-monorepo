@@ -1,24 +1,24 @@
 {
   "name": "react-size-components",
-  "author": "Nick Myers",
-  "license": "ISC",
   "version": "1.3.6",
   "description": "Higher order components for sizing functions in react",
+  "license": "ISC",
+  "author": "Nick Myers",
   "main": "build/react-size-components.cjs.js",
   "module": "build/react-size-components.esm.js",
-  "browser": "build/react-size-components.umd.js",
   "scripts": {
+    "build": "run-s docgen rollup",
+    "build-ssr": "webpack --config ssr/webpack.config.js",
+    "docgen": "node scripts/readme.js && npm run doctoc",
+    "doctoc": "doctoc README.md",
     "prepublishOnly": "yarn run build",
     "rollup": "rollup -c",
-    "build": "run-s docgen rollup",
-    "test": "jest --watchAll",
-    "docgen": "node scripts/readme.js && npm run doctoc",
-    "build-ssr": "webpack --config ssr/webpack.config.js",
-    "start-ssr": "babel-node ssr/server.js",
     "pressr": "yarn run build",
     "ssr": "run-p build-ssr start-ssr",
-    "doctoc": "doctoc README.md"
+    "start-ssr": "babel-node ssr/server.js",
+    "test": "jest --watchAll"
   },
+  "browser": "build/react-size-components.umd.js",
   "dependencies": {
     "invariant": "^2.2.4",
     "lodash": "^4.17.5",
@@ -26,17 +26,17 @@
     "react-dom": "^16.4.1",
     "smalldash": "^1.1.8"
   },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "jest": "^23.1.0",
+    "npm-run-all": "^4.1.3",
+    "rollup": "^0.62.0"
+  },
   "peerDependencies": {
     "invariant": "^2.2.4",
     "lodash": "^4.17.5",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "smalldash": "^1.1.0"
-  },
-  "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "jest": "^23.1.0",
-    "npm-run-all": "^4.1.3",
-    "rollup": "^0.62.0"
   }
 }
