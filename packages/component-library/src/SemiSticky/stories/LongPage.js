@@ -1,5 +1,5 @@
 import React from 'react';
-import LoremIpsum from '../../../../react-project-core/src/components/Scratch/LoremIpsum';
+import LoremIpsum from '../../Scratch/LoremIpsum';
 
 const LongPage = () => {
   return (

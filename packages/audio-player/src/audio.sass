@@ -1,74 +1,87 @@
-@import '../Global/mixins.sass'
-@import '../Global/colors.sass'
-@import 'range.sass'
+// @import '../Global/mixins.sass'
+// @import '../Global/colors.sass'
+// @import 'range.sass'
+
+$white: rgba(255, 255, 255, 1)
+$black: rgba(0, 0, 0, 2)
 
 $primary-grey: rgba(180, 180, 180, 1)
 $secondary-grey: rgba(240, 240, 240, 0.5)
 $secondary-color: rgb(97, 97, 97)
 
 .audio-player-container
-	box-sizing: border-box
-	position: fixed
-	width: 100%
-	bottom: 0
-	box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.3)
-	z-index: 1000
-	.player
-		position: relative
-		background: darken($white, 12)
-		display: flex
-		align-items: center
-		justify-content: space-between
-		color: $black
-		padding: 12px 40px
-		@include all-phone
-			padding: 12px 10px
+  box-sizing: border-box
+  position: fixed
+  width: 100%
+  bottom: 0
+  box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.3)
+  z-index: 1000
+  transition: 0.25s ease all
 
-		.audio-player-buttons
-			button
-				border-radius: 100%
-				height: 45px
-				width: 45px
-				box-sizing: border-box
-				border: none
-				cursor: pointer
-				margin: 0px 1px
-				color: $white	
-			.big
-				height: 55px
-				width: 55px
+  .player
+    position: relative
+    background: darken($white, 12)
+    display: flex
+    align-items: center
+    justify-content: space-between
+    color: $black
+    padding: 12px 40px
 
-			// adjust centering
-			.previous
-				padding: 0 3px 0 0
-			.play
-				padding: 0 0 0 3px
-			.stop
-				padding: 1px 0 0 0
-			.next
-				padding: 0 0 0 5px
+    // +all-phone
+    //   padding: 12px 10px
 
-		.track-info
-			width: 13%
-			font-size: 0.8em
-			line-height: 10px
-			font-style: italic
+    .audio-player-buttons
+      button
+        border-radius: 100%
+        height: 45px
+        width: 45px
+        box-sizing: border-box
+        border: none
+        cursor: pointer
+        margin: 0px 1px
+        color: $white
 
-		.audio-meter
-			width: 55%
-			padding-bottom: 1px
-			input[type='range']
-				width: 100%
-			@include all-mobile
-				width: 35%
+      .big
+        height: 55px
+        width: 55px
 
-		.volume
-			+flexbox
-			justify-content: space-between
-			align-items: center
-			width: 160px
-			input[type='range']
-				width: 85%
-		
-		.mute-button
-			cursor: pointer
+      // adjust centering
+      .previous
+        padding: 0 3px 0 0
+
+      .play
+        padding: 0 0 0 3px
+
+      .stop
+        padding: 1px 0 0 0
+
+      .next
+        padding: 0 0 0 5px
+
+    .track-info
+      width: 13%
+      font-size: 0.8em
+      line-height: 10px
+      font-style: italic
+
+    .audio-meter
+      width: 55%
+      padding-bottom: 1px
+
+      input[type='range']
+        width: 100%
+
+      // +all-mobile
+      //   width: 35%
+
+    .volume
+      display: flex
+      justify-content: space-between
+      align-items: center
+      width: 160px
+
+      input[type='range']
+        width: 85%
+
+    .mute-button
+      cursor: pointer

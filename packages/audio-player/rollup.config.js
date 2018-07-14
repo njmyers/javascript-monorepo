@@ -1,6 +1,8 @@
 import resolve from 'rollup-plugin-node-resolve';
 import commonjs from 'rollup-plugin-commonjs';
 import babel from 'rollup-plugin-babel';
+import postcss from 'rollup-plugin-postcss';
+import autoprefixer from 'autoprefixer';
 import pkg from './package.json';
 
 export default [
@@ -29,7 +31,16 @@ export default [
         lodash: '_',
       },
     },
-    plugins: [resolve(), babel({ exclude: 'node_modules/**' }), commonjs()],
+    plugins: [
+      resolve(),
+      postcss({
+        plugins: [autoprefixer],
+        extract: 'build/style.css',
+        sourceMap: true,
+      }),
+      babel({ exclude: 'node_modules/**' }),
+      commonjs(),
+    ],
   },
   {
     input: 'src/index.js',
@@ -48,6 +59,14 @@ export default [
       { file: pkg.main, format: 'cjs', sourcemap: true },
       { file: pkg.module, format: 'es', sourcemap: true },
     ],
-    plugins: [resolve(), babel({ exclude: 'node_modules/**' })],
+    plugins: [
+      resolve(),
+      postcss({
+        plugins: [autoprefixer],
+        extract: 'build/style.css',
+        sourceMap: true,
+      }),
+      babel({ exclude: 'node_modules/**' }),
+    ],
   },
 ];
