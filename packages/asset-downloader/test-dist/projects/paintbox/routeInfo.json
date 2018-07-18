@@ -1,0 +1,712 @@
+{
+  "path": "projects/paintbox",
+  "templateID": 1,
+  "sharedPropsHashes": {},
+  "localProps": {
+    "project": {
+      "id": 199,
+      "date": "2018-03-22T02:44:01",
+      "date_gmt": "2018-03-22T02:44:01",
+      "guid": {
+        "rendered":
+          "https://api.archetexture.com/?post_type=projects&#038;p=199"
+      },
+      "modified": "2018-03-30T12:42:25",
+      "modified_gmt": "2018-03-30T12:42:25",
+      "slug": "paintbox",
+      "status": "publish",
+      "type": "projects",
+      "link": "https://api.archetexture.com/projects/paintbox/",
+      "title": { "rendered": "Paintbox" },
+      "template": "",
+      "acf": {
+        "thumbnail": {
+          "ID": 928,
+          "id": 928,
+          "title": "Paintbox - Extra 2",
+          "filename": "Paintbox-Extra-2.jpg",
+          "url":
+            "https://d3a1sednyhk71e.cloudfront.net/2018/03/Paintbox-Extra-2.jpg",
+          "alt": "",
+          "author": "2",
+          "description": "",
+          "caption": "",
+          "name": "paintbox-extra-2",
+          "date": "2018-03-29 13:22:58",
+          "modified": "2018-03-30 01:48:52",
+          "mime_type": "image/jpeg",
+          "type": "image",
+          "icon":
+            "https://api.archetexture.com/wp/wp-includes/images/media/default.png",
+          "width": 2500,
+          "height": 1491,
+          "sizes": {
+            "thumbnail":
+              "https://d3a1sednyhk71e.cloudfront.net/2018/03/Paintbox-Extra-2-150x150.jpg",
+            "thumbnail-width": 150,
+            "thumbnail-height": 150,
+            "medium":
+              "https://d3a1sednyhk71e.cloudfront.net/2018/03/Paintbox-Extra-2-300x179.jpg",
+            "medium-width": 300,
+            "medium-height": 179,
+            "medium_large":
+              "https://d3a1sednyhk71e.cloudfront.net/2018/03/Paintbox-Extra-2-768x458.jpg",
+            "medium_large-width": 768,
+            "medium_large-height": 458,
+            "large":
+              "https://d3a1sednyhk71e.cloudfront.net/2018/03/Paintbox-Extra-2-1024x611.jpg",
+            "large-width": 1024,
+            "large-height": 611,
+            "twentyseventeen-featured-image":
+              "https://d3a1sednyhk71e.cloudfront.net/2018/03/Paintbox-Extra-2-2000x1200.jpg",
+            "twentyseventeen-featured-image-width": 2000,
+            "twentyseventeen-featured-image-height": 1200,
+            "twentyseventeen-thumbnail-avatar":
+              "https://d3a1sednyhk71e.cloudfront.net/2018/03/Paintbox-Extra-2-100x100.jpg",
+            "twentyseventeen-thumbnail-avatar-width": 100,
+            "twentyseventeen-thumbnail-avatar-height": 100
+          }
+        },
+        "main_image": {
+          "ID": 943,
+          "id": 943,
+          "title": "Paintbox Daniels Spectrum",
+          "filename": "Paintbox-Daniels-Spectrum.jpg",
+          "url":
+            "https://d3a1sednyhk71e.cloudfront.net/2018/03/Paintbox-Daniels-Spectrum.jpg",
+          "alt": "",
+          "author": "2",
+          "description": "",
+          "caption": "",
+          "name": "paintbox-daniels-spectrum-2",
+          "date": "2018-03-29 13:54:38",
+          "modified": "2018-03-30 01:51:47",
+          "mime_type": "image/jpeg",
+          "type": "image",
+          "icon":
+            "https://api.archetexture.com/wp/wp-includes/images/media/default.png",
+          "width": 1600,
+          "height": 1067,
+          "sizes": {
+            "thumbnail":
+              "https://d3a1sednyhk71e.cloudfront.net/2018/03/Paintbox-Daniels-Spectrum-150x150.jpg",
+            "thumbnail-width": 150,
+            "thumbnail-height": 150,
+            "medium":
+              "https://d3a1sednyhk71e.cloudfront.net/2018/03/Paintbox-Daniels-Spectrum-300x200.jpg",
+            "medium-width": 300,
+            "medium-height": 200,
+            "medium_large":
+              "https://d3a1sednyhk71e.cloudfront.net/2018/03/Paintbox-Daniels-Spectrum-768x512.jpg",
+            "medium_large-width": 768,
+            "medium_large-height": 512,
+            "large":
+              "https://d3a1sednyhk71e.cloudfront.net/2018/03/Paintbox-Daniels-Spectrum-1024x683.jpg",
+            "large-width": 1024,
+            "large-height": 683,
+            "twentyseventeen-featured-image":
+              "https://d3a1sednyhk71e.cloudfront.net/2018/03/Paintbox-Daniels-Spectrum.jpg",
+            "twentyseventeen-featured-image-width": 1600,
+            "twentyseventeen-featured-image-height": 1067,
+            "twentyseventeen-thumbnail-avatar":
+              "https://d3a1sednyhk71e.cloudfront.net/2018/03/Paintbox-Daniels-Spectrum-100x100.jpg",
+            "twentyseventeen-thumbnail-avatar-width": 100,
+            "twentyseventeen-thumbnail-avatar-height": 100
+          }
+        },
+        "description":
+          "Paint Box is an Arts and Cultural Centre with a 26-story residential condominium. This building is slated to replace outdated social housing complexes with a cultural center that is going to provide better facilities to several artists of the neighborhood.\r\n\r\n",
+        "collaborators": "Diamond + Schmitt Architects - Toronto",
+        "slides": [
+          {
+            "acf_fc_layout": "image",
+            "images": {
+              "ID": 496,
+              "id": 496,
+              "title": "Paintbox 7",
+              "filename": "Paintbox-7.jpg",
+              "url":
+                "https://d3a1sednyhk71e.cloudfront.net/2018/03/Paintbox-7.jpg",
+              "alt": "",
+              "author": "2",
+              "description": "",
+              "caption": "",
+              "name": "paintbox-7",
+              "date": "2018-03-25 17:47:35",
+              "modified": "2018-03-30 01:54:53",
+              "mime_type": "image/jpeg",
+              "type": "image",
+              "icon":
+                "https://api.archetexture.com/wp/wp-includes/images/media/default.png",
+              "width": 1200,
+              "height": 818,
+              "sizes": {
+                "thumbnail":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/Paintbox-7-150x150.jpg",
+                "thumbnail-width": 150,
+                "thumbnail-height": 150,
+                "medium":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/Paintbox-7-300x205.jpg",
+                "medium-width": 300,
+                "medium-height": 205,
+                "medium_large":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/Paintbox-7-768x524.jpg",
+                "medium_large-width": 768,
+                "medium_large-height": 524,
+                "large":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/Paintbox-7-1024x698.jpg",
+                "large-width": 1024,
+                "large-height": 698,
+                "twentyseventeen-featured-image":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/Paintbox-7.jpg",
+                "twentyseventeen-featured-image-width": 1200,
+                "twentyseventeen-featured-image-height": 818,
+                "twentyseventeen-thumbnail-avatar":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/Paintbox-7-100x100.jpg",
+                "twentyseventeen-thumbnail-avatar-width": 100,
+                "twentyseventeen-thumbnail-avatar-height": 100
+              }
+            }
+          },
+          {
+            "acf_fc_layout": "image",
+            "images": {
+              "ID": 926,
+              "id": 926,
+              "title": "Paintbox Daniels-Spectrum-",
+              "filename": "Paintbox-Daniels-Spectrum-.jpg",
+              "url":
+                "https://d3a1sednyhk71e.cloudfront.net/2018/03/Paintbox-Daniels-Spectrum-.jpg",
+              "alt": "",
+              "author": "2",
+              "description": "",
+              "caption": "",
+              "name": "paintbox-daniels-spectrum",
+              "date": "2018-03-29 13:22:57",
+              "modified": "2018-03-30 01:52:05",
+              "mime_type": "image/jpeg",
+              "type": "image",
+              "icon":
+                "https://api.archetexture.com/wp/wp-includes/images/media/default.png",
+              "width": 1000,
+              "height": 703,
+              "sizes": {
+                "thumbnail":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/Paintbox-Daniels-Spectrum--150x150.jpg",
+                "thumbnail-width": 150,
+                "thumbnail-height": 150,
+                "medium":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/Paintbox-Daniels-Spectrum--300x211.jpg",
+                "medium-width": 300,
+                "medium-height": 211,
+                "medium_large":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/Paintbox-Daniels-Spectrum--768x540.jpg",
+                "medium_large-width": 768,
+                "medium_large-height": 540,
+                "large":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/Paintbox-Daniels-Spectrum-.jpg",
+                "large-width": 525,
+                "large-height": 369,
+                "twentyseventeen-featured-image":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/Paintbox-Daniels-Spectrum-.jpg",
+                "twentyseventeen-featured-image-width": 1000,
+                "twentyseventeen-featured-image-height": 703,
+                "twentyseventeen-thumbnail-avatar":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/Paintbox-Daniels-Spectrum--100x100.jpg",
+                "twentyseventeen-thumbnail-avatar-width": 100,
+                "twentyseventeen-thumbnail-avatar-height": 100
+              }
+            }
+          },
+          {
+            "acf_fc_layout": "image",
+            "images": {
+              "ID": 944,
+              "id": 944,
+              "title": "Paintbox Daniels Spectrum - 2",
+              "filename": "Paintbox-Daniels-Spectrum-2.jpg",
+              "url":
+                "https://d3a1sednyhk71e.cloudfront.net/2018/03/Paintbox-Daniels-Spectrum-2.jpg",
+              "alt": "",
+              "author": "2",
+              "description": "",
+              "caption": "",
+              "name": "paintbox-daniels-spectrum-2-2",
+              "date": "2018-03-29 13:54:42",
+              "modified": "2018-03-30 01:52:44",
+              "mime_type": "image/jpeg",
+              "type": "image",
+              "icon":
+                "https://api.archetexture.com/wp/wp-includes/images/media/default.png",
+              "width": 1600,
+              "height": 1067,
+              "sizes": {
+                "thumbnail":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/Paintbox-Daniels-Spectrum-2-150x150.jpg",
+                "thumbnail-width": 150,
+                "thumbnail-height": 150,
+                "medium":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/Paintbox-Daniels-Spectrum-2-300x200.jpg",
+                "medium-width": 300,
+                "medium-height": 200,
+                "medium_large":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/Paintbox-Daniels-Spectrum-2-768x512.jpg",
+                "medium_large-width": 768,
+                "medium_large-height": 512,
+                "large":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/Paintbox-Daniels-Spectrum-2-1024x683.jpg",
+                "large-width": 1024,
+                "large-height": 683,
+                "twentyseventeen-featured-image":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/Paintbox-Daniels-Spectrum-2.jpg",
+                "twentyseventeen-featured-image-width": 1600,
+                "twentyseventeen-featured-image-height": 1067,
+                "twentyseventeen-thumbnail-avatar":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/Paintbox-Daniels-Spectrum-2-100x100.jpg",
+                "twentyseventeen-thumbnail-avatar-width": 100,
+                "twentyseventeen-thumbnail-avatar-height": 100
+              }
+            }
+          },
+          { "acf_fc_layout": "heading", "heading": "Ground Floor" },
+          {
+            "acf_fc_layout": "text",
+            "text":
+              "The first floor is the “Experience” level, with a 400-seat theater and outdoor performance court. The Collective of Black Artists and the Native Earth Performing Arts will be the anchor tenants here."
+          },
+          {
+            "acf_fc_layout": "image",
+            "images": {
+              "ID": 942,
+              "id": 942,
+              "title": "Paintbox - Plan 1",
+              "filename": "Paintbox-Plan-1.jpg",
+              "url":
+                "https://d3a1sednyhk71e.cloudfront.net/2018/03/Paintbox-Plan-1.jpg",
+              "alt": "",
+              "author": "2",
+              "description": "",
+              "caption": "",
+              "name": "paintbox-plan-1",
+              "date": "2018-03-29 13:28:45",
+              "modified": "2018-03-30 01:50:17",
+              "mime_type": "image/jpeg",
+              "type": "image",
+              "icon":
+                "https://api.archetexture.com/wp/wp-includes/images/media/default.png",
+              "width": 1600,
+              "height": 1190,
+              "sizes": {
+                "thumbnail":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/Paintbox-Plan-1-150x150.jpg",
+                "thumbnail-width": 150,
+                "thumbnail-height": 150,
+                "medium":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/Paintbox-Plan-1-300x223.jpg",
+                "medium-width": 300,
+                "medium-height": 223,
+                "medium_large":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/Paintbox-Plan-1-768x571.jpg",
+                "medium_large-width": 768,
+                "medium_large-height": 571,
+                "large":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/Paintbox-Plan-1-1024x762.jpg",
+                "large-width": 1024,
+                "large-height": 762,
+                "twentyseventeen-featured-image":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/Paintbox-Plan-1.jpg",
+                "twentyseventeen-featured-image-width": 1600,
+                "twentyseventeen-featured-image-height": 1190,
+                "twentyseventeen-thumbnail-avatar":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/Paintbox-Plan-1-100x100.jpg",
+                "twentyseventeen-thumbnail-avatar-width": 100,
+                "twentyseventeen-thumbnail-avatar-height": 100
+              }
+            }
+          },
+          { "acf_fc_layout": "heading", "heading": "Section A" },
+          {
+            "acf_fc_layout": "image",
+            "images": {
+              "ID": 498,
+              "id": 498,
+              "title": "Paintbox 5",
+              "filename": "Paintbox-5.jpg",
+              "url":
+                "https://d3a1sednyhk71e.cloudfront.net/2018/03/Paintbox-5.jpg",
+              "alt": "",
+              "author": "2",
+              "description": "",
+              "caption": "",
+              "name": "paintbox-5",
+              "date": "2018-03-25 17:47:36",
+              "modified": "2018-03-30 01:54:53",
+              "mime_type": "image/jpeg",
+              "type": "image",
+              "icon":
+                "https://api.archetexture.com/wp/wp-includes/images/media/default.png",
+              "width": 1200,
+              "height": 489,
+              "sizes": {
+                "thumbnail":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/Paintbox-5-150x150.jpg",
+                "thumbnail-width": 150,
+                "thumbnail-height": 150,
+                "medium":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/Paintbox-5-300x122.jpg",
+                "medium-width": 300,
+                "medium-height": 122,
+                "medium_large":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/Paintbox-5-768x313.jpg",
+                "medium_large-width": 768,
+                "medium_large-height": 313,
+                "large":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/Paintbox-5-1024x417.jpg",
+                "large-width": 1024,
+                "large-height": 417,
+                "twentyseventeen-featured-image":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/Paintbox-5.jpg",
+                "twentyseventeen-featured-image-width": 1200,
+                "twentyseventeen-featured-image-height": 489,
+                "twentyseventeen-thumbnail-avatar":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/Paintbox-5-100x100.jpg",
+                "twentyseventeen-thumbnail-avatar-width": 100,
+                "twentyseventeen-thumbnail-avatar-height": 100
+              }
+            }
+          },
+          { "acf_fc_layout": "heading", "heading": "Section B" },
+          {
+            "acf_fc_layout": "image",
+            "images": {
+              "ID": 500,
+              "id": 500,
+              "title": "Paintbox 3",
+              "filename": "Paintbox-3.jpg",
+              "url":
+                "https://d3a1sednyhk71e.cloudfront.net/2018/03/Paintbox-3.jpg",
+              "alt": "",
+              "author": "2",
+              "description": "",
+              "caption": "",
+              "name": "paintbox-3",
+              "date": "2018-03-25 17:47:36",
+              "modified": "2018-03-30 01:54:53",
+              "mime_type": "image/jpeg",
+              "type": "image",
+              "icon":
+                "https://api.archetexture.com/wp/wp-includes/images/media/default.png",
+              "width": 1200,
+              "height": 458,
+              "sizes": {
+                "thumbnail":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/Paintbox-3-150x150.jpg",
+                "thumbnail-width": 150,
+                "thumbnail-height": 150,
+                "medium":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/Paintbox-3-300x115.jpg",
+                "medium-width": 300,
+                "medium-height": 115,
+                "medium_large":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/Paintbox-3-768x293.jpg",
+                "medium_large-width": 768,
+                "medium_large-height": 293,
+                "large":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/Paintbox-3-1024x391.jpg",
+                "large-width": 1024,
+                "large-height": 391,
+                "twentyseventeen-featured-image":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/Paintbox-3.jpg",
+                "twentyseventeen-featured-image-width": 1200,
+                "twentyseventeen-featured-image-height": 458,
+                "twentyseventeen-thumbnail-avatar":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/Paintbox-3-100x100.jpg",
+                "twentyseventeen-thumbnail-avatar-width": 100,
+                "twentyseventeen-thumbnail-avatar-height": 100
+              }
+            }
+          },
+          { "acf_fc_layout": "heading", "heading": "2nd and 3rd Floor" },
+          {
+            "acf_fc_layout": "text",
+            "text":
+              "The second floor, dubbed the “Learning” level, is dedicated to the development of talent in music, visual arts and film. Groups will include the Regent Park School of Music, the Cabbagetown Regent Park Museum and the Regent Park Film Festival. The third floor will host work areas for non-profit organization and art entrepreneurs.\r\n"
+          },
+          {
+            "acf_fc_layout": "gallery",
+            "display": "two",
+            "images": [
+              {
+                "ID": 941,
+                "id": 941,
+                "title": "Paintbox - Plan 2",
+                "filename": "Paintbox-Plan-2.jpg",
+                "url":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/Paintbox-Plan-2.jpg",
+                "alt": "",
+                "author": "2",
+                "description": "",
+                "caption": "",
+                "name": "paintbox-plan-2",
+                "date": "2018-03-29 13:28:44",
+                "modified": "2018-03-30 01:49:45",
+                "mime_type": "image/jpeg",
+                "type": "image",
+                "icon":
+                  "https://api.archetexture.com/wp/wp-includes/images/media/default.png",
+                "width": 1600,
+                "height": 1538,
+                "sizes": {
+                  "thumbnail":
+                    "https://d3a1sednyhk71e.cloudfront.net/2018/03/Paintbox-Plan-2-150x150.jpg",
+                  "thumbnail-width": 150,
+                  "thumbnail-height": 150,
+                  "medium":
+                    "https://d3a1sednyhk71e.cloudfront.net/2018/03/Paintbox-Plan-2-300x288.jpg",
+                  "medium-width": 300,
+                  "medium-height": 288,
+                  "medium_large":
+                    "https://d3a1sednyhk71e.cloudfront.net/2018/03/Paintbox-Plan-2-768x738.jpg",
+                  "medium_large-width": 768,
+                  "medium_large-height": 738,
+                  "large":
+                    "https://d3a1sednyhk71e.cloudfront.net/2018/03/Paintbox-Plan-2-1024x984.jpg",
+                  "large-width": 1024,
+                  "large-height": 984,
+                  "twentyseventeen-featured-image":
+                    "https://d3a1sednyhk71e.cloudfront.net/2018/03/Paintbox-Plan-2-1600x1200.jpg",
+                  "twentyseventeen-featured-image-width": 1600,
+                  "twentyseventeen-featured-image-height": 1200,
+                  "twentyseventeen-thumbnail-avatar":
+                    "https://d3a1sednyhk71e.cloudfront.net/2018/03/Paintbox-Plan-2-100x100.jpg",
+                  "twentyseventeen-thumbnail-avatar-width": 100,
+                  "twentyseventeen-thumbnail-avatar-height": 100
+                }
+              },
+              {
+                "ID": 940,
+                "id": 940,
+                "title": "Paintbox - Plan 3",
+                "filename": "Paintbox-Plan-3.jpg",
+                "url":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/Paintbox-Plan-3.jpg",
+                "alt": "",
+                "author": "2",
+                "description": "",
+                "caption": "",
+                "name": "paintbox-plan-3",
+                "date": "2018-03-29 13:28:42",
+                "modified": "2018-03-30 01:49:49",
+                "mime_type": "image/jpeg",
+                "type": "image",
+                "icon":
+                  "https://api.archetexture.com/wp/wp-includes/images/media/default.png",
+                "width": 1600,
+                "height": 1538,
+                "sizes": {
+                  "thumbnail":
+                    "https://d3a1sednyhk71e.cloudfront.net/2018/03/Paintbox-Plan-3-150x150.jpg",
+                  "thumbnail-width": 150,
+                  "thumbnail-height": 150,
+                  "medium":
+                    "https://d3a1sednyhk71e.cloudfront.net/2018/03/Paintbox-Plan-3-300x288.jpg",
+                  "medium-width": 300,
+                  "medium-height": 288,
+                  "medium_large":
+                    "https://d3a1sednyhk71e.cloudfront.net/2018/03/Paintbox-Plan-3-768x738.jpg",
+                  "medium_large-width": 768,
+                  "medium_large-height": 738,
+                  "large":
+                    "https://d3a1sednyhk71e.cloudfront.net/2018/03/Paintbox-Plan-3-1024x984.jpg",
+                  "large-width": 1024,
+                  "large-height": 984,
+                  "twentyseventeen-featured-image":
+                    "https://d3a1sednyhk71e.cloudfront.net/2018/03/Paintbox-Plan-3-1600x1200.jpg",
+                  "twentyseventeen-featured-image-width": 1600,
+                  "twentyseventeen-featured-image-height": 1200,
+                  "twentyseventeen-thumbnail-avatar":
+                    "https://d3a1sednyhk71e.cloudfront.net/2018/03/Paintbox-Plan-3-100x100.jpg",
+                  "twentyseventeen-thumbnail-avatar-width": 100,
+                  "twentyseventeen-thumbnail-avatar-height": 100
+                }
+              }
+            ]
+          },
+          { "acf_fc_layout": "heading", "heading": "Exterior Rendering" },
+          {
+            "acf_fc_layout": "image",
+            "images": {
+              "ID": 109,
+              "id": 109,
+              "title": "paintbox02",
+              "filename": "paintbox02.jpg",
+              "url":
+                "https://d3a1sednyhk71e.cloudfront.net/2018/03/paintbox02.jpg",
+              "alt": "",
+              "author": "1",
+              "description": "",
+              "caption": "",
+              "name": "paintbox02",
+              "date": "2018-03-22 01:20:48",
+              "modified": "2018-03-22 02:45:02",
+              "mime_type": "image/jpeg",
+              "type": "image",
+              "icon":
+                "https://api.archetexture.com/wp/wp-includes/images/media/default.png",
+              "width": 750,
+              "height": 1333,
+              "sizes": {
+                "thumbnail":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/paintbox02-150x150.jpg",
+                "thumbnail-width": 150,
+                "thumbnail-height": 150,
+                "medium":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/paintbox02-169x300.jpg",
+                "medium-width": 169,
+                "medium-height": 300,
+                "medium_large":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/paintbox02.jpg",
+                "medium_large-width": 525,
+                "medium_large-height": 933,
+                "large":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/paintbox02-576x1024.jpg",
+                "large-width": 576,
+                "large-height": 1024,
+                "twentyseventeen-featured-image":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/paintbox02-750x1200.jpg",
+                "twentyseventeen-featured-image-width": 750,
+                "twentyseventeen-featured-image-height": 1200,
+                "twentyseventeen-thumbnail-avatar":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/paintbox02-100x100.jpg",
+                "twentyseventeen-thumbnail-avatar-width": 100,
+                "twentyseventeen-thumbnail-avatar-height": 100
+              }
+            }
+          },
+          {
+            "acf_fc_layout": "image",
+            "images": {
+              "ID": 111,
+              "id": 111,
+              "title": "paintbox07",
+              "filename": "paintbox07.jpg",
+              "url":
+                "https://d3a1sednyhk71e.cloudfront.net/2018/03/paintbox07.jpg",
+              "alt": "",
+              "author": "1",
+              "description": "",
+              "caption": "",
+              "name": "paintbox07",
+              "date": "2018-03-22 01:20:49",
+              "modified": "2018-03-22 02:45:02",
+              "mime_type": "image/jpeg",
+              "type": "image",
+              "icon":
+                "https://api.archetexture.com/wp/wp-includes/images/media/default.png",
+              "width": 750,
+              "height": 610,
+              "sizes": {
+                "thumbnail":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/paintbox07-150x150.jpg",
+                "thumbnail-width": 150,
+                "thumbnail-height": 150,
+                "medium":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/paintbox07-300x244.jpg",
+                "medium-width": 300,
+                "medium-height": 244,
+                "medium_large":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/paintbox07.jpg",
+                "medium_large-width": 525,
+                "medium_large-height": 427,
+                "large":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/paintbox07.jpg",
+                "large-width": 525,
+                "large-height": 427,
+                "twentyseventeen-featured-image":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/paintbox07.jpg",
+                "twentyseventeen-featured-image-width": 750,
+                "twentyseventeen-featured-image-height": 610,
+                "twentyseventeen-thumbnail-avatar":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/paintbox07-100x100.jpg",
+                "twentyseventeen-thumbnail-avatar-width": 100,
+                "twentyseventeen-thumbnail-avatar-height": 100
+              }
+            }
+          },
+          {
+            "acf_fc_layout": "image",
+            "images": {
+              "ID": 108,
+              "id": 108,
+              "title": "paintbox01",
+              "filename": "paintbox01.jpg",
+              "url":
+                "https://d3a1sednyhk71e.cloudfront.net/2018/03/paintbox01.jpg",
+              "alt": "",
+              "author": "1",
+              "description": "",
+              "caption": "",
+              "name": "paintbox01",
+              "date": "2018-03-22 01:20:48",
+              "modified": "2018-03-22 02:45:02",
+              "mime_type": "image/jpeg",
+              "type": "image",
+              "icon":
+                "https://api.archetexture.com/wp/wp-includes/images/media/default.png",
+              "width": 960,
+              "height": 540,
+              "sizes": {
+                "thumbnail":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/paintbox01-150x150.jpg",
+                "thumbnail-width": 150,
+                "thumbnail-height": 150,
+                "medium":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/paintbox01-300x169.jpg",
+                "medium-width": 300,
+                "medium-height": 169,
+                "medium_large":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/paintbox01-768x432.jpg",
+                "medium_large-width": 768,
+                "medium_large-height": 432,
+                "large":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/paintbox01.jpg",
+                "large-width": 525,
+                "large-height": 295,
+                "twentyseventeen-featured-image":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/paintbox01.jpg",
+                "twentyseventeen-featured-image-width": 960,
+                "twentyseventeen-featured-image-height": 540,
+                "twentyseventeen-thumbnail-avatar":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/paintbox01-100x100.jpg",
+                "twentyseventeen-thumbnail-avatar-width": 100,
+                "twentyseventeen-thumbnail-avatar-height": 100
+              }
+            }
+          }
+        ]
+      },
+      "_links": {
+        "self": [
+          { "href": "https://api.archetexture.com/wp-json/wp/v2/projects/199" }
+        ],
+        "collection": [
+          { "href": "https://api.archetexture.com/wp-json/wp/v2/projects" }
+        ],
+        "about": [
+          {
+            "href": "https://api.archetexture.com/wp-json/wp/v2/types/projects"
+          }
+        ],
+        "wp:attachment": [
+          {
+            "href":
+              "https://api.archetexture.com/wp-json/wp/v2/media?parent=199"
+          }
+        ],
+        "curies": [
+          { "name": "wp", "href": "https://api.w.org/{rel}", "templated": true }
+        ]
+      }
+    }
+  }
+}

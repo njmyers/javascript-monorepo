@@ -1,0 +1,68 @@
+{
+  "name": "@njmyers/sls-imageserver",
+  "version": "0.0.1",
+  "description": "a dynamic image resizing server",
+  "main": "app.js",
+  "scripts": {
+    "start": "serverless offline start",
+    "webpack": "webpack --watch",
+    "start-express": "nodemon --exec babel-node src/rx.js",
+    "deploy-scripts": "deploy-scripts",
+    "test": "jest --watchAll --no-cache",
+    "jest": "jest",
+    "deploy": "serverless deploy -v",
+    "precommit": "lint-staged && npm run jest",
+    "prettier": "prettier --write '**/*.{test.js,js,json,md}'"
+  },
+  "keywords": [
+    "imageserver"
+  ],
+  "author": "Nick Myers",
+  "license": "ISC",
+  "dependencies": {
+    "aws-sdk": "^2.275.1",
+    "axios": "^0.18.0",
+    "compression": "^1.7.3",
+    "cors": "2.8.4",
+    "dotenv": "^6.0.0",
+    "dotenv-webpack": "^1.5.7",
+    "etag": "^1.8.1",
+    "fast-memoize": "^2.5.1",
+    "follow-redirects": "^1.5.1",
+    "kew": "^0.7.0",
+    "mime": "^2.3.1",
+    "nodemon": "^1.18.2",
+    "redis": "^2.8.0",
+    "rxjs": "^6.2.2",
+    "serverless-http": "1.5.3",
+    "sharp": "^0.20.5"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.4",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-flow": "^6.23.0",
+    "flow-bin": "^0.74.0",
+    "husky": "^0.14.3",
+    "jest": "^22.1.4",
+    "lint-staged": "^6.1.0",
+    "npm-run-all": "^4.1.2",
+    "prettier": "^1.10.2",
+    "serverless": "^1.28.0",
+    "serverless-domain-manager": "^2.3.0",
+    "serverless-offline": "^3.16.0",
+    "serverless-webpack": "^5.1.5",
+    "webpack": "3",
+    "webpack-cli": "2",
+    "webpack-node-externals": "^1.7.2"
+  },
+  "lint-staged": {
+    "**/*.{test.js,js,json,md}": [
+      "prettier --write",
+      "git add"
+    ]
+  }
+}

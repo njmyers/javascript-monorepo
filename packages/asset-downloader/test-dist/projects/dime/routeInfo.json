@@ -1,0 +1,1017 @@
+{
+  "path": "projects/dime",
+  "templateID": 1,
+  "sharedPropsHashes": {},
+  "localProps": {
+    "project": {
+      "id": 180,
+      "date": "2018-03-22T02:32:36",
+      "date_gmt": "2018-03-22T02:32:36",
+      "guid": {
+        "rendered":
+          "https://api.archetexture.com/?post_type=projects&#038;p=180"
+      },
+      "modified": "2018-03-30T18:15:41",
+      "modified_gmt": "2018-03-30T18:15:41",
+      "slug": "dime",
+      "status": "publish",
+      "type": "projects",
+      "link": "https://api.archetexture.com/projects/dime/",
+      "title": { "rendered": "Dime" },
+      "template": "",
+      "acf": {
+        "thumbnail": {
+          "ID": 58,
+          "id": 58,
+          "title": "dimethumb",
+          "filename": "dimethumb.jpg",
+          "url": "https://d3a1sednyhk71e.cloudfront.net/2018/03/dimethumb.jpg",
+          "alt": "",
+          "author": "1",
+          "description": "",
+          "caption": "",
+          "name": "dimethumb",
+          "date": "2018-03-22 01:19:58",
+          "modified": "2018-03-22 02:32:36",
+          "mime_type": "image/jpeg",
+          "type": "image",
+          "icon":
+            "https://api.archetexture.com/wp/wp-includes/images/media/default.png",
+          "width": 400,
+          "height": 275,
+          "sizes": {
+            "thumbnail":
+              "https://d3a1sednyhk71e.cloudfront.net/2018/03/dimethumb-150x150.jpg",
+            "thumbnail-width": 150,
+            "thumbnail-height": 150,
+            "medium":
+              "https://d3a1sednyhk71e.cloudfront.net/2018/03/dimethumb-300x206.jpg",
+            "medium-width": 300,
+            "medium-height": 206,
+            "medium_large":
+              "https://d3a1sednyhk71e.cloudfront.net/2018/03/dimethumb.jpg",
+            "medium_large-width": 400,
+            "medium_large-height": 275,
+            "large":
+              "https://d3a1sednyhk71e.cloudfront.net/2018/03/dimethumb.jpg",
+            "large-width": 400,
+            "large-height": 275,
+            "twentyseventeen-featured-image":
+              "https://d3a1sednyhk71e.cloudfront.net/2018/03/dimethumb.jpg",
+            "twentyseventeen-featured-image-width": 400,
+            "twentyseventeen-featured-image-height": 275,
+            "twentyseventeen-thumbnail-avatar":
+              "https://d3a1sednyhk71e.cloudfront.net/2018/03/dimethumb-100x100.jpg",
+            "twentyseventeen-thumbnail-avatar-width": 100,
+            "twentyseventeen-thumbnail-avatar-height": 100
+          }
+        },
+        "main_image": {
+          "ID": 45,
+          "id": 45,
+          "title": "dime01",
+          "filename": "dime01.jpg",
+          "url": "https://d3a1sednyhk71e.cloudfront.net/2018/03/dime01.jpg",
+          "alt": "",
+          "author": "1",
+          "description": "",
+          "caption": "",
+          "name": "dime01",
+          "date": "2018-03-22 01:19:36",
+          "modified": "2018-03-22 02:32:36",
+          "mime_type": "image/jpeg",
+          "type": "image",
+          "icon":
+            "https://api.archetexture.com/wp/wp-includes/images/media/default.png",
+          "width": 1000,
+          "height": 711,
+          "sizes": {
+            "thumbnail":
+              "https://d3a1sednyhk71e.cloudfront.net/2018/03/dime01-150x150.jpg",
+            "thumbnail-width": 150,
+            "thumbnail-height": 150,
+            "medium":
+              "https://d3a1sednyhk71e.cloudfront.net/2018/03/dime01-300x213.jpg",
+            "medium-width": 300,
+            "medium-height": 213,
+            "medium_large":
+              "https://d3a1sednyhk71e.cloudfront.net/2018/03/dime01-768x546.jpg",
+            "medium_large-width": 768,
+            "medium_large-height": 546,
+            "large": "https://d3a1sednyhk71e.cloudfront.net/2018/03/dime01.jpg",
+            "large-width": 525,
+            "large-height": 373,
+            "twentyseventeen-featured-image":
+              "https://d3a1sednyhk71e.cloudfront.net/2018/03/dime01.jpg",
+            "twentyseventeen-featured-image-width": 1000,
+            "twentyseventeen-featured-image-height": 711,
+            "twentyseventeen-thumbnail-avatar":
+              "https://d3a1sednyhk71e.cloudfront.net/2018/03/dime01-100x100.jpg",
+            "twentyseventeen-thumbnail-avatar-width": 100,
+            "twentyseventeen-thumbnail-avatar-height": 100
+          }
+        },
+        "description":
+          "The “Dime” is a mixed-use project located at the foot of the Williamsburg Bridge. The overall development includes a 21 story tower resting on a 4 story podium that will be integrated with the historical Dime Savings Bank building. The ground floor will have 40,000 SF of rentable space for retail, 100,000 SF for office space and around 350,000 SF for housing. The design allows for open space office spaces. Construction will begin in Spring 2017 and the completion date is estimated to be in Spring 2019.",
+        "collaborators": "FFA",
+        "slides": [
+          {
+            "acf_fc_layout": "image",
+            "images": {
+              "ID": 1107,
+              "id": 1107,
+              "title": "Dime - Rendering11",
+              "filename": "Dime-Rendering11.jpg",
+              "url":
+                "https://d3a1sednyhk71e.cloudfront.net/2018/03/Dime-Rendering11.jpg",
+              "alt": "",
+              "author": "2",
+              "description": "",
+              "caption": "",
+              "name": "dime-rendering11",
+              "date": "2018-03-30 03:41:29",
+              "modified": "2018-03-30 03:41:31",
+              "mime_type": "image/jpeg",
+              "type": "image",
+              "icon":
+                "https://api.archetexture.com/wp/wp-includes/images/media/default.png",
+              "width": 2000,
+              "height": 1019,
+              "sizes": {
+                "thumbnail":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/Dime-Rendering11-150x150.jpg",
+                "thumbnail-width": 150,
+                "thumbnail-height": 150,
+                "medium":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/Dime-Rendering11-300x153.jpg",
+                "medium-width": 300,
+                "medium-height": 153,
+                "medium_large":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/Dime-Rendering11-768x391.jpg",
+                "medium_large-width": 768,
+                "medium_large-height": 391,
+                "large":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/Dime-Rendering11-1024x522.jpg",
+                "large-width": 1024,
+                "large-height": 522,
+                "twentyseventeen-featured-image":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/Dime-Rendering11-2000x1019.jpg",
+                "twentyseventeen-featured-image-width": 2000,
+                "twentyseventeen-featured-image-height": 1019,
+                "twentyseventeen-thumbnail-avatar":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/Dime-Rendering11-100x100.jpg",
+                "twentyseventeen-thumbnail-avatar-width": 100,
+                "twentyseventeen-thumbnail-avatar-height": 100
+              }
+            }
+          },
+          {
+            "acf_fc_layout": "image",
+            "images": {
+              "ID": 550,
+              "id": 550,
+              "title": "Dime - Rendering 2",
+              "filename": "Dime-Rendering-2.jpg",
+              "url":
+                "https://d3a1sednyhk71e.cloudfront.net/2018/03/Dime-Rendering-2.jpg",
+              "alt": "",
+              "author": "2",
+              "description": "",
+              "caption": "",
+              "name": "dime-rendering-2",
+              "date": "2018-03-25 17:48:24",
+              "modified": "2018-03-25 19:38:37",
+              "mime_type": "image/jpeg",
+              "type": "image",
+              "icon":
+                "https://api.archetexture.com/wp/wp-includes/images/media/default.png",
+              "width": 1200,
+              "height": 780,
+              "sizes": {
+                "thumbnail":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/Dime-Rendering-2-150x150.jpg",
+                "thumbnail-width": 150,
+                "thumbnail-height": 150,
+                "medium":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/Dime-Rendering-2-300x195.jpg",
+                "medium-width": 300,
+                "medium-height": 195,
+                "medium_large":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/Dime-Rendering-2-768x499.jpg",
+                "medium_large-width": 768,
+                "medium_large-height": 499,
+                "large":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/Dime-Rendering-2-1024x666.jpg",
+                "large-width": 1024,
+                "large-height": 666,
+                "twentyseventeen-featured-image":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/Dime-Rendering-2.jpg",
+                "twentyseventeen-featured-image-width": 1200,
+                "twentyseventeen-featured-image-height": 780,
+                "twentyseventeen-thumbnail-avatar":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/Dime-Rendering-2-100x100.jpg",
+                "twentyseventeen-thumbnail-avatar-width": 100,
+                "twentyseventeen-thumbnail-avatar-height": 100
+              }
+            }
+          },
+          { "acf_fc_layout": "heading", "heading": "Cellar Floor Plan" },
+          {
+            "acf_fc_layout": "image",
+            "images": {
+              "ID": 1165,
+              "id": 1165,
+              "title": "Dime - Plan cellar",
+              "filename": "Dime-Plan-cellar-1.jpg",
+              "url":
+                "https://d3a1sednyhk71e.cloudfront.net/2018/03/Dime-Plan-cellar-1.jpg",
+              "alt": "",
+              "author": "2",
+              "description": "",
+              "caption": "",
+              "name": "dime-plan-cellar-2",
+              "date": "2018-03-30 15:28:07",
+              "modified": "2018-03-30 15:28:11",
+              "mime_type": "image/jpeg",
+              "type": "image",
+              "icon":
+                "https://api.archetexture.com/wp/wp-includes/images/media/default.png",
+              "width": 2000,
+              "height": 1287,
+              "sizes": {
+                "thumbnail":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/Dime-Plan-cellar-1-150x150.jpg",
+                "thumbnail-width": 150,
+                "thumbnail-height": 150,
+                "medium":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/Dime-Plan-cellar-1-300x193.jpg",
+                "medium-width": 300,
+                "medium-height": 193,
+                "medium_large":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/Dime-Plan-cellar-1-768x494.jpg",
+                "medium_large-width": 768,
+                "medium_large-height": 494,
+                "large":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/Dime-Plan-cellar-1-1024x659.jpg",
+                "large-width": 1024,
+                "large-height": 659,
+                "twentyseventeen-featured-image":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/Dime-Plan-cellar-1-2000x1200.jpg",
+                "twentyseventeen-featured-image-width": 2000,
+                "twentyseventeen-featured-image-height": 1200,
+                "twentyseventeen-thumbnail-avatar":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/Dime-Plan-cellar-1-100x100.jpg",
+                "twentyseventeen-thumbnail-avatar-width": 100,
+                "twentyseventeen-thumbnail-avatar-height": 100
+              }
+            }
+          },
+          { "acf_fc_layout": "heading", "heading": "Ground Floor Plan" },
+          {
+            "acf_fc_layout": "image",
+            "images": {
+              "ID": 844,
+              "id": 844,
+              "title": "Dime - Plan 1st Floor",
+              "filename": "Dime-Plan-1st-Floor.jpg",
+              "url":
+                "https://d3a1sednyhk71e.cloudfront.net/2018/03/Dime-Plan-1st-Floor.jpg",
+              "alt": "",
+              "author": "2",
+              "description": "",
+              "caption": "",
+              "name": "dime-plan-1st-floor",
+              "date": "2018-03-29 03:47:53",
+              "modified": "2018-03-30 15:28:46",
+              "mime_type": "image/jpeg",
+              "type": "image",
+              "icon":
+                "https://api.archetexture.com/wp/wp-includes/images/media/default.png",
+              "width": 1600,
+              "height": 1185,
+              "sizes": {
+                "thumbnail":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/Dime-Plan-1st-Floor-150x150.jpg",
+                "thumbnail-width": 150,
+                "thumbnail-height": 150,
+                "medium":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/Dime-Plan-1st-Floor-300x222.jpg",
+                "medium-width": 300,
+                "medium-height": 222,
+                "medium_large":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/Dime-Plan-1st-Floor-768x569.jpg",
+                "medium_large-width": 768,
+                "medium_large-height": 569,
+                "large":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/Dime-Plan-1st-Floor-1024x758.jpg",
+                "large-width": 1024,
+                "large-height": 758,
+                "twentyseventeen-featured-image":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/Dime-Plan-1st-Floor.jpg",
+                "twentyseventeen-featured-image-width": 1600,
+                "twentyseventeen-featured-image-height": 1185,
+                "twentyseventeen-thumbnail-avatar":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/Dime-Plan-1st-Floor-100x100.jpg",
+                "twentyseventeen-thumbnail-avatar-width": 100,
+                "twentyseventeen-thumbnail-avatar-height": 100
+              }
+            }
+          },
+          { "acf_fc_layout": "heading", "heading": "2nd Floor Plan" },
+          {
+            "acf_fc_layout": "image",
+            "images": {
+              "ID": 1166,
+              "id": 1166,
+              "title": "Dime - Plan 2nd Floor",
+              "filename": "Dime-Plan-2nd-Floor-1.jpg",
+              "url":
+                "https://d3a1sednyhk71e.cloudfront.net/2018/03/Dime-Plan-2nd-Floor-1.jpg",
+              "alt": "",
+              "author": "2",
+              "description": "",
+              "caption": "",
+              "name": "dime-plan-2nd-floor-2",
+              "date": "2018-03-30 15:29:00",
+              "modified": "2018-03-30 15:29:02",
+              "mime_type": "image/jpeg",
+              "type": "image",
+              "icon":
+                "https://api.archetexture.com/wp/wp-includes/images/media/default.png",
+              "width": 2000,
+              "height": 1304,
+              "sizes": {
+                "thumbnail":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/Dime-Plan-2nd-Floor-1-150x150.jpg",
+                "thumbnail-width": 150,
+                "thumbnail-height": 150,
+                "medium":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/Dime-Plan-2nd-Floor-1-300x196.jpg",
+                "medium-width": 300,
+                "medium-height": 196,
+                "medium_large":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/Dime-Plan-2nd-Floor-1-768x501.jpg",
+                "medium_large-width": 768,
+                "medium_large-height": 501,
+                "large":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/Dime-Plan-2nd-Floor-1-1024x668.jpg",
+                "large-width": 1024,
+                "large-height": 668,
+                "twentyseventeen-featured-image":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/Dime-Plan-2nd-Floor-1-2000x1200.jpg",
+                "twentyseventeen-featured-image-width": 2000,
+                "twentyseventeen-featured-image-height": 1200,
+                "twentyseventeen-thumbnail-avatar":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/Dime-Plan-2nd-Floor-1-100x100.jpg",
+                "twentyseventeen-thumbnail-avatar-width": 100,
+                "twentyseventeen-thumbnail-avatar-height": 100
+              }
+            }
+          },
+          { "acf_fc_layout": "heading", "heading": "Interior View" },
+          {
+            "acf_fc_layout": "image",
+            "images": {
+              "ID": 549,
+              "id": 549,
+              "title": "Dime - Rendering 3",
+              "filename": "Dime-Rendering-3.jpg",
+              "url":
+                "https://d3a1sednyhk71e.cloudfront.net/2018/03/Dime-Rendering-3.jpg",
+              "alt": "",
+              "author": "2",
+              "description": "",
+              "caption": "",
+              "name": "dime-rendering-3",
+              "date": "2018-03-25 17:48:24",
+              "modified": "2018-03-25 19:39:44",
+              "mime_type": "image/jpeg",
+              "type": "image",
+              "icon":
+                "https://api.archetexture.com/wp/wp-includes/images/media/default.png",
+              "width": 1200,
+              "height": 552,
+              "sizes": {
+                "thumbnail":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/Dime-Rendering-3-150x150.jpg",
+                "thumbnail-width": 150,
+                "thumbnail-height": 150,
+                "medium":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/Dime-Rendering-3-300x138.jpg",
+                "medium-width": 300,
+                "medium-height": 138,
+                "medium_large":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/Dime-Rendering-3-768x353.jpg",
+                "medium_large-width": 768,
+                "medium_large-height": 353,
+                "large":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/Dime-Rendering-3-1024x471.jpg",
+                "large-width": 1024,
+                "large-height": 471,
+                "twentyseventeen-featured-image":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/Dime-Rendering-3.jpg",
+                "twentyseventeen-featured-image-width": 1200,
+                "twentyseventeen-featured-image-height": 552,
+                "twentyseventeen-thumbnail-avatar":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/Dime-Rendering-3-100x100.jpg",
+                "twentyseventeen-thumbnail-avatar-width": 100,
+                "twentyseventeen-thumbnail-avatar-height": 100
+              }
+            }
+          },
+          { "acf_fc_layout": "heading", "heading": "5th Floor Floor Plan" },
+          {
+            "acf_fc_layout": "image",
+            "images": {
+              "ID": 1167,
+              "id": 1167,
+              "title": "Dime - Plan 5th Floor",
+              "filename": "Dime-Plan-5th-Floor-1.jpg",
+              "url":
+                "https://d3a1sednyhk71e.cloudfront.net/2018/03/Dime-Plan-5th-Floor-1.jpg",
+              "alt": "",
+              "author": "2",
+              "description": "",
+              "caption": "",
+              "name": "dime-plan-5th-floor-2",
+              "date": "2018-03-30 15:29:14",
+              "modified": "2018-03-30 15:29:17",
+              "mime_type": "image/jpeg",
+              "type": "image",
+              "icon":
+                "https://api.archetexture.com/wp/wp-includes/images/media/default.png",
+              "width": 2000,
+              "height": 1320,
+              "sizes": {
+                "thumbnail":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/Dime-Plan-5th-Floor-1-150x150.jpg",
+                "thumbnail-width": 150,
+                "thumbnail-height": 150,
+                "medium":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/Dime-Plan-5th-Floor-1-300x198.jpg",
+                "medium-width": 300,
+                "medium-height": 198,
+                "medium_large":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/Dime-Plan-5th-Floor-1-768x507.jpg",
+                "medium_large-width": 768,
+                "medium_large-height": 507,
+                "large":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/Dime-Plan-5th-Floor-1-1024x676.jpg",
+                "large-width": 1024,
+                "large-height": 676,
+                "twentyseventeen-featured-image":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/Dime-Plan-5th-Floor-1-2000x1200.jpg",
+                "twentyseventeen-featured-image-width": 2000,
+                "twentyseventeen-featured-image-height": 1200,
+                "twentyseventeen-thumbnail-avatar":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/Dime-Plan-5th-Floor-1-100x100.jpg",
+                "twentyseventeen-thumbnail-avatar-width": 100,
+                "twentyseventeen-thumbnail-avatar-height": 100
+              }
+            }
+          },
+          { "acf_fc_layout": "heading", "heading": "Exterior View" },
+          {
+            "acf_fc_layout": "image",
+            "images": {
+              "ID": 548,
+              "id": 548,
+              "title": "Dime - Rendering 4",
+              "filename": "Dime-Rendering-4.jpg",
+              "url":
+                "https://d3a1sednyhk71e.cloudfront.net/2018/03/Dime-Rendering-4.jpg",
+              "alt": "",
+              "author": "2",
+              "description": "",
+              "caption": "",
+              "name": "dime-rendering-4",
+              "date": "2018-03-25 17:48:23",
+              "modified": "2018-03-25 19:40:28",
+              "mime_type": "image/jpeg",
+              "type": "image",
+              "icon":
+                "https://api.archetexture.com/wp/wp-includes/images/media/default.png",
+              "width": 1200,
+              "height": 800,
+              "sizes": {
+                "thumbnail":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/Dime-Rendering-4-150x150.jpg",
+                "thumbnail-width": 150,
+                "thumbnail-height": 150,
+                "medium":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/Dime-Rendering-4-300x200.jpg",
+                "medium-width": 300,
+                "medium-height": 200,
+                "medium_large":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/Dime-Rendering-4-768x512.jpg",
+                "medium_large-width": 768,
+                "medium_large-height": 512,
+                "large":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/Dime-Rendering-4-1024x683.jpg",
+                "large-width": 1024,
+                "large-height": 683,
+                "twentyseventeen-featured-image":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/Dime-Rendering-4.jpg",
+                "twentyseventeen-featured-image-width": 1200,
+                "twentyseventeen-featured-image-height": 800,
+                "twentyseventeen-thumbnail-avatar":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/Dime-Rendering-4-100x100.jpg",
+                "twentyseventeen-thumbnail-avatar-width": 100,
+                "twentyseventeen-thumbnail-avatar-height": 100
+              }
+            }
+          },
+          { "acf_fc_layout": "heading", "heading": "6th Floor Plan" },
+          {
+            "acf_fc_layout": "image",
+            "images": {
+              "ID": 1168,
+              "id": 1168,
+              "title": "Dime - Plan 6th Floor",
+              "filename": "Dime-Plan-6th-Floor-1.jpg",
+              "url":
+                "https://d3a1sednyhk71e.cloudfront.net/2018/03/Dime-Plan-6th-Floor-1.jpg",
+              "alt": "",
+              "author": "2",
+              "description": "",
+              "caption": "",
+              "name": "dime-plan-6th-floor-2",
+              "date": "2018-03-30 15:29:29",
+              "modified": "2018-03-30 15:29:32",
+              "mime_type": "image/jpeg",
+              "type": "image",
+              "icon":
+                "https://api.archetexture.com/wp/wp-includes/images/media/default.png",
+              "width": 2000,
+              "height": 1324,
+              "sizes": {
+                "thumbnail":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/Dime-Plan-6th-Floor-1-150x150.jpg",
+                "thumbnail-width": 150,
+                "thumbnail-height": 150,
+                "medium":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/Dime-Plan-6th-Floor-1-300x199.jpg",
+                "medium-width": 300,
+                "medium-height": 199,
+                "medium_large":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/Dime-Plan-6th-Floor-1-768x508.jpg",
+                "medium_large-width": 768,
+                "medium_large-height": 508,
+                "large":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/Dime-Plan-6th-Floor-1-1024x678.jpg",
+                "large-width": 1024,
+                "large-height": 678,
+                "twentyseventeen-featured-image":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/Dime-Plan-6th-Floor-1-2000x1200.jpg",
+                "twentyseventeen-featured-image-width": 2000,
+                "twentyseventeen-featured-image-height": 1200,
+                "twentyseventeen-thumbnail-avatar":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/Dime-Plan-6th-Floor-1-100x100.jpg",
+                "twentyseventeen-thumbnail-avatar-width": 100,
+                "twentyseventeen-thumbnail-avatar-height": 100
+              }
+            }
+          },
+          { "acf_fc_layout": "image", "images": false },
+          {
+            "acf_fc_layout": "image",
+            "images": {
+              "ID": 1106,
+              "id": 1106,
+              "title": "Dime - Rendering10",
+              "filename": "Dime-Rendering10.jpg",
+              "url":
+                "https://d3a1sednyhk71e.cloudfront.net/2018/03/Dime-Rendering10.jpg",
+              "alt": "",
+              "author": "2",
+              "description": "",
+              "caption": "",
+              "name": "dime-rendering10",
+              "date": "2018-03-30 03:41:11",
+              "modified": "2018-03-30 03:41:14",
+              "mime_type": "image/jpeg",
+              "type": "image",
+              "icon":
+                "https://api.archetexture.com/wp/wp-includes/images/media/default.png",
+              "width": 2000,
+              "height": 986,
+              "sizes": {
+                "thumbnail":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/Dime-Rendering10-150x150.jpg",
+                "thumbnail-width": 150,
+                "thumbnail-height": 150,
+                "medium":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/Dime-Rendering10-300x148.jpg",
+                "medium-width": 300,
+                "medium-height": 148,
+                "medium_large":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/Dime-Rendering10-768x379.jpg",
+                "medium_large-width": 768,
+                "medium_large-height": 379,
+                "large":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/Dime-Rendering10-1024x505.jpg",
+                "large-width": 1024,
+                "large-height": 505,
+                "twentyseventeen-featured-image":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/Dime-Rendering10-2000x986.jpg",
+                "twentyseventeen-featured-image-width": 2000,
+                "twentyseventeen-featured-image-height": 986,
+                "twentyseventeen-thumbnail-avatar":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/Dime-Rendering10-100x100.jpg",
+                "twentyseventeen-thumbnail-avatar-width": 100,
+                "twentyseventeen-thumbnail-avatar-height": 100
+              }
+            }
+          },
+          {
+            "acf_fc_layout": "image",
+            "images": {
+              "ID": 1169,
+              "id": 1169,
+              "title": "Dime - Detail 1",
+              "filename": "Dime-Detail-1-1.jpg",
+              "url":
+                "https://d3a1sednyhk71e.cloudfront.net/2018/03/Dime-Detail-1-1.jpg",
+              "alt": "",
+              "author": "2",
+              "description": "",
+              "caption": "",
+              "name": "dime-detail-1-2",
+              "date": "2018-03-30 15:30:07",
+              "modified": "2018-03-30 15:30:11",
+              "mime_type": "image/jpeg",
+              "type": "image",
+              "icon":
+                "https://api.archetexture.com/wp/wp-includes/images/media/default.png",
+              "width": 2000,
+              "height": 2581,
+              "sizes": {
+                "thumbnail":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/Dime-Detail-1-1-150x150.jpg",
+                "thumbnail-width": 150,
+                "thumbnail-height": 150,
+                "medium":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/Dime-Detail-1-1-232x300.jpg",
+                "medium-width": 232,
+                "medium-height": 300,
+                "medium_large":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/Dime-Detail-1-1-768x991.jpg",
+                "medium_large-width": 768,
+                "medium_large-height": 991,
+                "large":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/Dime-Detail-1-1-793x1024.jpg",
+                "large-width": 793,
+                "large-height": 1024,
+                "twentyseventeen-featured-image":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/Dime-Detail-1-1-2000x1200.jpg",
+                "twentyseventeen-featured-image-width": 2000,
+                "twentyseventeen-featured-image-height": 1200,
+                "twentyseventeen-thumbnail-avatar":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/Dime-Detail-1-1-100x100.jpg",
+                "twentyseventeen-thumbnail-avatar-width": 100,
+                "twentyseventeen-thumbnail-avatar-height": 100
+              }
+            }
+          },
+          { "acf_fc_layout": "heading", "heading": "DIME BANK" },
+          {
+            "acf_fc_layout": "text",
+            "text":
+              "The Dime Savings Bank is a 16,000 sf renovation project. The building is going to be connected to “The Dime” at the 1st and 4th floor. The first floor will be either retail space or an entrance lobby. The 4th floor will be open space dedicated for the residents of “The Dime”."
+          },
+          {
+            "acf_fc_layout": "image",
+            "images": {
+              "ID": 543,
+              "id": 543,
+              "title": "Dime Bank - Rendering 1",
+              "filename": "Dime-Bank-Rendering-1.jpg",
+              "url":
+                "https://d3a1sednyhk71e.cloudfront.net/2018/03/Dime-Bank-Rendering-1.jpg",
+              "alt": "",
+              "author": "2",
+              "description": "",
+              "caption": "",
+              "name": "dime-bank-rendering-1",
+              "date": "2018-03-25 17:48:20",
+              "modified": "2018-03-25 19:41:47",
+              "mime_type": "image/jpeg",
+              "type": "image",
+              "icon":
+                "https://api.archetexture.com/wp/wp-includes/images/media/default.png",
+              "width": 1200,
+              "height": 840,
+              "sizes": {
+                "thumbnail":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/Dime-Bank-Rendering-1-150x150.jpg",
+                "thumbnail-width": 150,
+                "thumbnail-height": 150,
+                "medium":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/Dime-Bank-Rendering-1-300x210.jpg",
+                "medium-width": 300,
+                "medium-height": 210,
+                "medium_large":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/Dime-Bank-Rendering-1-768x538.jpg",
+                "medium_large-width": 768,
+                "medium_large-height": 538,
+                "large":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/Dime-Bank-Rendering-1-1024x717.jpg",
+                "large-width": 1024,
+                "large-height": 717,
+                "twentyseventeen-featured-image":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/Dime-Bank-Rendering-1.jpg",
+                "twentyseventeen-featured-image-width": 1200,
+                "twentyseventeen-featured-image-height": 840,
+                "twentyseventeen-thumbnail-avatar":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/Dime-Bank-Rendering-1-100x100.jpg",
+                "twentyseventeen-thumbnail-avatar-width": 100,
+                "twentyseventeen-thumbnail-avatar-height": 100
+              }
+            }
+          },
+          {
+            "acf_fc_layout": "heading",
+            "heading": "West Elevation @ Havemeyer Street"
+          },
+          {
+            "acf_fc_layout": "image",
+            "images": {
+              "ID": 1171,
+              "id": 1171,
+              "title": "Dime Bank - Elevation 1",
+              "filename": "Dime-Bank-Elevation-1.jpg",
+              "url":
+                "https://d3a1sednyhk71e.cloudfront.net/2018/03/Dime-Bank-Elevation-1.jpg",
+              "alt": "",
+              "author": "2",
+              "description": "",
+              "caption": "",
+              "name": "dime-bank-elevation-1",
+              "date": "2018-03-30 15:30:54",
+              "modified": "2018-03-30 18:11:13",
+              "mime_type": "image/jpeg",
+              "type": "image",
+              "icon":
+                "https://api.archetexture.com/wp/wp-includes/images/media/default.png",
+              "width": 2000,
+              "height": 796,
+              "sizes": {
+                "thumbnail":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/Dime-Bank-Elevation-1-150x150.jpg",
+                "thumbnail-width": 150,
+                "thumbnail-height": 150,
+                "medium":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/Dime-Bank-Elevation-1-300x119.jpg",
+                "medium-width": 300,
+                "medium-height": 119,
+                "medium_large":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/Dime-Bank-Elevation-1-768x306.jpg",
+                "medium_large-width": 768,
+                "medium_large-height": 306,
+                "large":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/Dime-Bank-Elevation-1-1024x408.jpg",
+                "large-width": 1024,
+                "large-height": 408,
+                "twentyseventeen-featured-image":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/Dime-Bank-Elevation-1-2000x796.jpg",
+                "twentyseventeen-featured-image-width": 2000,
+                "twentyseventeen-featured-image-height": 796,
+                "twentyseventeen-thumbnail-avatar":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/Dime-Bank-Elevation-1-100x100.jpg",
+                "twentyseventeen-thumbnail-avatar-width": 100,
+                "twentyseventeen-thumbnail-avatar-height": 100
+              }
+            }
+          },
+          { "acf_fc_layout": "heading", "heading": "Section" },
+          {
+            "acf_fc_layout": "image",
+            "images": {
+              "ID": 1172,
+              "id": 1172,
+              "title": "Dime Bank - Elevation 2",
+              "filename": "Dime-Bank-Elevation-2.jpg",
+              "url":
+                "https://d3a1sednyhk71e.cloudfront.net/2018/03/Dime-Bank-Elevation-2.jpg",
+              "alt": "",
+              "author": "2",
+              "description": "",
+              "caption": "",
+              "name": "dime-bank-elevation-2",
+              "date": "2018-03-30 15:30:55",
+              "modified": "2018-03-30 18:11:13",
+              "mime_type": "image/jpeg",
+              "type": "image",
+              "icon":
+                "https://api.archetexture.com/wp/wp-includes/images/media/default.png",
+              "width": 2000,
+              "height": 1090,
+              "sizes": {
+                "thumbnail":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/Dime-Bank-Elevation-2-150x150.jpg",
+                "thumbnail-width": 150,
+                "thumbnail-height": 150,
+                "medium":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/Dime-Bank-Elevation-2-300x164.jpg",
+                "medium-width": 300,
+                "medium-height": 164,
+                "medium_large":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/Dime-Bank-Elevation-2-768x419.jpg",
+                "medium_large-width": 768,
+                "medium_large-height": 419,
+                "large":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/Dime-Bank-Elevation-2-1024x558.jpg",
+                "large-width": 1024,
+                "large-height": 558,
+                "twentyseventeen-featured-image":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/Dime-Bank-Elevation-2-2000x1090.jpg",
+                "twentyseventeen-featured-image-width": 2000,
+                "twentyseventeen-featured-image-height": 1090,
+                "twentyseventeen-thumbnail-avatar":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/Dime-Bank-Elevation-2-100x100.jpg",
+                "twentyseventeen-thumbnail-avatar-width": 100,
+                "twentyseventeen-thumbnail-avatar-height": 100
+              }
+            }
+          },
+          {
+            "acf_fc_layout": "heading",
+            "heading": "Roof Detail - Walkable Skylight"
+          },
+          {
+            "acf_fc_layout": "image",
+            "images": {
+              "ID": 1170,
+              "id": 1170,
+              "title": "Dime Bank - Detail 1",
+              "filename": "Dime-Bank-Detail-1-1.jpg",
+              "url":
+                "https://d3a1sednyhk71e.cloudfront.net/2018/03/Dime-Bank-Detail-1-1.jpg",
+              "alt": "",
+              "author": "2",
+              "description": "",
+              "caption": "",
+              "name": "dime-bank-detail-1-2",
+              "date": "2018-03-30 15:30:23",
+              "modified": "2018-03-30 15:30:27",
+              "mime_type": "image/jpeg",
+              "type": "image",
+              "icon":
+                "https://api.archetexture.com/wp/wp-includes/images/media/default.png",
+              "width": 2000,
+              "height": 1043,
+              "sizes": {
+                "thumbnail":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/Dime-Bank-Detail-1-1-150x150.jpg",
+                "thumbnail-width": 150,
+                "thumbnail-height": 150,
+                "medium":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/Dime-Bank-Detail-1-1-300x156.jpg",
+                "medium-width": 300,
+                "medium-height": 156,
+                "medium_large":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/Dime-Bank-Detail-1-1-768x401.jpg",
+                "medium_large-width": 768,
+                "medium_large-height": 401,
+                "large":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/Dime-Bank-Detail-1-1-1024x534.jpg",
+                "large-width": 1024,
+                "large-height": 534,
+                "twentyseventeen-featured-image":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/Dime-Bank-Detail-1-1-2000x1043.jpg",
+                "twentyseventeen-featured-image-width": 2000,
+                "twentyseventeen-featured-image-height": 1043,
+                "twentyseventeen-thumbnail-avatar":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/Dime-Bank-Detail-1-1-100x100.jpg",
+                "twentyseventeen-thumbnail-avatar-width": 100,
+                "twentyseventeen-thumbnail-avatar-height": 100
+              }
+            }
+          },
+          {
+            "acf_fc_layout": "image",
+            "images": {
+              "ID": 1105,
+              "id": 1105,
+              "title": "DimeBank - Rendering11",
+              "filename": "DimeBank-Rendering11.jpg",
+              "url":
+                "https://d3a1sednyhk71e.cloudfront.net/2018/03/DimeBank-Rendering11.jpg",
+              "alt": "",
+              "author": "2",
+              "description": "",
+              "caption": "",
+              "name": "dimebank-rendering11",
+              "date": "2018-03-30 03:40:54",
+              "modified": "2018-03-30 03:40:57",
+              "mime_type": "image/jpeg",
+              "type": "image",
+              "icon":
+                "https://api.archetexture.com/wp/wp-includes/images/media/default.png",
+              "width": 2000,
+              "height": 1199,
+              "sizes": {
+                "thumbnail":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/DimeBank-Rendering11-150x150.jpg",
+                "thumbnail-width": 150,
+                "thumbnail-height": 150,
+                "medium":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/DimeBank-Rendering11-300x180.jpg",
+                "medium-width": 300,
+                "medium-height": 180,
+                "medium_large":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/DimeBank-Rendering11-768x460.jpg",
+                "medium_large-width": 768,
+                "medium_large-height": 460,
+                "large":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/DimeBank-Rendering11-1024x614.jpg",
+                "large-width": 1024,
+                "large-height": 614,
+                "twentyseventeen-featured-image":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/DimeBank-Rendering11-2000x1199.jpg",
+                "twentyseventeen-featured-image-width": 2000,
+                "twentyseventeen-featured-image-height": 1199,
+                "twentyseventeen-thumbnail-avatar":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/DimeBank-Rendering11-100x100.jpg",
+                "twentyseventeen-thumbnail-avatar-width": 100,
+                "twentyseventeen-thumbnail-avatar-height": 100
+              }
+            }
+          },
+          {
+            "acf_fc_layout": "image",
+            "images": {
+              "ID": 542,
+              "id": 542,
+              "title": "Dime Bank - Rendering 2",
+              "filename": "Dime-Bank-Rendering-2.jpg",
+              "url":
+                "https://d3a1sednyhk71e.cloudfront.net/2018/03/Dime-Bank-Rendering-2.jpg",
+              "alt": "",
+              "author": "2",
+              "description": "",
+              "caption": "",
+              "name": "dime-bank-rendering-2",
+              "date": "2018-03-25 17:48:20",
+              "modified": "2018-03-25 19:42:40",
+              "mime_type": "image/jpeg",
+              "type": "image",
+              "icon":
+                "https://api.archetexture.com/wp/wp-includes/images/media/default.png",
+              "width": 1200,
+              "height": 842,
+              "sizes": {
+                "thumbnail":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/Dime-Bank-Rendering-2-150x150.jpg",
+                "thumbnail-width": 150,
+                "thumbnail-height": 150,
+                "medium":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/Dime-Bank-Rendering-2-300x211.jpg",
+                "medium-width": 300,
+                "medium-height": 211,
+                "medium_large":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/Dime-Bank-Rendering-2-768x539.jpg",
+                "medium_large-width": 768,
+                "medium_large-height": 539,
+                "large":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/Dime-Bank-Rendering-2-1024x719.jpg",
+                "large-width": 1024,
+                "large-height": 719,
+                "twentyseventeen-featured-image":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/Dime-Bank-Rendering-2.jpg",
+                "twentyseventeen-featured-image-width": 1200,
+                "twentyseventeen-featured-image-height": 842,
+                "twentyseventeen-thumbnail-avatar":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/Dime-Bank-Rendering-2-100x100.jpg",
+                "twentyseventeen-thumbnail-avatar-width": 100,
+                "twentyseventeen-thumbnail-avatar-height": 100
+              }
+            }
+          }
+        ]
+      },
+      "_links": {
+        "self": [
+          { "href": "https://api.archetexture.com/wp-json/wp/v2/projects/180" }
+        ],
+        "collection": [
+          { "href": "https://api.archetexture.com/wp-json/wp/v2/projects" }
+        ],
+        "about": [
+          {
+            "href": "https://api.archetexture.com/wp-json/wp/v2/types/projects"
+          }
+        ],
+        "wp:attachment": [
+          {
+            "href":
+              "https://api.archetexture.com/wp-json/wp/v2/media?parent=180"
+          }
+        ],
+        "curies": [
+          { "name": "wp", "href": "https://api.w.org/{rel}", "templated": true }
+        ]
+      }
+    }
+  }
+}

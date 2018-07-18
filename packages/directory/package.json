@@ -1,0 +1,14 @@
+{
+  "name": "@njmyers/directory",
+  "version": "0.0.1",
+  "description": "",
+  "main": "directory.js",
+  "scripts": {
+    "test": "jest --watchAll --no-cache"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^23.4.1"
+  }
+}

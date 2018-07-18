@@ -1,0 +1,347 @@
+{
+  "path": "projects/interior-design",
+  "templateID": 1,
+  "sharedPropsHashes": {},
+  "localProps": {
+    "project": {
+      "id": 203,
+      "date": "2018-03-22T02:48:30",
+      "date_gmt": "2018-03-22T02:48:30",
+      "guid": {
+        "rendered":
+          "https://api.archetexture.com/?post_type=projects&#038;p=203"
+      },
+      "modified": "2018-03-22T02:48:30",
+      "modified_gmt": "2018-03-22T02:48:30",
+      "slug": "interior-design",
+      "status": "publish",
+      "type": "projects",
+      "link": "https://api.archetexture.com/projects/interior-design/",
+      "title": { "rendered": "Interior Design" },
+      "template": "",
+      "acf": {
+        "thumbnail": {
+          "ID": 83,
+          "id": 83,
+          "title": "interiorthumb",
+          "filename": "interiorthumb.jpg",
+          "url":
+            "https://d3a1sednyhk71e.cloudfront.net/2018/03/interiorthumb.jpg",
+          "alt": "",
+          "author": "1",
+          "description": "",
+          "caption": "",
+          "name": "interiorthumb",
+          "date": "2018-03-22 01:20:24",
+          "modified": "2018-03-22 02:48:30",
+          "mime_type": "image/jpeg",
+          "type": "image",
+          "icon":
+            "https://api.archetexture.com/wp/wp-includes/images/media/default.png",
+          "width": 400,
+          "height": 275,
+          "sizes": {
+            "thumbnail":
+              "https://d3a1sednyhk71e.cloudfront.net/2018/03/interiorthumb-150x150.jpg",
+            "thumbnail-width": 150,
+            "thumbnail-height": 150,
+            "medium":
+              "https://d3a1sednyhk71e.cloudfront.net/2018/03/interiorthumb-300x206.jpg",
+            "medium-width": 300,
+            "medium-height": 206,
+            "medium_large":
+              "https://d3a1sednyhk71e.cloudfront.net/2018/03/interiorthumb.jpg",
+            "medium_large-width": 400,
+            "medium_large-height": 275,
+            "large":
+              "https://d3a1sednyhk71e.cloudfront.net/2018/03/interiorthumb.jpg",
+            "large-width": 400,
+            "large-height": 275,
+            "twentyseventeen-featured-image":
+              "https://d3a1sednyhk71e.cloudfront.net/2018/03/interiorthumb.jpg",
+            "twentyseventeen-featured-image-width": 400,
+            "twentyseventeen-featured-image-height": 275,
+            "twentyseventeen-thumbnail-avatar":
+              "https://d3a1sednyhk71e.cloudfront.net/2018/03/interiorthumb-100x100.jpg",
+            "twentyseventeen-thumbnail-avatar-width": 100,
+            "twentyseventeen-thumbnail-avatar-height": 100
+          }
+        },
+        "main_image": {
+          "ID": 115,
+          "id": 115,
+          "title": "penthouse03",
+          "filename": "penthouse03.jpg",
+          "url":
+            "https://d3a1sednyhk71e.cloudfront.net/2018/03/penthouse03.jpg",
+          "alt": "",
+          "author": "1",
+          "description": "",
+          "caption": "",
+          "name": "penthouse03",
+          "date": "2018-03-22 01:20:55",
+          "modified": "2018-03-22 02:48:30",
+          "mime_type": "image/jpeg",
+          "type": "image",
+          "icon":
+            "https://api.archetexture.com/wp/wp-includes/images/media/default.png",
+          "width": 3500,
+          "height": 2333,
+          "sizes": {
+            "thumbnail":
+              "https://d3a1sednyhk71e.cloudfront.net/2018/03/penthouse03-150x150.jpg",
+            "thumbnail-width": 150,
+            "thumbnail-height": 150,
+            "medium":
+              "https://d3a1sednyhk71e.cloudfront.net/2018/03/penthouse03-300x200.jpg",
+            "medium-width": 300,
+            "medium-height": 200,
+            "medium_large":
+              "https://d3a1sednyhk71e.cloudfront.net/2018/03/penthouse03-768x512.jpg",
+            "medium_large-width": 768,
+            "medium_large-height": 512,
+            "large":
+              "https://d3a1sednyhk71e.cloudfront.net/2018/03/penthouse03-1024x683.jpg",
+            "large-width": 1024,
+            "large-height": 683,
+            "twentyseventeen-featured-image":
+              "https://d3a1sednyhk71e.cloudfront.net/2018/03/penthouse03-2000x1200.jpg",
+            "twentyseventeen-featured-image-width": 2000,
+            "twentyseventeen-featured-image-height": 1200,
+            "twentyseventeen-thumbnail-avatar":
+              "https://d3a1sednyhk71e.cloudfront.net/2018/03/penthouse03-100x100.jpg",
+            "twentyseventeen-thumbnail-avatar-width": 100,
+            "twentyseventeen-thumbnail-avatar-height": 100
+          }
+        },
+        "description":
+          "Two floors of private residence located in the heart of New York City. The facade was redesigned to preserve the landmark status of the building while the interior was reconfigured to accomodate spaces for both entertaining guests and private life. Total renovation area 4,800 square feet.\r\n\r\n",
+        "collaborators": "FFA",
+        "slides": [
+          {
+            "acf_fc_layout": "image",
+            "images": {
+              "ID": 114,
+              "id": 114,
+              "title": "penthouse02",
+              "filename": "penthouse02.jpg",
+              "url":
+                "https://d3a1sednyhk71e.cloudfront.net/2018/03/penthouse02.jpg",
+              "alt": "",
+              "author": "1",
+              "description": "",
+              "caption": "",
+              "name": "penthouse02",
+              "date": "2018-03-22 01:20:53",
+              "modified": "2018-03-22 02:48:30",
+              "mime_type": "image/jpeg",
+              "type": "image",
+              "icon":
+                "https://api.archetexture.com/wp/wp-includes/images/media/default.png",
+              "width": 3500,
+              "height": 2333,
+              "sizes": {
+                "thumbnail":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/penthouse02-150x150.jpg",
+                "thumbnail-width": 150,
+                "thumbnail-height": 150,
+                "medium":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/penthouse02-300x200.jpg",
+                "medium-width": 300,
+                "medium-height": 200,
+                "medium_large":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/penthouse02-768x512.jpg",
+                "medium_large-width": 768,
+                "medium_large-height": 512,
+                "large":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/penthouse02-1024x683.jpg",
+                "large-width": 1024,
+                "large-height": 683,
+                "twentyseventeen-featured-image":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/penthouse02-2000x1200.jpg",
+                "twentyseventeen-featured-image-width": 2000,
+                "twentyseventeen-featured-image-height": 1200,
+                "twentyseventeen-thumbnail-avatar":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/penthouse02-100x100.jpg",
+                "twentyseventeen-thumbnail-avatar-width": 100,
+                "twentyseventeen-thumbnail-avatar-height": 100
+              }
+            }
+          },
+          {
+            "acf_fc_layout": "image",
+            "images": {
+              "ID": 116,
+              "id": 116,
+              "title": "penthouse04",
+              "filename": "penthouse04.jpg",
+              "url":
+                "https://d3a1sednyhk71e.cloudfront.net/2018/03/penthouse04.jpg",
+              "alt": "",
+              "author": "1",
+              "description": "",
+              "caption": "",
+              "name": "penthouse04",
+              "date": "2018-03-22 01:20:57",
+              "modified": "2018-03-22 02:48:30",
+              "mime_type": "image/jpeg",
+              "type": "image",
+              "icon":
+                "https://api.archetexture.com/wp/wp-includes/images/media/default.png",
+              "width": 4000,
+              "height": 2667,
+              "sizes": {
+                "thumbnail":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/penthouse04-150x150.jpg",
+                "thumbnail-width": 150,
+                "thumbnail-height": 150,
+                "medium":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/penthouse04-300x200.jpg",
+                "medium-width": 300,
+                "medium-height": 200,
+                "medium_large":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/penthouse04-768x512.jpg",
+                "medium_large-width": 768,
+                "medium_large-height": 512,
+                "large":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/penthouse04-1024x683.jpg",
+                "large-width": 1024,
+                "large-height": 683,
+                "twentyseventeen-featured-image":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/penthouse04-2000x1200.jpg",
+                "twentyseventeen-featured-image-width": 2000,
+                "twentyseventeen-featured-image-height": 1200,
+                "twentyseventeen-thumbnail-avatar":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/penthouse04-100x100.jpg",
+                "twentyseventeen-thumbnail-avatar-width": 100,
+                "twentyseventeen-thumbnail-avatar-height": 100
+              }
+            }
+          },
+          {
+            "acf_fc_layout": "image",
+            "images": {
+              "ID": 113,
+              "id": 113,
+              "title": "penthouse01",
+              "filename": "penthouse01.jpg",
+              "url":
+                "https://d3a1sednyhk71e.cloudfront.net/2018/03/penthouse01.jpg",
+              "alt": "",
+              "author": "1",
+              "description": "",
+              "caption": "",
+              "name": "penthouse01",
+              "date": "2018-03-22 01:20:51",
+              "modified": "2018-03-22 02:48:30",
+              "mime_type": "image/jpeg",
+              "type": "image",
+              "icon":
+                "https://api.archetexture.com/wp/wp-includes/images/media/default.png",
+              "width": 4000,
+              "height": 2667,
+              "sizes": {
+                "thumbnail":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/penthouse01-150x150.jpg",
+                "thumbnail-width": 150,
+                "thumbnail-height": 150,
+                "medium":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/penthouse01-300x200.jpg",
+                "medium-width": 300,
+                "medium-height": 200,
+                "medium_large":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/penthouse01-768x512.jpg",
+                "medium_large-width": 768,
+                "medium_large-height": 512,
+                "large":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/penthouse01-1024x683.jpg",
+                "large-width": 1024,
+                "large-height": 683,
+                "twentyseventeen-featured-image":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/penthouse01-2000x1200.jpg",
+                "twentyseventeen-featured-image-width": 2000,
+                "twentyseventeen-featured-image-height": 1200,
+                "twentyseventeen-thumbnail-avatar":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/penthouse01-100x100.jpg",
+                "twentyseventeen-thumbnail-avatar-width": 100,
+                "twentyseventeen-thumbnail-avatar-height": 100
+              }
+            }
+          },
+          {
+            "acf_fc_layout": "image",
+            "images": {
+              "ID": 117,
+              "id": 117,
+              "title": "penthouse05",
+              "filename": "penthouse05.jpg",
+              "url":
+                "https://d3a1sednyhk71e.cloudfront.net/2018/03/penthouse05.jpg",
+              "alt": "",
+              "author": "1",
+              "description": "",
+              "caption": "",
+              "name": "penthouse05",
+              "date": "2018-03-22 01:21:00",
+              "modified": "2018-03-22 02:48:30",
+              "mime_type": "image/jpeg",
+              "type": "image",
+              "icon":
+                "https://api.archetexture.com/wp/wp-includes/images/media/default.png",
+              "width": 4000,
+              "height": 2667,
+              "sizes": {
+                "thumbnail":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/penthouse05-150x150.jpg",
+                "thumbnail-width": 150,
+                "thumbnail-height": 150,
+                "medium":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/penthouse05-300x200.jpg",
+                "medium-width": 300,
+                "medium-height": 200,
+                "medium_large":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/penthouse05-768x512.jpg",
+                "medium_large-width": 768,
+                "medium_large-height": 512,
+                "large":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/penthouse05-1024x683.jpg",
+                "large-width": 1024,
+                "large-height": 683,
+                "twentyseventeen-featured-image":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/penthouse05-2000x1200.jpg",
+                "twentyseventeen-featured-image-width": 2000,
+                "twentyseventeen-featured-image-height": 1200,
+                "twentyseventeen-thumbnail-avatar":
+                  "https://d3a1sednyhk71e.cloudfront.net/2018/03/penthouse05-100x100.jpg",
+                "twentyseventeen-thumbnail-avatar-width": 100,
+                "twentyseventeen-thumbnail-avatar-height": 100
+              }
+            }
+          }
+        ]
+      },
+      "_links": {
+        "self": [
+          { "href": "https://api.archetexture.com/wp-json/wp/v2/projects/203" }
+        ],
+        "collection": [
+          { "href": "https://api.archetexture.com/wp-json/wp/v2/projects" }
+        ],
+        "about": [
+          {
+            "href": "https://api.archetexture.com/wp-json/wp/v2/types/projects"
+          }
+        ],
+        "wp:attachment": [
+          {
+            "href":
+              "https://api.archetexture.com/wp-json/wp/v2/media?parent=203"
+          }
+        ],
+        "curies": [
+          { "name": "wp", "href": "https://api.w.org/{rel}", "templated": true }
+        ]
+      }
+    }
+  }
+}

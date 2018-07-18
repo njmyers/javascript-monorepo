@@ -1,0 +1,36 @@
+{
+  "name": "@njmyers/asset-downloader",
+  "version": "0.0.1",
+  "description": "downloads assets",
+  "scripts": {
+    "build": "run-s rollup",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "rollup": "BABEL_ENV=production rollup -c --watch"
+  },
+  "bin": {
+    "asset-downloader": "script.js"
+  },
+  "main": "build/cli.cjs.js",
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "app-root-path": "^2.0.1",
+    "aws-sdk": "^2.195.0",
+    "bluebird": "^3.5.1",
+    "camelcase": "^4.1.0",
+    "chalk": "^2.3.1",
+    "commander": "^2.15.1",
+    "dotenv": "^4.0.0",
+    "global": "^4.3.2",
+    "lodash": "^4.17.5",
+    "mime": "^2.3.1",
+    "mime-types": "^2.1.17",
+    "smalldash": "^1.0.2"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "jest": "^23.4.1",
+    "npm-run-all": "^4.1.2",
+    "rollup": "^0.62.0"
+  }
+}
