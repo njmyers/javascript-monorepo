@@ -1,6 +1,6 @@
 {
   "name": "@njmyers/react-width-text",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Automatically fit text to container width",
   "homepage": "https://component-library.netlify.com/",
   "repository": "https://github.com/njmyers/javascript-monorepo.git",

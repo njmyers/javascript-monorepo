@@ -39,7 +39,6 @@ class WidthText extends React.PureComponent<Props> {
         },
         child.props.children
           .split('')
-          .replace(' ')
           .map((letter, i) => <span key={i}>{letter}</span>)
       )
     );
