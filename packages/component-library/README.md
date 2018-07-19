@@ -22,7 +22,6 @@ This is a collection of useful and maybe useless React components. In general co
 
 ### Animation Props
 
-
 ## Status Switch
 
 Wrap your React Components in a StatusSwitch to conditionally render based on status props.
@@ -136,18 +135,20 @@ If you would like to shallowly merge styles, use the `style` prop. If you want t
 <!-- STORY -->
 
 ## Props
-| Prop Name | Type | Required | Default Value | Description |
-|:----------|:-----|:---------|:--------------|:------------|
-|`children`|`ReactNode`|false|-|_react children (your component)_|
-|`className`|`string`|false|-|_className applied to the container element_|
-|`offState`|<code>{}</code>|true|<code>{<br>  transform: 'translateY(-100px)',<br>}</code>|_css inline styles applied to the off state_|
-|`onState`|<code>{}</code>|true|<code>{<br>  transform: 'translateY(0)',<br>}</code>|_css inline styles applied to the on state_|
-|`replaceStyle`|<code>{}</code>|true|<code>{<br>  position: 'fixed',<br>  background: 'rgba(0, 0, 0, 0.8)',<br>  width: '100%',<br>  top: 0,<br>  left: 0,<br>}</code>|_completely replace all styles_|
-|`sizes`|<code>{<br>  isSemiStickyActive: boolean,<br>}</code>|true|-|_inherited sizing info_|
-|`style`|<code>{}</code>|false|-|_shallowly merge styles_|
-|`top`|`number`|true|<code>200</code>|_distance from the document top to engage the on state styles_|
-|`transitionSpeed`|`number`|true|<code>0.25</code>|_the speed of the transition_|
-|`transitionTiming`|<code>&#124; 'ease'<br>&#124; 'linear'<br>&#124; 'ease-in'<br>&#124; 'ease-out'<br>&#124; 'ease-in-out'<br>&#124; 'step-start'<br>&#124; 'step-end'</code>|true|<code>'ease'</code>|_the transition timing function_|
+
+| Prop Name          | Type                                                                                                                                                       | Required | Default Value                                                                                                                | Description                                                    |
+| :----------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------- | :------- | :--------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------- |
+| `children`         | `ReactNode`                                                                                                                                                | false    | -                                                                                                                            | _react children (your component)_                              |
+| `className`        | `string`                                                                                                                                                   | false    | -                                                                                                                            | _className applied to the container element_                   |
+| `offState`         | <code>{}</code>                                                                                                                                            | false    | <code>{<br> transform: 'translateY(-100px)',<br>}</code>                                                                     | _css inline styles applied to the off state_                   |
+| `onState`          | <code>{}</code>                                                                                                                                            | false    | <code>{<br> transform: 'translateY(0)',<br>}</code>                                                                          | _css inline styles applied to the on state_                    |
+| `replaceStyle`     | <code>{}</code>                                                                                                                                            | false    | <code>{<br> position: 'fixed',<br> background: 'rgba(0, 0, 0, 0.8)',<br> width: '100%',<br> top: 0,<br> left: 0,<br>}</code> | _completely replace all styles_                                |
+| `sizes`            | <code>{<br> isSemiStickyActive: boolean,<br>}</code>                                                                                                       | true     | -                                                                                                                            | _inherited sizing info_                                        |
+| `style`            | <code>{}</code>                                                                                                                                            | false    | -                                                                                                                            | _shallowly merge styles_                                       |
+| `top`              | `number`                                                                                                                                                   | false    | <code>200</code>                                                                                                             | _distance from the document top to engage the on state styles_ |
+| `transitionSpeed`  | `number`                                                                                                                                                   | false    | <code>0.25</code>                                                                                                            | _the speed of the transition_                                  |
+| `transitionTiming` | <code>&#124; 'ease'<br>&#124; 'linear'<br>&#124; 'ease-in'<br>&#124; 'ease-out'<br>&#124; 'ease-in-out'<br>&#124; 'step-start'<br>&#124; 'step-end'</code> | false    | <code>'ease'</code>                                                                                                          | _the transition timing function_                               |
+
 # LazyImage
 
 A component for lazily loading images
@@ -161,19 +162,21 @@ A component for lazily loading images
 <!-- STORY -->
 
 ## Props
-| Prop Name | Type | Required | Default Value | Description |
-|:----------|:-----|:---------|:--------------|:------------|
-|`alt`|`string`|false|-|_pass-thru alt tag for image_|
-|`baseStyles`|<code>{}</code>|true|<code>{<br>  margin: 0,<br>  padding: 0,<br>  width: '100%',<br>  height: 'auto',<br>  backfaceVisibility: 'inherit',<br>}</code>|_base styles applied to all elements_|
-|`className`|`string`|true|-|_class name applied to the components in BEM style_|
-|`containerStyle`|<code>{}</code>|true|<code>{<br>  position: 'relative',<br>  overflow: 'hidden',<br>  // fix for image element whitespace<br>  lineHeight: 0,<br>}</code>|_shallow merge of styles applied to the container_|
-|`imageStyle`|<code>{}</code>|true|<code>{}</code>|_shallow merge of styles applied to the highres_|
-|`name`|`string`|false|-|_name attribute for onclick events_|
-|`onClick`|`Function`|false|-|_pass-thru onclick function_|
-|`placeholder`|`string`|true|-|_placeholder image src_|
-|`placeholderStyle`|<code>{}</code>|true|<code>{<br>  position: 'absolute',<br>  top: 0,<br>  left: 0,<br>  bottom: 0,<br>  right: 0,<br>  objectFit: 'contain',<br>  transition: '0.25s opacity',<br>}</code>|_shallow merge of styles applied to the placeholder_|
-|`src`|`string`|true|-|_high-res image src_|
-|`title`|`string`|false|-|_pass-thru title tag for image_|
+
+| Prop Name          | Type            | Required | Default Value                                                                                                                                                  | Description                                          |
+| :----------------- | :-------------- | :------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------- | :--------------------------------------------------- |
+| `alt`              | `string`        | false    | -                                                                                                                                                              | _pass-thru alt tag for image_                        |
+| `baseStyles`       | <code>{}</code> | false    | <code>{<br> margin: 0,<br> padding: 0,<br> width: '100%',<br> height: 'auto',<br> backfaceVisibility: 'inherit',<br>}</code>                                   | _base styles applied to all elements_                |
+| `className`        | `string`        | true     | -                                                                                                                                                              | _class name applied to the components in BEM style_  |
+| `containerStyle`   | <code>{}</code> | false    | <code>{<br> position: 'relative',<br> overflow: 'hidden',<br> // fix for image element whitespace<br> lineHeight: 0,<br>}</code>                               | _shallow merge of styles applied to the container_   |
+| `imageStyle`       | <code>{}</code> | false    | <code>{}</code>                                                                                                                                                | _shallow merge of styles applied to the highres_     |
+| `name`             | `string`        | false    | -                                                                                                                                                              | _name attribute for onclick events_                  |
+| `onClick`          | `Function`      | false    | -                                                                                                                                                              | _pass-thru onclick function_                         |
+| `placeholder`      | `string`        | true     | -                                                                                                                                                              | _placeholder image src_                              |
+| `placeholderStyle` | <code>{}</code> | false    | <code>{<br> position: 'absolute',<br> top: 0,<br> left: 0,<br> bottom: 0,<br> right: 0,<br> objectFit: 'contain',<br> transition: '0.25s opacity',<br>}</code> | _shallow merge of styles applied to the placeholder_ |
+| `src`              | `string`        | true     | -                                                                                                                                                              | _high-res image src_                                 |
+| `title`            | `string`        | false    | -                                                                                                                                                              | _pass-thru title tag for image_                      |
+
 ### Modal
 
 Modal creates ... a modal. It uses `ReactDOM.createPortal` so it renders your element outside of the HTML tree. However it is still controlled by whichever react parent component it is used in. By default Modal renders to the id 'modal-root'. Please be sure to add 'modal-root' to your HTML file or else nothing will be rendered by this component.
@@ -222,20 +225,22 @@ In the above example, the 'annoying advertisement' will render itself in aside u
 <!-- STORY -->
 
 ## Props
-| Prop Name | Type | Required | Default Value | Description |
-|:----------|:-----|:---------|:--------------|:------------|
-|`children`|`ReactNode`|false|-|_react children (your component)_|
-|`className`|`string`|false|-|_className applied to the container element_|
-|`modalRoot`|`string`|true|<code>'modal-root'</code>|_div id where to render the react portal_|
-|`offState`|<code>{}</code>|true|<code>{<br>  opacity: 0,<br>}</code>|_css inline styles applied to the off state_|
-|`onState`|<code>{}</code>|true|<code>{<br>  opacity: 1,<br>}</code>|_css inline styles applied to the on state_|
-|`replaceStyle`|<code>{}</code>|true|<code>{<br>  background: 'rgba(255, 255, 255, 0.8)',<br>  position: 'fixed',<br>  width: '100%',<br>  height: '100%',<br>  top: 0,<br>  left: 0,<br>  bottom: 0,<br>  right: 0,<br>  display: 'flex',<br>  justifyContent: 'center',<br>  alignItems: 'center',<br>}</code>|_completely replace all styles_|
-|`status`|<code>'on' &#124; 'off'</code>|true|<code>'off'</code>|_display status of the styled modal_|
-|`style`|<code>{}</code>|false|<code>{}</code>|_shallowly merge styles_|
-|`transitionSpeed`|`number`|true|<code>0.25</code>|_the speed of the transition_|
-|`transitionTiming`|<code>&#124; 'ease'<br>&#124; 'linear'<br>&#124; 'ease-in'<br>&#124; 'ease-out'<br>&#124; 'ease-in-out'<br>&#124; 'step-start'<br>&#124; 'step-end'</code>|true|<code>'ease'</code>|_the transition timing function_|
-|`zIndexOff`|`number`|true|<code>-20</code>|_z-index of the modal when off_|
-|`zIndexOn`|`number`|true|<code>1</code>|_z-index of the modal when on_|
+
+| Prop Name          | Type                                                                                                                                                       | Required | Default Value                                                                                                                                                                                                                                                    | Description                                  |
+| :----------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------- | :------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------- |
+| `children`         | `ReactNode`                                                                                                                                                | false    | -                                                                                                                                                                                                                                                                | _react children (your component)_            |
+| `className`        | `string`                                                                                                                                                   | false    | -                                                                                                                                                                                                                                                                | _className applied to the container element_ |
+| `modalRoot`        | `string`                                                                                                                                                   | false    | <code>'modal-root'</code>                                                                                                                                                                                                                                        | _div id where to render the react portal_    |
+| `offState`         | <code>{}</code>                                                                                                                                            | false    | <code>{<br> opacity: 0,<br>}</code>                                                                                                                                                                                                                              | _css inline styles applied to the off state_ |
+| `onState`          | <code>{}</code>                                                                                                                                            | false    | <code>{<br> opacity: 1,<br>}</code>                                                                                                                                                                                                                              | _css inline styles applied to the on state_  |
+| `replaceStyle`     | <code>{}</code>                                                                                                                                            | false    | <code>{<br> background: 'rgba(255, 255, 255, 0.8)',<br> position: 'fixed',<br> width: '100%',<br> height: '100%',<br> top: 0,<br> left: 0,<br> bottom: 0,<br> right: 0,<br> display: 'flex',<br> justifyContent: 'center',<br> alignItems: 'center',<br>}</code> | _completely replace all styles_              |
+| `status`           | <code>'on' &#124; 'off'</code>                                                                                                                             | false    | <code>'off'</code>                                                                                                                                                                                                                                               | _display status of the styled modal_         |
+| `style`            | <code>{}</code>                                                                                                                                            | false    | <code>{}</code>                                                                                                                                                                                                                                                  | _shallowly merge styles_                     |
+| `transitionSpeed`  | `number`                                                                                                                                                   | false    | <code>0.25</code>                                                                                                                                                                                                                                                | _the speed of the transition_                |
+| `transitionTiming` | <code>&#124; 'ease'<br>&#124; 'linear'<br>&#124; 'ease-in'<br>&#124; 'ease-out'<br>&#124; 'ease-in-out'<br>&#124; 'step-start'<br>&#124; 'step-end'</code> | false    | <code>'ease'</code>                                                                                                                                                                                                                                              | _the transition timing function_             |
+| `zIndexOff`        | `number`                                                                                                                                                   | false    | <code>-20</code>                                                                                                                                                                                                                                                 | _z-index of the modal when off_              |
+| `zIndexOn`         | `number`                                                                                                                                                   | false    | <code>1</code>                                                                                                                                                                                                                                                   | _z-index of the modal when on_               |
+
 ### BEM
 
 #### Background (Frustration)

@@ -9,7 +9,6 @@
   "main": "build/component.cjs.js",
   "module": "build/component.esm.js",
   "scripts": {
-    "build": "run-s rollup",
     "prepublishOnly": "yarn run build",
     "rollup": "BABEL_ENV=production rollup -c",
     "test": "jest --watchAll"
