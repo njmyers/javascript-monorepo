@@ -4,7 +4,10 @@
   "homepage": "https://component-library.netlify.com/",
   "repository": "https://github.com/njmyers/javascript-monorepo.git",
   "author": "Nick Myers",
-  "workspaces": ["packages/*"],
+  "workspaces": {
+    "packages": ["packages/*"],
+    "nohoist": ["**/sharp", "**/jest", "**/dotenv"]
+  },
   "scripts": {
     "precommit": "lint-staged",
     "prebuild": "lerna bootstrap && lerna run build",
