@@ -1,14 +1,11 @@
+import axios from 'axios';
 import https from 'https';
 import stream from 'stream';
 import { Observable } from 'rxjs';
 import { mergeMap, tap, map } from 'rxjs/operators';
 import getDomain from './lib/get-domain';
 
-import { cancel } from './rx';
-
 const request$ = (options) => {
-  console.time('request$');
-
   return new Observable((observer) => {
     const req = https.request(options, (response) => {
       let body = '';
@@ -24,7 +21,6 @@ const request$ = (options) => {
 
       response.on('end', () => {
         observer.complete();
-        console.timeEnd('request$');
       });
     });
 

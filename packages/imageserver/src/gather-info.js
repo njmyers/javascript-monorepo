@@ -3,7 +3,7 @@ require('dotenv').config();
 import qs from 'qs';
 import mime from 'mime';
 import { map, tap } from 'rxjs/operators';
-import { validateFormat } from './routes/validate-params';
+import { validateFormat } from './sharp/create-sharp-stream';
 import memoize from 'fast-memoize';
 
 const CloudFront = process.env.AWS_CLOUDFRONT_CDN;
@@ -25,6 +25,7 @@ const env = memoize(
     const format = validateFormat(query.format);
     const contentType = mime.getType(format);
     const cloudFrontURL = `${CloudFront}/${key}.${format}`;
+    const mode = query.mode ? query.mode : 'development';
 
     return {
       ...ctx,
@@ -37,20 +38,16 @@ const env = memoize(
         format,
         contentType,
         cloudFrontURL,
+        mode,
       },
     };
   })
 );
 
 const logVariables = tap(({ info, ...ctx }) => {
-  // console.log(info);
+  console.log(info);
 });
 
-const gatherInfo = [
-  tap(() => console.time('data')),
-  env,
-  logVariables,
-  tap(() => console.timeEnd('data')),
-];
+const gatherInfo = [env, logVariables];
 
 export default gatherInfo;
