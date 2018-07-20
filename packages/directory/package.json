@@ -1,14 +1,26 @@
 {
   "name": "@njmyers/directory",
+  "private": true,
   "version": "0.0.1",
   "description": "",
-  "main": "directory.js",
+  "main": "build/directory.cjs.js",
+  "module": "build/directory.esm.js",
   "scripts": {
-    "test": "jest --watchAll --no-cache"
+    "build": "run-s rollup",
+    "test": "jest --watchAll --no-cache",
+    "rollup": "BABEL_ENV=production rollup -c"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "jest": "^23.4.1"
+  },
+  "dependencies": {
+    "mime-types": "^2.1.19",
+    "smalldash": "^1.1.9"
+  },
+  "peerDependencies": {
+    "mime-types": "^2.1.19",
+    "smalldash": "^1.1.9"
   }
 }
