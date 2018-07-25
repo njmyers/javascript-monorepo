@@ -9,14 +9,14 @@
   "module": "build/react-size-components.esm.js",
   "scripts": {
     "build": "run-s docgen rollup",
-    "build-ssr": "webpack --config ssr/webpack.config.js",
+    "build-ssr": "BABEL_ENV=test webpack --config ssr/webpack.config.js",
     "docgen": "node scripts/readme.js && npm run doctoc",
     "doctoc": "doctoc README.md",
     "prepublishOnly": "yarn run build",
     "rollup": "BABEL_ENV=production rollup -c",
     "pressr": "yarn run build",
     "ssr": "run-p build-ssr start-ssr",
-    "start-ssr": "babel-node ssr/server.js",
+    "start-ssr": "BABEL_ENV=test babel-node ssr/server.js",
     "test": "jest --watchAll"
   },
   "dependencies": {

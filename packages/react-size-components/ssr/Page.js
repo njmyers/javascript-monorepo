@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Size from '../build/react-size-components.esm.js/';
+import withSize from '../build/react-size-components.esm.js';
 
 const LoremIpsum = ({ sizes } = {}) => {
   const style = {
@@ -8,8 +8,6 @@ const LoremIpsum = ({ sizes } = {}) => {
     width: '100%',
     padding: '30px',
   };
-
-  console.log(sizes);
 
   return (
     <React.Fragment>
@@ -63,7 +61,7 @@ const custom = [
 ];
 
 // Lets enable all modes so we can test all of the code for SSR functionality.
-const SizedLorem = Size({
+const SizedLorem = withSize({
   measureWindow: true,
   component: true,
   mobile: true,
@@ -92,7 +90,7 @@ class Page extends Component {
   }
   // Testing CB function with SSR
   onSize = (sizes) => {
-    console.log(sizes);
+    if (process.env.NODE_ENV !== 'test') console.log(sizes);
   };
 
   render() {
