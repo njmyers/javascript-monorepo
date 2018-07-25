@@ -1,20 +1,20 @@
 {
   "name": "@njmyers/asset-downloader",
-  "private": true,
   "version": "0.0.2",
+  "private": true,
   "description": "downloads assets",
-  "scripts": {
-    "watch": "BABEL_ENV=production rollup -c --watch",
-    "build": "run-s rollup",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "rollup": "BABEL_ENV=production rollup -c"
-  },
+  "license": "ISC",
+  "author": "",
+  "main": "build/cli.cjs.js",
   "bin": {
     "asset-downloader": "script.js"
   },
-  "main": "build/cli.cjs.js",
-  "author": "",
-  "license": "ISC",
+  "scripts": {
+    "build": "run-s rollup",
+    "rollup": "BABEL_ENV=production rollup -c",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "BABEL_ENV=production rollup -c --watch"
+  },
   "dependencies": {
     "@njmyers/directory": "^0.0.2",
     "app-root-path": "^2.0.1",

@@ -1,25 +1,25 @@
 {
   "name": "@njmyers/sls-imageserver",
-  "private": true,
   "version": "0.0.2",
+  "private": true,
   "description": "a dynamic image resizing server",
-  "main": "app.js",
-  "scripts": {
-    "start": "serverless offline start",
-    "webpack": "webpack --watch",
-    "start-express": "nodemon --exec babel-node src/rx.js",
-    "deploy-scripts": "deploy-scripts",
-    "test": "jest --watchAll --no-cache",
-    "jest": "jest",
-    "deploy": "serverless deploy -v",
-    "precommit": "lint-staged && npm run jest",
-    "prettier": "prettier --write '**/*.{test.js,js,json,md}'"
-  },
   "keywords": [
     "imageserver"
   ],
-  "author": "Nick Myers",
   "license": "ISC",
+  "author": "Nick Myers",
+  "main": "app.js",
+  "scripts": {
+    "precommit": "lint-staged && npm run jest",
+    "deploy": "serverless deploy -v",
+    "deploy-scripts": "deploy-scripts",
+    "jest": "jest",
+    "start": "serverless offline start",
+    "start-express": "nodemon --exec babel-node src/rx.js",
+    "test": "jest --watchAll --no-cache",
+    "prettier": "prettier --write '**/*.{test.js,js,json,md}'",
+    "webpack": "webpack --watch"
+  },
   "dependencies": {
     "aws-sdk": "^2.275.1",
     "axios": "^0.18.0",

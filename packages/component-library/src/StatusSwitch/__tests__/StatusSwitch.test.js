@@ -14,6 +14,16 @@ const errorTree = renderer.create(<ErrorMessage />).toJSON();
 const loadingTree = renderer.create(<Loading />).toJSON();
 
 describe('the status switch works', () => {
+  beforeAll(() => {
+    ReactDOM.createPortal = jest.fn((element, node) => {
+      return element;
+    });
+  });
+
+  afterEach(() => {
+    ReactDOM.createPortal.mockClear();
+  });
+
   test('it renders without crashing', () => {
     const component = renderer.create(<StatusSwitch />);
     const tree = component.toJSON();

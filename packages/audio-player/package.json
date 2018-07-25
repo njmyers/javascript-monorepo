@@ -1,7 +1,7 @@
 {
   "name": "@njmyers/audio-player",
-  "private": true,
   "version": "0.1.1",
+  "private": true,
   "description": "React audio player",
   "homepage": "https://component-library.netlify.com/",
   "repository": "https://github.com/njmyers/javascript-monorepo.git",
