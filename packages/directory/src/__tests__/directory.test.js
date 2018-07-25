@@ -50,6 +50,7 @@ describe('it reads the directory - unit test for readDirectory', () => {
       '/home/developer/Documents/monorepo/packages/directory/src/__tests__/helpers/recursive/file.txt',
       '/home/developer/Documents/monorepo/packages/directory/src/__tests__/helpers/recursive/folder/file.txt',
       '/home/developer/Documents/monorepo/packages/directory/src/__tests__/helpers/recursive/folder/otherfile.js',
+      '/home/developer/Documents/monorepo/packages/directory/src/__tests__/helpers/recursive/folder/thing/file.txt',
     ]);
   });
 });
@@ -72,6 +73,7 @@ describe('it reads the directory and uses options', () => {
       '/home/developer/Documents/monorepo/packages/directory/src/__tests__/helpers/recursive/file.txt',
       '/home/developer/Documents/monorepo/packages/directory/src/__tests__/helpers/recursive/folder/file.txt',
       '/home/developer/Documents/monorepo/packages/directory/src/__tests__/helpers/recursive/folder/otherfile.js',
+      '/home/developer/Documents/monorepo/packages/directory/src/__tests__/helpers/recursive/folder/thing/file.txt',
     ]);
   });
 
@@ -113,6 +115,11 @@ describe('it reads the directory and uses options', () => {
         mime: { contentType: 'application/javascript', extension: 'js' },
         path:
           '/home/developer/Documents/monorepo/packages/directory/src/__tests__/helpers/recursive/folder/otherfile.js',
+      },
+      {
+        mime: { contentType: 'text/plain', extension: 'txt' },
+        path:
+          '/home/developer/Documents/monorepo/packages/directory/src/__tests__/helpers/recursive/folder/thing/file.txt',
       },
     ]);
   });

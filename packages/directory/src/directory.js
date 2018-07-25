@@ -27,7 +27,7 @@ function readDirectory(dir: string, options: Options = {}): Array<string> {
             return options.recursive
               ? isFile(filePath)
                 ? filePath
-                : readDirectory(filePath)
+                : readDirectory(filePath, options)
               : isFile(filePath)
                 ? filePath
                 : '';
