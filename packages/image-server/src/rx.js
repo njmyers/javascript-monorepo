@@ -12,7 +12,7 @@ const app = ({ req, res }) => {
     ...gatherInfo,
     ...sharpFlow,
     tap((ctx) => {
-      console.log(ctx);
+      console.log(ctx.info.mode);
     })
   );
 
