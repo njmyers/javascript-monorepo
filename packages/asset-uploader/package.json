@@ -1,22 +1,23 @@
 {
-  "name": "@njmyers/asset-downloader",
+  "name": "@njmyers/asset-uploader",
   "version": "0.0.2",
   "private": true,
-  "description": "downloads assets",
+  "description": "uploads assets and replaces dev urls to production urls",
   "license": "ISC",
   "author": "",
   "main": "build/cli.cjs.js",
   "bin": {
-    "asset-downloader": "script.js"
+    "asset-uploader": "script.js"
   },
   "scripts": {
     "build": "run-s rollup",
-    "rollup": "BABEL_ENV=production rollup -c",
+    "rollup": "rollup -c",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "watch": "BABEL_ENV=production rollup -c --watch"
+    "watch": "rollup -c --watch"
   },
   "dependencies": {
-    "@njmyers/directory": "^0.0.2",
+    "@njmyers/directory": "^0.0.3",
+    "@njmyers/image-server": "^0.0.1",
     "app-root-path": "^2.0.1",
     "bluebird": "^3.5.1",
     "cdnizer": "^2.0.0",

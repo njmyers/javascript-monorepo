@@ -1,5 +1,6 @@
 import program from 'commander';
 import * as fs from 'fs';
+import { findImageTag } from './img-tag';
 // import appRoot from 'app-root-path';
 import directory from '@njmyers/directory';
 // register app root path
@@ -23,26 +24,28 @@ function log(file) {
   return file;
 }
 
-function findImageTag(file) {
-  const regex = /\<img/gi;
-
-  return {
-    ...file,
-  };
+function writeFile(file) {
+  fs.writeFileSync(file.path, file.replacedContents, 'utf8');
 }
 
 program
-  .command('assetize [folder]')
+  .command('upload [folder]')
   .description('replace all assets with downloaded ones')
   .action((env, options) => {
-    const HTMLfiles = directory(env, {
+    const files = directory(env, {
       recursive: true,
       absolute: true,
       mime: true,
-    })
+    });
+
+    files
       .filter(filterHTML)
       .map(readFile)
-      .map(log);
+      .forEach((obj) => {
+        findImageTag(obj.contents).then((newString) => {
+          fs.writeFileSync(obj.path, newString, 'utf8');
+        });
+      });
   });
 
 program.parse(process.argv);

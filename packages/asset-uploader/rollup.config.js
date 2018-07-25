@@ -11,7 +11,15 @@ export default [
   {
     input: 'src/index.js',
     output: [{ file: pkg.main, format: 'cjs', sourcemap: true }],
-    external: ['fs', 'path', 'mime-types', 'commander'],
+    external: [
+      'fs',
+      'path',
+      'mime-types',
+      'commander',
+      'cheerio',
+      'axios',
+      'qs',
+    ],
     plugins: [
       flow(),
       resolve(),
@@ -21,7 +29,7 @@ export default [
           '/node_modules/commander': ['program'],
         },
       }),
-      babel({ exclude: 'node_modules/**' }),
+      babel({ exclude: 'node_modules/**', runtimeHelpers: true }),
     ],
   },
 ];

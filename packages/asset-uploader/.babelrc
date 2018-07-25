@@ -1,0 +1,22 @@
+{
+  "plugins": [
+    "transform-class-properties",
+    "transform-react-jsx",
+    "transform-object-rest-spread",
+    "dynamic-import-node",
+    "syntax-dynamic-import",
+    "external-helpers",
+    "lodash",
+    "transform-runtime",
+    "transform-async-to-generator"
+  ],
+  "presets": [
+    [
+      "env",
+      {
+        "modules": false
+      }
+    ],
+    "flow"
+  ]
+}
