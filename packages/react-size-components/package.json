@@ -19,7 +19,6 @@
     "start-ssr": "babel-node ssr/server.js",
     "test": "jest --watchAll"
   },
-  "browser": "build/react-size-components.umd.js",
   "dependencies": {
     "invariant": "^2.2.4",
     "lodash": "^4.17.5",

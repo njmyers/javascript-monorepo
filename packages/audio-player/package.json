@@ -13,7 +13,6 @@
     "rollup": "BABEL_ENV=production rollup -c",
     "test": "jest --watchAll"
   },
-  "browser": "build/component.umd.js",
   "dependencies": {
     "howler": "^2.0.14",
     "react": "^16.4.1",

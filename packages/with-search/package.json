@@ -13,7 +13,6 @@
     "rollup": "BABEL_ENV=production rollup -c",
     "test": "jest --watchAll"
   },
-  "browser": "build/with-search.umd.js",
   "dependencies": {
     "query-string": "^6.1.0",
     "react": "^16.4.1",

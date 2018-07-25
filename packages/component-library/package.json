@@ -14,7 +14,6 @@
     "rollup": "BABEL_ENV=production rollup -c",
     "test": "jest --watchAll"
   },
-  "browser": "build/components.umd.js",
   "dependencies": {
     "react": "^16.4.1",
     "react-dom": "^16.4.1",

@@ -1,5 +1,6 @@
 {
   "name": "@njmyers/sls-imageserver",
+  "private": true,
   "version": "0.0.1",
   "description": "a dynamic image resizing server",
   "main": "app.js",
