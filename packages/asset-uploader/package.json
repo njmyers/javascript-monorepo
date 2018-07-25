@@ -17,7 +17,7 @@
   },
   "dependencies": {
     "@njmyers/directory": "^0.0.3",
-    "@njmyers/image-server": "^0.0.1",
+    "@njmyers/image-server": "^0.0.2",
     "app-root-path": "^2.0.1",
     "bluebird": "^3.5.1",
     "cdnizer": "^2.0.0",
