@@ -1,3 +1,5 @@
+const registerRequireContextHook = require('babel-plugin-require-context-hook/register');
+
 const babelOptions = {
   plugins: [
     'transform-class-properties',
@@ -6,6 +8,9 @@ const babelOptions = {
     'dynamic-import-node',
     'syntax-dynamic-import',
     'babel-plugin-react-docgen',
+    'transform-runtime',
+    'transform-async-to-generator',
+    'require-context-hook',
   ],
   presets: [['env'], 'flow'],
 };

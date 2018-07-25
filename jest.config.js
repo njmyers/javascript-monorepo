@@ -5,7 +5,7 @@ module.exports = {
     '!**/node_modules/**',
     '!**/flow-typed/**',
   ],
-  roots: ['packages/'],
+  roots: ['packages/', '__tests__'],
   moduleNameMapper: {
     '\\.(jpg|jpeg|png|svg|woff|woff2)$': '<rootDir>/__mocks__/fileMock.js',
     '\\.(sass|css|scss)$': '<rootDir>/__mocks__/styleMock.js',

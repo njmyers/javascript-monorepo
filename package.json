@@ -5,14 +5,8 @@
   "repository": "https://github.com/njmyers/javascript-monorepo.git",
   "author": "Nick Myers",
   "workspaces": {
-    "packages": [
-      "packages/*"
-    ],
-    "nohoist": [
-      "**/sharp",
-      "**/jest",
-      "**/dotenv"
-    ]
+    "packages": ["packages/*"],
+    "nohoist": ["**/sharp", "**/jest", "**/dotenv"]
   },
   "scripts": {
     "precommit": "lint-staged",
@@ -48,10 +42,12 @@
     "babel-plugin-react-docgen": "^1.8.3",
     "babel-plugin-require-context-hook": "^1.0.0",
     "babel-plugin-syntax-dynamic-import": "^6.18.0",
+    "babel-plugin-transform-async-to-generator": "^6.24.1",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-plugin-transform-react-jsx": "^6.24.1",
     "babel-plugin-transform-regenerator": "^6.26.0",
+    "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-env": "^1.6.1",
     "babel-preset-flow": "^6.23.0",
     "babel-runtime": "^6.26.0",
@@ -96,9 +92,6 @@
   },
   "licence": "ISC",
   "lint-staged": {
-    "packages/**/*.{.test.js,js,jsx,json,md}": [
-      "prettier --write",
-      "git add"
-    ]
+    "packages/**/*.{.test.js,js,jsx,json,md}": ["prettier --write", "git add"]
   }
 }
