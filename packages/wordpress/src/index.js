@@ -1,1 +1,1 @@
-export { default } from './Wordpress';
+export { default } from 'Wordpress';

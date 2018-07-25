@@ -1,107 +1,88 @@
 // @flow
 import * as React from 'react';
-import * as redux from 'redux';
+import axios from 'axios';
+import { StatusSwitch } from 'njmyers-component-library';
 
-import createPostType from './post-type';
-
-import async from './async';
-import log from './log';
-import createRootReducer from './create-root-reducer';
+const { Consumer, Provider } = React.createContext(null);
 
 type Props = {
+  postTypes: string | Array<string>,
+  baseURL: string,
   children?: React.Node,
 };
 
-type State = {
-  store: {},
-  postTypes: Array<string>,
-  createPostType: Function,
+export type State = {
+  data: {} | null,
+  status: 'initial' | 'loading' | 'resolved' | 'error',
+  errors: Array<Error>,
 };
 
-// Declare initial shape of state
-const Context = React.createContext({
-  store: redux.createStore({}),
-  postTypes: [],
-  createPostType: () => {},
-});
+class ProgramsProvider extends React.Component<Props, State> {
+  state = {
+    data: null,
+    status: 'initial',
+    errors: [],
+  };
 
-class Wordpress extends React.Component<Props, State> {
-  middlwares: Array<Function> = [log, async];
+  postTypes = () => {
+    return Array.isArray(this.props.postTypes)
+      ? [...this.props.postTypes]
+      : [this.props.postTypes];
+  };
 
-  /** Update Array of Initialized PostTypes */
-  createPostType = (postType: string) => {
-    this.setState((state) => {
-      const postTypes = [...state.postTypes, postType];
-      const rootReducer = createRootReducer(postTypes);
-      const store = redux.createStore(rootReducer);
+  requestString = (endpoint: string) => {
+    return `${this.props.baseURL}/wp-json/wp/v2/${endpoint}`;
+  };
 
-      return { store, postTypes };
+  request = (endpoint: string, query: {} = {}) => {
+    return new Promise((res, rej) => {
+      axios
+        .get(this.requestString(endpoint), {
+          params: query,
+        })
+        .then((response) => {
+          res(response);
+        })
+        .catch((error) => {
+          rej(error);
+        });
     });
   };
 
-  state = {
-    store: {},
-    postTypes: [],
-    createPostType: this.createPostType,
-  };
+  componentDidMount() {
+    if (!this.props.baseURL) throw new Error('must supply a baseURL prop');
+
+    const postTypes = this.postTypes();
+
+    Promise.all(postTypes.map((type) => this.request(type)))
+      .then((responses) => {
+        responses.forEach((response, index) => {
+          this.setState((state) => ({
+            ...state,
+            data: { ...state.data, [postTypes[index]]: response.data },
+          }));
+        });
+      })
+      .then(() => {
+        this.setState((state) => ({ status: 'resolved' }));
+      })
+      .catch((error) => {
+        this.setState((state) => ({
+          status: 'error',
+          errors: [...state.errors, error],
+        }));
+      });
+  }
 
   render() {
     return (
-      <Context.Provider value={this.state}>
-        {this.props.children}
-      </Context.Provider>
+      <StatusSwitch status={this.state.status}>
+        <Provider value={this.state}>{this.props.children}</Provider>
+      </StatusSwitch>
     );
   }
 }
 
-const withWordpress = (Wrapped) => (props: {}) => (
-  <Wordpress>
-    <Context.Consumer>
-      {(context) => <Wrapped {...props} wordpress={context} />}
-    </Context.Consumer>
-  </Wordpress>
-);
+export default ProgramsProvider;
 
-// const withWordpressData = (postTypes: Array<string> | string) => (Wrapped) =>
-//   class WordpressData extends React.Component {
-//     // coerce passed in argument to array
-//     postTypes = Array.isArray(postTypes) ? postTypes : [postTypes];
-
-//     mapAllNewPostTypes = (context: State) => {
-//       this.postTypes.forEach((type) => context.createPostType(type));
-//     };
-
-//     render() {
-//       return (
-//         <Wordpress>
-//           <Context.Consumer>
-//             {(context) => {
-//               this.mapAllNewPostTypes(context);
-//               return <Wrapped {...this.props} wordpress={context} />;
-//             }}
-//           </Context.Consumer>
-//         </Wordpress>
-//       );
-//     }
-//   };
-
-class MountPostTypes extends React.Component {
-  state = {
-    subscribe: null,
-  };
-
-  componentDidMount() {
-    this.props.wordpress.createPostType('posts');
-    this.props.onAction(this.props.wordpress.store.getState());
-  }
-
-  componentDidUpdate() {
-    this.props.onAction(this.props.wordpress.store.getState());
-  }
-
-  render() {
-    return <p>{JSON.stringify(this.props.wordpress)}</p>;
-  }
-}
-
-export default withWordpress(MountPostTypes);
+export { Consumer as ProgramsConsumer };
