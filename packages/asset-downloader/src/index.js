@@ -1,29 +1,48 @@
-#!/usr/bin/env node
-require('dotenv').config();
-const path = require('path');
-const mime = require('mime');
-const program = require('commander');
-const readDir = require('./dir/read-directory-keys');
-const filterMime = require('./dir/filter-mime');
+import program from 'commander';
+import * as fs from 'fs';
+// import appRoot from 'app-root-path';
+import directory from '@njmyers/directory';
 // register app root path
 global.APP_ROOT = process.cwd(); //require('app-root-path').path;
 
 program.version('0.0.1');
 
+function readFile(file) {
+  return {
+    ...file,
+    contents: fs.readFileSync(file.path).toString(),
+  };
+}
+
+function filterHTML(file) {
+  return file.mime.contentType === 'text/html';
+}
+
+function log(file) {
+  console.log({ path: file.path });
+  return file;
+}
+
+function findImageTag(file) {
+  const regex = /\<img/gi;
+
+  return {
+    ...file,
+  };
+}
+
 program
   .command('assetize [folder]')
   .description('replace all assets with downloaded ones')
   .action((env, options) => {
-    const files = readDir(env);
-    files.map(console.log);
-    // .map((file) => {
-    // return path.resolve(file);
-    // })
-    // .map((path) => ({ path }))
-
-    // .map((file) => path.extname(file))
-    // .map((thing) => console.log(mime.getType(thing)));
-    // .filter(filterMime('text/html'))
+    const HTMLfiles = directory(env, {
+      recursive: true,
+      absolute: true,
+      mime: true,
+    })
+      .filter(filterHTML)
+      .map(readFile)
+      .map(log);
   });
 
 program.parse(process.argv);

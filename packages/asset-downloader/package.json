@@ -1,10 +1,13 @@
 {
   "name": "@njmyers/asset-downloader",
+  "private": true,
   "version": "0.0.1",
   "description": "downloads assets",
   "scripts": {
+    "watch": "BABEL_ENV=production rollup -c --watch",
+    "build": "run-s rollup",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "rollup": "BABEL_ENV=production rollup -c --watch"
+    "rollup": "BABEL_ENV=production rollup -c"
   },
   "bin": {
     "asset-downloader": "script.js"
@@ -13,17 +16,17 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@njmyers/directory": "^0.0.1",
     "app-root-path": "^2.0.1",
-    "aws-sdk": "^2.195.0",
     "bluebird": "^3.5.1",
-    "camelcase": "^4.1.0",
+    "cdnizer": "^2.0.0",
     "chalk": "^2.3.1",
+    "cheerio": "^1.0.0-rc.2",
     "commander": "^2.15.1",
     "dotenv": "^4.0.0",
-    "global": "^4.3.2",
-    "lodash": "^4.17.5",
-    "mime": "^2.3.1",
-    "mime-types": "^2.1.17",
+    "htmlparser2": "^3.9.2",
+    "node-html-parser": "^1.1.8",
+    "query-string": "^6.1.0",
     "smalldash": "^1.0.2"
   },
   "devDependencies": {

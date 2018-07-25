@@ -1,3 +1,3 @@
 #!/usr/bin/env node
 require('dotenv').config();
-require('./build/cli.cjs.map');
+require('./build/cli.cjs.js');
