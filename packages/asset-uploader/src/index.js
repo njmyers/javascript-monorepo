@@ -1,5 +1,9 @@
 import program from 'commander';
+import chalk from 'chalk';
 import * as fs from 'fs';
+import * as child from 'child_process';
+import ProgressBar from 'progress';
+import imageServer from '@njmyers/image-server';
 import { findImageTag } from './img-tag';
 // import appRoot from 'app-root-path';
 import directory from '@njmyers/directory';
@@ -19,89 +23,72 @@ function filterHTML(file) {
   return file.mime.contentType === 'text/html';
 }
 
-function log(file) {
-  console.log({ path: file.path });
-  return file;
-}
-
-function writeFile(file) {
-  fs.writeFileSync(file.path, file.replacedContents, 'utf8');
+function startServer(options) {
+  return new Promise((res, rej) => {
+    imageServer(options);
+    setTimeout(() => res(), 1000);
+  });
 }
 
 program
   .command('upload [folder]')
   .description('replace all assets with downloaded ones')
+  .option('-p, --port <port>', 'Specify port to run on [number]', 6060)
+  .option('-d, --debug', 'Debug with verbose output')
+  .option('-b, --bucket <bucket>', 'Specify an S3 bucket')
+  .option('-c, --cloud-front <url>', 'Specify a cloud front distribution')
   .action((env, options) => {
-    const files = directory(env, {
-      recursive: true,
-      absolute: true,
-      mime: true,
-    });
+    // startup node server first
+    startServer({ port: options.port, debug: options.debug }).then(() => {
+      const HTMLFiles = directory(env, {
+        recursive: true,
+        absolute: true,
+        mime: true,
+      }).filter(filterHTML);
 
-    files
-      .filter(filterHTML)
-      .map(readFile)
-      .forEach((obj) => {
-        findImageTag(obj.contents).then((newString) => {
-          fs.writeFileSync(obj.path, newString, 'utf8');
-        });
+      const scanning = new ProgressBar('scanning files [:bar] :percent :etas', {
+        total: HTMLFiles.length,
       });
+
+      const upload = new ProgressBar('uploading assets [:bar] :percent :etas', {
+        total: HTMLFiles.length,
+      });
+
+      HTMLFiles.map(readFile).forEach((obj) => {
+        scanning.tick();
+
+        findImageTag(obj.contents, { port: options.port })
+          .then((newString) => {
+            fs.writeFileSync(obj.path, newString, 'utf8');
+            upload.tick();
+          })
+          .catch((env) => {
+            console.log(
+              chalk.red(`failed upload for ${env} on port ${options.port}`)
+            );
+          });
+      });
+    });
+  });
+
+program
+  .command('develop')
+  .description('start development image server')
+  .option('-p, --port <port>', 'Specify port to run on [number]', 6060)
+  .option('-d, --debug', 'Debug with verbose output', false)
+  .action((options) => {
+    // start the server
+    imageServer({ port: options.port, debug: options.debug });
+    // say some nice instructions
+    console.log(
+      chalk.yellow(`
+      Image Asset Development Server
+      Resize and manipulate images live using HTTP requests
+      Add Image Sources as Local URLs
+      Use query strings to specify options
+      <img src="http://localhost:${options.port}?uri=imageURL&resize=400" />
+`)
+    );
   });
 
 program.parse(process.argv);
-//
-// program
-//   .command('deploy [folder]')
-//   .description('deploy the specified folder to an AWS S3 bucket')
-//   // load global option
-//   .option('-B, --bucket <bucket>', 'specify aws bucket inline')
-//   .option(
-//     '-S, --secret-access-key <secret>',
-//     'specify amazon secret access key inline'
-//   )
-//   .option('-I, --access-key-id <id>', 'specify amazon access id inline')
-//   .option('-R --region <region>', 'the AWS region')
-//   .option('-D --debug', 'debugs the utility with verbose output')
-//   // individual
-//   .option('-F, --force', 'ignore all warnings')
-//   .option('-s, --silent', 'silent mode suppress feedback')
-//   .option('-m, --mime', 'add mime types to all files')
-//   .option('--app-root [root]', 'root path of your application')
-//   .option('--cache [value]', 'add cache control headers to all files')
-//   .option('--build-folder [folder]', 'specify build folder')
-//   .option('--keep-deploys [number]', 'how many deploys to keep')
-//   .option(
-//     '-C --cache-ignore <file,anotherFile>',
-//     'files to ignore adding cache control headers',
-//     (val) => val.split(',')
-//   )
-//   .action((env, options) => {
-//     const deployOptions = getDeployOptions(env, options);
-//     const globalOptions = getGlobalOptions(env, options);
-//
-//     console.log({ ...deployOptions, ...globalOptions });
-//     console.log(globalOptions.appRoot.path);
-//
-//     deploy({ ...deployOptions, ...globalOptions });
-//   });
-//
-// program
-//   .command('revert [release]')
-//   .description('revert to a previous release by git sha or release id')
-//   // global options
-//   .option('-B, --bucket <bucket>', 'specify aws bucket inline')
-//   .option(
-//     '-S, --secret-access-key <secret>',
-//     'specify amazon secret access key inline'
-//   )
-//   .option('-I, --access-key-id <id>', 'specify amazon access id inline')
-//   .option('-D --debug', 'debugs the utility with verbose output')
-//   // individual
-//   .option('-g, --git <sha>', 'sha of the git commit you wish to revert to')
-//   .option(
-//     '-id, --release-id <id>',
-//     'id of the the release you wish to revert to'
-//   )
-//   .action((env, options) => {
-//     console.log(env);
-//   });

@@ -1,9 +1,17 @@
 {
-  "plugins": ["transform-class-properties", "transform-object-rest-spread"],
+  "plugins": [
+    "transform-class-properties",
+    "transform-react-jsx",
+    "transform-object-rest-spread",
+    "external-helpers",
+    "dynamic-import-node",
+    "syntax-dynamic-import"
+  ],
   "presets": [
     [
       "env",
       {
+        "modules": false,
         "targets": {
           "node": "6.10"
         }

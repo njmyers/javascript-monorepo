@@ -1,3 +1,4 @@
+// @flow
 import sharp from 'sharp';
 import { map } from 'rxjs/operators';
 
@@ -13,7 +14,7 @@ const validateResize = (resize) => {
 };
 
 /** validate the requested image format and fallback to jpeg */
-const validateFormat = (format) => {
+const validateFormat = (format: string) => {
   return format !== 'png' &&
     format !== 'jpeg' &&
     format !== 'tiff' &&

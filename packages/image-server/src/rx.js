@@ -6,14 +6,11 @@ import gatherInfo from './gather-info';
 import sharpFlow from './sharp/sharp-flow';
 import { cloudFrontResponse, sharpResponse } from './response';
 
-const app = ({ req, res }) => {
+const app = (options) => ({ req, res }) => {
   // really the only parameter of the whole request here
   const ctx$ = of({ info: { url: req.url } }).pipe(
-    ...gatherInfo,
-    ...sharpFlow,
-    tap((ctx) => {
-      console.log(ctx.info.mode);
-    })
+    ...gatherInfo(options),
+    ...sharpFlow(options)
   );
 
   ctx$
@@ -25,18 +22,20 @@ const app = ({ req, res }) => {
     .subscribe(cloudFrontResponse(req, res));
 };
 
-const requests$ = new Subject();
+function server({ port = 3030, hostname = 'localhost', ...options }) {
+  const requests$ = new Subject();
+  requests$.subscribe(app(options));
 
-requests$.subscribe(app);
+  http
+    .createServer()
+    .on('request', (req, res) => {
+      requests$.next({ req, res });
+    })
+    .listen(port, hostname, () => {
+      console.log(
+        `image development server running at http://${hostname}:${port}`
+      );
+    });
+}
 
-const hostname = 'localhost';
-const port = 3030;
-
-http
-  .createServer()
-  .on('request', (req, res) => {
-    requests$.next({ req, res });
-  })
-  .listen(port, hostname, () => {
-    console.log(`Server running at http://${hostname}:${port}`);
-  });
+export default server;

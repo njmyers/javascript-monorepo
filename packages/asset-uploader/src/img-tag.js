@@ -1,15 +1,14 @@
-import cheerio from 'cheerio';
 import axios from 'axios';
 import qs from 'qs';
 import { queryString, isLocalURL, localURLs } from './regex';
 import { pipe } from 'smalldash';
 
 /** Passing the promise along... */
-function uploadAssets({ query, ...env }) {
+const uploadAssets = (port) => ({ query, ...env }) => {
   return new Promise((res, rej) => {
     axios
       .request({
-        url: 'http://localhost:3030',
+        url: `http://localhost:${port}`,
         params: query,
         paramsSerializer: (params) =>
           qs.stringify(params, { arrayFormat: 'brackets' }),
@@ -30,7 +29,7 @@ function uploadAssets({ query, ...env }) {
         })
       );
   });
-}
+};
 
 function addModeToQuery({ decodedURL, ...env }) {
   return {
@@ -67,14 +66,14 @@ const log = (obj) => {
   console.log(obj);
 };
 
-export function findImageTag(string) {
+export function findImageTag(string, { port }) {
   return new Promise((res, rej) => {
     // construct the env pipeline
     const pipeline = pipe(
       objectify,
       decodeURL,
       addModeToQuery,
-      uploadAssets
+      uploadAssets(port)
     );
 
     const matches = localURLs(string);
@@ -96,7 +95,6 @@ export function findImageTag(string) {
           res(newString);
         })
         .catch((error) => {
-          console.log(error);
           rej(string);
         });
     }
