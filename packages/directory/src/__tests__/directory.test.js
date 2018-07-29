@@ -1,6 +1,6 @@
 import fs from 'fs';
 import path from 'path';
-import directory, { readDirectory } from '../directory';
+import directory, { readDirectory, read } from '../directory';
 
 const testDirectory = __dirname;
 
@@ -122,5 +122,14 @@ describe('it reads the directory and uses options', () => {
           '/home/developer/Documents/monorepo/packages/directory/src/__tests__/helpers/recursive/folder/thing/file.txt',
       },
     ]);
+  });
+
+  test('it reads a directory and adds file contents', () => {
+    expect(
+      directory(path.resolve(__dirname, 'helpers/recursive'), {
+        recursive: true,
+        read: true,
+      })
+    ).toMatchSnapshot();
   });
 });

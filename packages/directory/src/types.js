@@ -8,10 +8,12 @@ export type Mime = {
 export type FileObject = {
   path: string,
   mime?: Mime,
+  file?: string,
 };
 
 export type Options = {
   mime: boolean,
   absoultePath: boolean,
   recursive: boolean,
+  read: boolean,
 };

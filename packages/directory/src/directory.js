@@ -69,11 +69,24 @@ function mimeify(obj: FileObject): FileObject {
   };
 }
 
+/**
+ * Reads the file and adds it to the object
+ * @param  {FileObject} obj a file object with the required path property
+ * @return {FileObject}     a file object with the file contents added in
+ */
+function read(obj: FileObject): FileObject {
+  return {
+    ...obj,
+    file: fs.readFileSync(obj.path, 'utf8').toString(),
+  };
+}
+
 /** default options */
 const O = {
   absolute: true,
   recursive: false,
   mime: false,
+  read: false,
 };
 
 /**
@@ -88,12 +101,14 @@ function directory(dir: string, options: Options = O): Array<FileObject> {
   const list = readDirectory(dir, options);
 
   const pipeline = []
-    .concat(options.absolute ? pathify : [])
-    .concat(options.mime ? [objectify, mimeify] : []);
+    .concat(options.absolute || options.read ? pathify : [])
+    .concat(options.mime || options.read ? objectify : [])
+    .concat(options.mime ? mimeify : [])
+    .concat(options.read ? read : []);
 
   return pipeline.length > 0 ? list.map(pipe(...pipeline)) : list;
 }
 
 export default directory;
 
-export { readDirectory, objectify, pathify, mimeify };
+export { readDirectory, objectify, pathify, mimeify, read };
