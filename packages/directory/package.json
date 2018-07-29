@@ -1,12 +1,13 @@
 {
   "name": "@njmyers/directory",
-  "version": "0.0.3",
+  "version": "0.0.5",
   "description": "",
   "license": "ISC",
   "author": "",
   "main": "build/directory.cjs.js",
   "module": "build/directory.esm.js",
   "scripts": {
+    "prepublishOnly": "yarn run build",
     "build": "run-s rollup",
     "rollup": "BABEL_ENV=production rollup -c",
     "test": "jest --watchAll --no-cache"
