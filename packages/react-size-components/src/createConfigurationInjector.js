@@ -47,7 +47,9 @@ const createConfigurationInjector = (configurations) => (Wrapped) => {
 
     computeProperty = ({ name, fn, schema }: Configuration) => {
       this.setState((state) => {
-        const nextProps = state.DOMNode ? fn(state.DOMNode) : schema;
+        const nextProps = this.state.DOMNode
+          ? fn(this.state.DOMNode.current)
+          : schema;
         return !__.equals(nextProps, state[name])
           ? { [name]: nextProps }
           : null;
@@ -67,17 +69,23 @@ const createConfigurationInjector = (configurations) => (Wrapped) => {
       });
     };
 
-    /**
-     * Sets reference to DOMNode and stores it in component state
-     * Schedules listeners
-     */
+    safeInit = () => {
+      if (this.state.DOMNode) {
+        this.scheduleSubscriptions();
+        // first call
+        this.computeProperties();
+      } else {
+        const poll = _.debounce(this.safeInit.bind(this), 300);
+        poll();
+      }
+    };
+
     componentDidMount() {
-      // store DOM
-      this.setState({ DOMNode: ReactDOM.findDOMNode(this) });
-      // schedule listeners
-      this.scheduleSubscriptions();
-      // first call
-      this.computeProperties();
+      this.setState({
+        DOMNode: React.createRef(),
+      });
+
+      this.safeInit();
     }
 
     /**
@@ -98,7 +106,13 @@ const createConfigurationInjector = (configurations) => (Wrapped) => {
     }
 
     render() {
-      return <Wrapped {...this.props} sizes={this.state} />;
+      return (
+        <Wrapped
+          childRef={this.state.DOMNode}
+          sizes={this.state}
+          {...this.props}
+        />
+      );
     }
   };
 };

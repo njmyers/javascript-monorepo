@@ -1,15 +1,15 @@
 import React from 'react';
 import withSize from '../../src';
 
-const Child = ({ sizes } = {}) => {
+const Child = ({ sizes, childRef } = {}) => {
   return (
-    <React.Fragment>
+    <div ref={childRef}>
       <h2>Child Component</h2>
       <li>My window inner width is: {sizes.window.innerWidth}</li>
       <li>My window inner height is: {sizes.window.innerHeight}</li>
       <li>My window outer width is: {sizes.window.outerWidth}</li>
       <li>My window outer height is: {sizes.window.outerHeight}</li>
-    </React.Fragment>
+    </div>
   );
 };
 

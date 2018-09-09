@@ -1,7 +1,7 @@
 import React from 'react';
 import withSize from '../../src';
 
-const Child = ({ sizes } = {}) => {
+const Child = ({ sizes, childRef } = {}) => {
   const style = {
     background: '#FF7F50',
     padding: '10px',
@@ -11,7 +11,7 @@ const Child = ({ sizes } = {}) => {
   };
 
   return (
-    <div className="child-component" style={style}>
+    <div ref={childRef} className="child-component" style={style}>
       <h2>Child Component</h2>
       <li>My width is: {sizes.component.width}</li>
       <li>My height is: {sizes.component.height}</li>
