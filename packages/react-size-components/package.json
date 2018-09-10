@@ -1,6 +1,6 @@
 {
   "name": "react-size-components",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Higher order components for sizing functions in react",
   "homepage": "https://component-library.netlify.com/",
   "repository": "https://github.com/njmyers/javascript-monorepo.git",
@@ -17,7 +17,8 @@
     "pressr": "yarn run build",
     "ssr": "run-p build-ssr start-ssr",
     "start-ssr": "BABEL_ENV=test babel-node ssr/server.js",
-    "test": "jest --watchAll"
+    "test": "jest --watchAll",
+    "watch": "BABEL_ENV=production rollup -c --watch"
   },
   "dependencies": {
     "invariant": "^2.2.4",

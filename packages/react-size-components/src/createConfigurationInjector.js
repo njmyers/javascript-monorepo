@@ -71,6 +71,7 @@ const createConfigurationInjector = (configurations) => (Wrapped) => {
 
     safeInit = () => {
       if (this.state.DOMNode) {
+        // schedule subscriptions
         this.scheduleSubscriptions();
         // first call
         this.computeProperties();
@@ -84,7 +85,7 @@ const createConfigurationInjector = (configurations) => (Wrapped) => {
       this.setState({
         DOMNode: React.createRef(),
       });
-
+      // safely get first value and schedule after DOMNode is available
       this.safeInit();
     }
 
@@ -108,9 +109,9 @@ const createConfigurationInjector = (configurations) => (Wrapped) => {
     render() {
       return (
         <Wrapped
+          {...this.props}
           childRef={this.state.DOMNode}
           sizes={this.state}
-          {...this.props}
         />
       );
     }
