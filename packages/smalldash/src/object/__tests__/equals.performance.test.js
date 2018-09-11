@@ -21,7 +21,8 @@ describe('it performs comparatively to other deep equality packages', () => {
     expect(deepEqual(large, large)).toBe(true);
     const dateEndSample = Date.now();
 
-    expect(dateEnd - dateStart).toBeLessThanOrEqual(
+    // allow margin of error
+    expect(dateEnd - dateStart - 2).toBeLessThanOrEqual(
       dateEndSample - dateStartSample
     );
   });
@@ -35,7 +36,8 @@ describe('it performs comparatively to other deep equality packages', () => {
     expect(fastDeepEqual(large, large)).toBe(true);
     const dateEndSample = Date.now();
 
-    expect(dateEnd - dateStart).toBeLessThanOrEqual(
+    // allow margin of error
+    expect(dateEnd - dateStart - 2).toBeLessThanOrEqual(
       dateEndSample - dateStartSample
     );
   });
