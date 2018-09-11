@@ -1,6 +1,7 @@
 **/node_modules
 **/build
 **/storybook-static
+**/test-dist
 package-lock.json
 yarn.lock
 index.js
