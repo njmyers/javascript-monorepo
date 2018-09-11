@@ -138,6 +138,7 @@ If you would like to shallowly merge styles, use the `style` prop. If you want t
 ## Props
 | Prop Name | Type | Required | Default Value | Description |
 |:----------|:-----|:---------|:--------------|:------------|
+|`childRef`|`HTMLElement`|true|-|_reference from withSize for dom component position/sizing_|
 |`children`|`ReactNode`|false|-|_react children (your component)_|
 |`className`|`string`|false|-|_className applied to the container element_|
 |`offState`|<code>{}</code>|false|<code>{<br>  transform: 'translateY(-100px)',<br>}</code>|_css inline styles applied to the off state_|

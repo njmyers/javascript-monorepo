@@ -32,6 +32,8 @@ type InheritedProps = {
   sizes: {
     isSemiStickyActive: boolean,
   },
+  /** reference from withSize for dom component position/sizing */
+  childRef: ?HTMLElement,
   /** react children (your component) */
   children?: React.Node,
 };
@@ -54,7 +56,7 @@ class StyleMerger extends React.Component<InheritedProps & AnimationProps> {
   render() {
     return (
       <React.Fragment>
-        <div />
+        <div ref={this.props.childRef} />
         <aside className={this.props.className} style={this.style()}>
           {this.props.children}
         </aside>
