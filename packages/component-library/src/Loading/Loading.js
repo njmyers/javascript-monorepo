@@ -10,6 +10,7 @@ type Props = {
   style: {},
   frameRate: number,
   step: number,
+  status: 'on' | 'off',
 };
 
 type State = {
@@ -84,9 +85,19 @@ class Loading extends React.PureComponent<Props, State> {
 
   computeStyle = (num: number) => ({ ...this.props.style, opacity: num / 100 });
 
+  componentDidUpdate(prevProps, prevState) {
+    if (prevProps.status !== this.props.status) {
+      if (this.props.status === 'off') {
+        this.stop();
+      } else {
+        this.start();
+      }
+    }
+  }
+
   render() {
     return (
-      <Modal>
+      <Modal status={this.props.status}>
         <div style={this.containerStyle}>
           <div style={this.computeStyle(this.state.one)}>
             <Circle color={this.props.color} />
