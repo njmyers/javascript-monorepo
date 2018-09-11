@@ -3,3 +3,4 @@
 **/storybook-static
 package-lock.json
 yarn.lock
+index.js
