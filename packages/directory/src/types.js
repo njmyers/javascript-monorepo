@@ -20,7 +20,9 @@ type FileObject = {
   include: boolean,
   /** the mime information */
   mime?: {
+    /** the content type ie text/css */
     contentType: string,
+    /** the file extension with no leading period */
     extension: string,
   },
   /** the file contents */
