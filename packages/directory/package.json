@@ -1,9 +1,9 @@
 {
   "name": "@njmyers/directory",
   "version": "0.0.6",
-  "description": "",
+  "description": "Reads all the files within a directory.",
   "license": "ISC",
-  "author": "",
+  "author": "Nick Myers <nickmyers111@gmail.com>",
   "main": "build/directory.cjs.js",
   "module": "build/directory.esm.js",
   "scripts": {
