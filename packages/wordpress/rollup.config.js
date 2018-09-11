@@ -7,16 +7,6 @@ export default [
   {
     input: 'src/index.js',
     external: ['react', 'react-dom', 'smalldash', 'react-size-components'],
-    output: {
-      name: 'njmyersComponentLibrary',
-      file: pkg.browser,
-      format: 'umd',
-    },
-    plugins: [resolve(), babel({ exclude: 'node_modules/**' }), commonjs()],
-  },
-  {
-    input: 'src/index.js',
-    external: ['react', 'react-dom', 'smalldash', 'react-size-components'],
     output: [
       { file: pkg.main, format: 'cjs' },
       { file: pkg.module, format: 'es' },

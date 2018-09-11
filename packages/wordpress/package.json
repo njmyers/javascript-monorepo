@@ -13,9 +13,9 @@
   "homepage": "https://component-library.netlify.com/",
   "repository": "https://github.com/njmyers/javascript-monorepo.git",
   "license": "ISC",
-  "author": "Nick Myers",
-  "main": "index.js",
-  "module": "lib/index.js",
+  "author": "Nick Myers <nickmyers111@gmail.com>",
+  "main": "build/react-wordpress.cjs.js",
+  "module": "build/react-wordpress.esm.js",
   "scripts": {
     "build": "run-s rollup",
     "prepublishOnly": "yarn run build",
