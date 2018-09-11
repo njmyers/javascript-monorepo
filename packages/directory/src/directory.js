@@ -4,7 +4,7 @@ import * as path from 'path';
 import { pipe } from 'smalldash';
 import * as mime from 'mime-types';
 // types
-import type { Mime, FileObject, Options } from './types';
+import type { FileObject, Options } from './types';
 
 /** is it a file or a dir? */
 const isFile = (file) => fs.statSync(file).isFile();
