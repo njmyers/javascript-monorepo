@@ -2,6 +2,8 @@ import fs from 'fs';
 import path from 'path';
 import directory, { readDirectory, read } from '../directory';
 
+const homedir = require('os').homedir();
+
 const testDirectory = __dirname;
 
 /**
@@ -36,8 +38,8 @@ describe('it reads the directory - unit test for readDirectory', () => {
     expect(
       readDirectory(path.resolve(__dirname, 'helpers/folder'))
     ).toMatchObject([
-      '/home/developer/Documents/monorepo/packages/directory/src/__tests__/helpers/folder/file.txt',
-      '/home/developer/Documents/monorepo/packages/directory/src/__tests__/helpers/folder/otherfile.txt',
+      `${__dirname}/helpers/folder/file.txt`,
+      `${__dirname}/helpers/folder/otherfile.txt`,
     ]);
   });
 
@@ -47,10 +49,10 @@ describe('it reads the directory - unit test for readDirectory', () => {
         recursive: true,
       })
     ).toMatchObject([
-      '/home/developer/Documents/monorepo/packages/directory/src/__tests__/helpers/recursive/file.txt',
-      '/home/developer/Documents/monorepo/packages/directory/src/__tests__/helpers/recursive/folder/file.txt',
-      '/home/developer/Documents/monorepo/packages/directory/src/__tests__/helpers/recursive/folder/otherfile.js',
-      '/home/developer/Documents/monorepo/packages/directory/src/__tests__/helpers/recursive/folder/thing/file.txt',
+      `${__dirname}/helpers/recursive/file.txt`,
+      `${__dirname}/helpers/recursive/folder/file.txt`,
+      `${__dirname}/helpers/recursive/folder/otherfile.js`,
+      `${__dirname}/helpers/recursive/folder/thing/file.txt`,
     ]);
   });
 });
@@ -58,6 +60,8 @@ describe('it reads the directory - unit test for readDirectory', () => {
 describe('it reads the directory and uses options', () => {
   /** testing with local paths */
   test('it returns absolute paths automatically', () => {
+    const pkg = directory('package.json');
+
     expect(directory('package.json')).toMatchObject([
       path.resolve(process.cwd(), 'package.json'),
     ]);
@@ -70,10 +74,10 @@ describe('it reads the directory and uses options', () => {
         recursive: true,
       })
     ).toMatchObject([
-      '/home/developer/Documents/monorepo/packages/directory/src/__tests__/helpers/recursive/file.txt',
-      '/home/developer/Documents/monorepo/packages/directory/src/__tests__/helpers/recursive/folder/file.txt',
-      '/home/developer/Documents/monorepo/packages/directory/src/__tests__/helpers/recursive/folder/otherfile.js',
-      '/home/developer/Documents/monorepo/packages/directory/src/__tests__/helpers/recursive/folder/thing/file.txt',
+      `${__dirname}/helpers/recursive/file.txt`,
+      `${__dirname}/helpers/recursive/folder/file.txt`,
+      `${__dirname}/helpers/recursive/folder/otherfile.js`,
+      `${__dirname}/helpers/recursive/folder/thing/file.txt`,
     ]);
   });
 
@@ -84,8 +88,8 @@ describe('it reads the directory and uses options', () => {
       })
     ).toMatchObject([
       {
-        path:
-          '/home/developer/Documents/monorepo/packages/directory/src/__tests__/helpers/test.txt',
+        path: `${__dirname}/helpers/test.txt`,
+        include: true,
         mime: {
           contentType: 'text/plain',
           extension: 'txt',
@@ -103,23 +107,23 @@ describe('it reads the directory and uses options', () => {
     ).toMatchObject([
       {
         mime: { contentType: 'text/plain', extension: 'txt' },
-        path:
-          '/home/developer/Documents/monorepo/packages/directory/src/__tests__/helpers/recursive/file.txt',
+        path: `${__dirname}/helpers/recursive/file.txt`,
+        include: true,
       },
       {
         mime: { contentType: 'text/plain', extension: 'txt' },
-        path:
-          '/home/developer/Documents/monorepo/packages/directory/src/__tests__/helpers/recursive/folder/file.txt',
+        path: `${__dirname}/helpers/recursive/folder/file.txt`,
+        include: true,
       },
       {
         mime: { contentType: 'application/javascript', extension: 'js' },
-        path:
-          '/home/developer/Documents/monorepo/packages/directory/src/__tests__/helpers/recursive/folder/otherfile.js',
+        path: `${__dirname}/helpers/recursive/folder/otherfile.js`,
+        include: true,
       },
       {
         mime: { contentType: 'text/plain', extension: 'txt' },
-        path:
-          '/home/developer/Documents/monorepo/packages/directory/src/__tests__/helpers/recursive/folder/thing/file.txt',
+        path: `${__dirname}/helpers/recursive/folder/thing/file.txt`,
+        include: true,
       },
     ]);
   });
@@ -130,6 +134,114 @@ describe('it reads the directory and uses options', () => {
         recursive: true,
         read: true,
       })
-    ).toMatchSnapshot();
+    ).toMatchObject([
+      {
+        file: '',
+        include: true,
+        path: `${__dirname}/helpers/recursive/file.txt`,
+      },
+      {
+        file: '',
+        include: true,
+        path: `${__dirname}/helpers/recursive/folder/file.txt`,
+      },
+      {
+        file: `/** File */\n\nconst thing = 'arbitrary javascript';\n`,
+        include: true,
+        path: `${__dirname}/helpers/recursive/folder/otherfile.js`,
+      },
+      {
+        file: '',
+        include: true,
+        path: `${__dirname}/helpers/recursive/folder/thing/file.txt`,
+      },
+    ]);
+  });
+
+  test('it reads a directory and filters by file extension', () => {
+    expect(
+      directory(path.resolve(__dirname, 'helpers/recursive'), {
+        recursive: true,
+        read: true,
+        filter: 'js',
+      })
+    ).toMatchObject([
+      {
+        file: `/** File */\n\nconst thing = 'arbitrary javascript';\n`,
+        include: true,
+        path: `${__dirname}/helpers/recursive/folder/otherfile.js`,
+      },
+    ]);
+  });
+
+  test('it reads a directory and filters by array of file extensions', () => {
+    expect(
+      directory(path.resolve(__dirname, 'helpers/recursive'), {
+        recursive: true,
+        read: true,
+        filter: ['js'],
+      })
+    ).toMatchObject([
+      {
+        file: `/** File */\n\nconst thing = 'arbitrary javascript';\n`,
+        include: true,
+        path: `${__dirname}/helpers/recursive/folder/otherfile.js`,
+      },
+    ]);
+
+    expect(
+      directory(path.resolve(__dirname, 'helpers/recursive'), {
+        recursive: true,
+        read: true,
+        filter: ['js', 'txt'],
+      })
+    ).toMatchObject([
+      {
+        file: '',
+        include: true,
+        path: `${__dirname}/helpers/recursive/file.txt`,
+      },
+      {
+        file: '',
+        include: true,
+        path: `${__dirname}/helpers/recursive/folder/file.txt`,
+      },
+      {
+        file: `/** File */\n\nconst thing = 'arbitrary javascript';\n`,
+        include: true,
+        path: `${__dirname}/helpers/recursive/folder/otherfile.js`,
+      },
+      {
+        file: '',
+        include: true,
+        path: `${__dirname}/helpers/recursive/folder/thing/file.txt`,
+      },
+    ]);
+  });
+
+  test('it reads a directory and filters by malformed file extension', () => {
+    const result = [
+      {
+        file: `/** File */\n\nconst thing = 'arbitrary javascript';\n`,
+        include: true,
+        path: `${__dirname}/helpers/recursive/folder/otherfile.js`,
+      },
+    ];
+
+    expect(
+      directory(path.resolve(__dirname, 'helpers/recursive'), {
+        recursive: true,
+        read: true,
+        filter: '.js',
+      })
+    ).toMatchObject(result);
+
+    expect(
+      directory(path.resolve(__dirname, 'helpers/recursive'), {
+        recursive: true,
+        read: true,
+        filter: ['.js'],
+      })
+    ).toMatchObject(result);
   });
 });

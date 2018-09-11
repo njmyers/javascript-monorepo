@@ -51,7 +51,10 @@ function pathify(relative: string): string {
  * @return {FileObject}     a file object
  */
 function objectify(path: string): FileObject {
-  return { path };
+  return {
+    path,
+    include: true,
+  };
 }
 
 /**
@@ -77,16 +80,43 @@ function mimeify(obj: FileObject): FileObject {
 function read(obj: FileObject): FileObject {
   return {
     ...obj,
-    file: fs.readFileSync(obj.path, 'utf8').toString(),
+    file: obj.include ? fs.readFileSync(obj.path, 'utf8').toString() : null,
   };
 }
 
+/**
+ * Normalize the name of an extension for comparison purposes
+ * Remove all leading periods from extension names
+ * Then we can safely compare to the output from mime.extension
+ * @param {string} ext the file extension
+ * @return                the normalized file extension with no leading period
+ */
+const normalizeExtension = (ext: string): string => {
+  return ext.charAt(0) === '.' ? normalizeExtension(ext.slice(1)) : ext;
+};
+
+/**
+ * Filters the files by file types
+ * @param {FileObject} obj a file object with mime types to filter
+ * @return {FileObject}    a file object with a flag to indicate it's inclusion in the final array
+ */
+const filterify = (types: string | Array<string>) =>
+  function filterify_(obj: FileObject): boolean {
+    return {
+      ...obj,
+      include: Array.isArray(types)
+        ? types.map(normalizeExtension).includes(obj.mime.extension)
+        : obj.mime.extension === normalizeExtension(types),
+    };
+  };
+
 /** default options */
-const O = {
+const defO = {
   absolute: true,
   recursive: false,
   mime: false,
   read: false,
+  filter: false,
 };
 
 /**
@@ -97,18 +127,27 @@ const O = {
  * @param  {Options} options  the options object
  * @return {array}            an array of file objects containing your information
  */
-function directory(dir: string, options: Options = O): Array<FileObject> {
+function directory(dir: string, options: Options = defO): Array<FileObject> {
   const list = readDirectory(dir, options);
 
   const pipeline = []
     .concat(options.absolute || options.read ? pathify : [])
-    .concat(options.mime || options.read ? objectify : [])
-    .concat(options.mime ? mimeify : [])
+    .concat(options.mime || options.read || options.filter ? objectify : [])
+    .concat(options.mime || options.filter ? mimeify : [])
+    .concat(options.filter ? filterify(options.filter) : [])
     .concat(options.read ? read : []);
 
-  return pipeline.length > 0 ? list.map(pipe(...pipeline)) : list;
+  return pipeline.length > 0
+    ? list
+        // map through our pipeline
+        .map(pipe(...pipeline))
+        // finally apply the filtering for our safe results array
+        // if we are in "only paths" mode then we won't have an object
+        // if we have an object we default to include unless we add a filter
+        .filter((obj) => obj.include || typeof obj === 'string')
+    : list;
 }
 
 export default directory;
 
-export { readDirectory, objectify, pathify, mimeify, read };
+export { readDirectory, objectify, pathify, mimeify, read, filterify };

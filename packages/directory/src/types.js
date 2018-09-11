@@ -7,6 +7,7 @@ export type Mime = {
 
 export type FileObject = {
   path: string,
+  include: boolean,
   mime?: Mime,
   file?: string,
 };
@@ -16,4 +17,5 @@ export type Options = {
   absoultePath: boolean,
   recursive: boolean,
   read: boolean,
+  filter: string | Array<string>,
 };
