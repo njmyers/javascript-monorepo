@@ -1,5 +1,6 @@
 import myEquals from '../equals';
-import sampleEquals from 'deep-equal';
+import deepEqual from 'deep-equal';
+import fastDeepEqual from 'fast-deep-equal';
 
 import dataset from 'datasets-us-states-abbr-names';
 
@@ -10,16 +11,32 @@ const createLargeObject = (limit) => (obj, counter = 0) =>
 
 const large = createLargeObject(1000)(dataset);
 
-test('outperforms sample deep equals', () => {
-  const dateStart = Date.now();
-  myEquals(large, large);
-  const dateEnd = Date.now();
+describe('it performs comparatively to other deep equality packages', () => {
+  test('performs same as deep-equal', () => {
+    const dateStart = Date.now();
+    expect(myEquals(large, large)).toBe(true);
+    const dateEnd = Date.now();
 
-  const dateStartSample = Date.now();
-  sampleEquals(large, large);
-  const dateEndSample = Date.now();
+    const dateStartSample = Date.now();
+    expect(deepEqual(large, large)).toBe(true);
+    const dateEndSample = Date.now();
 
-  expect(dateEnd - dateStart).toBeLessThanOrEqual(
-    dateEndSample - dateStartSample
-  );
+    expect(dateEnd - dateStart).toBeLessThanOrEqual(
+      dateEndSample - dateStartSample
+    );
+  });
+
+  test('performs same as deep-equal', () => {
+    const dateStart = Date.now();
+    expect(myEquals(large, large)).toBe(true);
+    const dateEnd = Date.now();
+
+    const dateStartSample = Date.now();
+    expect(fastDeepEqual(large, large)).toBe(true);
+    const dateEndSample = Date.now();
+
+    expect(dateEnd - dateStart).toBeLessThanOrEqual(
+      dateEndSample - dateStartSample
+    );
+  });
 });

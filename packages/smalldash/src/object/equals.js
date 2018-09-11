@@ -1,6 +1,6 @@
-// import equals from 'deep-equal';
-// export default equals;
-
+/**
+ * Checks to see if object is an instance of object
+ */
 const isObject = (val) => typeof val === 'object' && val !== null;
 
 const comparePrimitives = (value, compare) => {
@@ -9,6 +9,10 @@ const comparePrimitives = (value, compare) => {
 };
 
 const equals = (actual, expected) => {
+  // add an initial short path ... improves speed drastically
+  if (actual === expected) {
+    return true;
+  }
   // Check if input is object or primitive
   if (isObject(actual)) {
     const keys = Object.keys(actual);
