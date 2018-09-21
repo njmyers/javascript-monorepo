@@ -8,4 +8,5 @@ export { default as Loading } from './Loading';
 export { default as Icon } from './Icon';
 export { default as LazyImage } from './LazyImage';
 export { default as Modal } from './Modal';
+export createTransitionStyle from './utils/create-transition-style';
 export * from './Modal';
