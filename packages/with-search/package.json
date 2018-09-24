@@ -1,5 +1,5 @@
 {
-  "name": "@njmyers/react-with-search",
+  "name": "@njmyers/with-search",
   "version": "0.0.2",
   "private": true,
   "description": "Higher order components for getting url queries",
@@ -9,6 +9,7 @@
   "main": "build/with-search.cjs.js",
   "module": "build/with-search.esm.js",
   "scripts": {
+    "build": "run-s rollup",
     "prepublishOnly": "yarn run build",
     "rollup": "BABEL_ENV=production rollup -c",
     "test": "jest --watchAll"
