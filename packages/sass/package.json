@@ -1,0 +1,11 @@
+{
+  "name": "@njmyers/sass",
+  "version": "0.0.1",
+  "description": "Collection of useful sass files and mixins",
+  "main": "style.sass",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

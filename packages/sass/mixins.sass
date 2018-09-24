@@ -1,0 +1,63 @@
+// mixins.sass
+
+$desktop-width: 1440px
+$laptop-width: 1240px
+$tablet-width: 768px
+$small-phone-width: 200px
+$large-phone-width: 600px
+
+//Browser Prefixes
+
+=transition($transition...)
+  -webkit-transition: $transition
+  -moz-transition: $transition
+  -ms-transition: $transition
+  transition: $transition
+
+=transform($transform)
+  -webkit-transform: $transform
+  -ms-transform: $transform
+  transform: $transform
+
+=flexbox
+  display: -webkit-box
+  display: -moz-box
+  display: -ms-flexbox
+  display: -webkit-flex
+  display: flex
+
+=fontFace($family, $src, $style: normal, $weight: normal)
+  @font-face
+    font-family: $family
+    src: url("#{$src}.eot")
+    src: url("#{$src}.eot?#iefix") format("embedded-opentype"), url("#{$src}.woff") format("woff"), url("#{$src}.woff2") format("woff2"), url("#{$src}.ttf") format("truetype"), url("#{$src}.svg##{$family}") format("svg")
+    font-style: $style
+    font-weight: $weight
+
+=desktop
+  @media (min-width: $desktop-width)
+    @content
+
+=laptop
+  @media (min-width: $laptop-width) and (max-width: $desktop-width - 1)
+    @content
+
+=all-mobile
+  @media (min-width: $small-phone-width) and (max-width: $laptop-width - 1)
+    @content
+
+=tablet
+  @media (min-width: $tablet-width) and (max-width: $laptop-width - 1)
+    @content
+
+=all-phone
+  @media (min-width: $small-phone-width) and (max-width: $tablet-width - 1)
+    @content
+
+=large-phone
+  @media (min-width: $large-phone-width) and (max-width: $tablet-width - 1)
+    @content
+
+=small-phone
+  @media (min-width: $small-phone-width) and (max-width: $large-phone-width - 1)
+    @content
