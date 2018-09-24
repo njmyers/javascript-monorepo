@@ -1,5 +1,5 @@
-import React from 'react';
-// import './marquee-default.sass';
+import * as React from 'react';
+import './marquee.sass';
 
 function Marquee(props) {
   const speed = props.speed ? props.speed : 4;
@@ -15,9 +15,11 @@ function Marquee(props) {
   };
 
   return (
-    <div className="marquee-container">
+    <div className="marquee_container">
       <div className="marquee">
-        <span style={style}>{props.text}</span>
+        <span className="marquee_span" style={style}>
+          {props.text}
+        </span>
       </div>
     </div>
   );

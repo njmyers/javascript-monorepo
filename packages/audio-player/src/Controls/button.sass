@@ -1,0 +1,47 @@
+@import ../global
+
+.audioPlayer
+  &_button
+    border-radius: 100%
+    padding: 0
+    height: 45px
+    width: 45px
+    margin: 0 2px
+    box-sizing: border-box
+    border: none
+    cursor: pointer
+    color: $white
+    background-color: $secondary-color
+
+    +transition(0.2s opacity)
+
+    &:focus
+      outline: none
+
+    &:hover
+      opacity: 0.8
+
+  &-big
+    height: 55px
+    width: 55px
+
+  // adjust centering
+  &_previous
+    padding-right: 3px
+
+  &_play
+    padding-left: 4px
+
+  &_pause
+    padding-left: 0px
+
+  &_stop
+    // padding-left: 4px
+
+  &_next
+    padding-left: 4px
+
+  &_buttonGroup
+    display: flex
+    align-items: center
+    justify-content: space-between

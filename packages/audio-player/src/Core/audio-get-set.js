@@ -1,25 +1,14 @@
 import { Howl, Howler } from 'howler';
-import { compose } from 'redux';
+import { compose } from 'smalldash';
 
 /* Redux State Getters */
-export const getStateSlice = (slice) => (state) => state[slice];
-export const getAudioPlayer = getStateSlice('audioPlayer');
-export const getStateVolume = compose(
-  (slice) => slice.volume,
-  getAudioPlayer
-);
-export const getStateMuted = compose(
-  (slice) => slice.muted,
-  getAudioPlayer
-);
-export const getCurrentTrack = compose(
-  (slice) => slice.tracks[slice.current],
-  getAudioPlayer
-);
-export const getPreviousTrack = compose(
-  (slice) => slice.tracks[slice.previous],
-  getAudioPlayer
-);
+export const getStateVolume = (state) => state.volume;
+
+export const getStateMuted = (state) => state.muted;
+
+export const getCurrentTrack = (state) => state.tracks[state.current];
+
+export const getPreviousTrack = (state) => state.tracks[state.previouss];
 
 /* Howl Audio Object Getters */
 export const getHowl = compose(
@@ -66,8 +55,10 @@ const defaults = {
 };
 
 const validateSources = (src) => (Array.isArray(src) ? src : [src]);
+
 const createWithDefaults = (defaults) => (src) =>
   new Howl({ ...defaults, src });
+
 export const createHowl = compose(
   createWithDefaults(defaults),
   validateSources

@@ -11,7 +11,7 @@ const audioPlayerState = {
   currentTime: 0,
   duration: 0,
   playing: false,
-  display: false,
+  display: true,
   volume: 1,
   muted: false,
   current: 0,
@@ -106,7 +106,8 @@ const audioPlayerReducer = (state = audioPlayerState, action) => {
         ...state,
         size: action.payload,
       };
-    case 'AUDIO_PLAYER_DISPLAY':
+    case 'AUDIO_PLAYER_HIDE':
+    case 'AUDIO_PLAYER_SHOW':
       return {
         ...state,
         display: action.payload,

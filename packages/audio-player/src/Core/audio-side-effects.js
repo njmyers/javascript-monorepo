@@ -17,7 +17,7 @@ import {
  */
 const sideEffects = (action, store) => {
   // call getState() once and then use getters for object path
-  const state = store.getState();
+  const state = store.value;
   const howl = getHowl(state);
 
   switch (action.type) {

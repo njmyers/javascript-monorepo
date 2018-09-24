@@ -1,8 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
-
-import { playerVolume, playerMute } from '../audio-actions';
+// actions
+import { playerVolume, playerMute } from '../Core/audio-actions';
+// styles
+import './volume.sass';
 
 // meter scale increase to create more 'steps'
 const scale = 100;
@@ -10,7 +12,7 @@ const scaleValue = (value, max = 1) =>
   !isNaN(value / max) ? Math.ceil((value / max) * scale) : 0;
 const deScaleValue = (value, max = 1) => (value / scale) * max;
 
-const Volume = ({ volume, muted, setVolume, setMute } = {}) => {
+const Volume = ({ volume, muted, setVolume, setMute, sizes } = {}) => {
   const icon =
     muted || volume === 0
       ? 'volume-off'
@@ -20,24 +22,26 @@ const Volume = ({ volume, muted, setVolume, setMute } = {}) => {
   const muteClasses = `fa fa-${icon} mute-button`;
 
   return (
-    <div className="volume">
-      <label htmlFor="volume" className={muteClasses} onClick={setMute} />
-      <input
-        type="range"
-        min="0"
-        max={scale}
-        name="volume"
-        id="volume"
-        value={scaleValue(volume)}
-        onChange={setVolume}
-      />
-    </div>
+    !sizes.mobile && (
+      <div className="audioPlayer_volume">
+        <label htmlFor="volume" className={muteClasses} onClick={setMute} />
+        <input
+          type="range"
+          min="0"
+          max={scale}
+          name="volume"
+          id="volume"
+          value={scaleValue(volume)}
+          onChange={setVolume}
+        />
+      </div>
+    )
   );
 };
 
 const mapStateToProps = (state, ownProps) => ({
-  muted: state.audioPlayer.muted,
-  volume: state.audioPlayer.volume,
+  muted: state.muted,
+  volume: state.volume,
 });
 
 const mapDispatchToProps = (dispatch) => ({

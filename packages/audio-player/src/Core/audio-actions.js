@@ -30,6 +30,7 @@ export const playerScroll = (payload) => ({
   type: 'AUDIO_PLAYER_SCROLL',
   payload,
 });
+
 export const playerSelect = (payload) => ({
   type: 'AUDIO_PLAYER_SELECT',
   payload,
@@ -54,10 +55,11 @@ export const playerSize = (payload) => ({ type: 'AUDIO_PLAYER_SIZE', payload });
 
 /* Display And Hide */
 export const playerShow = () => ({
-  type: 'AUDIO_PLAYER_DISPLAY',
+  type: 'AUDIO_PLAYER_SHOW',
   display: true,
 });
+
 export const playerHide = () => ({
-  type: 'AUDIO_PLAYER_DISPLAY',
+  type: 'AUDIO_PLAYER_HIDE',
   display: false,
 });

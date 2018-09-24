@@ -6,35 +6,43 @@ import {
   playerStop,
   playerPause,
   playerScroll,
-} from '../audio-actions';
+} from '../Core/audio-actions';
 
 import Button from './Button';
 
-const PlayPauseNext = ({
-  playing,
-  play,
-  pause,
-  stop,
-  next,
-  prev,
-  isMobile,
-} = {}) => {
+const Controls = ({ playing, play, pause, stop, next, prev, sizes } = {}) => {
   return (
-    <div className="audio-player-buttons">
-      <Button icon="backward" className="previous" cb={prev} />
+    <div className="audioPlayer_buttonGroup">
+      {!sizes.mobile && (
+        <Button
+          icon="backward"
+          className="audioPlayer_previous"
+          onClick={prev}
+        />
+      )}
       <Button
         icon={!playing ? 'play' : 'pause'}
-        cb={!playing ? play : pause}
-        className="play big"
+        className={`audioPlayer-big ${
+          !playing ? 'audioPlayer_play' : 'audioPlayer_pause'
+        }`}
+        onClick={!playing ? play : pause}
+        size="lg"
       />
-      <Button icon="stop" className="stop big" cb={stop} />
-      <Button icon="forward" className="next" cb={next} />
+      <Button
+        icon="stop"
+        className="audioPlayer_stop audioPlayer-big"
+        onClick={stop}
+        size="lg"
+      />
+      {!sizes.mobile && (
+        <Button icon="forward" className="audioPlayer_next" onClick={next} />
+      )}
     </div>
   );
 };
 
 const mapStateToProps = (state, ownProps) => ({
-  playing: state.audioPlayer.playing,
+  playing: state.playing,
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
@@ -48,4 +56,4 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(PlayPauseNext);
+)(Controls);

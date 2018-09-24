@@ -1,8 +1,10 @@
 import React from 'react';
-import { compose } from 'redux';
+import { compose } from 'smalldash';
 import { connect } from 'react-redux';
 
-import { playerSeek } from '../audio-actions';
+import { playerSeek } from '../Core/audio-actions';
+
+import './meter.sass';
 
 // meter scale increase to create more 'steps'
 const scale = 1000;
@@ -16,7 +18,7 @@ const deScaleValue = (value, max) => (value / scale) * max;
 
 const Meter = ({ currentTime, duration, seek } = {}) => {
   return (
-    <div className="audio-meter">
+    <div className="audioPlayer_meter">
       <input
         type="range"
         min="0"
@@ -30,12 +32,12 @@ const Meter = ({ currentTime, duration, seek } = {}) => {
   );
 };
 
-const mapStateToProps = (state, ownProps) => ({
-  duration: state.audioPlayer.duration,
-  currentTime: state.audioPlayer.currentTime,
+const mapStateToProps = (state) => ({
+  duration: state.duration,
+  currentTime: state.currentTime,
 });
 
-const mapDispatchToProps = (dispatch, ownProps) => ({
+const mapDispatchToProps = (dispatch) => ({
   onSeek: (value, duration) =>
     compose(
       dispatch,
