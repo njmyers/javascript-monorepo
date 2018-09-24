@@ -1,7 +1,6 @@
 {
   "name": "@njmyers/with-search",
-  "version": "0.0.2",
-  "private": true,
+  "version": "0.0.3",
   "description": "Higher order components for getting url queries",
   "homepage": "https://component-library.netlify.com/",
   "repository": "https://github.com/njmyers/javascript-monorepo.git",

@@ -14,14 +14,14 @@ type RouterProps = {
 
 type SearchProps = {
   /** object that contains all of the search parameters from the url */
-  search: {} | null,
+  search: {},
 };
 
 type CombinedProps = SearchProps & RouterProps;
 
 type State = {
   /** object that contains all of the search parameters from the url */
-  search: {} | null,
+  search: {},
   unlistenHistory: (() => any) | null,
 };
 
@@ -34,11 +34,9 @@ function withSearch<Props: {}>(
 ): React.ComponentType<$Diff<Props, CombinedProps>> {
   class Search extends React.PureComponent<RouterProps, State> {
     state = {
-      search: null,
+      search: {},
       unlistenHistory: null,
     };
-
-    unlistenHistory = null;
 
     handleHistoryChange = (location: Location) => {
       this.setState((state) => ({
