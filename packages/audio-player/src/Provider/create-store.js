@@ -1,7 +1,7 @@
 import * as redux from 'redux';
-import audioMiddleware from '../Core/audio-middleware';
+import audioMiddleware from '../AudioCore/audio-middleware';
 
-import rootReducer from '../Core/audio-reducer';
+import rootReducer from '../AudioCore/audio-reducer';
 
 const createStore = () => {
   const store = redux.createStore(

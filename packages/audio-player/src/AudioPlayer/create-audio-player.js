@@ -1,6 +1,6 @@
 import * as React from 'react';
 import uuid from 'uuid/v1';
-import Core from '../Core';
+import createAudioCore from '../AudioCore';
 import createControls from '../Controls';
 import createTrackInfo from '../TrackInfo';
 import createMeter from '../Meter';
@@ -10,6 +10,7 @@ import createProvider, { withPlayer as _withPlayer } from '../Provider';
 
 const createAudioPlayer = (storeKey = uuid()) => {
   const Provider = createProvider(storeKey);
+  const AudioCore = createAudioCore(storeKey);
   const Controls = createControls(storeKey);
   const TrackInfo = createTrackInfo(storeKey);
   const Meter = createMeter(storeKey);
@@ -19,12 +20,12 @@ const createAudioPlayer = (storeKey = uuid()) => {
 
   const AudioPlayer = (props) => (
     <Provider>
-      <Core classPrefix={props.className}>
+      <AudioCore classPrefix={props.className}>
         {props.controls && <Controls />}
         {props.trackInfo && <TrackInfo />}
         {props.meter && <Meter />}
         {props.volume && <Volume />}
-      </Core>
+      </AudioCore>
     </Provider>
   );
 

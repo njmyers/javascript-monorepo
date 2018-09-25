@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import { mergeProps } from '../Provider';
 import { compose } from 'redux';
 // actions
-import { playerVolume, playerMute } from '../Core/audio-actions';
+import { playerVolume, playerMute } from '../AudioCore/audio-actions';
 // component
 import Volume from './Volume';
 

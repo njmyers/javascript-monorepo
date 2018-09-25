@@ -11,7 +11,7 @@ import {
   playerShow,
   playerHide,
   playerDestroy,
-} from '../Core/audio-actions';
+} from '../AudioCore/audio-actions';
 
 const withPlayer = (storeKey, Provider) => (Wrapped) => {
   const mapStateToProps = (state) => ({

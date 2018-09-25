@@ -6,7 +6,7 @@ import {
   playerStop,
   playerPause,
   playerScroll,
-} from '../Core/audio-actions';
+} from '../AudioCore/audio-actions';
 
 import Controls from './Controls';
 

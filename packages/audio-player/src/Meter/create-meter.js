@@ -1,7 +1,7 @@
 import { compose } from 'smalldash';
 import { connect } from 'react-redux';
 import Meter from './Meter';
-import { playerSeek } from '../Core/audio-actions';
+import { playerSeek } from '../AudioCore/audio-actions';
 
 const scale = 1000;
 

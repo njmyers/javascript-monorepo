@@ -8,7 +8,8 @@ import './range.sass';
 
 class AudioCore extends React.Component {
   render() {
-    return (
+    console.log(this.props.display);
+    return this.props.display ? (
       <aside
         ref={this.props.childRef}
         className={`${this.props.classPrefix}_container`}
@@ -22,7 +23,7 @@ class AudioCore extends React.Component {
           )}
         </div>
       </aside>
-    );
+    ) : null;
   }
 }
 
