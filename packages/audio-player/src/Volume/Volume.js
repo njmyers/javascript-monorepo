@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { scale } from './create-volume';
+import scale from './scale';
 // styles
 import './volume.sass';
 
@@ -47,44 +47,5 @@ class Volume extends React.Component {
     );
   }
 }
-//
-// const Volume = ({
-//   volume,
-//   muted,
-//   setVolume,
-//   setMute,
-//   sizes,
-//   classPrefix,
-// } = {}) => {
-//   const icon =
-//     muted || volume === 0
-//       ? 'volume-off'
-//       : volume < 0.5
-//         ? 'volume-down'
-//         : 'volume-up';
-//
-//   return (
-//     !sizes.mobile && (
-//       <div className={`${classPrefix}_volume`}>
-//         <label
-//           htmlFor="volume"
-//           className={`${classPrefix}_mute`}
-//           onClick={setMute}
-//         >
-//           <FontAwesomeIcon icon={icon} size="small" />
-//         </label>
-//         <input
-//           type="range"
-//           min="0"
-//           max={scale}
-//           name="volume"
-//           id="volume"
-//           value={scaleValue(volume)}
-//           onChange={setVolume}
-//         />
-//       </div>
-//     )
-//   );
-// };
 
 export default Volume;

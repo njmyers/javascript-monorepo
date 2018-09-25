@@ -5,8 +5,7 @@ import { compose } from 'redux';
 import { playerVolume, playerMute } from '../AudioCore/audio-actions';
 // component
 import Volume from './Volume';
-
-export const scale = 100;
+import scale from './scale';
 
 const scaleValue = (value, max = 1) =>
   !isNaN(value / max) ? Math.ceil((value / max) * scale) : 0;
