@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
+import { mergeProps } from '../Provider';
 // components
 import Marquee from './Marquee';
 // sass
@@ -16,7 +17,14 @@ const formatTimes = (number) =>
 
 /* Functional Stateless Component */
 
-const TrackInfo = ({ playing, currentTime, duration, currentTrack, sizes }) => {
+const TrackInfo = ({
+  playing,
+  currentTime,
+  duration,
+  currentTrack,
+  sizes,
+  classPrefix,
+}) => {
   const string = currentTrack
     ? `${currentTrack.name}: ${currentTrack.artist}`
     : '';
@@ -24,14 +32,14 @@ const TrackInfo = ({ playing, currentTime, duration, currentTrack, sizes }) => {
 
   return (
     !sizes.mobile && (
-      <div className="audioPlayer_trackInfo">
+      <div className={`${classPrefix}_trackInfo`}>
         <Marquee
           time={speed}
           text={string}
           state={playing ? 'running' : 'paused'}
           lineHeight="12px"
         />
-        <p className="audioPlayer_trackTimes">
+        <p className={`${classPrefix}_trackTimes`}>
           {formatTimes(currentTime)} | {formatTimes(duration)}
         </p>
       </div>
@@ -46,4 +54,9 @@ const mapStateToProps = (state) => ({
   currentTrack: state.tracks[state.current],
 });
 
-export default connect(mapStateToProps)(TrackInfo);
+export default connect(
+  mapStateToProps,
+  {},
+  mergeProps,
+  { storeKey: 'audioPlayer' }
+)(TrackInfo);

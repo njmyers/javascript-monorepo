@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { mergeProps } from '../Provider';
 
 import {
   playerStart,
@@ -10,32 +11,49 @@ import {
 
 import Button from './Button';
 
-const Controls = ({ playing, play, pause, stop, next, prev, sizes } = {}) => {
+const Controls = ({
+  playing,
+  play,
+  pause,
+  stop,
+  next,
+  prev,
+  sizes,
+  classPrefix,
+} = {}) => {
   return (
-    <div className="audioPlayer_buttonGroup">
+    <div className={`${classPrefix}_buttonGroup`}>
       {!sizes.mobile && (
         <Button
           icon="backward"
-          className="audioPlayer_previous"
+          className={`${classPrefix}_previous`}
           onClick={prev}
+          classPrefix={classPrefix}
         />
       )}
       <Button
         icon={!playing ? 'play' : 'pause'}
-        className={`audioPlayer-big ${
-          !playing ? 'audioPlayer_play' : 'audioPlayer_pause'
+        className={`${classPrefix}-big ${
+          !playing ? `${classPrefix}_play` : `${classPrefix}_pause`
         }`}
         onClick={!playing ? play : pause}
         size="lg"
+        classPrefix={classPrefix}
       />
       <Button
         icon="stop"
-        className="audioPlayer_stop audioPlayer-big"
+        className={`${classPrefix}_stop ${classPrefix}-big`}
         onClick={stop}
         size="lg"
+        classPrefix={classPrefix}
       />
       {!sizes.mobile && (
-        <Button icon="forward" className="audioPlayer_next" onClick={next} />
+        <Button
+          icon="forward"
+          className={`${classPrefix}_next`}
+          onClick={next}
+          classPrefix={classPrefix}
+        />
       )}
     </div>
   );
@@ -55,5 +73,7 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  mapDispatchToProps,
+  mergeProps,
+  { storeKey: 'audioPlayer' }
 )(Controls);

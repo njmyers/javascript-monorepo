@@ -1,6 +1,4 @@
 import * as React from 'react';
-import { connect } from 'react-redux';
-import { equals, compose } from 'smalldash';
 import withSize from 'react-size-components';
 // components
 import TrackInfo from '../TrackInfo';
@@ -16,36 +14,30 @@ import './audio.sass';
 import './range.sass';
 
 class AudioCore extends React.Component {
-  getClassName = () => {
-    return this.props.className
-      ? this.props.className
-      : 'audioPlayer_container';
+  static defaultProps = {
+    classPrefix: 'audioPlayer',
   };
+
+  passedProps = () => ({
+    classPrefix: this.props.classPrefix,
+    sizes: this.props.sizes,
+  });
 
   render() {
     return (
-      <aside ref={this.childRef} className={this.getClassName()}>
-        <div className="audioPlayer">
-          <PlayPauseNext sizes={this.props.sizes} />
-          <TrackInfo sizes={this.props.sizes} />
-          <Meter sizes={this.props.sizes} />
-          <Volume sizes={this.props.sizes} />
+      <aside
+        ref={this.props.childRef}
+        className={`${this.props.classPrefix}_container`}
+      >
+        <div className={this.props.classPrefix}>
+          <PlayPauseNext {...this.passedProps()} />
+          <TrackInfo {...this.passedProps()} />
+          <Meter {...this.passedProps()} />
+          <Volume {...this.passedProps()} />
         </div>
       </aside>
     );
   }
 }
 
-const mapStateToProps = (state) => state;
-
-const mapDispatchToProps = (dispatch) => ({
-  playerSize: (value) => dispatch(playerSize(value)),
-});
-
-export default compose(
-  connect(
-    mapStateToProps,
-    mapDispatchToProps
-  ),
-  withSize({ component: true, mobile: true })
-)(AudioCore);
+export default withSize({ component: true, mobile: true })(AudioCore);

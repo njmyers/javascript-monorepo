@@ -16,9 +16,9 @@ const deScaleValue = (value, max) => (value / scale) * max;
  TODO: Add debouncing on stateless component
 */
 
-const Meter = ({ currentTime, duration, seek } = {}) => {
+const Meter = ({ currentTime, duration, seek, classPrefix } = {}) => {
   return (
-    <div className="audioPlayer_meter">
+    <div className={`${classPrefix}_meter`}>
       <input
         type="range"
         min="0"
@@ -26,7 +26,7 @@ const Meter = ({ currentTime, duration, seek } = {}) => {
         value={scaleValue(currentTime, duration)}
         name="seek"
         onChange={seek}
-        className="audio-meter"
+        className={`${classPrefix}_meterInput`}
       />
     </div>
   );
@@ -47,6 +47,7 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 const mergeProps = (stateProps, dispatchProps, ownProps) => ({
+  ...ownProps,
   ...stateProps,
   ...dispatchProps,
   seek: (event) =>
@@ -56,5 +57,6 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
-  mergeProps
+  mergeProps,
+  { storeKey: 'audioPlayer' }
 )(Meter);

@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { mergeProps } from '../Provider';
 import { compose } from 'redux';
 // actions
 import { playerVolume, playerMute } from '../Core/audio-actions';
@@ -12,7 +13,14 @@ const scaleValue = (value, max = 1) =>
   !isNaN(value / max) ? Math.ceil((value / max) * scale) : 0;
 const deScaleValue = (value, max = 1) => (value / scale) * max;
 
-const Volume = ({ volume, muted, setVolume, setMute, sizes } = {}) => {
+const Volume = ({
+  volume,
+  muted,
+  setVolume,
+  setMute,
+  sizes,
+  classPrefix,
+} = {}) => {
   const icon =
     muted || volume === 0
       ? 'volume-off'
@@ -23,7 +31,7 @@ const Volume = ({ volume, muted, setVolume, setMute, sizes } = {}) => {
 
   return (
     !sizes.mobile && (
-      <div className="audioPlayer_volume">
+      <div className={`${classPrefix}_volume`}>
         <label htmlFor="volume" className={muteClasses} onClick={setMute} />
         <input
           type="range"
@@ -60,5 +68,7 @@ const mapDispatchToProps = (dispatch) => ({
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  mapDispatchToProps,
+  mergeProps,
+  { storeKey: 'audioPlayer' }
 )(Volume);

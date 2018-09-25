@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
+import mergeProps from './default-merge-props';
 
 import {
   playerStop,
@@ -7,9 +8,13 @@ import {
   playerPause,
   playerMute,
   loadTrack,
-} from './Core/audio-actions';
+} from '../Core/audio-actions';
 
-const withPlayerActions = (Wrapped) => {
+const withPlayer = (storeKey, Provider) => (Wrapped) => {
+  const mapStateToProps = (state) => ({
+    audioPlayer: state,
+  });
+
   const mapDispatchToProps = (dispatch) => ({
     audioPlayerStop: () => dispatch(playerStop()),
     audioPlayerStart: () => dispatch(playerStart()),
@@ -18,10 +23,20 @@ const withPlayerActions = (Wrapped) => {
     loadAudioTrack: (track) => dispatch(loadTrack(track)),
   });
 
-  return connect(
-    {},
-    mapDispatchToProps
+  const options = { storeKey };
+
+  const Connected = connect(
+    mapStateToProps,
+    mapDispatchToProps,
+    mergeProps,
+    options
   )(Wrapped);
+
+  return (props) => (
+    <Provider>
+      <Connected {...props} />
+    </Provider>
+  );
 };
 
-export default withPlayerActions;
+export default withPlayer;
