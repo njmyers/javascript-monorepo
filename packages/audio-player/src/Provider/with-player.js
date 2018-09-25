@@ -8,6 +8,9 @@ import {
   playerPause,
   playerMute,
   loadTrack,
+  playerShow,
+  playerHide,
+  playerDestroy,
 } from '../Core/audio-actions';
 
 const withPlayer = (storeKey, Provider) => (Wrapped) => {
@@ -20,6 +23,9 @@ const withPlayer = (storeKey, Provider) => (Wrapped) => {
     audioPlayerStart: () => dispatch(playerStart()),
     audioPlayerPause: () => dispatch(playerPause()),
     audioPlayerMute: () => dispatch(playerMute()),
+    audioPlayerShow: () => dispatch(playerShow()),
+    audioPlayerHide: () => dispatch(playerHide()),
+    audioPlayerDestroy: () => dispatch(playerDestroy()),
     loadAudioTrack: (track) => dispatch(loadTrack(track)),
   });
 

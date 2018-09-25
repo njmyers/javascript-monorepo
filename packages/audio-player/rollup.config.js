@@ -8,7 +8,7 @@ import pkg from './package.json';
 export default [
   {
     input: 'src/index.js',
-    external: [...Object.keys(pkg.dependencies), 'rxjs/operators', 'uuid/v1'],
+    external: [...Object.keys(pkg.dependencies), 'uuid/v1'],
     output: [
       { file: pkg.main, format: 'cjs', sourcemap: true, exports: 'named' },
       { file: pkg.module, format: 'es', sourcemap: true, exports: 'named' },

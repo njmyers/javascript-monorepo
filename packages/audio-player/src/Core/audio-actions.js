@@ -1,44 +1,68 @@
 import { createHowl } from './audio-get-set';
 
 export const updateUI = (currentTime, duration) => ({
-  type: 'AUDIO_PLAYER_UPDATE_UI',
+  type: '@AUDIO_PLAYER/UPDATE_UI',
   payload: { currentTime, duration },
 });
 
 export const playerError = (err) => ({
-  type: 'AUDIO_PLAYER_ERROR',
+  type: '@AUDIO_PLAYER/ERROR',
   payload: err,
 });
 
 /* Track Playing Status */
-export const playerStart = () => ({ type: 'AUDIO_PLAYER_PLAY' });
-export const playerStop = () => ({ type: 'AUDIO_PLAYER_STOP' });
-export const playerPause = () => ({ type: 'AUDIO_PLAYER_PAUSE' });
+export const playerStart = () => ({
+  type: '@AUDIO_PLAYER/START',
+  playing: true,
+});
+
+export const playerSoftStart = () => ({
+  type: '@AUDIO_PLAYER/SOFT_START',
+  playing: true,
+});
+
+export const playerStop = () => ({
+  type: '@AUDIO_PLAYER/STOP',
+  playing: false,
+});
+
+export const playerSoftStop = () => ({
+  type: '@AUDIO_PLAYER/SOFT_STOP',
+  playing: false,
+});
+
+export const playerPause = () => ({
+  type: '@AUDIO_PLAYER/PAUSE',
+  playing: false,
+});
 
 /* Volume */
 export const playerVolume = (payload) => ({
-  type: 'AUDIO_PLAYER_VOLUME',
+  type: '@AUDIO_PLAYER/VOLUME',
   payload,
 });
-export const playerMute = () => ({ type: 'AUDIO_PLAYER_MUTE' });
+export const playerMute = () => ({ type: '@AUDIO_PLAYER/MUTE' });
 
 /* Track Current Time */
-export const playerSeek = (payload) => ({ type: 'AUDIO_PLAYER_SEEK', payload });
+export const playerSeek = (payload) => ({
+  type: '@AUDIO_PLAYER/SEEK',
+  payload,
+});
 
 /* Select Active */
 export const playerScroll = (payload) => ({
-  type: 'AUDIO_PLAYER_SCROLL',
+  type: '@AUDIO_PLAYER/SCROLL',
   payload,
 });
 
 export const playerSelect = (payload) => ({
-  type: 'AUDIO_PLAYER_SELECT',
+  type: '@AUDIO_PLAYER/SELECT',
   payload,
 });
 
 /* Add New */
 export const loadTrack = ({ id, urls, name, artist } = {}) => ({
-  type: 'AUDIO_PLAYER_LOAD_TRACK',
+  type: '@AUDIO_PLAYER/LOAD_TRACK',
   payload: {
     id,
     urls,
@@ -51,15 +75,31 @@ export const loadTrack = ({ id, urls, name, artist } = {}) => ({
 });
 
 /* Update Size */
-export const playerSize = (payload) => ({ type: 'AUDIO_PLAYER_SIZE', payload });
+export const playerSize = (payload) => ({
+  type: '@AUDIO_PLAYER/SIZE',
+  payload,
+});
 
 /* Display And Hide */
 export const playerShow = () => ({
-  type: 'AUDIO_PLAYER_SHOW',
+  type: '@AUDIO_PLAYER/SHOW',
   display: true,
 });
 
 export const playerHide = () => ({
-  type: 'AUDIO_PLAYER_HIDE',
+  type: '@AUDIO_PLAYER/HIDE',
   display: false,
+});
+
+export const playerDestroy = () => ({
+  type: '@AUDIO_PLAYER/DESTROY',
+});
+
+export const saveTimeoutID = (id) => ({
+  type: '@AUDIO_PLAYER/TIMEOUT_ID',
+  id,
+});
+
+export const clearTimeoutID = () => ({
+  type: '@AUDIO_PLAYER/CLEAR_TIMEOUT_ID',
 });

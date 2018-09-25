@@ -1,9 +1,4 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import { mergeProps } from '../Provider';
-import { compose } from 'redux';
-// actions
-import { playerVolume, playerMute } from '../Core/audio-actions';
+import * as React from 'react';
 // styles
 import './volume.sass';
 
@@ -47,28 +42,4 @@ const Volume = ({
   );
 };
 
-const mapStateToProps = (state, ownProps) => ({
-  muted: state.muted,
-  volume: state.volume,
-});
-
-const mapDispatchToProps = (dispatch) => ({
-  setVolume: (event) =>
-    compose(
-      dispatch,
-      playerVolume,
-      deScaleValue
-    )(event.target.value),
-  setMute: () =>
-    compose(
-      dispatch,
-      playerMute
-    )(),
-});
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
-  mergeProps,
-  { storeKey: 'audioPlayer' }
-)(Volume);
+export default Volume;

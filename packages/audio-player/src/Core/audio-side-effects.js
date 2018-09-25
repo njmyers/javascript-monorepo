@@ -15,38 +15,74 @@ import {
  * @param {object} action redux action
  * @param {object} store redux store provided by redux observable
  */
-const sideEffects = (action, store) => {
-  // call getState() once and then use getters for object path
-  const state = store.value;
+const sideEffects = (state, action) => {
   const howl = getHowl(state);
 
   switch (action.type) {
-    case 'AUDIO_PLAYER_PLAY':
-      const playing = getHowlPlayState(state);
-      if (!playing) howl.play();
-      return;
-    case 'AUDIO_PLAYER_STOP':
-      howl.stop();
-      return;
-    case 'AUDIO_PLAYER_PAUSE':
-      howl.pause();
-      return;
-    case 'AUDIO_PLAYER_SEEK':
-      howl.seek(action.payload);
-      return;
-    case 'AUDIO_PLAYER_VOLUME':
-      setGlobalVolume(action.payload);
-      return;
-    case 'AUDIO_PLAYER_MUTE':
+    case '@AUDIO_PLAYER/CLEAR_TIMEOUT_ID':
+      return clearTimeout(state.timeoutID);
+
+    case '@AUDIO_PLAYER/START':
+      if (!getHowlPlayState(state) && howl) {
+        return howl.play();
+      } else {
+        return null;
+      }
+
+    case '@AUDIO_PLAYER/SOFT_START':
+      if (!getHowlPlayState(state) && state.playing && howl) {
+        return howl.play();
+      } else {
+        return null;
+      }
+
+    case '@AUDIO_PLAYER/STOP':
+      if (getHowlPlayState(state) && howl) {
+        clearTimeout(state.timeoutID);
+        return howl.stop();
+      } else {
+        return null;
+      }
+
+    case '@AUDIO_PLAYER/SOFT_STOP':
+      if (getHowlPlayState(state) && howl) {
+        return howl.stop();
+      } else {
+        return null;
+      }
+
+    case '@AUDIO_PLAYER/PAUSE':
+      if (getHowlPlayState(state) && howl) {
+        clearTimeout(state.timeoutID);
+        return howl.pause();
+      } else {
+        return null;
+      }
+
+    case '@AUDIO_PLAYER/SEEK':
+      if (howl) {
+        return howl.seek(action.payload);
+      } else {
+        return null;
+      }
+
+    case '@AUDIO_PLAYER/VOLUME':
+      return setGlobalVolume(action.payload);
+
+    case '@AUDIO_PLAYER/MUTE':
       const muted = getStateMuted(state);
-      setGlobalMute(muted);
-      return;
-    case 'AUDIO_PLAYER_SCROLL':
-    case 'AUDIO_PLAYER_SELECT':
-    case 'AUDIO_PLAYER_LOAD_TRACK':
+      return setGlobalMute(muted);
+
+    case '@AUDIO_PLAYER/SCROLL':
+    case '@AUDIO_PLAYER/SELECT':
+    case '@AUDIO_PLAYER/LOAD_TRACK':
       const previous = getPreviousHowl(state);
-      previous.stop();
-      return;
+      if (previous) {
+        return previous.stop();
+      } else {
+        return null;
+      }
+
     default:
       return;
   }

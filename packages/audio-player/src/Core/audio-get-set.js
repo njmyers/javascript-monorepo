@@ -1,44 +1,51 @@
 import { Howl, Howler } from 'howler';
 import { compose } from 'smalldash';
 
+const logArg = (arg) => {
+  console.log(arg);
+  return arg;
+};
+
 /* Redux State Getters */
 export const getStateVolume = (state) => state.volume;
 
 export const getStateMuted = (state) => state.muted;
 
-export const getCurrentTrack = (state) => state.tracks[state.current];
+export const getCurrentTrack = (state) =>
+  state.tracks.length > 0 ? state.tracks[state.current] : null;
 
-export const getPreviousTrack = (state) => state.tracks[state.previouss];
+export const getPreviousTrack = (state) =>
+  state.tracks.length > 0 ? state.tracks[state.previous] : null;
 
 /* Howl Audio Object Getters */
 export const getHowl = compose(
-  (track) => track.howl,
+  (track) => (track ? track.howl : null),
   getCurrentTrack
 );
 export const getHowlCurrentTime = compose(
-  (howl) => howl.seek(),
+  (howl) => (howl ? howl.seek() : null),
   getHowl
 );
 export const getHowlDuration = compose(
-  (howl) => howl.duration(),
+  (howl) => (howl ? howl.duration() : null),
   getHowl
 );
 export const getHowlEnded = compose(
-  (howl) => !howl.playing(),
+  (howl) => (howl ? !howl.playing() : null),
   getHowl
 );
 export const getHowlLoadingState = compose(
-  (howl) => howl.state(),
+  (howl) => (howl ? howl.state() : null),
   getHowl
 );
 export const getHowlPlayState = compose(
-  (howl) => howl.playing(),
+  (howl) => (howl ? howl.playing() : null),
   getHowl
 );
 
 /* Howl Previous Audio Object Getters */
 export const getPreviousHowl = compose(
-  (track) => track.howl,
+  (track) => (track ? track.howl : null),
   getPreviousTrack
 );
 

@@ -11,13 +11,14 @@ const audioPlayerState = {
   currentTime: 0,
   duration: 0,
   playing: false,
-  display: true,
+  display: false,
   volume: 1,
   muted: false,
   current: 0,
   previous: 0,
   tracks: [],
   size: {},
+  timeoutID: null,
 };
 
 /**
@@ -53,25 +54,29 @@ const validateCurrent = (tracks) =>
  */
 const audioPlayerReducer = (state = audioPlayerState, action) => {
   switch (action.type) {
-    case 'AUDIO_PLAYER_UPDATE_UI':
+    case '@AUDIO_PLAYER/TIMEOUT_ID':
+      return {
+        ...state,
+        timeoutID: action.id,
+      };
+    case '@AUDIO_PLAYER/UPDATE_UI':
       return {
         ...state,
         currentTime: action.payload.currentTime,
         duration: action.payload.duration,
       };
-    case 'AUDIO_PLAYER_PLAY':
-      return { ...state, playing: true };
-    case 'AUDIO_PLAYER_STOP':
-      return { ...state, playing: false, currentTime: 0 };
-    case 'AUDIO_PLAYER_PAUSE':
-      return { ...state, playing: false };
-    case 'AUDIO_PLAYER_SEEK':
+    case '@AUDIO_PLAYER/START':
+    case '@AUDIO_PLAYER/PAUSE':
+      return { ...state, playing: action.playing };
+    case '@AUDIO_PLAYER/STOP':
+      return { ...state, playing: action.playing, currentTime: 0 };
+    case '@AUDIO_PLAYER/SEEK':
       return { ...state, currentTime: action.payload };
-    case 'AUDIO_PLAYER_VOLUME':
+    case '@AUDIO_PLAYER/VOLUME':
       return { ...state, volume: action.payload };
-    case 'AUDIO_PLAYER_MUTE':
+    case '@AUDIO_PLAYER/MUTE':
       return { ...state, muted: !state.muted };
-    case 'AUDIO_PLAYER_SCROLL':
+    case '@AUDIO_PLAYER/SCROLL':
       return {
         ...state,
         current: scrollTracks(
@@ -82,18 +87,20 @@ const audioPlayerReducer = (state = audioPlayerState, action) => {
         previous: state.current,
         currentTime: 0,
       };
-    case 'AUDIO_PLAYER_SELECT':
+    case '@AUDIO_PLAYER/SELECT':
       return {
         ...state,
         current: selectById(state.tracks, action.payload),
         previous: state.current,
         currentTime: 0,
       };
-    case 'AUDIO_PLAYER_LOAD_TRACK':
+    case '@AUDIO_PLAYER/LOAD_TRACK':
+      // prefer existing object
       const tracks = uniq(
-        [...state.tracks, action.payload],
+        [action.payload, ...state.tracks.reverse()],
         (object) => object.id
-      );
+      ).reverse();
+
       return {
         ...state,
         tracks,
@@ -101,16 +108,16 @@ const audioPlayerReducer = (state = audioPlayerState, action) => {
         previous: state.current,
         currentTime: 0,
       };
-    case 'AUDIO_PLAYER_SIZE':
+    case '@AUDIO_PLAYER/SIZE':
       return {
         ...state,
         size: action.payload,
       };
-    case 'AUDIO_PLAYER_HIDE':
-    case 'AUDIO_PLAYER_SHOW':
+    case '@AUDIO_PLAYER/HIDE':
+    case '@AUDIO_PLAYER/SHOW':
       return {
         ...state,
-        display: action.payload,
+        display: action.display,
       };
     default:
       return state;

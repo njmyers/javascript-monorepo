@@ -1,1 +1,1 @@
-export { default } from './Volume'
+export { default } from './create-volume'

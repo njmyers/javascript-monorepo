@@ -1,1 +1,1 @@
-export { default } from './PlayPauseNext';
+export { default } from './create-controls';

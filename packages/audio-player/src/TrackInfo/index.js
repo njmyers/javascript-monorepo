@@ -1,1 +1,1 @@
-export { default } from './TrackInfo';
+export { default } from './create-track-info';

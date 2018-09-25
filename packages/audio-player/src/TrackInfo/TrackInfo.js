@@ -1,6 +1,4 @@
 import * as React from 'react';
-import { connect } from 'react-redux';
-import { mergeProps } from '../Provider';
 // components
 import Marquee from './Marquee';
 // sass
@@ -9,13 +7,26 @@ import './track-info.sass';
 /* Formatters */
 
 const speedFromLength = (string) => Math.floor(string.length / 4);
+
 const padSeconds = (seconds) => (seconds < 10 ? `0${seconds}` : seconds);
-const formatTimes = (number) =>
-  Number.isNaN(number)
+
+const formatTimes = (number) => {
+  return Number.isNaN(number) || typeof number !== 'number'
     ? '0:00'
     : `${Math.floor(number / 60)}:${padSeconds(Math.floor(number % 60))}`;
+};
 
 /* Functional Stateless Component */
+
+const getArtistString = (currentTrack) => {
+  if (currentTrack) {
+    const { name, artist } = currentTrack;
+
+    return name ? (artist ? `${name}: ${artist}` : name) : artist ? artist : '';
+  } else {
+    return '';
+  }
+};
 
 const TrackInfo = ({
   playing,
@@ -25,9 +36,7 @@ const TrackInfo = ({
   sizes,
   classPrefix,
 }) => {
-  const string = currentTrack
-    ? `${currentTrack.name}: ${currentTrack.artist}`
-    : '';
+  const string = getArtistString(currentTrack);
   const speed = speedFromLength(string);
 
   return (
@@ -47,16 +56,4 @@ const TrackInfo = ({
   );
 };
 
-const mapStateToProps = (state) => ({
-  currentTime: state.currentTime,
-  duration: state.duration,
-  playing: state.playing,
-  currentTrack: state.tracks[state.current],
-});
-
-export default connect(
-  mapStateToProps,
-  {},
-  mergeProps,
-  { storeKey: 'audioPlayer' }
-)(TrackInfo);
+export default TrackInfo;
