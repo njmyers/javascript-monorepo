@@ -17,6 +17,16 @@ storiesOf('Audio Player', module)
       </article>
     );
   })
+  .add('Initial Display of Hidden', () => {
+    const { withPlayer, AudioPlayer } = createAudioPlayer();
+    const ConnectedInterface = withPlayer(LoadURL);
+
+    return (
+      <article style={styles}>
+        <AudioPlayer />
+      </article>
+    );
+  })
   .add('Demo Unstyled with Custom Class', () => {
     const { withPlayer, AudioPlayer } = createAudioPlayer();
     const ConnectedInterface = withPlayer(LoadURL);

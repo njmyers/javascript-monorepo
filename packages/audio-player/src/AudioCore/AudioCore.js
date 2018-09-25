@@ -8,22 +8,23 @@ import './range.sass';
 
 class AudioCore extends React.Component {
   render() {
-    console.log(this.props.display);
-    return this.props.display ? (
+    return (
       <aside
         ref={this.props.childRef}
         className={`${this.props.classPrefix}_container`}
       >
-        <div className={this.props.classPrefix}>
-          {React.Children.toArray(this.props.children).map((child) =>
-            React.cloneElement(child, {
-              classPrefix: this.props.classPrefix,
-              sizes: this.props.sizes,
-            })
-          )}
-        </div>
+        {this.props.display && (
+          <div className={this.props.classPrefix}>
+            {React.Children.toArray(this.props.children).map((child) =>
+              React.cloneElement(child, {
+                classPrefix: this.props.classPrefix,
+                sizes: this.props.sizes,
+              })
+            )}
+          </div>
+        )}
       </aside>
-    ) : null;
+    );
   }
 }
 

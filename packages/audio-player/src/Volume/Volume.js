@@ -31,7 +31,7 @@ class Volume extends React.Component {
             className={`${this.props.classPrefix}_mute`}
             onClick={this.onClick}
           >
-            <FontAwesomeIcon icon={this.getIcon()} size="small" />
+            <FontAwesomeIcon icon={this.getIcon()} size="1x" />
           </label>
           <input
             type="range"
