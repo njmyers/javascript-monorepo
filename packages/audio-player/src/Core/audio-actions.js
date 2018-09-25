@@ -41,7 +41,11 @@ export const playerVolume = (payload) => ({
   type: '@AUDIO_PLAYER/VOLUME',
   payload,
 });
-export const playerMute = () => ({ type: '@AUDIO_PLAYER/MUTE' });
+
+export const playerMute = (payload) => ({
+  type: '@AUDIO_PLAYER/MUTE',
+  payload,
+});
 
 /* Track Current Time */
 export const playerSeek = (payload) => ({

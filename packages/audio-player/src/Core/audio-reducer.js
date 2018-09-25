@@ -75,7 +75,7 @@ const audioPlayerReducer = (state = audioPlayerState, action) => {
     case '@AUDIO_PLAYER/VOLUME':
       return { ...state, volume: action.payload };
     case '@AUDIO_PLAYER/MUTE':
-      return { ...state, muted: !state.muted };
+      return { ...state, muted: action.payload };
     case '@AUDIO_PLAYER/SCROLL':
       return {
         ...state,

@@ -6,6 +6,18 @@ import {
   faStop,
   faForward,
   faBackward,
+  faVolumeDown,
+  faVolumeUp,
+  faVolumeOff,
 } from '@fortawesome/free-solid-svg-icons';
 
-library.add(faPlay, faPause, faStop, faForward, faBackward);
+library.add(
+  faPlay,
+  faPause,
+  faStop,
+  faForward,
+  faBackward,
+  faVolumeDown,
+  faVolumeUp,
+  faVolumeOff
+);

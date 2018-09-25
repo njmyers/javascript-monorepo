@@ -6,27 +6,26 @@ import { playerVolume, playerMute } from '../Core/audio-actions';
 // component
 import Volume from './Volume';
 
-const scale = 100;
+export const scale = 100;
+
+const scaleValue = (value, max = 1) =>
+  !isNaN(value / max) ? Math.ceil((value / max) * scale) : 0;
 
 const deScaleValue = (value, max = 1) => (value / scale) * max;
 
 const mapStateToProps = (state, ownProps) => ({
   muted: state.muted,
-  volume: state.volume,
+  volume: scaleValue(state.volume),
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  setVolume: (event) =>
+  setVolume: (value) =>
     compose(
       dispatch,
       playerVolume,
       deScaleValue
-    )(event.target.value),
-  setMute: () =>
-    compose(
-      dispatch,
-      playerMute
-    )(),
+    )(value),
+  setMute: (value) => dispatch(playerMute(value)),
 });
 
 const createVolume = (storeKey) =>
