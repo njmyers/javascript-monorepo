@@ -10,8 +10,8 @@ export default [
     input: 'src/index.js',
     external: [...Object.keys(pkg.dependencies), 'uuid/v1'],
     output: [
-      { file: pkg.main, format: 'cjs', sourcemap: true, exports: 'named' },
-      { file: pkg.module, format: 'es', sourcemap: true, exports: 'named' },
+      { file: pkg.main, format: 'cjs', sourcemap: true },
+      { file: pkg.module, format: 'es', sourcemap: true },
     ],
     plugins: [
       resolve(),
@@ -21,6 +21,7 @@ export default [
         sourceMap: true,
       }),
       babel({ exclude: 'node_modules/**' }),
+      commonjs(),
     ],
   },
 ];
