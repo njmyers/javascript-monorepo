@@ -62,7 +62,9 @@ const validateEnvironment = (...args) =>
   _validateEnvironment(...args.reverse());
 
 program
-  .version(pkg.version)
+  .version(pkg.version, '-v, --version')
+  .description('command line utility for downloading wordpress api data')
+  .usage('[...postTypes]')
   .option('-w --wp-base [domain]', 'wordpress bases url')
   .option('-b --base-url [base]', 'base url non-wordpress format')
   .option('-r --recursive', 'download all posts of input types', false)
