@@ -1,4 +1,4 @@
-# Component Library
+# @njmyers-component-library
 
 This is a collection of useful and maybe useless React components. In general components will follow a few rules in order to increase usability. These rules in paricular are applied in how the components will use inline styles
 

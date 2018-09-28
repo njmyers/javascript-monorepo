@@ -12,8 +12,8 @@ import 'normalize.css';
 storybook.addDecorator(withKnobs);
 
 setOptions({
-  name: 'React Component Library',
-  url: 'https://njmyers.github.io/component-library',
+  name: '@njmyers NPM Documentation',
+  url: 'https://njmyers.netlify.com',
   goFullScreen: false,
   showStoriesPanel: true,
   showAddonPanel: true,
@@ -27,7 +27,7 @@ storybook.addDecorator((stories, context) => {
 });
 
 // automatically import all files ending in *.stories.js
-const req = require.context('../packages/', true, /.stories.js$/);
+const req = require.context('../packages', true, /.stories.js$/);
 
 // webpack voodoo
 const loadStories = () => {

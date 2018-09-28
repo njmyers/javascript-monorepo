@@ -20,7 +20,7 @@
   },
   "devDependencies": {
     "jest": "^23.1.0",
-    "rollup": "^0.62.0"
+    "rollup": "^0.63.0"
   },
   "peerDependencies": {
     "react": "^16.2.0",

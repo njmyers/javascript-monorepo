@@ -19,7 +19,7 @@ module.exports = (env) =>
     "babel-cli": "^6.26.0",
     "jest": "^23.1.0",
     "npm-run-all": "^4.1.3",
-    "rollup": "^0.62.0"
+    "rollup": "^0.63.0"
   },
   "peerDependencies": {},
   "licence": "ISC"

@@ -5,7 +5,7 @@ import LoadURL from './LoadURL';
 
 const styles = {};
 
-storiesOf('Audio Player', module)
+storiesOf(`@njmyers-audio-player`, module)
   .add('Demo Default Configuration', () => {
     const { withPlayer, AudioPlayer } = createAudioPlayer();
     const ConnectedInterface = withPlayer(LoadURL);

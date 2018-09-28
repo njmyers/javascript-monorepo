@@ -7,7 +7,7 @@ import withSearch from '../with-search';
 const Thing = (props) => <p>{JSON.stringify(props.search)}</p>;
 const ThingWithSearch = withSearch(Thing);
 
-storiesOf('With Search HOC', module).add('Demo', () => (
+storiesOf('@njmyers-with-search', module).add('Demo', () => (
   <Router>
     <ThingWithSearch />
   </Router>

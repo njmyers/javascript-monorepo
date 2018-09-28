@@ -1,6 +1,6 @@
 // @flow
 import * as React from 'react';
-import ReactDOM from 'react-dom';
+import memoize from 'fast-memoize';
 import * as __ from 'smalldash';
 import _ from 'lodash-es';
 
@@ -15,7 +15,7 @@ import type {
 
 type ComponentState = {
   subscriptions: Array<any>,
-  DOMNode?: HTMLElement,
+  DOMNode?: { current: HTMLElement },
 };
 
 type State = Sizes & ComponentState;
@@ -37,9 +37,11 @@ const createConfigurationInjector = (configurations) => (Wrapped) => {
   return class ConfigurationInjector extends React.Component<Props, State> {
     state = createInitalState(configurations);
 
-    resize = (config: Configuration) => this.computeProperty.bind(this, config);
+    resize = (config: Configuration) =>
+      memoize(this.computeProperty.bind(this, config));
+
     scroll = (config: Configuration) =>
-      _.throttle(this.computeProperty.bind(this, config), 400);
+      _.throttle(memoize(this.computeProperty.bind(this, config), 400));
 
     computeProperties = () => {
       configurations.forEach((prop) => this.computeProperty(prop));
@@ -50,7 +52,7 @@ const createConfigurationInjector = (configurations) => (Wrapped) => {
         const nextProps = this.state.DOMNode
           ? fn(this.state.DOMNode.current)
           : schema;
-        return !__.equals(nextProps, state[name])
+        return memoize(!__.equals(nextProps, state[name]))
           ? { [name]: nextProps }
           : null;
       });
