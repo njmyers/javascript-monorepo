@@ -1,6 +1,6 @@
 {
   "name": "@njmyers/wordpresser",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "author": "Nick Myers <nickmyers111@gmail.com>",
   "description": "A utility to fetch data from the wordpress api",
   "license": "ISC",
