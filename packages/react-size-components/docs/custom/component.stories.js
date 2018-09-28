@@ -1,18 +1,15 @@
-import React, { Fragment } from 'react';
-
+import * as React from 'react';
 import { storiesOf } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
 import { withDocs } from 'storybook-readme';
 
 import readme from './README.md';
 import Child from './Child';
-import Parent from './Parent';
 import Advanced from './Advanced';
 
-storiesOf('Size Components/7) Custom Flags', module)
+storiesOf('react-size-components/3) Window', module)
   .addDecorator(withDocs(readme))
-  .add('custom flags and props', () => <Child />)
-  .add('custom flags and props with onSize callback', () => (
-    <Parent onSize={action('custom flag callback')} />
-  ))
-  .add('advanced custom flags and subscriptions', () => <Advanced />);
+  .add('Custom Configuration', () => <Child />);
+
+storiesOf('react-size-components/2) Component', module)
+  .addDecorator(withDocs(readme))
+  .add('Custom Configuration', () => <Advanced />);

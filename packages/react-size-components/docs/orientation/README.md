@@ -4,6 +4,8 @@ Screen size is not the only variable that can affect your view. Screen orientati
 
 <!-- STORY -->
 
+### Usage
+
 To use all you have to do is pass in the orientation boolean on the Size configuration object.
 
 `{ orientation: true }`

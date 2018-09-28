@@ -6,12 +6,7 @@ import { withDocs } from 'storybook-readme';
 
 import readme from './README.md';
 import Child from './Child';
-import Parent from './Parent';
-import ID from './ID';
 
-storiesOf('Size Components/3) Window Size', module)
+storiesOf('react-size-components/3) Window', module)
   .addDecorator(withDocs(readme))
-  .add('window size', () => <Child />)
-  .add('window size with parent callback', () => (
-    <Parent onSize={action('window size callback')} />
-  ));
+  .add('Basic Window Size', () => <Child />);

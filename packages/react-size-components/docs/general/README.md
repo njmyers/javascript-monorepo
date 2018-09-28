@@ -4,15 +4,15 @@
 
 ## About
 
-React Size Components (RSC) is a small and lightweight library for measuring and monitoring the size and position of your components in relation to the browser window. It is a versatile HOC that wraps your component and makes available only the size data that you request for your particular component.
+React Size Components (RSC) is a small and lightweight react component for measuring and monitoring the size and position of your components in relation to the page. It is a versatile HOC that wraps your component and makes available only the size data that you request for your particular component, when you need it. Sizing data can be accessed by the component itself or passed back to parent components by use of a callback function.
 
-Listening to browser events like resize and scroll can be intensive tasks, so RSC Uses the a subscribe/publish method of listening. This means there is only one event listener for all of your sized components.
+Listening to browser events like resize and scroll can be intensive tasks, so RSC uses the a subscribe/publish method of listening. This means there is only one event listener for all of your sized components. You can subscribe to multiple window scroll events on one page and not destroy your performance!
 
-Comparing measurements can also be very intensive tasks so RSC uses PureComponents and never mutates it's internal state. The props that gets passed down will come as quickly as possible so your component can provide a responsive user experience. The core of RSC uses request animation frames so that components are aware of there size as they are being changed by the user. Of course you can always debounce later for even more performance!
+Comparing measurements can also be very intensive tasks so RSC uses a cusom object comparison function that is optimized for speed. The props that gets passed down will come as quickly as possible so your component can provide a responsive user experience. The core of RSC uses request animation frames so that components are aware of their size as they are being changed by the user. Of course you can always debounce later for even more performance!
 
-RSC supports creating custom props in addition to the props that are available by default. It also makes available the subscription objects referenced above so you can subscribe to window events for improved performance.
+RSC supports SSR (Server Side Rendering). No references to the window object are made prior to the `componentDidMount` lifecycle method. All window listeners are lazily subscribed to when they become available. This means you can use RSC with your JAM stack as a drop-in replacement for many other popular React based sizing components that don't support SSR. For a demonstration of SSR capabilities clone this [repository](https://github.com/njmyers/react-size-components) and run the command `npm run start-ssr`.
 
-RSC aims to supports SSR (Server Side Rendering). No references the window object are made until the `componentDidMount` lifecycle method. All listeners are lazily subscribed to when they become available. As SSR is very complex I would appreciate any feedback that you have regarding this feature. For a demonstration of SSR capabilities clone this [repository](https://github.com/njmyers/react-size-components) and run the command `npm run start-ssr`.
+With RSC you can create custom attributes and pass in your own sizing functions in addition to the prebuilt configurations I have included. You can create your own custom props and reference DOM nodes or window objects so that your components may be aware of any DOM node information or window
 
 ## Installation
 
@@ -31,7 +31,7 @@ import withSize from 'react-size-components';
 
 #### Note
 
-If you are reading this on GitHub, trying browsing the [interactive demo](https://njmyers.github.io/react-size-components) created using [storybook](https://storybook.js.org). I think you will find it much easier to understand what is happening!
+If you are reading this on GitHub, trying browsing the [interactive demo](https://component-library.netlify.com/?selectedKind=Size%20Components%2F1%29%20Module%20Infomation&selectedStory=welcome&full=0&addons=1&stories=1&panelRight=1&addonPanel=storybooks%2Fstorybook-addon-knobs) created using [storybook](https://storybook.js.org). I think you will find it much easier to understand what is happening!
 
 ## Table of Contents
 

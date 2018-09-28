@@ -1,13 +1,17 @@
 import React from 'react';
 import withSize from '../../src';
 
-const Advanced = ({ sizes } = {}) => {
+const Advanced = ({ sizes, childRef } = {}) => {
   return (
-    <React.Fragment>
-      <h2>Advanced Child Component</h2>
-      <li>My position from the top is: {sizes.position.top}</li>
-      <li>My position from the bottom is: {sizes.position.bottom}</li>
-    </React.Fragment>
+    <div ref={childRef}>
+      <h2 className="h2">Advanced Child Component</h2>
+      <li className="li-1">
+        My position from the top is: {sizes.position.top}
+      </li>
+      <li className="li-1">
+        My position from the bottom is: {sizes.position.bottom}
+      </li>
+    </div>
   );
 };
 

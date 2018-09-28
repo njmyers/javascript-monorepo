@@ -7,6 +7,6 @@ import { withDocs } from 'storybook-readme';
 import readme from './README.md';
 import General from './General';
 
-storiesOf('Size Components/1) Module Infomation', module)
+storiesOf('react-size-components/1) General', module)
   .addDecorator(withDocs(readme))
-  .add('welcome', () => <General />);
+  .add('Welcome', () => <General />);

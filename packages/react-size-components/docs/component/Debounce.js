@@ -25,14 +25,16 @@ class Debounce extends Component {
   render() {
     return (
       <div>
-        <h1>Parent Component</h1>
-        <li>I can do something cool with these callbacks...</li>
+        <h2 className="h2">Parent Component</h2>
+        <li className="li-1">
+          I can do something cool with these callbacks...
+        </li>
         {this.state.sizes.map((size, index) => {
           return (
             <React.Fragment key={index}>
-              <h3>Callback #{index + 1}</h3>
-              <li>height: {size.component.height}</li>
-              <li>width: {size.component.width}</li>
+              <h4 className="h4">Callback #{index + 1}</h4>
+              <li className="li-1">height: {size.component.height}</li>
+              <li className="li-1">width: {size.component.width}</li>s
             </React.Fragment>
           );
         })}

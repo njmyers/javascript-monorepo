@@ -2,11 +2,11 @@
 
 <!-- STORY -->
 
-### Using as Child
+### Usage
 
 Now your components can not only be aware of their size but they can also be aware of their placement on the page. The component listens for scroll actions and updates the flag according to whether or not it is viewable in the current browser window.
 
-To access simply add the inView flag to the configuration object and inView will be accessible in the sizes prop.
+To access simply add the inView flag to the configuration object and inView will be accessible in the sizes prop. Don't forget to add `childRef` as a ref to the DOMNode that you want to check!
 
 `{ inView: true }`
 
@@ -14,9 +14,9 @@ To access simply add the inView flag to the configuration object and inView will
 import React from 'react';
 import withSize from 'react-size-components';
 
-const Child = ({ sizes, id = 'undefined' } = {}) => {
+const Child = ({ sizes, childRef, id = 'undefined' } = {}) => {
   return (
-    <React.Fragment>
+    <article ref={childRef}>
       <h2>Child Component</h2>
       <li>My id is: {id}</li>
       <li>I am in view: {sizes.inView.toString()}</li>
@@ -26,7 +26,7 @@ const Child = ({ sizes, id = 'undefined' } = {}) => {
         tempora reiciendis, voluptates non perferendis ab quasi doloremque
         dolorum consectetur dolor.
       </p>
-    </React.Fragment>
+    </article>
   );
 };
 

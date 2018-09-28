@@ -2,14 +2,13 @@ import React from 'react';
 import withSize from '../../src';
 
 const Child = ({ sizes } = {}) => {
-  console.log(sizes);
   return (
     <React.Fragment>
-      <h2>Child Component</h2>
-      <li>
+      <h2 className="h2">Child Component</h2>
+      <li className="li-1">
         My custom flag isBiggerThan1000 is: {sizes.isBiggerThan1000.toString()}
       </li>
-      <li>
+      <li className="li-1">
         My custom flag isBiggerThan1200 is: {sizes.isBiggerThan1200.toString()}
       </li>
     </React.Fragment>

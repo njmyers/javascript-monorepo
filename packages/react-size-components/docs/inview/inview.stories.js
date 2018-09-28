@@ -8,10 +8,10 @@ import readme from './README.md';
 import Child from './Child';
 import MultipleChildren from './MultipleChildren';
 
-storiesOf('Size Components/6) Position Aware', module)
+storiesOf('react-size-components/2) Component', module)
   .addDecorator(withDocs(readme))
-  .add('single position aware child', () => <Child />)
-  .add('list of position aware children', () => (
+  .add('Single Position Component', () => <Child />)
+  .add('List of Position Aware Components', () => (
     <MultipleChildren
       action={action('this component just changed in view state')}
     />

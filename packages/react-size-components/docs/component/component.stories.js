@@ -10,15 +10,15 @@ import Parent from './Parent';
 import ID from './ID';
 import Debounce from './Debounce';
 
-storiesOf('Size Components/2) Component Size', module)
+storiesOf('react-size-components/2) Component', module)
   .addDecorator(withDocs(readme))
-  .add('component size', () => <Child />)
-  .add('component size with parent callback', () => (
+  .add('Basic Component', () => <Child />)
+  .add('Parent Callback', () => (
     <Parent onSize={action('component size callback')} />
   ))
-  .add('inject id into callback', () => (
+  .add('Inject ID into Callback', () => (
     <ID onSize={action('component size callback')} />
   ))
-  .add('debounce callbacks', () => (
+  .add('Debounce Callback', () => (
     <Debounce onSize={action('component size callback')} />
   ));

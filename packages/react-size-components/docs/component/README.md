@@ -1,26 +1,24 @@
 ## Component Sizing
 
-Component sizing is probably the most frequent use of RSC. It is helpful anytime you need to know the height and/or width of a component. RSC takes care of ensuring your node is available, measuring the node, subscribing to future size changes and finally making that data available to you.
+Component sizing is probably the most frequent use of RSC. It is helpful anytime you need to know the height and/or width of a component. RSC takes care of ensuring your node is available at the right time, measuring the node, subscribing to future size changes and finally making that data available to you.
 
 <!-- STORY -->
 
 ### Using as Child
 
-Creating a size aware child component is the simplest usage of RSC. Call the Size function by first passing in the configuration object and then the component you would like to have size data on. The sizes object will be added to props and made available in your component in `props.sizes.component`
+Creating a size aware child component is the simplest usage of RSC. Call the onSize function by first passing in the configuration object and then the component you would like to have size data on. Use the prop `childRef` to specify which node you would like to measure. The sizes object will be added to props and made available in your component in `props.sizes.component`
 
 ```js
 import React from 'react';
 import withSize from 'react-size-components';
 
-const Child = ({ sizes } = {}) => {
-  return (
-    <React.Fragment>
-      <h2>Child Component</h2>
-      <li>My width is: {sizes.component.width}</li>
-      <li>My height is: {sizes.component.height}</li>
-    </React.Fragment>
-  );
-};
+const Child = ({ sizes, childRef } = {}) => (
+  <div ref={childRef}>
+    <h2>Child Component</h2>
+    <li>My height is: {sizes.component.height}</li>
+    <li>My width is: {sizes.component.width}</li>
+  </div>
+);
 
 export default withSize({ component: true })(Child);
 ```
@@ -117,6 +115,7 @@ class Debounce extends Component {
     this.state = {
       called: 0,
       sizes: [],
+      s,
     };
 
     this.onSize = debounce(this.onSize.bind(this), 500);

@@ -1,19 +1,19 @@
 import React from 'react';
 import withSize from '../../src';
 
-const Child = ({ sizes, id = 'undefined' } = {}) => {
+const Child = ({ sizes, childRef, id = 'undefined' } = {}) => {
   return (
-    <React.Fragment>
-      <h2>Child Component</h2>
-      <li>My id is: {id}</li>
-      <li>I am in view: {sizes.inView.toString()}</li>
-      <p>
+    <article ref={childRef}>
+      <h2 className="h2">Child Component</h2>
+      <li className="li-1">My id is: {id}</li>
+      <li className="li-1">I am in view: {sizes.inView.toString()}</li>
+      <p className="body-1">
         Lorem ipsum, dolor sit amet consectetur adipisicing elit. Qui accusamus
         sapiente quasi, dolores porro libero dolore perspiciatis itaque! Esse
         tempora reiciendis, voluptates non perferendis ab quasi doloremque
         dolorum consectetur dolor.
       </p>
-    </React.Fragment>
+    </article>
   );
 };
 
