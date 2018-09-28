@@ -9,7 +9,7 @@
   ],
   "scripts": {
     "precommit": "lint-staged",
-    "prebuild": "lerna bootstrap && lerna run build",
+    "prebuild": "lerna bootstrap && lerna link && lerna run build",
     "build": "build-storybook",
     "bootstrap": "lerna bootstrap",
     "lerna": "lerna",
