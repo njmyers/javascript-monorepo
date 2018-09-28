@@ -1,6 +1,6 @@
 {
   "name": "@njmyers/audio-player",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "React based audio player",
   "homepage": "https://component-library.netlify.com/",
   "repository": "https://github.com/njmyers/javascript-monorepo.git",
@@ -23,9 +23,9 @@
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
     "react-redux": "^5.0.7",
-    "react-size-components": "^2.0.2",
+    "react-size-components": "^2.0.3",
     "redux": "^4.0.0",
-    "smalldash": "^1.1.12",
+    "smalldash": "^1.1.13",
     "uuid": "^3.3.2"
   },
   "devDependencies": {

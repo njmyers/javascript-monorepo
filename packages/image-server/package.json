@@ -1,6 +1,6 @@
 {
   "name": "@njmyers/image-server",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "private": true,
   "description": "a dynamic image resizing server",
   "keywords": [
@@ -32,7 +32,7 @@
     "rxjs": "^6.2.2",
     "serverless-http": "1.5.3",
     "sharp": "^0.20.5",
-    "smalldash": "^1.1.12"
+    "smalldash": "^1.1.13"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
