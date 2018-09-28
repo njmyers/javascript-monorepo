@@ -1,6 +1,6 @@
 {
   "name": "react-size-components",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Higher order components for sizing functions in react",
   "homepage": "https://component-library.netlify.com/",
   "repository": "https://github.com/njmyers/javascript-monorepo.git",
@@ -27,7 +27,7 @@
     "lodash-es": "^4.17.11",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
-    "smalldash": "^1.1.11"
+    "smalldash": "^1.1.12"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",

@@ -1,6 +1,6 @@
 {
   "name": "@njmyers/asset-uploader",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "private": true,
   "description": "uploads assets and replaces dev urls to production urls",
   "license": "ISC",
@@ -18,7 +18,7 @@
   },
   "dependencies": {
     "@njmyers/directory": "^0.0.3",
-    "@njmyers/image-server": "^0.0.2",
+    "@njmyers/image-server": "^0.0.3",
     "app-root-path": "^2.0.1",
     "aws-sdk": "^2.275.1",
     "axios": "^0.18.0",
@@ -39,7 +39,7 @@
     "rxjs": "^6.2.2",
     "serverless-http": "1.5.3",
     "sharp": "^0.20.5",
-    "smalldash": "^1.1.10"
+    "smalldash": "^1.1.12"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",

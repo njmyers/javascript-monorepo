@@ -1,6 +1,6 @@
 {
   "name": "@njmyers/component-library",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "React component library",
   "homepage": "https://component-library.netlify.com/",
   "repository": "https://github.com/njmyers/javascript-monorepo.git",
@@ -15,8 +15,8 @@
     "test": "jest --watchAll"
   },
   "dependencies": {
-    "react-size-components": "^2.0.1",
-    "smalldash": "^1.1.10"
+    "react-size-components": "^2.0.2",
+    "smalldash": "^1.1.12"
   },
   "devDependencies": {
     "jest": "^23.1.0",

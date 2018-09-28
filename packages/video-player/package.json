@@ -1,6 +1,6 @@
 {
   "name": "@njmyers/react-video-player",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "private": true,
   "description": "React video player",
   "homepage": "https://component-library.netlify.com/",
@@ -22,7 +22,7 @@
     "redux": "^4.0.0",
     "redux-observable": "^1.0.0",
     "rxjs": "^6.2.2",
-    "smalldash": "^1.1.10"
+    "smalldash": "^1.1.12"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
