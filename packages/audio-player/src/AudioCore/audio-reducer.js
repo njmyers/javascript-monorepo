@@ -97,9 +97,9 @@ const audioPlayerReducer = (state = audioPlayerState, action) => {
     case '@AUDIO_PLAYER/LOAD_TRACK':
       // prefer existing object
       const tracks = uniq(
-        [action.payload, ...state.tracks.reverse()],
+        [state.tracks.reverse(), action.payload],
         (object) => object.id
-      ).reverse();
+      );
 
       return {
         ...state,
