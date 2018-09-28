@@ -1,11 +1,45 @@
+// special override classes
+// more of an escape hatch best not to overuse
+// need !important flag as it's mostly outside the normal hierarchy
+
+/** reset margins
+
 .noMargin
-  margin: 0
+  margin: 0 !important
+
+.noMargin-top
+  margin-top: 0 !important
+
+.noMargin-bottom
+  margin-bottom: 0 !important
+
+.noMargin-right
+  margin-right: 0 !important
+
+.noMargin-left
+  margin-left: 0 !important
+
+/** reset paddings
 
 .noPadding
-  margin: 0
+  margin: 0 !important
+
+.noPadding-top
+  margin-top: 0 !important
+
+.noPadding-bottom
+  margin-bottom: 0 !important
+
+.noPadding-right
+  margin-right: 0 !important
+
+.noPadding-left
+  margin-left: 0 !important
+
+/** reset display
 
 .block
-  display: block
+  display: block !important
 
 .inline
-  display: inline
+  display: inline !important
