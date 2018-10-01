@@ -1,6 +1,6 @@
 {
   "name": "@njmyers/sass",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Collection of useful sass files and mixins",
   "main": "style.sass",
   "scripts": {
