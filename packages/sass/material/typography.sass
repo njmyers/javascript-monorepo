@@ -1,223 +1,238 @@
 // https://material.io/design/typography/the-type-system.html#type-scale
-$primary-font: "Roboto", sans-serif
 
-$light-weight: 100
-$normal-weight: 300
-$medium-weight: 400
-$bold-weight: 700
+=typography($class-name, $font-family, $light-weight: 100, $normal-weight: 300, $medium-weight: 400, $bold-weight: 700)
+  //
+  $h1-font-size: 6rem
 
-$h1-font-size: 6rem
+  %h1-#{$class-name}
+    font-size: $h1-font-size
+    line-height: 1.4
+    letter-spacing: -0.09375rem
+    margin: 0
+    margin-top: $h1-font-size * 0.2
+    padding: 0
+    font-family: $font-family
+    font-weight: $light-weight
 
-%h1
-  font-size: $h1-font-size
-  line-height: 1.4
-  letter-spacing: -0.09375rem
-  margin: 0
-  margin-top: $h1-font-size * 0.2
-  padding: 0
-  font-family: $primary-font
-  font-weight: $light-weight
+  $h2-font-size: 3.75rem
 
-$h2-font-size: 3.75rem
+  %h2-#{$class-name}
+    font-size: $h2-font-size
+    line-height: 1.4
+    letter-spacing: -0.03125rem
+    margin: 0
+    margin-top: $h2-font-size * 0.2
+    padding: 0
+    font-weight: $light-weight
+    font-family: $font-family
 
-%h2
-  font-size: $h2-font-size
-  line-height: 1.4
-  letter-spacing: -0.03125rem
-  margin: 0
-  margin-top: $h2-font-size * 0.2
-  padding: 0
-  font-weight: $light-weight
-  font-family: $primary-font
+  $h3-font-size: 3rem
 
-$h3-font-size: 3rem
+  %h3-#{$class-name}
+    font-size: $h3-font-size
+    line-height: 1.4
+    letter-spacing: 0rem
+    margin: 0
+    margin-top: $h3-font-size * 0.2
+    padding: 0
+    font-weight: $normal-weight
+    font-family: $font-family
 
-%h3
-  font-size: $h3-font-size
-  line-height: 1.4
-  letter-spacing: 0rem
-  margin: 0
-  margin-top: $h3-font-size * 0.2
-  padding: 0
-  font-weight: $normal-weight
-  font-family: $primary-font
+  $h4-font-size: 2.125rem
 
-$h4-font-size: 2.125rem
+  %h4-#{$class-name}
+    font-size: $h4-font-size
+    line-height: 1.4
+    letter-spacing: 0.015625rem
+    margin: 0
+    margin-top: $h4-font-size * 0.2
+    padding: 0
+    font-weight: $normal-weight
+    font-family: $font-family
 
-%h4
-  font-size: $h4-font-size
-  line-height: 1.4
-  letter-spacing: 0.015625rem
-  margin: 0
-  margin-top: $h4-font-size * 0.2
-  padding: 0
-  font-weight: $normal-weight
-  font-family: $primary-font
+  $h5-font-size: 1.5rem
 
-$h5-font-size: 1.5rem
+  %h5-#{$class-name}
+    font-size: $h5-font-size
+    line-height: 1.4
+    letter-spacing: 0rem
+    margin: 0
+    margin-top: $h5-font-size * 0.2
+    padding: 0
+    font-weight: $normal-weight
+    font-family: $font-family
 
-%h5
-  font-size: $h5-font-size
-  line-height: 1.4
-  letter-spacing: 0rem
-  margin: 0
-  margin-top: $h5-font-size * 0.2
-  padding: 0
-  font-weight: $normal-weight
-  font-family: $primary-font
+  $h6-font-size: 1.25rem
 
-$h6-font-size: 1.25rem
+  %h6-#{$class-name}
+    font-size: $h6-font-size
+    line-height: 1.4
+    letter-spacing: 0.009375rem
+    margin: 0
+    margin-top: $h6-font-size * 0.2
+    padding: 0
+    font-weight: $medium-weight
+    font-family: $font-family
 
-%h6
-  font-size: $h6-font-size
-  line-height: 1.4
-  letter-spacing: 0.009375rem
-  margin: 0
-  margin-top: $h6-font-size * 0.2
-  padding: 0
-  font-weight: $medium-weight
-  font-family: $primary-font
+  $subtitle-1-font-size: 1rem
 
-$subtitle-1-font-size: 1rem
+  %subtitle-#{$class-name}-1
+    font-size: $subtitle-1-font-size
+    line-height: 1.4
+    letter-spacing: 0.009375rem
+    margin: 0
+    margin-top: $subtitle-1-font-size * 0.7
+    padding: 0
+    font-weight: $normal-weight
+    font-family: $font-family
 
-%subtitle-1
-  font-size: $subtitle-1-font-size
-  line-height: 1.4
-  letter-spacing: 0.009375rem
-  margin: 0
-  margin-top: $subtitle-1-font-size * 0.7
-  padding: 0
-  font-weight: $normal-weight
-  font-family: $primary-font
+  $subtitle-2-font-size: 0.875rem
 
-$subtitle-2-font-size: 0.875rem
+  %subtitle-#{$class-name}-2
+    font-size: $subtitle-2-font-size
+    line-height: 1.4
+    letter-spacing: 0.00625rem
+    margin: 0
+    margin-top: $subtitle-2-font-size * 0.65
+    padding: 0
+    font-weight: $medium-weight
+    font-family: $font-family
 
-%subtitle-2
-  font-size: $subtitle-2-font-size
-  line-height: 1.4
-  letter-spacing: 0.00625rem
-  margin: 0
-  margin-top: $subtitle-2-font-size * 0.65
-  padding: 0
-  font-weight: $medium-weight
-  font-family: $primary-font
+  $body-1-font-size: 1rem
 
-$body-1-font-size: 1rem
+  %body-#{$class-name}-1
+    font-size: $body-1-font-size
+    line-height: 1.4
+    letter-spacing: 0.03125rem
+    margin: 0
+    margin-top: $body-1-font-size * 1.25
+    padding: 0
+    font-weight: $normal-weight
+    font-family: $font-family
 
-%body-1
-  font-size: $body-1-font-size
-  line-height: 1.4
-  letter-spacing: 0.03125rem
-  margin: 0
-  margin-top: $body-1-font-size * 1.25
-  padding: 0
-  font-weight: $normal-weight
-  font-family: $primary-font
+  $body-2-font-size: 0.875rem
 
-$body-2-font-size: 0.875rem
+  %body-#{$class-name}-2
+    font-size: $body-2-font-size
+    line-height: 1.4
+    letter-spacing: 0.015625rem
+    margin: 0
+    margin-top: $body-2-font-size * 1.25
+    padding: 0
+    font-weight: $normal-weight
+    font-family: $font-family
 
-%body-2
-  font-size: $body-2-font-size
-  line-height: 1.4
-  letter-spacing: 0.015625rem
-  margin: 0
-  margin-top: $body-2-font-size * 1.25
-  padding: 0
-  font-weight: $normal-weight
-  font-family: $primary-font
+  $button_text-font-size: 0.875rem
 
-$button_text-font-size: 0.875rem
+  %button_text-#{$class-name}
+    font-size: $button_text-font-size
+    line-height: 1.4
+    letter-spacing: 0.046875rem
+    text-transform: uppercase
+    display: block
+    margin: 0
+    padding: 0
+    padding-top: 2px
+    font-weight: $medium-weight
+    font-family: $font-family
 
-%button_text
-  font-size: $button_text-font-size
-  line-height: 1.4
-  letter-spacing: 0.046875rem
-  text-transform: uppercase
-  display: block
-  margin: 0
-  padding: 0
-  padding-top: 2px
-  font-weight: $medium-weight
-  font-family: $primary-font
+  $caption-font-size: 0.75rem
 
-$caption-font-size: 0.75rem
+  %caption-#{$class-name}
+    font-size: $caption-font-size
+    line-height: 1.4
+    letter-spacing: 0.025rem
+    margin: 0
+    margin-top: $caption-font-size * 0.75
+    padding: 0
+    font-weight: $normal-weight
+    font-family: $font-family
 
-%caption
-  font-size: $caption-font-size
-  line-height: 1.4
-  letter-spacing: 0.025rem
-  margin: 0
-  margin-top: $caption-font-size * 0.75
-  padding: 0
-  font-weight: $normal-weight
-  font-family: $primary-font
+  $overline-font-size: 0.625rem
 
-$overline-font-size: 0.625rem
+  %overline-#{$class-name}
+    font-size: $overline-font-size
+    line-height: 1.4
+    letter-spacing: 0.09375rem
+    text-transform: uppercase
+    margin: 0
+    margin-top: $overline-font-size * 0.75
+    padding: 0
+    font-weight: $normal-weight
+    font-family: $font-family
 
-%overline
-  font-size: $overline-font-size
-  line-height: 1.4
-  letter-spacing: 0.09375rem
-  text-transform: uppercase
-  margin: 0
-  margin-top: $overline-font-size * 0.75
-  padding: 0
-  font-weight: $normal-weight
-  font-family: $primary-font
+  %li-#{$class-name}-1
+    @extend %body-#{$class-name}-1
 
-.h1
-  @extend %h1
+  %li-#{$class-name}-2
+    @extend %body-#{$class-name}-2
 
-  &:first-letter
-    margin-left: -9px
+  %markdown-#{$class-name}
+    h1
+      @extend %h1-#{$class-name}
 
-.h2
-  @extend %h2
+    h2
+      @extend %h2-#{$class-name}
 
-  &:first-letter
-    margin-left: -6px
+    h3
+      @extend %h3-#{$class-name}
 
-.h3
-  @extend %h3
+    h4
+      @extend %h4-#{$class-name}
 
-  &:first-letter
-    margin-left: -4px
+    h5
+      @extend %h5-#{$class-name}
 
-.h4
-  @extend %h4
+    h6
+      @extend %h6-#{$class-name}
 
-  &:first-letter
-    margin-left: -3px
+    p, span, li, a
+      @extend %body-#{$class-name}-1
 
-.h5
-  @extend %h5
+  .h1-#{$class-name}
+    @extend %h1-#{$class-name}
 
-  &:first-letter
-    margin-left: -2px
+  .h2-#{$class-name}
+    @extend %h2-#{$class-name}
 
-.h6
-  @extend %h6
+  .h3-#{$class-name}
+    @extend %h3-#{$class-name}
 
-  &:first-letter
-    margin-left: -1px
+  .h4-#{$class-name}
+    @extend %h4-#{$class-name}
 
-.body-1
-  @extend %body-1
+  .h5-#{$class-name}
+    @extend %h5-#{$class-name}
 
-.body-2
-  @extend %body-2
+  .h6-#{$class-name}
+    @extend %h6-#{$class-name}
 
-.subtitle-1
-  @extend %subtitle-1
+  .body-#{$class-name}-1
+    @extend %body-#{$class-name}-1
 
-.subtitle-2
-  @extend %subtitle-2
+  .body-#{$class-name}-2
+    @extend %body-#{$class-name}-2
 
-.button_text
-  @extend %button_text
+  .subtitle-#{$class-name}-1
+    @extend %subtitle-#{$class-name}-1
 
-.caption
-  @extend %caption
+  .subtitle-#{$class-name}-2
+    @extend %subtitle-#{$class-name}-2
 
-.overline
-  @extend %overline
+  .button_text-#{$class-name}
+    @extend %button_text-#{$class-name}
+
+  .caption-#{$class-name}
+    @extend %caption-#{$class-name}
+
+  .overline-#{$class-name}
+    @extend %overline-#{$class-name}
+
+  .li-#{$class-name}-1
+    @extend %body-#{$class-name}-1
+
+  .li-2
+    @extend %body-#{$class-name}-2
+
+  .markdown-#{$class-name}
+    @extend %markdown-#{$class-name}

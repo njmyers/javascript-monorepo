@@ -8,15 +8,9 @@ module.exports = (api) => {
       '@babel/plugin-proposal-object-rest-spread',
       'dynamic-import-node',
       '@babel/plugin-syntax-dynamic-import',
-      '@babel/plugin-external-helpers',
     ],
     presets: [
-      [
-        '@babel/preset-env',
-        {
-          modules: false,
-        },
-      ],
+      ['@babel/preset-env'],
       [
         '@babel/preset-react',
         {

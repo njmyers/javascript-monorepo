@@ -2,7 +2,7 @@
   "name": "react-youtube-component",
   "version": "1.0.14",
   "description": "Higher order component for downloading and using the YouTube iFrame API",
-  "homepage": "https://component-library.netlify.com/",
+  "homepage": "https://njmyers.netlify.com/",
   "repository": "https://github.com/njmyers/javascript-monorepo.git",
   "license": "ISC",
   "author": "Nick Myers",
@@ -31,5 +31,6 @@
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "smalldash": "^1.0.2"
-  }
+  },
+  "gitHead": "42bfcd1db1c84f88dc8e242f8856e78ffb754477"
 }

@@ -4,11 +4,11 @@ import withSize from '../../src';
 const Advanced = ({ sizes, childRef } = {}) => {
   return (
     <div ref={childRef}>
-      <h2 className="h2">Advanced Child Component</h2>
-      <li className="li-1">
+      <h2 className="h2-roboto">Advanced Child Component</h2>
+      <li className="li-roboto-1">
         My position from the top is: {sizes.position.top}
       </li>
-      <li className="li-1">
+      <li className="li-roboto-1">
         My position from the bottom is: {sizes.position.bottom}
       </li>
     </div>

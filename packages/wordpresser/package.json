@@ -28,5 +28,6 @@
     "commander": "^2.18.0",
     "parse-link-header": "^1.0.1",
     "query-string": "^6.1.0"
-  }
+  },
+  "gitHead": "42bfcd1db1c84f88dc8e242f8856e78ffb754477"
 }

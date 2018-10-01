@@ -2,7 +2,7 @@
   "name": "@njmyers/react-width-text",
   "version": "0.0.6",
   "description": "Automatically fit text to container width",
-  "homepage": "https://component-library.netlify.com/",
+  "homepage": "https://njmyers.netlify.com/",
   "repository": "https://github.com/njmyers/javascript-monorepo.git",
   "author": "Nick Myers",
   "main": "build/components.cjs.js",
@@ -29,5 +29,6 @@
     "react": "^16.4.1",
     "react-dom": "^16.4.1"
   },
-  "licence": "ISC"
+  "licence": "ISC",
+  "gitHead": "42bfcd1db1c84f88dc8e242f8856e78ffb754477"
 }

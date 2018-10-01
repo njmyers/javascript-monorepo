@@ -9,7 +9,7 @@
   ],
   "scripts": {
     "precommit": "lint-staged",
-    "prebuild": "lerna bootstrap && lerna link && lerna run build",
+    "prebuild": "lerna bootstrap && lerna link && lerna run build && shx rm -rf storybook-static",
     "build": "build-storybook",
     "bootstrap": "lerna bootstrap",
     "lerna": "lerna",
@@ -17,7 +17,7 @@
     "start": "run-p storybook",
     "storybook": "start-storybook -p 9009",
     "test": "jest --watchAll",
-    "prettier": "prettier 'packages/**/*.{.test.js,js,jsx,json}' --write"
+    "prettier": "prettier 'packages/**/*.{.test.js,.stories.js,js,jsx,json}' --write"
   },
   "devDependencies": {
     "@babel/cli": "^7.0.0",
@@ -29,10 +29,11 @@
     "@babel/plugin-transform-async-to-generator": "^7.0.0",
     "@babel/plugin-transform-regenerator": "^7.0.0",
     "@babel/plugin-transform-runtime": "^7.0.0",
+    "@babel/polyfill": "^7.0.0",
     "@babel/preset-env": "^7.0.0",
     "@babel/preset-flow": "^7.0.0",
     "@babel/preset-react": "^7.0.0",
-    "@babel/runtime": "^7.0.0",
+    "@babel/runtime": "^7.1.2",
     "@storybook/addon-actions": "^4.0.0-alpha.23",
     "@storybook/addon-console": "^1.0.4",
     "@storybook/addon-knobs": "^4.0.0-alpha.23",
@@ -49,7 +50,6 @@
     "babel-jest": "^23.4.0",
     "babel-loader": "^8.0.0",
     "babel-plugin-dynamic-import-node": "^1.2.0",
-    "babel-plugin-lodash": "^3.3.4",
     "babel-plugin-react-docgen": "^2.0.0",
     "babel-plugin-require-context-hook": "^1.0.0",
     "camelcase": "^5.0.0",
@@ -86,6 +86,7 @@
     "rollup-plugin-postcss": "^1.6.2",
     "rollup-plugin-visualizer": "^0.9.0",
     "sass-loader": "^7.0.3",
+    "shx": "^0.3.2",
     "sinon": "^6.0.0",
     "sort-package-json": "^1.15.0",
     "source-map-explorer": "^1.5.0",

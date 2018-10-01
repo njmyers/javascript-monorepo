@@ -31,7 +31,7 @@ import withSize from 'react-size-components';
 
 #### Note
 
-If you are reading this on GitHub, trying browsing the [interactive demo](https://component-library.netlify.com/?selectedKind=Size%20Components%2F1%29%20Module%20Infomation&selectedStory=welcome&full=0&addons=1&stories=1&panelRight=1&addonPanel=storybooks%2Fstorybook-addon-knobs) created using [storybook](https://storybook.js.org). I think you will find it much easier to understand what is happening!
+If you are reading this on GitHub, trying browsing the [interactive demo](https://njmyers.netlify.com/?selectedKind=Size%20Components%2F1%29%20Module%20Infomation&selectedStory=welcome&full=0&addons=1&stories=1&panelRight=1&addonPanel=storybooks%2Fstorybook-addon-knobs) created using [storybook](https://storybook.js.org). I think you will find it much easier to understand what is happening!
 
 ## Table of Contents
 

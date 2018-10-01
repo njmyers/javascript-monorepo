@@ -22,18 +22,18 @@ class ID extends Component {
   render() {
     return (
       <div>
-        <h2 className="h2">Parent Component</h2>
-        <li className="li-1">
+        <h2 className="h2-roboto">Parent Component</h2>
+        <li className="li-roboto-1">
           I can do something cool with these callbacks...
         </li>
         {this.state.sizes.map((size, index) => {
           return (
             <React.Fragment key={index}>
-              <h4 className="h4">
+              <h4 className="h4-roboto">
                 Callback #{index + 1} from {size.id}
               </h4>
-              <li className="li-1">height: {size.component.height}</li>
-              <li className="li-1">width: {size.component.width}</li>
+              <li className="li-roboto-1">height: {size.component.height}</li>
+              <li className="li-roboto-1">width: {size.component.width}</li>
             </React.Fragment>
           );
         })}

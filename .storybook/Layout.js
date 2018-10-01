@@ -1,5 +1,5 @@
 import React from 'react';
-import '../packages/sass/style.sass';
+import './style.sass';
 
 const Layout = ({ children }) => (
   <article className="layout">{children}</article>

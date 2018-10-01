@@ -22,7 +22,7 @@ class Parent extends Component {
   render() {
     return (
       <div>
-        <h2 className="h2">Parent Component</h2>
+        <h2 className="h2-roboto">Parent Component</h2>
         <li>I can do something cool with these callbacks...</li>
         {this.state.sizes.map((size, index) => {
           return (

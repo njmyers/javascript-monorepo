@@ -72,4 +72,4 @@ const writeFiles = (strings) => {
   if (path) fs.writeFileSync(path, file, 'utf8');
 };
 
-writeFiles(createStrings(readDirectoryKeys(resolve(process.cwd(), 'src'))));
+writeFiles(createStrings(readDirectoryKeys(resolve(__dirname, '../src'))));

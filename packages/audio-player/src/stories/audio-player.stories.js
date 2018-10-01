@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { storiesOf } from '@storybook/react';
-import createAudioPlayer from '../create-audio-player';
+import createAudioPlayer from '../AudioPlayer';
 import LoadURL from './LoadURL';
 
 const styles = {};

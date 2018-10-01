@@ -32,7 +32,7 @@ import withSize from 'react-size-components';
 
 #### Note
 
-If you are reading this on GitHub, trying browsing the [interactive demo](https://component-library.netlify.com/?selectedKind=Size%20Components%2F1%29%20Module%20Infomation&selectedStory=welcome&full=0&addons=1&stories=1&panelRight=1&addonPanel=storybooks%2Fstorybook-addon-knobs) created using [storybook](https://storybook.js.org). I think you will find it much easier to understand what is happening!
+If you are reading this on GitHub, trying browsing the [interactive demo](https://njmyers.netlify.com/?selectedKind=Size%20Components%2F1%29%20Module%20Infomation&selectedStory=welcome&full=0&addons=1&stories=1&panelRight=1&addonPanel=storybooks%2Fstorybook-addon-knobs) created using [storybook](https://storybook.js.org). I think you will find it much easier to understand what is happening!
 
 ## Table of Contents
 
@@ -388,11 +388,11 @@ import withSize from 'react-size-components';
 const Child = ({ sizes } = {}) => {
   return (
     <React.Fragment>
-      <h2 className="h2">Child Component</h2>
-      <li className="li-1">
+      <h2 className="h2-roboto">Child Component</h2>
+      <li className="li-roboto-1">
         My custom flag isBiggerThan1000 is: {sizes.isBiggerThan1000.toString()}
       </li>
-      <li className="li-1">
+      <li className="li-roboto-1">
         My custom flag isBiggerThan1200 is: {sizes.isBiggerThan1200.toString()}
       </li>
     </React.Fragment>
@@ -456,11 +456,11 @@ import withSize from 'react-size-components';
 const Advanced = ({ sizes, childRef } = {}) => {
   return (
     <div ref={childRef}>
-      <h2 className="h2">Advanced Child Component</h2>
-      <li className="li-1">
+      <h2 className="h2-roboto">Advanced Child Component</h2>
+      <li className="li-roboto-1">
         My position from the top is: {sizes.position.top}
       </li>
-      <li className="li-1">
+      <li className="li-roboto-1">
         My position from the bottom is: {sizes.position.bottom}
       </li>
     </div>
