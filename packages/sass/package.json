@@ -1,6 +1,6 @@
 {
   "name": "@njmyers/sass",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "description": "Collection of useful sass files and mixins",
   "main": "style.sass",
   "scripts": {
@@ -16,6 +16,6 @@
   "gitHead": "4fe560b5b283a402ba3ce73ac35184223e0c5248",
   "dependencies": {
     "@babel/runtime": "^7.1.2",
-    "@njmyers/babel-runtime-files": "^0.0.3"
+    "@njmyers/babel-runtime-files": "^0.0.4"
   }
 }

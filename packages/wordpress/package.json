@@ -1,6 +1,6 @@
 {
   "name": "@njmyers/react-wordpress",
-  "version": "0.1.13",
+  "version": "0.1.14",
   "private": true,
   "description": "React components for working with the WP-API",
   "keywords": [
@@ -27,14 +27,14 @@
     "njmyers-component-library": "^0.1.24",
     "query-string": "^6.1.0",
     "react-size-components": "^1.3.8",
-    "smalldash": "^1.1.17"
+    "smalldash": "^1.1.18"
   },
   "peerDependencies": {
     "react": "^16.4.1",
     "react-dom": "^16.4.1"
   },
   "devDependencies": {
-    "@njmyers/babel-runtime-files": "^0.0.3",
+    "@njmyers/babel-runtime-files": "^0.0.4",
     "babel-cli": "^6.26.0",
     "jest": "^23.1.0",
     "npm-run-all": "^4.1.3",

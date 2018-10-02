@@ -1,6 +1,6 @@
 {
   "name": "@njmyers/wordpresser",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "author": "Nick Myers <nickmyers111@gmail.com>",
   "description": "A utility to fetch data from the wordpress api",
   "license": "ISC",
@@ -16,7 +16,7 @@
     "wordpresser": "scripts/cli.js"
   },
   "devDependencies": {
-    "@njmyers/babel-runtime-files": "^0.0.3",
+    "@njmyers/babel-runtime-files": "^0.0.4",
     "babel-cli": "^6.26.0",
     "jest": "^23.1.0",
     "npm-run-all": "^4.1.3",
