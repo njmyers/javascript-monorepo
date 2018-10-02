@@ -25,7 +25,7 @@
     "@babel/runtime": "^7.1.2",
     "fast-memoize": "^2.5.1",
     "invariant": "^2.2.4",
-    "lodash-es": "^4.17.11",
+    "lodash.throttle": "^4.1.1",
     "smalldash": "^1.1.17"
   },
   "peerDependencies": {
@@ -40,5 +40,5 @@
     "rollup": "^0.66.2",
     "shx": "^0.3.2"
   },
-  "gitHead": "42bfcd1db1c84f88dc8e242f8856e78ffb754477"
+  "gitHead": "4fe560b5b283a402ba3ce73ac35184223e0c5248"
 }

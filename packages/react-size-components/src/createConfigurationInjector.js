@@ -2,7 +2,7 @@
 import * as React from 'react';
 import memoize from 'fast-memoize';
 import * as __ from 'smalldash';
-import _ from 'lodash-es';
+import throttle from 'lodash.throttle';
 
 import LazyEvent from './LazyEvent';
 import createInitalState from './initializers';

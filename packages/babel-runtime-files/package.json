@@ -10,5 +10,6 @@
   "license": "ISC",
   "dependencies": {
     "mime-types": "^2.1.20"
-  }
+  },
+  "gitHead": "4fe560b5b283a402ba3ce73ac35184223e0c5248"
 }
