@@ -3,7 +3,7 @@ import * as React from 'react';
 import memoize from 'fast-memoize';
 import * as __ from 'smalldash';
 import throttle from 'lodash.throttle';
-import debounce from 'lodash.debouce';
+import debounce from 'lodash.debounce';
 
 import LazyEvent from './LazyEvent';
 import createInitalState from './initializers';
@@ -79,7 +79,7 @@ const createConfigurationInjector = (configurations) => (Wrapped) => {
         // first call
         this.computeProperties();
       } else {
-        const poll = _.debounce(this.safeInit.bind(this), 300);
+        const poll = debounce(this.safeInit.bind(this), 300);
         poll();
       }
     };
