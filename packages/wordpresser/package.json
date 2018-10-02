@@ -1,6 +1,6 @@
 {
   "name": "@njmyers/wordpresser",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "author": "Nick Myers <nickmyers111@gmail.com>",
   "description": "A utility to fetch data from the wordpress api",
   "license": "ISC",
@@ -20,7 +20,7 @@
     "jest": "^23.1.0",
     "npm-run-all": "^4.1.3",
     "rollup": "^0.62.0",
-    "rollup-external-runtime-helpers": "^0.0.1",
+    "rollup-external-runtime-helpers": "^0.0.2",
     "shx": "^0.3.2"
   },
   "dependencies": {

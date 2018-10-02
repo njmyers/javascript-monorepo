@@ -1,6 +1,6 @@
 {
   "name": "@njmyers/sass",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "Collection of useful sass files and mixins",
   "main": "style.sass",
   "scripts": {
@@ -16,6 +16,6 @@
   "gitHead": "42bfcd1db1c84f88dc8e242f8856e78ffb754477",
   "dependencies": {
     "@babel/runtime": "^7.1.2",
-    "rollup-external-runtime-helpers": "^0.0.1"
+    "rollup-external-runtime-helpers": "^0.0.2"
   }
 }
