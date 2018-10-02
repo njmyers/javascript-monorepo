@@ -3,6 +3,7 @@ import * as React from 'react';
 import memoize from 'fast-memoize';
 import * as __ from 'smalldash';
 import throttle from 'lodash.throttle';
+import debounce from 'lodash.debouce';
 
 import LazyEvent from './LazyEvent';
 import createInitalState from './initializers';
@@ -41,7 +42,7 @@ const createConfigurationInjector = (configurations) => (Wrapped) => {
       memoize(this.computeProperty.bind(this, config));
 
     scroll = (config: Configuration) =>
-      _.throttle(memoize(this.computeProperty.bind(this, config), 400));
+      throttle(memoize(this.computeProperty.bind(this, config), 400));
 
     computeProperties = () => {
       configurations.forEach((prop) => this.computeProperty(prop));

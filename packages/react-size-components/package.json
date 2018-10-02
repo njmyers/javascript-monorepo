@@ -25,6 +25,7 @@
     "@babel/runtime": "^7.1.2",
     "fast-memoize": "^2.5.1",
     "invariant": "^2.2.4",
+    "lodash.debounce": "^4.0.8",
     "lodash.throttle": "^4.1.1",
     "smalldash": "^1.1.18"
   },
