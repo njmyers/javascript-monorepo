@@ -3,8 +3,6 @@ module.exports = (api) => {
 
   const env = process.env.BABEL_ENV;
 
-  console.log(env);
-
   return {
     babelrcRoots: ['.'],
     plugins: [

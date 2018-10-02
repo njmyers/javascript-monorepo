@@ -9,6 +9,7 @@
   "main": "build/youtube.cjs.js",
   "module": "build/youtube.esm.js",
   "scripts": {
+    "prebuild": "shx rm -rf build",
     "build": "run-s rollup",
     "prepublishOnly": "yarn run build",
     "rollup": "BABEL_ENV=production rollup -c",
