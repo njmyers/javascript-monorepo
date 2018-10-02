@@ -21,13 +21,13 @@ module.exports = (api) => {
       ],
       '@babel/preset-flow',
       // https://github.com/storybooks/storybook/pull/4262
-      // [
-      //   'babel-preset-minify',
-      //   {
-      //     builtIns: false,
-      //     mangle: false,
-      //   },
-      // ],
+      [
+        'babel-preset-minify',
+        {
+          builtIns: false,
+          mangle: false,
+        },
+      ],
     ],
   };
 };
