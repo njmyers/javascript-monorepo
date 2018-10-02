@@ -1,0 +1,12 @@
+{
+  "name": "rollup-external-runtime-helpers",
+  "version": "0.0.1",
+  "description": "get a list of all of the helpers in the @babel/runtime plugin",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Nick Myers <nickmyers111@gmail.com>",
+  "license": "ISC"
+}

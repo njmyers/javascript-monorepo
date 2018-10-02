@@ -1,19 +1,10 @@
 import resolve from 'rollup-plugin-node-resolve';
 import commonjs from 'rollup-plugin-commonjs';
 import babel from 'rollup-plugin-babel';
+import runtimes from 'rollup-external-runtime-helpers';
 import pkg from './package.json';
 
-const external = [
-  ...Object.keys(pkg.dependencies),
-  'regenerator-runtime',
-  '@babel/runtime/helpers/toConsumableArray',
-  '@babel/runtime/helpers/asyncToGenerator',
-  '@babel/runtime/helpers/typeof',
-  '@babel/runtime/regenerator',
-  '@babel/runtime/helpers/esm/toConsumableArray',
-  '@babel/runtime/helpers/esm/asyncToGenerator',
-  '@babel/runtime/helpers/esm/typeof',
-];
+const external = [...Object.keys(pkg.dependencies), ...runtimes()];
 
 export default [
   {
@@ -25,7 +16,10 @@ export default [
       sourcemap: true,
     },
     plugins: [
-      resolve(),
+      resolve({
+        jsnext: true,
+        main: true,
+      }),
       babel({
         runtimeHelpers: true,
         exclude: 'node_modules/**',
@@ -42,7 +36,10 @@ export default [
       sourcemap: true,
     },
     plugins: [
-      resolve(),
+      resolve({
+        jsnext: true,
+        main: true,
+      }),
       babel({
         runtimeHelpers: true,
         exclude: 'node_modules/**',

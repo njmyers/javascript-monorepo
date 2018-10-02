@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { storiesOf } from '@storybook/react';
-import createAudioPlayer from '../build/component.esm.js';
+import createAudioPlayer from '../src/AudioPlayer';
 import LoadURL from './LoadURL';
 
 const styles = {};

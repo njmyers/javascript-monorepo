@@ -17,6 +17,7 @@
     "watch": "rollup -c --watch"
   },
   "dependencies": {
+    "@babel/runtime": "^7.1.2",
     "@njmyers/directory": "^0.0.3",
     "@njmyers/image-server": "^0.0.6",
     "app-root-path": "^2.0.1",
@@ -46,6 +47,7 @@
     "jest": "^23.4.1",
     "npm-run-all": "^4.1.2",
     "rollup": "^0.66.2",
+    "rollup-external-runtime-helpers": "^0.0.1",
     "shx": "^0.3.2"
   }
 }

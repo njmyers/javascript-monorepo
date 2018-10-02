@@ -1,6 +1,10 @@
 module.exports = (api) => {
   api.cache(true);
 
+  const env = process.env.BABEL_ENV;
+
+  console.log(env);
+
   return {
     babelrcRoots: ['.'],
     plugins: [
@@ -14,10 +18,18 @@ module.exports = (api) => {
       [
         '@babel/preset-react',
         {
-          development: process.env.BABEL_ENV === 'development',
+          development: env === 'development',
         },
       ],
       '@babel/preset-flow',
+      // https://github.com/storybooks/storybook/pull/4262
+      // [
+      //   'babel-preset-minify',
+      //   {
+      //     builtIns: false,
+      //     mangle: false,
+      //   },
+      // ],
     ],
   };
 };

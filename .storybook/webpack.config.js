@@ -1,6 +1,6 @@
 const path = require('path');
 
-// process.env.BABEL_ENV = 'storybook';
+process.env.BABEL_ENV = 'storybook';
 
 module.exports = {
   module: {

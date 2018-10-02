@@ -13,12 +13,14 @@
     "test": "jest --watchAll --no-cache"
   },
   "dependencies": {
+    "@babel/runtime": "^7.1.2",
     "mime-types": "^2.1.19",
     "smalldash": "^1.1.15"
   },
   "devDependencies": {
     "jest": "^23.4.1",
     "npm-run-all": "^4.1.3",
+    "rollup-external-runtime-helpers": "^0.0.1",
     "shx": "^0.3.2"
   },
   "gitHead": "42bfcd1db1c84f88dc8e242f8856e78ffb754477"

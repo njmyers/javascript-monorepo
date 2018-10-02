@@ -22,18 +22,22 @@
     "watch": "BABEL_ENV=production rollup -c --watch"
   },
   "dependencies": {
+    "@babel/runtime": "^7.1.2",
     "fast-memoize": "^2.5.1",
     "invariant": "^2.2.4",
     "lodash-es": "^4.17.11",
-    "react": "^16.4.1",
-    "react-dom": "^16.4.1",
     "smalldash": "^1.1.15"
+  },
+  "peerDependencies": {
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "jest": "^23.1.0",
     "npm-run-all": "^4.1.3",
     "rollup": "^0.66.2",
+    "rollup-external-runtime-helpers": "^0.0.1",
     "shx": "^0.3.2"
   },
   "gitHead": "42bfcd1db1c84f88dc8e242f8856e78ffb754477"

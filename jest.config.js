@@ -11,13 +11,5 @@ module.exports = {
     '\\.(sass|css|scss)$': '<rootDir>/__mocks__/styleMock.js',
     '\\.(md)$': '<rootDir>/__mocks__/markdown-mock.js',
   },
-  testPathIgnorePatterns: [
-    '/node_modules/',
-    '/build/*',
-    '/dist/*',
-    '/helpers/*',
-  ],
-  transform: {
-    '^.+\\.jsx?$': '<rootDir>/jest-preprocess.js',
-  },
+  testPathIgnorePatterns: ['/node_modules/'],
 };
