@@ -1,6 +1,6 @@
 const path = require('path');
 const fs = require('fs');
-const directory = require('../directory/build/directory.cjs.js');
+const directory = require('./directory.cjs.js');
 
 const searchUpwards = (folder) => {
   try {

@@ -47,7 +47,7 @@
     "jest": "^23.4.1",
     "npm-run-all": "^4.1.2",
     "rollup": "^0.66.2",
-    "rollup-external-runtime-helpers": "^0.0.2",
+    "@njmyers/babel-runtime-files": "^0.0.2",
     "shx": "^0.3.2"
   }
 }
