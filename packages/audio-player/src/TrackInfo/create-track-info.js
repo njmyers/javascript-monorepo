@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
-import { mergeProps, mapDispatchToProps } from '../Provider';
+import mapDispatchToProps from '../Provider/default-map-dispatch-to-props';
+import mergeProps from '../Provider/default-merge-props';
 import TrackInfo from './TrackInfo';
 
 const mapStateToProps = (state) => ({

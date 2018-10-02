@@ -32,7 +32,7 @@ class LoadURL extends React.Component {
   render() {
     return (
       <div className="interface">
-        <h5 classs="h5">Seperately Mapped Interface</h5>
+        <h5 classs="h5-roboto">Seperately Mapped Interface</h5>
         <Form.Input
           name="url"
           label="Track URL"

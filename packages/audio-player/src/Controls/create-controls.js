@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { mergeProps } from '../Provider';
+import mergeProps from '../Provider/default-merge-props';
 
 import {
   playerStart,

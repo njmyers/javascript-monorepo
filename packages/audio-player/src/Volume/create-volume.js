@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
-import { mergeProps } from '../Provider';
 import { compose } from 'redux';
+import mergeProps from '../Provider/default-merge-props';
 // actions
 import { playerVolume, playerMute } from '../AudioCore/audio-actions';
 // component
