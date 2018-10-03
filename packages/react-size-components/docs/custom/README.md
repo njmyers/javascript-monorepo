@@ -24,8 +24,8 @@ const Child = ({ sizes } = {}) => {
   );
 };
 
-const isBiggerThan1000 = (sizes) => window.innerWidth > 1000;
-const isBiggerThan1200 = (sizes) => window.innerWidth > 1200;
+const isBiggerThan1000 = (node, window) => window.innerWidth > 1000;
+const isBiggerThan1200 = (node, window) => window.innerWidth > 1200;
 
 const custom = [
   {
@@ -52,8 +52,7 @@ export default withSize({ custom })(Child);
 Please be aware that you must manually turn on subscriptions. The currently availble options are `resize: true` and `scroll: true`
 
 ```js
-const isBiggerThan1000 = (sizes) =>
-  sizes.window ? sizes.window.innerWidth > 1000 : undefined;
+const isBiggerThan1000 = (node, window) => window.innerWidth > 1000;
 
 const custom = [
   {
@@ -74,6 +73,8 @@ I have also exposed functionality to create more advanced custom flags and objec
 
 When writing advanced configuration the DOM node itself is made available (safely) to the comparator function. That is why we must use a schema object so that our initial state looks like the state that is returned from the comparator.
 
+The second argument to the comparator function is the global window object. You are welcome to reference the global itself but I encourage you to use the scoped version made available by the comparator as it takes advantage of memoization and offers performance benefits.
+
 ```js
 import React from 'react';
 import withSize from 'react-size-components';
@@ -92,7 +93,7 @@ const Advanced = ({ sizes, childRef } = {}) => {
   );
 };
 
-const calculatePosition = (node) => {
+const calculatePosition = (node, window) => {
   const rect = node.getBoundingClientRect();
   return {
     top: Math.round(rect.top),
@@ -116,8 +117,6 @@ const custom = [
     schema,
   },
 ];
-
-export default withSize({ custom })(Advanced);
 ```
 
 Now our component knows exactly where it is on the page!

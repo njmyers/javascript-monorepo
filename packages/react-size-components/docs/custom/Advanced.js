@@ -15,7 +15,7 @@ const Advanced = ({ sizes, childRef } = {}) => {
   );
 };
 
-const calculatePosition = (node) => {
+const calculatePosition = (node, window) => {
   const rect = node.getBoundingClientRect();
   return {
     top: Math.round(rect.top),

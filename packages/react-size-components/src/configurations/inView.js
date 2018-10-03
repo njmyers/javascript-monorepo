@@ -4,7 +4,7 @@ import type { Configuration } from './types';
 const inView: Configuration = {
   name: 'inView',
   schema: false,
-  fn: (node) => {
+  fn: (node, window) => {
     const top = node.getBoundingClientRect().top;
     const height = node.clientHeight;
     const innerHeight = window.innerHeight;

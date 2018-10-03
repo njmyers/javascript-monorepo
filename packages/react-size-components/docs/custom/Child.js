@@ -15,8 +15,8 @@ const Child = ({ sizes } = {}) => {
   );
 };
 
-const isBiggerThan1000 = (sizes) => window.innerWidth > 1000;
-const isBiggerThan1200 = (sizes) => window.innerWidth > 1200;
+const isBiggerThan1000 = (node, window) => window.innerWidth > 1000;
+const isBiggerThan1200 = (node, window) => window.innerWidth > 1200;
 
 const custom = [
   {

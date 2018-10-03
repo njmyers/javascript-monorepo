@@ -51,8 +51,12 @@ const createConfigurationInjector = (configurations) => (Wrapped) => {
     computeProperty = ({ name, fn, schema }: Configuration) => {
       this.setState((state) => {
         const nextProps = this.state.DOMNode
-          ? fn(this.state.DOMNode.current)
-          : schema;
+          ? // call on the found node
+            fn(this.state.DOMNode.current, window)
+          : // otherwise call our function with the dummy node
+            // that way we start calling our functions early
+            // we don't lose out on performance of window calls with this method
+            fn(document.createElement('dummy'), window);
         return memoize(!__.equals(nextProps, state[name]))
           ? { [name]: nextProps }
           : null;
@@ -79,7 +83,10 @@ const createConfigurationInjector = (configurations) => (Wrapped) => {
         // first call
         this.computeProperties();
       } else {
-        const poll = debounce(this.safeInit.bind(this), 300);
+        // first call
+        this.computeProperties();
+        // continue until we have dom reference
+        const poll = debounce(this.safeInit.bind(this), 100);
         poll();
       }
     };

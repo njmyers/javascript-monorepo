@@ -43,7 +43,7 @@ export type Subscriptions = {
 export type Configuration = {
   name: string,
   schema: Schema,
-  fn: (HTMLElement) => Schema,
+  fn: (HTMLElement, window) => Schema,
   subscriptions: null | Subscriptions,
 };
 

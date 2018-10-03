@@ -9,7 +9,7 @@ const windowSize: Configuration = {
     outerHeight: 0,
     outerWidth: 0,
   },
-  fn: (node) => ({
+  fn: (node, window) => ({
     innerHeight: window.innerHeight,
     innerWidth: window.innerWidth,
     outerHeight: window.outerHeight,
