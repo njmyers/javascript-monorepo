@@ -25,6 +25,7 @@ module.exports = (api) => {
         'babel-preset-minify',
         {
           builtIns: false,
+          evaluate: false,
           mangle: false,
         },
       ],

@@ -5,8 +5,6 @@ import { withKnobs } from '@storybook/addon-knobs/react';
 import '@storybook/addon-console';
 // components
 import Layout from './Layout';
-// styles
-import 'normalize.css';
 
 // Add Global Knobs
 storybook.addDecorator(withKnobs);
