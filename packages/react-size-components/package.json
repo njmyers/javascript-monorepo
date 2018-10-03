@@ -1,6 +1,6 @@
 {
   "name": "react-size-components",
-  "version": "2.0.10",
+  "version": "2.0.11",
   "description": "Higher order components for sizing functions in react",
   "homepage": "https://njmyers.netlify.com/",
   "repository": "https://github.com/njmyers/javascript-monorepo.git",
