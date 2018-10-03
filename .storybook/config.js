@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as storybook from '@storybook/react';
-import { setOptions } from '@storybook/addon-options';
-import { withKnobs } from '@storybook/addon-knobs/react';
+import { withOptions } from '@storybook/addon-options';
+import { withKnobs } from '@storybook/addon-knobs';
 import '@storybook/addon-console';
 // components
 import Layout from './Layout';
@@ -9,7 +9,7 @@ import Layout from './Layout';
 // Add Global Knobs
 storybook.addDecorator(withKnobs);
 
-setOptions({
+withOptions({
   name: '@njmyers NPM Documentation',
   url: 'https://njmyers.netlify.com',
   goFullScreen: false,
