@@ -7,7 +7,7 @@ type Props = {
   loading: React.ComponentType<{}>,
   error: React.ComponentType<{}>,
   status: string | Array<string>,
-  children?: React.Node,
+  children: React.Node,
 };
 
 class StatusSwitch extends React.Component<Props> {
@@ -27,16 +27,16 @@ class StatusSwitch extends React.Component<Props> {
 
   render() {
     switch (this.cascadeStatus(this.props.status)) {
+      case 'initial':
       case 'loading':
+      default:
         const Loading: React.ComponentType<{}> = this.props.loading;
         return <Loading />;
       case 'error':
         const Error: React.ComponentType<{}> = this.props.error;
         return <Error />;
       case 'resolved':
-      case 'initial':
-      default:
-        return this.props.children;
+        return React.Children.only(this.props.children);
     }
   }
 }

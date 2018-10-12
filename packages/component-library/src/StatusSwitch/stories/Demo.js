@@ -1,6 +1,36 @@
 import * as React from 'react';
 import StatusSwitch from '../StatusSwitch';
 
+class ErrorComponent extends React.Component {
+  componentDidMount() {
+    console.log('Error Component mounted');
+  }
+
+  render() {
+    return <div>Error</div>;
+  }
+}
+
+class Loading extends React.Component {
+  componentDidMount() {
+    console.log('Loading Component mounted');
+  }
+
+  render() {
+    return <div>Loading</div>;
+  }
+}
+
+class Interior extends React.Component {
+  componentDidMount() {
+    console.log('Interior Component mounted');
+  }
+
+  render() {
+    return <div>Interior</div>;
+  }
+}
+
 class Demo extends React.Component {
   state = {
     status: 'initial',
@@ -24,11 +54,19 @@ class Demo extends React.Component {
     setTimeout(this.resolved, 4000);
   };
 
+  componentDidMount() {
+    this.onClick();
+  }
+
   render() {
     return (
       <React.Fragment>
-        <StatusSwitch status={this.state.status}>
-          <p>This content is inside the switch</p>
+        <StatusSwitch
+          status={this.state.status}
+          error={ErrorComponent}
+          loading={Loading}
+        >
+          <Interior />
         </StatusSwitch>
         <p>This content is outside the switch</p>
         <button style={this.buttonStyle} onClick={this.onClick}>
