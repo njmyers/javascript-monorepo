@@ -1,0 +1,68 @@
+@import ../mixins
+
+/** Generates button clases for coloring
+=button($class-modifier, $background-color: #000000, $color: #ffffff, $time: 300)
+  %button-#{$class-modifier}
+    border: none
+    border-radius: 0.25rem
+    box-shadow: none
+    cursor: pointer
+    color: $color
+    background-color: $background-color
+    padding: 0.5rem 1rem
+
+    +flex
+
+    justify-content: center
+    align-items: center
+
+    +transition(background #{time}ms, color #{time}ms)
+
+    &:focus
+      outline: none
+
+    &:hover
+      background-color: lighten($background-color, 20)
+
+  .button-#{$class-modifier}
+    @extend %button-#{$class-modifier}
+
+/** Generates button classes for spacing
+=button-size($class-modifier, $spacing: 1)
+  %button-#{$class-modifier}
+    padding: #{$spacing / 2}rem #{$spacing}rem
+
+  .button-#{$class-modifier}
+    @extend %button-#{$class-modifier}
+
+=ripple($class-modifier, $color: #000000, $time: 1000)
+  .ripple-#{$class-modifier}
+    +transform(translate3d(0, 0, 0))
+
+    position: relative
+    overflow: hidden
+
+    &:after
+      content: ""
+      display: block
+      position: absolute
+      width: 100%
+      height: 100%
+      top: 0
+      left: 0
+      pointer-events: none
+      background-image: radial-gradient(circle, $color 10%, transparent 10.01%)
+      background-repeat: no-repeat
+      background-position: 50%
+      opacity: 0
+
+      +transform(scale(10, 10))
+
+      +transition(transform #{$time / 2}ms, opacity #{$time}ms)
+
+    &:active
+      &:after
+        +transform(scale(0, 0))
+        +transition(0s)
+
+        opacity: 0.2
