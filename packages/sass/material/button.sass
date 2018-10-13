@@ -36,7 +36,7 @@
     @extend %button-#{$class-modifier}
 
 =ripple($class-modifier, $color: #000000, $time: 1000)
-  .ripple-#{$class-modifier}
+  %ripple-#{$class-modifier}
     +transform(translate3d(0, 0, 0))
 
     position: relative
@@ -66,3 +66,6 @@
         +transition(0s)
 
         opacity: 0.2
+
+  .ripple-#{$class-modifier}
+    @extends %ripple-#{$class-modifier}
