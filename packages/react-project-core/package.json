@@ -1,6 +1,6 @@
 {
   "name": "react-project-core",
-  "version": "0.1.14",
+  "version": "0.1.15",
   "private": true,
   "author": "Nick Myers",
   "scripts": {
@@ -40,7 +40,7 @@
     "redux-thunk": "^2.2.0",
     "rxjs": "^5.5.6",
     "s3-deploy-scripts": "^0.1.5",
-    "smalldash": "^1.1.18",
+    "smalldash": "^1.1.19",
     "webfontloader": "^1.6.28",
     "webpack": "^4.16.0"
   },
