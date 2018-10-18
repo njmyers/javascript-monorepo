@@ -23,7 +23,7 @@ const readDirectoryKeys = (dir) => {
         ? name !== '__tests__'
           ? [filePath, ...readDirectoryKeys(filePath)]
           : undefined
-        : name !== 'index.js'
+        : name !== 'index.js' && name !== 'types.js'
           ? filePath
           : undefined;
     })
