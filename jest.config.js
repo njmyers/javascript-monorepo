@@ -12,4 +12,5 @@ module.exports = {
     '\\.(md)$': '<rootDir>/__mocks__/markdown-mock.js',
   },
   testPathIgnorePatterns: ['/node_modules/'],
+  transformIgnorePatterns: ['<rootDir>.*(node_modules)(?!.*smalldash.*).*$'],
 };

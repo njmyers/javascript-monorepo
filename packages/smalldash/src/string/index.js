@@ -1,3 +1,4 @@
+/** @flow */
 export { default as acceptStrings } from './accept-strings';
 export { default as camelToKebab } from './camel-to-kebab';
 export { default as camelToPascal } from './camel-to-pascal';
@@ -38,3 +39,5 @@ export { default as validateDecimal } from './validate-decimal';
 export { default as validateHexadecimal } from './validate-hexadecimal';
 export { default as validateLetterString } from './validate-letter-string';
 export { default as validateNumber } from './validate-number';
+
+export * from './types'

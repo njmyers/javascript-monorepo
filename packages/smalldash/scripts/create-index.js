@@ -59,7 +59,7 @@ const createStrings = (keys) => {
 
 const writeFiles = (strings) => {
   let path = '';
-  let file = '';
+  let file = '/** @flow */\n';
 
   strings.forEach((string, index) => {
     if (Array.isArray(string)) writeFiles(string);
@@ -68,6 +68,8 @@ const writeFiles = (strings) => {
       else file += string + '\n';
     }
   });
+
+  file += `\nexport * from './types'`;
 
   if (path) fs.writeFileSync(path, file, 'utf8');
 };

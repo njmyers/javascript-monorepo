@@ -13,31 +13,31 @@ const large = createLargeObject(1000)(dataset);
 
 describe('it performs comparatively to other deep equality packages', () => {
   test('performs same as deep-equal', () => {
-    const dateStart = Date.now();
+    const dateStart = performance.now();
     expect(myEquals(large, large)).toBe(true);
-    const dateEnd = Date.now();
+    const dateEnd = performance.now();
 
-    const dateStartSample = Date.now();
+    const dateStartSample = performance.now();
     expect(deepEqual(large, large)).toBe(true);
-    const dateEndSample = Date.now();
+    const dateEndSample = performance.now();
 
     // allow margin of error
-    expect(dateEnd - dateStart - 2).toBeLessThanOrEqual(
+    expect(dateEnd - dateStart).toBeLessThanOrEqual(
       dateEndSample - dateStartSample
     );
   });
 
   test('performs same as deep-equal', () => {
-    const dateStart = Date.now();
+    const dateStart = performance.now();
     expect(myEquals(large, large)).toBe(true);
-    const dateEnd = Date.now();
+    const dateEnd = performance.now();
 
-    const dateStartSample = Date.now();
+    const dateStartSample = performance.now();
     expect(fastDeepEqual(large, large)).toBe(true);
-    const dateEndSample = Date.now();
+    const dateEndSample = performance.now();
 
     // allow margin of error
-    expect(dateEnd - dateStart - 2).toBeLessThanOrEqual(
+    expect(dateEnd - dateStart).toBeLessThanOrEqual(
       dateEndSample - dateStartSample
     );
   });

@@ -1,44 +1,42 @@
+/** @flow */
+import { nullish, objectish, arrayish } from '../primitives';
+import type { Complex, Primitive } from '../primitives';
+
+/** compare primitives with NaN */
+const primitives = (value: Primitive, compare: Primitive): boolean %checks => {
+  return (Number.isNaN(value) && Number.isNaN(compare)) || value === compare;
+};
+
+/** compare references for shortcut */
+const reference = (value: Complex, compare: Complex): boolean %checks =>
+  value === compare;
+
+/** Get object or array length */
+const length = (object: Complex): number =>
+  Array.isArray(object) ? object.length : Object.keys(object).length;
+
 /**
- * Checks to see if object is an instance of object
+ * Deep equals decends into entire object
+ * Rewrote this as a giant ternary in attempt to get flow to understand this
+ * Obviously way too many checks here for flow but we can try right?
  */
-const isObject = (val) => typeof val === 'object' && val !== null;
-
-const comparePrimitives = (value, compare) => {
-  if (Number.isNaN(value) && Number.isNaN(compare)) return true;
-  else return value === compare;
-};
-
-const equals = (actual, expected) => {
+const equals = (actual: Complex, expected: Complex): boolean %checks =>
   // add an initial short path ... improves speed drastically
-  if (actual === expected) {
-    return true;
-  }
-  // Check if input is object or primitive
-  if (isObject(actual)) {
-    const keys = Object.keys(actual);
-    // check if key lengths match (for speed)
-    if (keys.length !== Object.keys(expected).length) return false;
-    // compare key values
-    return (
-      keys
-        // map to boolean values
-        .map((key, i) => {
-          // safely access object properties
-          if (expected[key] !== undefined) {
-            const value = actual[key];
-            const compare = expected[key];
-            if (isObject(value)) return equals(value, compare);
-            else return comparePrimitives(value, compare);
-          } else {
-            return Object.keys(expected).includes(key);
-          }
-        })
-        // reduce to single boolean
-        .reduce((a, b) => a && b, true)
-    );
-  }
-  // return primitive comparison
-  return comparePrimitives(actual, expected);
-};
+  !reference(actual, expected)
+    ? // Check if input is object or array
+      objectish(actual) || arrayish(actual)
+      ? // check if key lengths match (for speed)
+        length(actual) !== length(expected)
+        ? false
+        : Object.entries(actual)
+            .map(
+              (entry: [string, Complex]) =>
+                arrayish(entry[1]) || objectish(entry[1])
+                  ? equals(entry[1], expected[entry[0]])
+                  : primitives(entry[1], expected[entry[0]])
+            )
+            .reduce((a, b) => a && b, true)
+      : primitives(actual, expected)
+    : true;
 
 export default equals;
