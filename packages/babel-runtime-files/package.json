@@ -1,6 +1,6 @@
 {
   "name": "@njmyers/babel-runtime-files",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "get a list of all of the helpers in the @babel/runtime plugin",
   "main": "index.js",
   "scripts": {
