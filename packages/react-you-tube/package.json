@@ -16,7 +16,7 @@
     "test": "jest --watchAll"
   },
   "dependencies": {
-    "@babel/runtime": "^7.1.2",
+    "@babel/runtime": "7.1.2",
     "smalldash": "^1.1.20"
   },
   "devDependencies": {

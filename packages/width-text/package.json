@@ -28,6 +28,6 @@
   "licence": "ISC",
   "gitHead": "4fe560b5b283a402ba3ce73ac35184223e0c5248",
   "dependencies": {
-    "@babel/runtime": "^7.1.2"
+    "@babel/runtime": "7.1.2"
   }
 }

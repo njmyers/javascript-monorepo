@@ -22,7 +22,7 @@
     "watch": "BABEL_ENV=production rollup -c --watch"
   },
   "dependencies": {
-    "@babel/runtime": "^7.1.2",
+    "@babel/runtime": "7.1.2",
     "fast-memoize": "^2.5.1",
     "invariant": "^2.2.4",
     "lodash.debounce": "^4.0.8",

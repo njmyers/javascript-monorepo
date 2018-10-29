@@ -15,7 +15,7 @@
     "test": "jest --watchAll"
   },
   "dependencies": {
-    "@babel/runtime": "^7.1.2",
+    "@babel/runtime": "7.1.2",
     "react-size-components": "^2.0.13",
     "smalldash": "^1.1.20"
   },

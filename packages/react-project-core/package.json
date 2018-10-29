@@ -16,7 +16,7 @@
     "prettier": "prettier --write src/components/**/*.{js,jsx,json,md}"
   },
   "dependencies": {
-    "@babel/runtime": "^7.1.2",
+    "@babel/runtime": "7.1.2",
     "@njmyers/react-scripts": "^1.1.1",
     "axios": "^0.18.0",
     "core-js": "^2.5.3",

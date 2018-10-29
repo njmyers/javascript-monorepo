@@ -22,7 +22,7 @@
     "image-server": "app.js"
   },
   "dependencies": {
-    "@babel/runtime": "^7.1.2",
+    "@babel/runtime": "7.1.2",
     "aws-sdk": "^2.275.1",
     "axios": "^0.18.0",
     "cors": "2.8.4",
