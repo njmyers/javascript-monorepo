@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`it works it runs without crashing 1`] = `
+"/** @flow */
+import testComponentReducer from '../test-component-reducer';
+import * as testComponentActions from '../test-component-actions';
+
+describe('it should dispatch actions', () => {
+  test('it is a function type', () => {
+    expect(typeof testComponentReducer).toBe('function')
+  });
+})
+"
+`;

@@ -13,3 +13,9 @@ export { default as functionIndexFile } from "./function-index-file";
 // graphql
 export { default as graphFile } from "./graph-file";
 export { default as graphIndexFile } from "./graph-index-file";
+// redux
+export { default as reduxActionsFile } from "./redux-actions-file";
+export { default as reduxReducerFile } from "./redux-reducer-file";
+export { default as reduxIndexFile } from "./redux-index-file";
+export { default as reduxActionsTestFile } from "./redux-actions-test-file";
+export { default as reduxReducerTestFile } from "./redux-reducer-test-file";

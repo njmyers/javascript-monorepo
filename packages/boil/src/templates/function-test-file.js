@@ -1,8 +1,9 @@
 /** @flow */
 import { camelName } from "../args";
 
-const functionTestFile = kebab => `import * as React from 'react';
-import ${camelName(kebab)} from '../${kebab}';
+const functionTestFile = kebab => `import ${camelName(
+  kebab
+)} from '../${kebab}';
 
 describe('it works', () => {
   test('it is a function ', () => {

@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`it works it runs without crashing 1`] = `
+"/** @flow */
+import configureStore from 'redux-mock-store';
+import * as testComponentActions from '../test-component-actions'
+import { initialState } from '../test-component-reducer'
+
+const middlewares = [];
+const mockStore = configureStore(middlewares);
+const store = mockStore(initialState)
+
+describe('it creates actions', () => {
+  beforeEach(() => {
+    store.clearActions();
+  });
+
+  test('it is a function type', () => {
+    Object.values(testComponentActions).forEach((action) => {
+      expect(typeof action).toBe('function')
+    });
+  });
+
+  test('it returns a plain object with a type property', () => {
+    Object.values(testComponentActions).forEach((action) => {
+      expect(action()).toHaveProperty('type')
+    });
+  });
+
+  Object.values(testComponentActions).forEach((action) => {
+    const type = action().type
+
+    test(\`it dispatches \${type} type action from a mock store\`, () => {
+      store.dispatch(action())
+      const actions = store.getActions();
+
+      expect(actions[0].type).toBe(type)
+    });
+  });
+})
+"
+`;

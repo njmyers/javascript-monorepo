@@ -15,7 +15,7 @@ const componentProgram = program => {
     .command("component [component-names...]")
     .option("-f, --flow", "add flow pragmas", false)
     .option("-s, --story", "create a story file", false)
-    .option("-d, --sass", "create a sass file", false)
+    .option("-d, --design", "create a design file defaults to sass", false)
     .option("-t, --test", "create a test file", false)
     .action((...args) => {
       const [options, components] = args.reverse();
