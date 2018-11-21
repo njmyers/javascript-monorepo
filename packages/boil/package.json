@@ -13,7 +13,9 @@
     "clean": "shx rm -rf build",
     "test": "echo \"Error: no test specified\" && exit 1",
     "prewatch": "run-s clean",
-    "watch": "rollup -c rollup.config.js --watch"
+    "watch": "rollup -c rollup.config.js --watch",
+    "build": "rollup -c rollup.config.js",
+    "postinstall": "run-s clean build"
   },
   "dependencies": {
     "commander": "^2.19.0",
