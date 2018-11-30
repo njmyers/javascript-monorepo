@@ -1,6 +1,6 @@
 // @flow
 import * as React from 'react';
-import queryString from 'query-string';
+import qs from 'qs';
 import { withRouter } from 'react-router-dom';
 // types
 import type { Location, RouterHistory } from 'react-router-dom';
@@ -40,7 +40,7 @@ function withSearch<Props: {}>(
 
     handleHistoryChange = (location: Location) => {
       this.setState((state) => ({
-        search: queryString.parse(location.search),
+        search: qs.parse(location.search, { ignoreQueryPrefix: true }),
       }));
     };
 
