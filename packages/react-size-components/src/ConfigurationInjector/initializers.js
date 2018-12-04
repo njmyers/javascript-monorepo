@@ -1,8 +1,7 @@
 // @flow
-import * as __ from 'smalldash';
 import invariant from 'invariant';
-
-import type { Configuration, Configurations } from './configurations/types';
+// types
+import type { Configuration, Configurations } from '../configurations';
 
 const defaultConfiguration: Configuration = {
   name: '',
@@ -40,7 +39,4 @@ export const createInitialState = (configurations: Configurations) =>
     }
   );
 
-export default __.compose(
-  createInitialState,
-  validateConfigurations
-);
+export default createInitialState;

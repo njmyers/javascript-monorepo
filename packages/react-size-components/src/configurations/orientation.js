@@ -6,7 +6,9 @@ const orientation: Configuration = {
   schema: 'landscape',
   fn: (node, window) =>
     window.innerWidth > window.innerHeight ? 'landscape' : 'portrait',
-  subscriptions: { resize: true },
+  subscriptions: {
+    resize: true,
+  },
 };
 
 export default orientation;

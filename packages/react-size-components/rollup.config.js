@@ -18,6 +18,7 @@ export default [
       file: pkg.main,
       format: 'cjs',
       sourcemap: true,
+      exports: 'named',
     },
     plugins: [
       resolve({
@@ -38,6 +39,7 @@ export default [
       file: pkg.module,
       format: 'es',
       sourcemap: true,
+      exports: 'named',
     },
     plugins: [
       resolve(),

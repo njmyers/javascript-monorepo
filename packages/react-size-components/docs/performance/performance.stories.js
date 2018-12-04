@@ -9,11 +9,11 @@ import Parent from './Parent';
 import SlowParent from './SlowParent';
 import Test from './Test';
 
-storiesOf('react-size-components', module);
-// .addDecorator(withDocs(readme))
-// .add('lots of size aware components made with size', () => (
-//   <Parent timeStamp={action('timestamp since for render cycle')} />
-// ))
+storiesOf('react-size-components/4) Performance', module)
+  .addDecorator(withDocs(readme))
+  .add('many size aware components made with size', () => (
+    <Parent timeStamp={action('timestamp since for render cycle')} />
+  ));
 // .add('lots of size aware components manually with event listeners', () => (
 //   <SlowParent timeStamp={action('timestamp since for render cycle')} />
 // ));

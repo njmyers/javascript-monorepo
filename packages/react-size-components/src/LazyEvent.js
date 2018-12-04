@@ -1,54 +1,12 @@
-// @flow
+/** @flow  */
+import SubPub from './SubPub';
 
-type SubscriptionPublisher = {
-  subscribe: () => { unsubscribe: () => boolean },
-  publish: () => void,
-};
+type EventType = 'resize' | 'scroll';
 
-/**
- * Basic subscription publish function. Returns an object with subscribe and publish functions.
- */
-export const SubPub = (): SubscriptionPublisher => {
-  const subscribers = {};
+const listeners = new Map();
 
-  const createKey = () => {
-    return Math.random()
-      .toString(16)
-      .slice(-8);
-  };
-
-  return Object.seal({
-    subscribe: (subscriber) => {
-      const key = createKey();
-      subscribers[key] = subscriber;
-      return { unsubscribe: () => delete subscribers[key] };
-    },
-
-    publish: () => {
-      Object.keys(subscribers).map((key) => subscribers[key]());
-    },
-  });
-};
-
-/**
- * Creates a window event listener based on the event type. Uses animation frames for improved performance.
- * @param {string} eventType
- */
-export const createListener = (eventType) => {
-  const listener = new SubPub();
-  let working = false;
-
-  window.addEventListener(eventType, (e) => {
-    if (!working) {
-      working = true;
-      window.requestAnimationFrame(listener.publish);
-      working = false;
-      // setTimeout(() => (working = false), 66);
-    }
-  });
-
-  return Object.seal({ subscribe: listener.subscribe });
-};
+const getOptions = (eventType: EventType) =>
+  eventType === 'scroll' ? { throttle: true } : {};
 
 /**
  * We create window listeners lazily using this function.
@@ -57,9 +15,14 @@ export const createListener = (eventType) => {
  * @param {object} listeners cache storage for already created window listeners
  * @param {string} eventType which window event to create a listener for
  */
-export const windowEventCache = (listeners = {}) => (eventType) => {
-  if (!listeners[eventType]) listeners[eventType] = createListener(eventType);
-  return listeners[eventType];
-};
+function LazyEvent(eventType: EventType) {
+  const options = getOptions(eventType);
 
-export default windowEventCache();
+  if (!listeners.has(eventType)) {
+    listeners.set(eventType, new SubPub(eventType, options));
+  }
+
+  return listeners.get(eventType);
+}
+
+export default LazyEvent;

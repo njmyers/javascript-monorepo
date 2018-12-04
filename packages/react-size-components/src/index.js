@@ -1,2 +1,3 @@
-import Compose from './Compose';
-export default Compose;
+/** @flow **/
+export { default } from './with-size'
+export { default as withSize } from './with-size';

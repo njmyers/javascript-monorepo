@@ -48,3 +48,15 @@ export type Configuration = {
 };
 
 export type Configurations = Array<Configuration>;
+
+export type Options = {
+  component: boolean,
+  measureWindow: boolean,
+  inView: boolean,
+  mobile: boolean,
+  orientation: boolean,
+  breakpoint: number,
+  resize: boolean,
+  scroll: boolean,
+  custom: Array<Configuration>,
+};

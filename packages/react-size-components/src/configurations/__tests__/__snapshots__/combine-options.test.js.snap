@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`it works it runs without crashing 1`] = `
+Object {
+  "breakpoint": 768,
+  "component": false,
+  "custom": Array [],
+  "inView": false,
+  "measureWindow": false,
+  "mobile": false,
+  "orientation": false,
+  "resize": false,
+  "scroll": false,
+}
+`;
