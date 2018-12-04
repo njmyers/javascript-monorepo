@@ -25,7 +25,11 @@ storybook.addDecorator((stories, context) => {
 });
 
 // automatically import all files ending in *.stories.js
-const req = require.context('../packages', true, /.stories.js$/);
+const req = require.context(
+  '../packages',
+  true,
+  /^((?![\\/]node_modules|vendor[\\/]).)*\.stories.js$/
+);
 
 // webpack voodoo
 const loadStories = () => {
