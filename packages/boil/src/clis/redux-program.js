@@ -12,20 +12,24 @@ import {
 const reduxProgram = program => {
   program
     .command("redux [redux-names...]")
-    .option("-f, --flow", "add flow pragmas", false)
+    .option("-f, --file", "create boilerplate files and index exports", false)
     .option("-t, --test", "create a test file", false)
+    .option("-w, --flow", "create a flow types file and use pragmas", false)
+    .option("-a, --all", "create all possible files", false)
     .action((...args) => {
       const [options, functions] = args.reverse();
 
       functions.forEach(component => {
         const kebab = kebabName(component);
 
-        make(component, reduxActionsFile, `${kebab}-actions.js`);
-        make(component, reduxReducerFile, `${kebab}-reducer.js`);
-        make(component, reduxIndexFile, `index.js`);
+        if (options.file || options.all) {
+          make(component, reduxActionsFile, `${kebab}-actions.js`);
+          make(component, reduxReducerFile, `${kebab}-reducer.js`);
+          make(component, reduxIndexFile, `index.js`);
+        }
 
         // optional files
-        if (options.test) {
+        if (options.test || options.all) {
           make(
             component,
             reduxActionsTestFile,

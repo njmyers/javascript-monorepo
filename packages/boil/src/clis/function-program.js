@@ -10,19 +10,22 @@ import {
 const functionProgram = program => {
   program
     .command("function [function-names...]")
-    .option("-f, --flow", "add flow pragmas", false)
+    .option("-f, --file", "add boilerplate file index exports", false)
     .option("-t, --test", "create a test file", false)
+    .option("-a, --all", "create all possible files", false)
     .action((...args) => {
       const [options, functions] = args.reverse();
 
       functions.forEach(component => {
         const kebab = kebabName(component);
 
-        make(component, functionFile, `${kebab}.js`);
-        make(component, functionIndexFile, `index.js`);
+        if (options.file || options.all) {
+          make(component, functionFile, `${kebab}.js`);
+          make(component, functionIndexFile, `index.js`);
+        }
 
         // optional files
-        if (options.test) {
+        if (options.test || options.all) {
           make(component, functionTestFile, `__tests__/${kebab}.test.js`);
         }
       });

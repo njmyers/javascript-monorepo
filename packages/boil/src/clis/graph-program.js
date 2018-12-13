@@ -8,6 +8,7 @@ const graphProgram = program => {
     .command("graphql [graphql-names...]")
     .option("-t, --test", "create a test file", false)
     .option("-s, --schema", "create a schema file", false)
+    .option("-a, --all", "create all possible files", false)
     .action((...args) => {
       const [options, functions] = args.reverse();
 
@@ -16,7 +17,7 @@ const graphProgram = program => {
 
         make(component, graphFile, `${kebab}.graphql`);
 
-        if (options.schema) {
+        if (options.schema || options.all) {
           make(component, graphIndexFile, `schema.js`);
         }
 
