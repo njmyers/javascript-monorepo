@@ -1,7 +1,7 @@
 /** @flow */
 import type { Options } from './types';
 
-const defaults: Options = {
+export const defaults: Options = {
   component: false,
   measureWindow: false,
   inView: false,
