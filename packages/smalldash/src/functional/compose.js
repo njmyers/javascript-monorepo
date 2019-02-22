@@ -1,10 +1,12 @@
-// @flow
-import pipe from './pipe';
+/** @flow */
+import runStack from './run-stack';
 
 /**
- * compose functions from right to left automatically currying arguments
- * @param {functions} fns functions (transformations) to perform
+ * Compose functions from right to left automatically currying arguments
+ * @param {Function} fn first function to pop off the stack and apply
+ * @param {Array} fns remainder functions waiting to be applied
+ * @param {Array} args the arguments to curry to next function
  */
-const compose = (...fns: Array<() => any>) => pipe(...fns.reverse());
+const compose = (...fns) => (...args) => runStack(fns, args);
 
 export default compose;
