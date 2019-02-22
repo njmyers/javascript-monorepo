@@ -1,7 +1,20 @@
 // https://material.io/design/typography/the-type-system.html#type-scale
 
+/** helper function to interpolate string and element names */
+=interpolate-typography-strings($class-name, $element-name, $extender: null)
+  .#{$element-name}-#{$class-name}, #{$element-name}.#{$class-name}, *.#{$class-name} > #{$element-name}
+    @if $extender
+      @extend #{$extender}
+    @else
+      @extend %#{$element-name}-#{$class-name}
+
+/** helper function to interpolate string and element names */
+=interpolate-basic-typography-strings($class-name, $element-name, $extender)
+  #{$element-name}.#{$class-name}
+    @extend #{$extender}
+
 =typography($class-name, $font-family, $light-weight: 100, $normal-weight: 300, $medium-weight: 400, $bold-weight: 700)
-  //
+
   $h1-font-size: 6rem
 
   %h1-#{$class-name}
@@ -161,12 +174,6 @@
     font-weight: $normal-weight
     font-family: $font-family
 
-  %li-#{$class-name}-1
-    @extend %body-#{$class-name}-1
-
-  %li-#{$class-name}-2
-    @extend %body-#{$class-name}-2
-
   %markdown-#{$class-name}
     h1
       @extend %h1-#{$class-name}
@@ -189,29 +196,59 @@
     p, span, li, a
       @extend %body-#{$class-name}-1
 
-  .h1-#{$class-name}
-    @extend %h1-#{$class-name}
+  +interpolate-typography-strings($class-name, 'h1')
+  +interpolate-basic-typography-strings('subtitle-#{$class-name}', 'h1', '%subtitle-#{$class-name}-1')
+  +interpolate-basic-typography-strings('subtitle-#{$class-name}-1', 'h1', '%subtitle-#{$class-name}-1')
+  +interpolate-basic-typography-strings('subtitle-#{$class-name}-2', 'h1', '%subtitle-#{$class-name}-2')
 
-  .h2-#{$class-name}
-    @extend %h2-#{$class-name}
+  +interpolate-typography-strings($class-name, 'h2')
+  +interpolate-basic-typography-strings('subtitle-#{$class-name}-1', 'h2', '%subtitle-#{$class-name}-1')
+  +interpolate-basic-typography-strings('subtitle-#{$class-name}-2', 'h2', '%subtitle-#{$class-name}-2')
 
-  .h3-#{$class-name}
-    @extend %h3-#{$class-name}
+  +interpolate-typography-strings($class-name, 'h3')
+  +interpolate-basic-typography-strings('subtitle-#{$class-name}-1', 'h3', '%subtitle-#{$class-name}-1')
+  +interpolate-basic-typography-strings('subtitle-#{$class-name}-2', 'h3', '%subtitle-#{$class-name}-2')
 
-  .h4-#{$class-name}
-    @extend %h4-#{$class-name}
+  +interpolate-typography-strings($class-name, 'h4')
+  +interpolate-basic-typography-strings('subtitle-#{$class-name}-1', 'h2', '%subtitle-#{$class-name}-1')
+  +interpolate-basic-typography-strings('subtitle-#{$class-name}-2', 'h2', '%subtitle-#{$class-name}-2')
 
-  .h5-#{$class-name}
-    @extend %h5-#{$class-name}
+  +interpolate-typography-strings($class-name, 'h5')
+  +interpolate-basic-typography-strings('subtitle-#{$class-name}-1', 'h2', '%subtitle-#{$class-name}-1')
+  +interpolate-basic-typography-strings('subtitle-#{$class-name}-2', 'h2', '%subtitle-#{$class-name}-2')
 
-  .h6-#{$class-name}
-    @extend %h6-#{$class-name}
+  +interpolate-typography-strings($class-name, 'h6')
+  +interpolate-basic-typography-strings('subtitle-#{$class-name}-1', 'h6', '%subtitle-#{$class-name}-1')
+  +interpolate-basic-typography-strings('subtitle-#{$class-name}-2', 'h6', '%subtitle-#{$class-name}-2')
 
-  .body-#{$class-name}-1
-    @extend %body-#{$class-name}-1
+  +interpolate-typography-strings($class-name, 'body', '%body-#{$class-name}-1')
+  +interpolate-typography-strings(#{$class-name}-1, 'body', '%body-#{$class-name}-1')
+  +interpolate-typography-strings(#{$class-name}-2, 'body', '%body-#{$class-name}-2')
 
-  .body-#{$class-name}-2
-    @extend %body-#{$class-name}-2
+  +interpolate-typography-strings($class-name, 'p', '%body-#{$class-name}-1')
+  +interpolate-typography-strings(#{$class-name}-1, 'p', '%body-#{$class-name}-1')
+  +interpolate-typography-strings(#{$class-name}-2, 'p', '%body-#{$class-name}-2')
+
+  +interpolate-typography-strings($class-name, 'span', '%body-#{$class-name}-1')
+  +interpolate-typography-strings(#{$class-name}-1, 'span', '%body-#{$class-name}-1')
+  +interpolate-typography-strings(#{$class-name}-2, 'span', '%body-#{$class-name}-2')
+
+  +interpolate-typography-strings($class-name, 'li', '%body-#{$class-name}-1')
+  +interpolate-typography-strings(#{$class-name}-1, 'li', '%body-#{$class-name}-1')
+  +interpolate-typography-strings(#{$class-name}-2, 'li', '%body-#{$class-name}-2')
+
+  // input elements
+  +interpolate-typography-strings($class-name, 'input', '%body-#{$class-name}-1')
+  +interpolate-typography-strings(#{$class-name}-1, 'input', '%body-#{$class-name}-1')
+  +interpolate-typography-strings(#{$class-name}-2, 'input', '%body-#{$class-name}-2')
+
+  +interpolate-typography-strings($class-name, 'textarea', '%body-#{$class-name}-1')
+  +interpolate-typography-strings(#{$class-name}-1, 'textarea', '%body-#{$class-name}-1')
+  +interpolate-typography-strings(#{$class-name}-2, 'textarea', '%body-#{$class-name}-2')
+
+  // caption
+  +interpolate-typography-strings($class-name, 'caption')
+  +interpolate-typography-strings($class-name, 'figcaption', '%caption-#{$class-name}')
 
   .subtitle-#{$class-name}-1
     @extend %subtitle-#{$class-name}-1
@@ -222,17 +259,8 @@
   .button_text-#{$class-name}
     @extend %button_text-#{$class-name}
 
-  .caption-#{$class-name}
-    @extend %caption-#{$class-name}
-
   .overline-#{$class-name}
     @extend %overline-#{$class-name}
-
-  .li-#{$class-name}-1
-    @extend %body-#{$class-name}-1
-
-  .li-2
-    @extend %body-#{$class-name}-2
 
   .markdown-#{$class-name}
     @extend %markdown-#{$class-name}
