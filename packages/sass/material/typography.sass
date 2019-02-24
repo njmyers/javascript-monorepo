@@ -1,266 +1,257 @@
-// https://material.io/design/typography/the-type-system.html#type-scale
+/** Material Based Typography
+ * https://material.io/design/typography/the-type-system.html#type-scale
 
-/** helper function to interpolate string and element names */
-=interpolate-typography-strings($class-name, $element-name, $extender: null)
-  .#{$element-name}-#{$class-name}, #{$element-name}.#{$class-name}, *.#{$class-name} > #{$element-name}
-    @if $extender
-      @extend #{$extender}
-    @else
-      @extend %#{$element-name}-#{$class-name}
-
-/** helper function to interpolate string and element names */
-=interpolate-basic-typography-strings($class-name, $element-name, $extender)
-  #{$element-name}.#{$class-name}
-    @extend #{$extender}
+/** helper function to reset margin, padding and line-height
+=typography-margin-reset($line-height: 1.4)
+  margin: 0
+  padding: 0
+  line-height: $line-height
 
 =typography($class-name, $font-family, $light-weight: 100, $normal-weight: 300, $medium-weight: 400, $bold-weight: 700)
-
   $h1-font-size: 6rem
 
   %h1-#{$class-name}
     font-size: $h1-font-size
-    line-height: 1.4
-    letter-spacing: -0.09375rem
-    margin: 0
-    margin-top: $h1-font-size * 0.2
-    padding: 0
     font-family: $font-family
     font-weight: $light-weight
+    letter-spacing: -0.09375rem
+
+    +typography-margin-reset
+
+    margin-top: $h1-font-size * 0.2
 
   $h2-font-size: 3.75rem
 
   %h2-#{$class-name}
     font-size: $h2-font-size
-    line-height: 1.4
-    letter-spacing: -0.03125rem
-    margin: 0
-    margin-top: $h2-font-size * 0.2
-    padding: 0
-    font-weight: $light-weight
     font-family: $font-family
+    font-weight: $light-weight
+    letter-spacing: -0.03125rem
+
+    +typography-margin-reset
+
+    margin-top: $h2-font-size * 0.2
 
   $h3-font-size: 3rem
 
   %h3-#{$class-name}
     font-size: $h3-font-size
-    line-height: 1.4
-    letter-spacing: 0rem
-    margin: 0
-    margin-top: $h3-font-size * 0.2
-    padding: 0
-    font-weight: $normal-weight
     font-family: $font-family
+    font-weight: $normal-weight
+    letter-spacing: 0rem
+
+    +typography-margin-reset
+
+    margin-top: $h3-font-size * 0.2
 
   $h4-font-size: 2.125rem
 
   %h4-#{$class-name}
     font-size: $h4-font-size
-    line-height: 1.4
-    letter-spacing: 0.015625rem
-    margin: 0
-    margin-top: $h4-font-size * 0.2
-    padding: 0
-    font-weight: $normal-weight
     font-family: $font-family
+    font-weight: $normal-weight
+    letter-spacing: 0.015625rem
+
+    +typography-margin-reset
+
+    margin-top: $h4-font-size * 0.2
 
   $h5-font-size: 1.5rem
 
   %h5-#{$class-name}
     font-size: $h5-font-size
-    line-height: 1.4
-    letter-spacing: 0rem
-    margin: 0
-    margin-top: $h5-font-size * 0.2
-    padding: 0
-    font-weight: $normal-weight
     font-family: $font-family
+    font-weight: $normal-weight
+    letter-spacing: 0rem
+
+    +typography-margin-reset
+
+    margin-top: $h5-font-size * 0.2
 
   $h6-font-size: 1.25rem
 
   %h6-#{$class-name}
     font-size: $h6-font-size
-    line-height: 1.4
-    letter-spacing: 0.009375rem
-    margin: 0
-    margin-top: $h6-font-size * 0.2
-    padding: 0
-    font-weight: $medium-weight
     font-family: $font-family
+    font-weight: $medium-weight
+    letter-spacing: 0.009375rem
+
+    +typography-margin-reset
+
+    margin-top: $h6-font-size * 0.2
 
   $subtitle-1-font-size: 1rem
 
   %subtitle-#{$class-name}-1
     font-size: $subtitle-1-font-size
-    line-height: 1.4
-    letter-spacing: 0.009375rem
-    margin: 0
-    margin-top: $subtitle-1-font-size * 0.7
-    padding: 0
-    font-weight: $normal-weight
     font-family: $font-family
+    font-weight: $normal-weight
+    letter-spacing: 0.009375rem
+    display: block
+
+    +typography-margin-reset
+
+    margin-top: $subtitle-1-font-size * 0.7
 
   $subtitle-2-font-size: 0.875rem
 
   %subtitle-#{$class-name}-2
     font-size: $subtitle-2-font-size
-    line-height: 1.4
-    letter-spacing: 0.00625rem
-    margin: 0
-    margin-top: $subtitle-2-font-size * 0.65
-    padding: 0
-    font-weight: $medium-weight
     font-family: $font-family
+    font-weight: $medium-weight
+    letter-spacing: 0.00625rem
+    display: block
+
+    +typography-margin-reset
+
+    margin-top: $subtitle-2-font-size * 0.65
 
   $body-1-font-size: 1rem
 
   %body-#{$class-name}-1
     font-size: $body-1-font-size
-    line-height: 1.4
-    letter-spacing: 0.03125rem
-    margin: 0
-    margin-top: $body-1-font-size * 1.25
-    padding: 0
-    font-weight: $normal-weight
     font-family: $font-family
+    font-weight: $normal-weight
+    letter-spacing: 0.03125rem
+
+    +typography-margin-reset
+
+    margin-top: $body-1-font-size * 1.25
 
   $body-2-font-size: 0.875rem
 
   %body-#{$class-name}-2
     font-size: $body-2-font-size
-    line-height: 1.4
-    letter-spacing: 0.015625rem
-    margin: 0
-    margin-top: $body-2-font-size * 1.25
-    padding: 0
-    font-weight: $normal-weight
     font-family: $font-family
+    font-weight: $normal-weight
+    letter-spacing: 0.015625rem
+
+    +typography-margin-reset
+
+    margin-top: $body-2-font-size * 1.25
 
   $button_text-font-size: 0.875rem
 
   %button_text-#{$class-name}
     font-size: $button_text-font-size
-    line-height: 1.4
+    font-family: $font-family
+    font-weight: $medium-weight
     letter-spacing: 0.046875rem
     text-transform: uppercase
     display: block
-    margin: 0
-    padding: 0
-    padding-top: 2px
-    font-weight: $medium-weight
-    font-family: $font-family
+
+    +typography-margin-reset
 
   $caption-font-size: 0.75rem
 
   %caption-#{$class-name}
     font-size: $caption-font-size
-    line-height: 1.4
-    letter-spacing: 0.025rem
-    margin: 0
-    margin-top: $caption-font-size * 0.75
-    padding: 0
-    font-weight: $normal-weight
     font-family: $font-family
+    font-weight: $normal-weight
+    letter-spacing: 0.025rem
+
+    +typography-margin-reset
+
+    margin-top: $caption-font-size * 0.75
 
   $overline-font-size: 0.625rem
 
   %overline-#{$class-name}
     font-size: $overline-font-size
-    line-height: 1.4
+    font-family: $font-family
+    font-weight: $normal-weight
     letter-spacing: 0.09375rem
     text-transform: uppercase
-    margin: 0
+
+    +typography-margin-reset
+
     margin-top: $overline-font-size * 0.75
-    padding: 0
-    font-weight: $normal-weight
-    font-family: $font-family
 
-  %markdown-#{$class-name}
-    h1
-      @extend %h1-#{$class-name}
+  // self referencing elements
+  $self-elements: "h1", "h2", "h3", "h4", "h5", "h6"
 
-    h2
-      @extend %h2-#{$class-name}
+  @each $self-element in $self-elements
+    #{$self-element}.#{$class-name}
+      @extend %#{$self-element}-#{$class-name}
 
-    h3
-      @extend %h3-#{$class-name}
+  // body elements
+  $body-elements: "p", "span", "li", "input", "textarea", "a"
 
-    h4
-      @extend %h4-#{$class-name}
-
-    h5
-      @extend %h5-#{$class-name}
-
-    h6
-      @extend %h6-#{$class-name}
-
-    p, span, li, a
+  @each $body-element in $body-elements
+    #{$body-element}.#{$class-name}
       @extend %body-#{$class-name}-1
 
-  +interpolate-typography-strings($class-name, 'h1')
-  +interpolate-basic-typography-strings('subtitle-#{$class-name}', 'h1', '%subtitle-#{$class-name}-1')
-  +interpolate-basic-typography-strings('subtitle-#{$class-name}-1', 'h1', '%subtitle-#{$class-name}-1')
-  +interpolate-basic-typography-strings('subtitle-#{$class-name}-2', 'h1', '%subtitle-#{$class-name}-2')
+    #{$body-element}.#{$class-name}-1
+      @extend %body-#{$class-name}-1
 
-  +interpolate-typography-strings($class-name, 'h2')
-  +interpolate-basic-typography-strings('subtitle-#{$class-name}-1', 'h2', '%subtitle-#{$class-name}-1')
-  +interpolate-basic-typography-strings('subtitle-#{$class-name}-2', 'h2', '%subtitle-#{$class-name}-2')
+    #{$body-element}.#{$class-name}-2
+      @extend %body-#{$class-name}-2
 
-  +interpolate-typography-strings($class-name, 'h3')
-  +interpolate-basic-typography-strings('subtitle-#{$class-name}-1', 'h3', '%subtitle-#{$class-name}-1')
-  +interpolate-basic-typography-strings('subtitle-#{$class-name}-2', 'h3', '%subtitle-#{$class-name}-2')
+  // button elements
+  $button-elements: "button"
 
-  +interpolate-typography-strings($class-name, 'h4')
-  +interpolate-basic-typography-strings('subtitle-#{$class-name}-1', 'h2', '%subtitle-#{$class-name}-1')
-  +interpolate-basic-typography-strings('subtitle-#{$class-name}-2', 'h2', '%subtitle-#{$class-name}-2')
+  @each $button-element in $button-elements
+    #{$button-element}.#{$class-name}
+      @extend %button_text-#{$class-name}
 
-  +interpolate-typography-strings($class-name, 'h5')
-  +interpolate-basic-typography-strings('subtitle-#{$class-name}-1', 'h2', '%subtitle-#{$class-name}-1')
-  +interpolate-basic-typography-strings('subtitle-#{$class-name}-2', 'h2', '%subtitle-#{$class-name}-2')
+  // caption elements
+  $caption-elements: "figcaption", "caption"
 
-  +interpolate-typography-strings($class-name, 'h6')
-  +interpolate-basic-typography-strings('subtitle-#{$class-name}-1', 'h6', '%subtitle-#{$class-name}-1')
-  +interpolate-basic-typography-strings('subtitle-#{$class-name}-2', 'h6', '%subtitle-#{$class-name}-2')
+  @each $caption-element in $caption-elements
+    #{$caption-element}.#{$class-name}
+      @extend %caption-#{$class-name}
 
-  +interpolate-typography-strings($class-name, 'body', '%body-#{$class-name}-1')
-  +interpolate-typography-strings(#{$class-name}-1, 'body', '%body-#{$class-name}-1')
-  +interpolate-typography-strings(#{$class-name}-2, 'body', '%body-#{$class-name}-2')
+  // subtitle elements
+  $subtitle-elements: "label"
 
-  +interpolate-typography-strings($class-name, 'p', '%body-#{$class-name}-1')
-  +interpolate-typography-strings(#{$class-name}-1, 'p', '%body-#{$class-name}-1')
-  +interpolate-typography-strings(#{$class-name}-2, 'p', '%body-#{$class-name}-2')
+  @each $subtitle-element in $subtitle-elements
+    #{$subtitle-element}.#{$class-name}
+      @extend %subtitle-#{$class-name}-1
 
-  +interpolate-typography-strings($class-name, 'span', '%body-#{$class-name}-1')
-  +interpolate-typography-strings(#{$class-name}-1, 'span', '%body-#{$class-name}-1')
-  +interpolate-typography-strings(#{$class-name}-2, 'span', '%body-#{$class-name}-2')
+    #{$subtitle-element}.#{$class-name}-1
+      @extend %subtitle-#{$class-name}-1
 
-  +interpolate-typography-strings($class-name, 'li', '%body-#{$class-name}-1')
-  +interpolate-typography-strings(#{$class-name}-1, 'li', '%body-#{$class-name}-1')
-  +interpolate-typography-strings(#{$class-name}-2, 'li', '%body-#{$class-name}-2')
+    #{$subtitle-element}.#{$class-name}-2
+      @extend %subtitle-#{$class-name}-2
 
-  // input elements
-  +interpolate-typography-strings($class-name, 'input', '%body-#{$class-name}-1')
-  +interpolate-typography-strings(#{$class-name}-1, 'input', '%body-#{$class-name}-1')
-  +interpolate-typography-strings(#{$class-name}-2, 'input', '%body-#{$class-name}-2')
+  // named-classes
+  $named-classes: "h1", "h2", "h3", "h4", "h5", "h6", "button_text", "caption", "overline"
 
-  +interpolate-typography-strings($class-name, 'textarea', '%body-#{$class-name}-1')
-  +interpolate-typography-strings(#{$class-name}-1, 'textarea', '%body-#{$class-name}-1')
-  +interpolate-typography-strings(#{$class-name}-2, 'textarea', '%body-#{$class-name}-2')
+  @each $named-class in $named-classes
+    .#{$named-class}-#{$class-name}
+      @extend %#{$named-class}-#{$class-name}
 
-  // caption
-  +interpolate-typography-strings($class-name, 'caption')
-  +interpolate-typography-strings($class-name, 'figcaption', '%caption-#{$class-name}')
+  // aliased-classes
+  $aliased-classes: "body", "subtitle"
 
-  .subtitle-#{$class-name}-1
-    @extend %subtitle-#{$class-name}-1
+  @each $aliased-class in $aliased-classes
+    .#{$aliased-class}-#{$class-name}
+      @extend %#{$aliased-class}-#{$class-name}-1
 
-  .subtitle-#{$class-name}-2
-    @extend %subtitle-#{$class-name}-2
+    .#{$aliased-class}-#{$class-name}-1
+      @extend %#{$aliased-class}-#{$class-name}-1
 
-  .button_text-#{$class-name}
-    @extend %button_text-#{$class-name}
+    .#{$aliased-class}-#{$class-name}-2
+      @extend %#{$aliased-class}-#{$class-name}-2
 
-  .overline-#{$class-name}
-    @extend %overline-#{$class-name}
+  // parent classes
+  .markdown-#{$class-name}, .parent-#{$class-name}
+    @each $self-element in $self-elements
+      #{$self-element}
+        @extend %#{$self-element}-#{$class-name}
 
-  .markdown-#{$class-name}
-    @extend %markdown-#{$class-name}
+    @each $body-element in $body-elements
+      #{$body-element}
+        @extend %body-#{$class-name}-1
+
+    @each $subtitle-element in $subtitle-elements
+      #{$subtitle-element}
+        @extend %subtitle-#{$class-name}-1
+
+    @each $button-element in $button-elements
+      #{$button-element}
+        @extend %button_text-#{$class-name}
+
+    @each $caption-element in $caption-elements
+      #{$caption-element}
+        @extend %caption-#{$class-name}
