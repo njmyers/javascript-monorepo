@@ -7,160 +7,160 @@
   padding: 0
   line-height: $line-height
 
-=typography($class-name, $font-family, $light-weight: 100, $normal-weight: 300, $medium-weight: 400, $bold-weight: 700)
-  $h1-font-size: 6rem
+=typography($class-name, $font-family, $light-weight: 100, $normal-weight: 300, $medium-weight: 400, $bold-weight: 700, $font-scale: 1)
+  $h1-font-size: 6rem * $font-scale
 
   %h1-#{$class-name}
     font-size: $h1-font-size
     font-family: $font-family
     font-weight: $light-weight
-    letter-spacing: -0.09375rem
+    letter-spacing: -0.09375rem * $font-scale
 
     +typography-margin-reset
 
     margin-top: $h1-font-size * 0.2
 
-  $h2-font-size: 3.75rem
+  $h2-font-size: 3.75rem * $font-scale
 
   %h2-#{$class-name}
     font-size: $h2-font-size
     font-family: $font-family
     font-weight: $light-weight
-    letter-spacing: -0.03125rem
+    letter-spacing: -0.03125rem * $font-scale
 
     +typography-margin-reset
 
     margin-top: $h2-font-size * 0.2
 
-  $h3-font-size: 3rem
+  $h3-font-size: 3rem * $font-scale
 
   %h3-#{$class-name}
     font-size: $h3-font-size
     font-family: $font-family
     font-weight: $normal-weight
-    letter-spacing: 0rem
+    letter-spacing: 0rem * $font-scale
 
     +typography-margin-reset
 
     margin-top: $h3-font-size * 0.2
 
-  $h4-font-size: 2.125rem
+  $h4-font-size: 2.125rem * $font-scale
 
   %h4-#{$class-name}
     font-size: $h4-font-size
     font-family: $font-family
     font-weight: $normal-weight
-    letter-spacing: 0.015625rem
+    letter-spacing: 0.015625rem * $font-scale
 
     +typography-margin-reset
 
     margin-top: $h4-font-size * 0.2
 
-  $h5-font-size: 1.5rem
+  $h5-font-size: 1.5rem * $font-scale
 
   %h5-#{$class-name}
     font-size: $h5-font-size
     font-family: $font-family
     font-weight: $normal-weight
-    letter-spacing: 0rem
+    letter-spacing: 0rem * $font-scale
 
     +typography-margin-reset
 
     margin-top: $h5-font-size * 0.2
 
-  $h6-font-size: 1.25rem
+  $h6-font-size: 1.25rem * $font-scale
 
   %h6-#{$class-name}
     font-size: $h6-font-size
     font-family: $font-family
     font-weight: $medium-weight
-    letter-spacing: 0.009375rem
+    letter-spacing: 0.009375rem * $font-scale
 
     +typography-margin-reset
 
     margin-top: $h6-font-size * 0.2
 
-  $subtitle-1-font-size: 1rem
+  $subtitle-1-font-size: 1rem * $font-scale
 
   %subtitle-#{$class-name}-1
     font-size: $subtitle-1-font-size
     font-family: $font-family
     font-weight: $normal-weight
-    letter-spacing: 0.009375rem
+    letter-spacing: 0.009375rem * $font-scale
     display: block
 
     +typography-margin-reset
 
     margin-top: $subtitle-1-font-size * 0.7
 
-  $subtitle-2-font-size: 0.875rem
+  $subtitle-2-font-size: 0.875rem * $font-scale
 
   %subtitle-#{$class-name}-2
     font-size: $subtitle-2-font-size
     font-family: $font-family
     font-weight: $medium-weight
-    letter-spacing: 0.00625rem
+    letter-spacing: 0.00625rem * $font-scale
     display: block
 
     +typography-margin-reset
 
     margin-top: $subtitle-2-font-size * 0.65
 
-  $body-1-font-size: 1rem
+  $body-1-font-size: 1rem * $font-scale
 
   %body-#{$class-name}-1
     font-size: $body-1-font-size
     font-family: $font-family
     font-weight: $normal-weight
-    letter-spacing: 0.03125rem
+    letter-spacing: 0.03125rem * $font-scale
 
     +typography-margin-reset
 
     margin-top: $body-1-font-size * 1.25
 
-  $body-2-font-size: 0.875rem
+  $body-2-font-size: 0.875rem * $font-scale
 
   %body-#{$class-name}-2
     font-size: $body-2-font-size
     font-family: $font-family
     font-weight: $normal-weight
-    letter-spacing: 0.015625rem
+    letter-spacing: 0.015625rem * $font-scale
 
     +typography-margin-reset
 
     margin-top: $body-2-font-size * 1.25
 
-  $button_text-font-size: 0.875rem
+  $button_text-font-size: 0.875rem * $font-scale
 
   %button_text-#{$class-name}
     font-size: $button_text-font-size
     font-family: $font-family
     font-weight: $medium-weight
-    letter-spacing: 0.046875rem
+    letter-spacing: 0.046875rem * $font-scale
     text-transform: uppercase
     display: block
 
     +typography-margin-reset
 
-  $caption-font-size: 0.75rem
+  $caption-font-size: 0.75rem * $font-scale
 
   %caption-#{$class-name}
     font-size: $caption-font-size
     font-family: $font-family
     font-weight: $normal-weight
-    letter-spacing: 0.025rem
+    letter-spacing: 0.025rem * $font-scale
 
     +typography-margin-reset
 
     margin-top: $caption-font-size * 0.75
 
-  $overline-font-size: 0.625rem
+  $overline-font-size: 0.625rem * $font-scale
 
   %overline-#{$class-name}
     font-size: $overline-font-size
     font-family: $font-family
     font-weight: $normal-weight
-    letter-spacing: 0.09375rem
+    letter-spacing: 0.09375rem * $font-scale
     text-transform: uppercase
 
     +typography-margin-reset
@@ -175,7 +175,7 @@
       @extend %#{$self-element}-#{$class-name}
 
   // body elements
-  $body-elements: "p", "span", "li", "input", "textarea", "a"
+  $body-elements: "p", "span", "li", "input", "textarea", "a", "cite"
 
   @each $body-element in $body-elements
     #{$body-element}.#{$class-name}
@@ -213,6 +213,12 @@
 
     #{$subtitle-element}.#{$class-name}-2
       @extend %subtitle-#{$class-name}-2
+
+  bold.#{$class-name}
+    font-weight: $bold-weight
+
+  em.#{$class-name}
+    font-weight: $light-weight
 
   // named-classes
   $named-classes: "h1", "h2", "h3", "h4", "h5", "h6", "button_text", "caption", "overline"

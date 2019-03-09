@@ -1,3 +1,10 @@
 @import ../style.sass
+@import ../../mixins.sass
 
 +typography("sans", ("Roboto", sans-serif))
++typography("sans-small", ("Roboto", sans-serif), 100, 300, 400, 700, 0.8)
++typography("sans-large", ("Roboto", sans-serif), 100, 300, 400, 700, 1.2)
+
+html
+  +all-phone
+    font-size: 12px
