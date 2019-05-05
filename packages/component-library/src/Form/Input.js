@@ -1,9 +1,9 @@
 // @flow
 import * as React from 'react';
-import FormElement from './FormElement';
+import Element from './Element';
 
 const Input = React.forwardRef((props, ref) => (
-  <FormElement as="input" forwardedRef={ref} {...props} />
+  <Element as="input" forwardedRef={ref} {...props} />
 ));
 
 Input.defaultProps = {

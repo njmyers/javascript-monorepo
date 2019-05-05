@@ -1,9 +1,9 @@
 // @flow
 import * as React from 'react';
-import FormElement from './FormElement';
+import Element from './Element';
 
 const TextArea = React.forwardRef((props, ref) => (
-  <FormElement as="textarea" forwardedRef={ref} {...props} />
+  <Element as="textarea" forwardedRef={ref} {...props} />
 ));
 
 TextArea.defaultProps = {

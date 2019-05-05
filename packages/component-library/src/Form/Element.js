@@ -12,7 +12,7 @@ type Props = {
   className?: string,
 };
 
-function FormElement({
+function Element({
   as,
   element,
   name,
@@ -49,4 +49,4 @@ function FormElement({
   );
 }
 
-export default FormElement;
+export default Element;
