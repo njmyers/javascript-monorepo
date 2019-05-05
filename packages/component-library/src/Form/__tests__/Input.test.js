@@ -1,24 +1,24 @@
 import React from 'react';
 import Input from '../Input';
 
-import { configure, shallow, mount } from 'enzyme';
+import { configure, mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
 configure({ adapter: new Adapter() });
 
 describe('the input works', () => {
   test('the input mounts without crashing', () => {
-    const wrapper = shallow(<Input />);
+    const wrapper = mount(<Input />);
     expect(wrapper.html()).toMatchSnapshot();
   });
 
   test('the input receives value as prop', () => {
-    const wrapper = shallow(<Input value={4} />);
+    const wrapper = mount(<Input value={4} />);
     expect(wrapper.find('input').props().value).toBe(4);
   });
 
   test('the input receives value changes as prop', () => {
-    const wrapper = shallow(<Input value={4} />);
+    const wrapper = mount(<Input value={4} />);
     expect(wrapper.find('input').props().value).toBe(4);
 
     wrapper.setProps({ value: 5 });
@@ -26,14 +26,14 @@ describe('the input works', () => {
   });
 
   test('the input passes name, type and label property', () => {
-    const wrapper = shallow(<Input name="age" type="number" label="Age" />);
+    const wrapper = mount(<Input name="age" type="number" label="Age" />);
     expect(wrapper.find('input').props().name).toBe('age');
     expect(wrapper.find('input').props().type).toBe('number');
     expect(wrapper.find('label').text()).toBe('Age');
   });
 
   test('the input passes overwrites label with name when no prop is provided', () => {
-    const wrapper = shallow(<Input name="age" type="number" />);
+    const wrapper = mount(<Input name="age" type="number" />);
     expect(wrapper.find('input').props().name).toBe('age');
     expect(wrapper.find('input').props().type).toBe('number');
     expect(wrapper.find('label').text()).toBe('age');
