@@ -37,6 +37,7 @@
   },
   "devDependencies": {
     "@njmyers/babel-runtime-files": "^0.0.5",
+    "@njmyers/eslint-config": "^0.0.1",
     "babel-cli": "^6.26.0",
     "flow-bin": "^0.74.0",
     "jest": "^22.1.4",

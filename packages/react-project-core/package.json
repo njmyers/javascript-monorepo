@@ -46,6 +46,7 @@
   },
   "devDependencies": {
     "@njmyers/babel-runtime-files": "^0.0.5",
+    "@njmyers/eslint-config": "^0.0.1",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.5",
