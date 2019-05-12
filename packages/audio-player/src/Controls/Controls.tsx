@@ -3,9 +3,9 @@ import Button from '../Button';
 
 import './controls.sass';
 
-const Controls = ({ playing, play, pause, stop, next, prev, sizes }) => {
+const Controls = ({ playing, play, pause, stop, next, prev }) => {
   return (
-    <div className="controls">
+    <div className="controls" role="group">
       <Button icon="backward" onClick={prev} />
       <Button
         icon={!playing ? 'play' : 'pause'}

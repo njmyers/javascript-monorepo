@@ -5,10 +5,20 @@ import { Props } from './types';
 
 import './button.sass';
 
-const Button = ({ onClick, icon, ...props }: Props) => (
-  <button className={icon} onClick={onClick}>
-    <FontAwesomeIcon icon={icon} {...props} />
-  </button>
-);
+const Button = ({ onClick, icon, ...props }: Props) => {
+  const name = icon as string;
+
+  return (
+    <button
+      type="button"
+      className={name}
+      name={name}
+      aria-label={name}
+      onClick={onClick}
+    >
+      <FontAwesomeIcon icon={icon} {...props} />
+    </button>
+  );
+};
 
 export default Button;
