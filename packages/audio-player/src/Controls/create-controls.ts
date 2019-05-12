@@ -10,11 +10,11 @@ import {
 
 import Controls from './Controls';
 
-const mapStateToProps = (state, ownProps) => ({
+const mapStateToProps = state => ({
   playing: state.playing,
 });
 
-const mapDispatchToProps = (dispatch, ownProps) => ({
+const mapDispatchToProps = dispatch => ({
   play: () => dispatch(playerStart()),
   pause: () => dispatch(playerPause()),
   stop: () => dispatch(playerStop()),
@@ -22,12 +22,11 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
   prev: () => dispatch(playerScroll(-1)),
 });
 
-const createControls = (storeKey) =>
+const createControls = storeKey =>
   connect(
     mapStateToProps,
     mapDispatchToProps,
-    mergeProps,
-    { storeKey }
+    mergeProps
   )(Controls);
 
 export default createControls;

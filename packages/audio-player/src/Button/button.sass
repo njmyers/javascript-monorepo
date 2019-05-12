@@ -1,7 +1,7 @@
 @import ../global
 
 .audioPlayer
-  &_button
+  button
     border-radius: 100%
     padding: 0
     height: 45px
@@ -21,27 +21,22 @@
     &:hover
       opacity: 0.8
 
-  &-big
-    height: 55px
-    width: 55px
+    &.backward
+      padding-right: 3px
 
-  // adjust centering
-  &_previous
-    padding-right: 3px
+    &.forward
+      padding-left: 4px
 
-  &_play
-    padding-left: 4px
+    &.play
+      width: 55px
+      height: 55px
+      padding-left: 4px
 
-  &_pause
-    padding-left: 0px
+    &.pause
+      width: 55px
+      height: 55px
+      padding-left: 0px
 
-  &_stop
-    // padding-left: 4px
-
-  &_next
-    padding-left: 4px
-
-  &_buttonGroup
-    display: flex
-    align-items: center
-    justify-content: space-between
+    &.stop
+      width: 55px
+      height: 55px
