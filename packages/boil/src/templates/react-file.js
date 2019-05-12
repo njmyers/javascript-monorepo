@@ -4,7 +4,7 @@ import { componentName, camelName } from "../args";
 const reactFile = kebab =>
   `import * as React from 'react'
 // types
-import type { Props, State } from './types'
+import { Props, State } from './types'
 // styles
 import './${kebab}.sass'
 
