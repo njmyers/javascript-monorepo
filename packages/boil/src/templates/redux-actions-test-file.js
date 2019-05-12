@@ -1,8 +1,8 @@
 /** @flow */
 import { camelName } from "../args";
 
-const reduxActionsTestFile = (kebab, options) => `/** @flow */
-import configureStore from 'redux-mock-store';
+const reduxActionsTestFile = (kebab, options) =>
+  `import configureStore from 'redux-mock-store';
 import * as ${camelName(kebab)}Actions from '../${kebab}-actions'
 import { initialState } from '../${kebab}-reducer'
 

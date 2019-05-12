@@ -17,7 +17,7 @@ const make = (name, template, relativePath) => {
   const file = template(name);
   const fd = path.resolve(cwd, relativePath);
   shell.ShellString(file).toEnd(fd);
-  console.log(chalk.green("boilerplated added at: ") + chalk.bold(fd));
+  console.log(chalk.green("boilerplate added at: ") + chalk.bold(fd));
 };
 
 export default make;

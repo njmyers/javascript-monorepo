@@ -17,38 +17,43 @@ const componentProgram = program => {
     .option("-s, --story", "create a story file", false)
     .option("-d, --design", "create a design file, defaults to sass", false)
     .option("-t, --test", "create a test file", false)
-    .option("-w, --flow", "create a flow types file and use pragmas", false)
+    .option("-T, --typescript", "create ts extension and types file", false)
     .option("-a, --all", "create all possible files", false)
     .action((...args) => {
       const [options, components] = args.reverse();
+      const ext = options.typescript || options.all ? "ts" : "js";
 
       components.forEach(component => {
         const kebab = kebabName(component);
         const title = componentName(component);
 
         if (options.file || options.all) {
-          make(component, reactFile, `${title}/${title}.js`);
-          make(component, reactIndexFile, `${title}/index.js`);
+          make(component, reactFile, `${title}/${title}.${ext}`);
+          make(component, reactIndexFile, `${title}/index.${ext}`);
         }
 
         // optional files
         if (options.test || options.all) {
-          make(component, reactTestFile, `${title}/__tests__/${kebab}.test.js`);
+          make(
+            component,
+            reactTestFile,
+            `${title}/__tests__/${kebab}.test.${ext}`
+          );
         }
 
         if (options.design || options.all) {
           make(component, reactSassFile, `${title}/${kebab}.sass`);
         }
 
-        if (options.flow || options.all) {
-          make(component, reactTypesFile, `${title}/types.js`);
+        if (options.typescript || options.all) {
+          make(component, reactTypesFile, `${title}/types.${ext}`);
         }
 
         if (options.story || options.all) {
           make(
             component,
             reactStoryFile,
-            `${title}/__stories__/${component}.stories.js`
+            `${title}/__stories__/${component}.stories.${ext}`
           );
         }
       });

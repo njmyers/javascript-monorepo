@@ -14,18 +14,19 @@ const reduxProgram = program => {
     .command("redux [redux-names...]")
     .option("-f, --file", "create boilerplate files and index exports", false)
     .option("-t, --test", "create a test file", false)
-    .option("-w, --flow", "create a flow types file and use pragmas", false)
+    .option("-T, --typescript", "create ts extension and types file", false)
     .option("-a, --all", "create all possible files", false)
     .action((...args) => {
       const [options, functions] = args.reverse();
+      const ext = options.typescript || options.all ? "ts" : "js";
 
       functions.forEach(component => {
         const kebab = kebabName(component);
 
         if (options.file || options.all) {
-          make(component, reduxActionsFile, `${kebab}-actions.js`);
-          make(component, reduxReducerFile, `${kebab}-reducer.js`);
-          make(component, reduxIndexFile, `index.js`);
+          make(component, reduxActionsFile, `${kebab}-actions.${ext}`);
+          make(component, reduxReducerFile, `${kebab}-reducer.${ext}`);
+          make(component, reduxIndexFile, `index.${ext}`);
         }
 
         // optional files
@@ -33,12 +34,12 @@ const reduxProgram = program => {
           make(
             component,
             reduxActionsTestFile,
-            `__tests__/${kebab}-actions.test.js`
+            `__tests__/${kebab}-actions.test.${ext}`
           );
           make(
             component,
             reduxReducerTestFile,
-            `__tests__/${kebab}-reducer.test.js`
+            `__tests__/${kebab}-reducer.test.${ext}`
           );
         }
       });
