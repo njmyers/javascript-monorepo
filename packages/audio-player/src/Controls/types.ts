@@ -1,7 +1,10 @@
+type ClickHandler = (event: React.SyntheticEvent<HTMLButtonElement>) => null;
+
 export interface Props {
-  play: Function;
-  pause: Function;
-  stop: Function;
-  next: Function;
-  prev: Function;
+  playing: boolean;
+  playerStart: ClickHandler;
+  playerPause: ClickHandler;
+  playerStop: ClickHandler;
+  playerForward: ClickHandler;
+  playerBackward: ClickHandler;
 }
