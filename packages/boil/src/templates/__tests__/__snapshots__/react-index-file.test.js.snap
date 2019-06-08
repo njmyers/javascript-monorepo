@@ -1,8 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`it works it runs without crashing 1`] = `
-"/** @flow */
-export { default } from './TestComponent'
+"export { default } from './TestComponent'
 export * from './types'
 "
 `;

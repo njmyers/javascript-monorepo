@@ -1,9 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`it works it runs without crashing 1`] = `
-"/** @flow */
-const testFunction = () => null
+"const testFunction = () => null
 
-export default testFunction
+export default testFunction;
 "
 `;
