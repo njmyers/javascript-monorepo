@@ -1,29 +1,29 @@
+/* eslint-disable */
 module.exports = {
+  parser: 'babel-eslint',
   extends: [
-    "plugin:flowtype/recommended",
-    "airbnb",
-    "plugin:prettier/recommended",
-    "prettier/flowtype",
-    "prettier/react"
+    'airbnb',
+    'plugin:prettier/recommended',
+    'prettier/react'
   ],
   rules: {
-    "react/jsx-filename-extension": [
+    'react/jsx-filename-extension': [
       1,
       {
-        "extensions": [".js", ".jsx"]
+        'extensions': ['.js', '.jsx', '.ts', '.tsx', '.test.js', '.test.ts', '.stories.js', '.stories.ts']
       }
     ],
-    "react/prop-types": 0,
-    "react/destructuring-assignment": false
+    'react/prop-types': 0,
+    'react/destructuring-assignment': false
   },
-  plugins: ["flowtype", "prettier"],
+  plugins: ['jsx-a11y'],
   overrides: [
     {
-      files: ["**/*.test.js"],
+      files: ['**/*.test.js', '**/*.test.ts'],
       env: {
         jest: true
       },
-      plugins: ["jest"]
+      plugins: ['jest']
     }
   ],
   env: {
