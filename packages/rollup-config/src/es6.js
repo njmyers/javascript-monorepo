@@ -1,8 +1,9 @@
+/* eslint-disable */
 const resolve = require('rollup-plugin-node-resolve');
 const babel = require('rollup-plugin-babel');
 const runtimes = require('@njmyers/babel-runtime-files');
 
-const es6 = (pkg) => ({
+const es6 = pkg => ({
   external: [
     ...Object.keys(pkg.dependencies || {}),
     ...Object.keys(pkg.peerDependencies || {}),
