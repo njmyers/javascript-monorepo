@@ -4,10 +4,10 @@ import * as path from 'path';
 import { pipe } from 'smalldash';
 import * as mime from 'mime-types';
 // types
-import type { FileObject, Options } from './types';
+import { FileObject, Options } from './types';
 
 /** is it a file or a dir? */
-const isFile = (file) => fs.statSync(file).isFile();
+const isFile = file => fs.statSync(file).isFile();
 
 /**
  * Reads a directory and returns an array of their paths.
@@ -22,18 +22,18 @@ function readDirectory(dir: string, options: Options = {}): Array<string> {
     ? [dir]
     : []
         .concat(
-          ...fs.readdirSync(dir).map((name) => {
+          ...fs.readdirSync(dir).map(name => {
             const filePath = `${dir}/${name}`;
             return options.recursive
               ? isFile(filePath)
                 ? filePath
                 : readDirectory(filePath, options)
               : isFile(filePath)
-                ? filePath
-                : '';
+              ? filePath
+              : '';
           })
         )
-        .filter((string) => string);
+        .filter(string => string);
 }
 
 /**
@@ -144,7 +144,7 @@ function directory(dir: string, options: Options = defO): Array<FileObject> {
         // finally apply the filtering for our safe results array
         // if we are in "only paths" mode then we won't have an object
         // if we have an object we default to include unless we add a filter
-        .filter((obj) => obj.include || typeof obj === 'string')
+        .filter(obj => obj.include || typeof obj === 'string')
     : list;
 }
 
