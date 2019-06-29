@@ -1,6 +1,5 @@
 import * as React from 'react';
 import * as storybook from '@storybook/react';
-import { withOptions } from '@storybook/addon-options';
 import { withKnobs } from '@storybook/addon-knobs';
 import '@storybook/addon-console';
 // components
@@ -9,15 +8,19 @@ import Layout from './Layout';
 // Add Global Knobs
 storybook.addDecorator(withKnobs);
 
-withOptions({
-  name: '@njmyers NPM Documentation',
-  url: 'https://njmyers.netlify.com',
-  goFullScreen: false,
-  showStoriesPanel: true,
-  showAddonPanel: true,
-  showSearchBox: false,
-  addonPanelInRight: true,
-  sortStoriesByKind: true,
+storybook.addParameters({
+  options: {
+    isFullScreen: false,
+    showPanel: true,
+    panelPosition: 'bottom',
+    // showSearchBox: false,
+    // addonPanelInRight: true,
+    // sortStoriesByKind: true,
+    theme: {
+      brandTitle: '@njmyers NPM Documentation',
+      brandUrl: 'https://njmyers.netlify.com',
+    },
+  },
 });
 
 storybook.addDecorator((stories, context) => {
@@ -28,12 +31,12 @@ storybook.addDecorator((stories, context) => {
 const req = require.context(
   '../packages',
   true,
-  /^((?![\\/]node_modules|vendor[\\/]).)*\.stories.js$/
+  /^((?![\\/]node_modules|vendor[\\/]).)*\.stories.(j|t)s$/
 );
 
 // webpack voodoo
 const loadStories = () => {
-  req.keys().forEach((filename) => req(filename));
+  req.keys().forEach(filename => req(filename));
 };
 
 // initialize storybook

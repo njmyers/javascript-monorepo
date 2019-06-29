@@ -2,10 +2,18 @@ const path = require('path');
 
 process.env.BABEL_ENV = 'storybook';
 
-module.exports = (baseConfig, env, defaultConfig) => {
+module.exports = ({ config, mode }) => {
   // add sass rule
   const rules = [
-    ...defaultConfig.module.rules,
+    ...config.module.rules,
+    {
+      test: /\.(ts|tsx)$/,
+      use: [
+        {
+          loader: require.resolve('babel-loader'),
+        },
+      ],
+    },
     {
       test: /\.sass$/,
       loaders: ['style-loader', 'css-loader', 'sass-loader'],
@@ -13,19 +21,18 @@ module.exports = (baseConfig, env, defaultConfig) => {
     },
   ];
 
-  const config = {
-    ...defaultConfig,
+  return {
+    ...config,
     module: {
-      ...defaultConfig.module,
+      ...config.module,
       rules,
     },
     resolve: {
-      ...defaultConfig.resolve,
+      ...config.resolve,
       alias: {
         'with-docs$': path.resolve(__dirname, 'with-docs.js'),
       },
+      extensions: [...config.resolve.extensions, '.ts', '.tsx'],
     },
   };
-
-  return config;
 };
