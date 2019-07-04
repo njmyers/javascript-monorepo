@@ -1,7 +1,7 @@
 const path = require('path');
 const config = require(path.resolve(__dirname, '../../babel.config.js'));
 
-module.exports = (api) => {
+module.exports = api => {
   return {
     ...config(api),
   };
