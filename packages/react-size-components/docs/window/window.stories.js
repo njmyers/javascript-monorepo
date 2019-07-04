@@ -7,6 +7,6 @@ import { withDocs } from 'storybook-readme';
 import readme from './README.md';
 import Child from './Child';
 
-storiesOf('react-size-components/3) Window', module)
+storiesOf('react-size-components|3) Window', module)
   .addDecorator(withDocs(readme))
   .add('Basic Window Size', () => <Child />);

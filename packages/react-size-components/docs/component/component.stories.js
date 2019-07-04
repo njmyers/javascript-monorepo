@@ -10,7 +10,7 @@ import Parent from './Parent';
 import ID from './ID';
 import Debounce from './Debounce';
 
-storiesOf('react-size-components/2) Component', module)
+storiesOf('react-size-components|2) Component', module)
   .addDecorator(withDocs(readme))
   .add('Basic Component', () => <Child />)
   .add('Parent Callback', () => (

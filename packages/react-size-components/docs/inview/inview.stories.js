@@ -8,7 +8,7 @@ import readme from './README.md';
 import Child from './Child';
 import MultipleChildren from './MultipleChildren';
 
-storiesOf('react-size-components/2) Component', module)
+storiesOf('react-size-components|2) Component', module)
   .addDecorator(withDocs(readme))
   .add('Single Position Component', () => <Child />)
   .add('List of Position Aware Components', () => (
