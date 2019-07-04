@@ -4,10 +4,10 @@ import { storiesOf } from '@storybook/react';
 
 import withSearch from '../with-search';
 
-const Thing = (props) => <p>{JSON.stringify(props.search)}</p>;
+const Thing = props => <p>{JSON.stringify(props.search)}</p>;
 const ThingWithSearch = withSearch(Thing);
 
-storiesOf('@njmyers-with-search', module).add('Demo', () => (
+storiesOf('@njmyers/with-search|Examples', module).add('Demo', () => (
   <Router>
     <ThingWithSearch />
   </Router>
