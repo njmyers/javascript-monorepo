@@ -4,7 +4,7 @@ import { storiesOf } from '@storybook/react';
 
 import WidthText from '../WidthText';
 
-storiesOf('@njmyers-react-width-text', module).add('Demo', () => (
+storiesOf('@njmyers/react-width-text|Examples', module).add('Demo', () => (
   <React.Fragment>
     <h1>WidthText</h1>
     <p>Use the knob to adjust the percentage of the container width</p>
