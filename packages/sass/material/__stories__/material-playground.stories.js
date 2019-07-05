@@ -5,7 +5,7 @@ import { Scratch } from '@njmyers/component-library';
 
 import './style.sass';
 
-storiesOf('@njmyers-sass', module)
+storiesOf('@njmyers-sass|Examples', module)
   .add('Element Typography Classes', () => (
     <section>
       <h1 className="sans">Heading 1</h1>
