@@ -1,10 +1,9 @@
-// @flow
-import type { Configuration } from './types';
+import { Configuration } from './types';
 
 const orientation: Configuration = {
   name: 'orientation',
   schema: 'landscape',
-  fn: (node, window) =>
+  fn: (_, window) =>
     window.innerWidth > window.innerHeight ? 'landscape' : 'portrait',
   subscriptions: {
     resize: true,

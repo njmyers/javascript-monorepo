@@ -1,5 +1,4 @@
-// @flow
-import type { Configuration } from './types';
+import { Configuration } from './types';
 
 const inView: Configuration = {
   name: 'inView',

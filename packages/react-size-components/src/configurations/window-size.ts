@@ -1,5 +1,4 @@
-// @flow
-import type { Configuration, WindowSize } from './types';
+import { Configuration } from './types';
 
 const windowSize: Configuration = {
   name: 'window',
@@ -9,7 +8,7 @@ const windowSize: Configuration = {
     outerHeight: 0,
     outerWidth: 0,
   },
-  fn: (node, window) => ({
+  fn: (_, window) => ({
     innerHeight: window.innerHeight,
     innerWidth: window.innerWidth,
     outerHeight: window.outerHeight,

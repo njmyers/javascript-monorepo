@@ -1,5 +1,4 @@
-// @flow
-import type { Configuration } from './types';
+import { Configuration } from './types';
 
 const component: Configuration = {
   name: 'component',
@@ -7,7 +6,7 @@ const component: Configuration = {
     height: 0,
     width: 0,
   },
-  fn: (node) => ({
+  fn: node => ({
     height: node.clientHeight,
     width: node.clientWidth,
   }),

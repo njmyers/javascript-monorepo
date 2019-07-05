@@ -1,4 +1,3 @@
-/** @flow */
 import combineOptions from './combine-options';
 import componentConfig from './component';
 import inViewConfig from './in-view';
@@ -6,7 +5,7 @@ import mobileConfig from './mobile';
 import windowSizeConfig from './window-size';
 import orientationConfig from './orientation';
 // types
-import type { Options, Configuration } from './types';
+import { Options, Configuration } from './types';
 
 const createConfiguration = (options: Options): Array<Configuration> => {
   const {
@@ -28,7 +27,7 @@ const createConfiguration = (options: Options): Array<Configuration> => {
     mobile ? mobileConfig(breakpoint) : null,
     measureWindow ? windowSizeConfig : null,
     ...custom,
-  ].filter((a) => a);
+  ].filter(a => a);
 };
 
 export default createConfiguration;

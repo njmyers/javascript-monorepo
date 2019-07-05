@@ -1,5 +1,4 @@
-/** @flow */
-import type { Options } from './types';
+import { Options } from './types';
 
 export const defaults: Options = {
   component: false,
@@ -13,6 +12,6 @@ export const defaults: Options = {
   custom: [],
 };
 
-const combineOptions = (options: Options) => ({ ...defaults, ...options });
+const combineOptions = (options: Options = {}) => ({ ...defaults, ...options });
 
 export default combineOptions;
