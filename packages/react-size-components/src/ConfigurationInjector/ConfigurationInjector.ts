@@ -5,7 +5,7 @@ import createInitalState from './initializers';
 
 import { SIXTY_FPS } from '../constants';
 
-import type { Props, State } from './types';
+import { Props, State } from './types';
 
 /**
  * This function will create an HOC that will wrap the react component.
@@ -15,7 +15,7 @@ import type { Props, State } from './types';
  * @param {function} fn comparator function to return value of the prop
  * @param {object} schema initial object state for safe object access
  */
-const createConfigurationInjector = (configurations) => (Wrapped) => {
+const createConfigurationInjector = configurations => Wrapped => {
   return class ConfigurationInjector extends React.PureComponent<Props, State> {
     state = {
       ...createInitalState(configurations),
@@ -23,7 +23,7 @@ const createConfigurationInjector = (configurations) => (Wrapped) => {
     };
 
     computeProperty = ({ name, fn }: Configuration) => () => {
-      this.setState((state) => {
+      this.setState(state => {
         const nextProps = state.DOMNode.current // call on the found node
           ? fn(state.DOMNode.current, window) // otherwise call our function with the dummy node
           : // that way we start calling our functions early
@@ -36,18 +36,18 @@ const createConfigurationInjector = (configurations) => (Wrapped) => {
 
     scheduleSubscriptions() {
       const subscriptions = [].concat(
-        ...configurations.map((config) =>
+        ...configurations.map(config =>
           Object.keys(config.subscriptions || {}).map((eventType: string) =>
             LazyEvent(eventType).subscribe(this.computeProperty(config))
           )
         )
       );
 
-      this.setState((state) => ({ subscriptions }));
+      this.setState(state => ({ subscriptions }));
     }
 
     computeProperties = () => {
-      configurations.forEach((config) => this.computeProperty(config)());
+      configurations.forEach(config => this.computeProperty(config)());
     };
 
     safeInit = () => {
@@ -73,7 +73,7 @@ const createConfigurationInjector = (configurations) => (Wrapped) => {
      * Unsubscribe from all window listener if it has been set up
      */
     componentWillUnmount() {
-      this.state.subscriptions.forEach((each) => each.unsubscribe());
+      this.state.subscriptions.forEach(each => each.unsubscribe());
     }
 
     componentDidUpdate(prevProps: Props, prevState: State) {

@@ -1,4 +1,3 @@
-/** @flow */
 import throttle from 'lodash.throttle';
 import debounce from 'lodash.debounce';
 import fastdom from 'fastdom';
@@ -7,7 +6,7 @@ import isFunction from './is-function';
 import createKey from './create-key';
 import { SIXTY_FPS } from '../constants';
 // types
-import type { SubPub as SB, Options } from './types';
+import { SubPub as SB, Options } from './types';
 
 const defaults: Options = {
   throttle: false,
@@ -29,7 +28,7 @@ function SubPub(eventType: string, _options: Options): SB {
   };
 
   const publish = () => {
-    subscribers.forEach((subscriber) => fastdom.measure(() => subscriber()));
+    subscribers.forEach(subscriber => fastdom.measure(() => subscriber()));
   };
 
   window.addEventListener(
@@ -37,8 +36,8 @@ function SubPub(eventType: string, _options: Options): SB {
     options.debounce
       ? debounce(publish, options.timeout, timingOptions)
       : options.throttle
-        ? throttle(publish, options.timeout, timingOptions)
-        : publish,
+      ? throttle(publish, options.timeout, timingOptions)
+      : publish,
     { passive: true }
   );
 
@@ -54,7 +53,7 @@ function SubPub(eventType: string, _options: Options): SB {
 
       return {
         unsubscribe: () => subscribers.delete(key),
-        update: (fn) => {
+        update: fn => {
           if (isFunction(fn)) {
             subscribers.set(key);
 

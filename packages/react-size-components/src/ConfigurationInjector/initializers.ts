@@ -1,7 +1,6 @@
-// @flow
 import invariant from 'invariant';
 // types
-import type { Configuration, Configurations } from '../configurations';
+import { Configuration, Configurations } from '../configurations';
 
 const defaultConfiguration: Configuration = {
   name: '',
@@ -11,7 +10,7 @@ const defaultConfiguration: Configuration = {
 };
 
 export const validateConfigurations = (configurations: Configurations) => {
-  return configurations.map((config) => {
+  return configurations.map(config => {
     // validate the name
     invariant(
       typeof config.name === 'string',

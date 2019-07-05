@@ -1,7 +1,6 @@
-/** @flow */
 import * as React from 'react';
 // types
-import type { Props } from './types';
+import { Props } from './types';
 // styles
 import ConfigurationInjector from '../ConfigurationInjector';
 import createConfiguration from '../configurations';
@@ -9,7 +8,7 @@ import createConfiguration from '../configurations';
 const withSizeContext = (configurations, Component) => {
   const Context = React.createContext();
 
-  const SizeProvider = ConfigurationInjector(configurations)((props) => (
+  const SizeProvider = ConfigurationInjector(configurations)(props => (
     <Context.Provider value={props.sizes}>{props.children}</Context.Provider>
   ));
 

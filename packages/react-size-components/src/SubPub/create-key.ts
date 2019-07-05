@@ -1,4 +1,3 @@
-/** @flow */
 const createKey = () =>
   Math.random()
     .toString(16)
