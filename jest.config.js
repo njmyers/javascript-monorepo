@@ -1,3 +1,6 @@
+/* eslint-disable */
+const { defaults } = require('jest-config');
+
 module.exports = {
   // collectCoverage: true,
   collectCoverageFrom: [
@@ -13,4 +16,5 @@ module.exports = {
   },
   testPathIgnorePatterns: ['/node_modules/'],
   transformIgnorePatterns: ['<rootDir>.*(node_modules)(?!.*smalldash.*).*$'],
+  moduleFileExtensions: [...defaults.moduleFileExtensions, 'ts', 'tsx'],
 };
