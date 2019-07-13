@@ -1,0 +1,5 @@
+**/__stories__/**
+**/__docs__/**
+**/__tests__/**
+**/babel.config.js
+**/rollup.config.js
