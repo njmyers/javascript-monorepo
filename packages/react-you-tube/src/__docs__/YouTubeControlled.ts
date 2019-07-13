@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import YouTube from '../YouTube';
 
-function ControlledYouTube() {
+function YouTubeControlled() {
   const [player, setPlayer] = useState(null);
   const [videoId, setVideoId] = useState('');
 
@@ -29,4 +29,4 @@ function ControlledYouTube() {
   );
 }
 
-export default ControlledYouTube;
+export default YouTubeControlled;

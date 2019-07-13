@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
 import useYouTube from '../use-you-tube';
 
-function HookYouTubeExample() {
+function YouTubeHook() {
   const [videoId, setVideoId] = useState('');
   const ref = useRef(null);
   const player = useYouTube(ref, {
@@ -32,4 +32,4 @@ function HookYouTubeExample() {
   );
 }
 
-export default HookYouTubeExample;
+export default YouTubeHook;

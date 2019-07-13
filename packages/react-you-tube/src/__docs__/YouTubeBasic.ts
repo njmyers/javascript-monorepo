@@ -1,7 +1,7 @@
 import React from 'react';
 import YouTube from '../YouTube';
 
-function BasicYouTube() {
+function YouTubeBasic() {
   return (
     <YouTube
       width="640"
@@ -12,4 +12,4 @@ function BasicYouTube() {
   );
 }
 
-export default BasicYouTube;
+export default YouTubeBasic;
