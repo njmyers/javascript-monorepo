@@ -13,6 +13,8 @@ storybook.addParameters({
     isFullScreen: false,
     showPanel: true,
     panelPosition: 'bottom',
+    hierarchyRootSeperator: /\|/,
+    hierarchySeparator: /\|/,
     // showSearchBox: false,
     // addonPanelInRight: true,
     // sortStoriesByKind: true,

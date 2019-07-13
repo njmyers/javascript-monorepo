@@ -19,6 +19,10 @@ module.exports = ({ config, mode }) => {
       loaders: ['style-loader', 'css-loader', 'sass-loader'],
       include: path.resolve(__dirname, '../'),
     },
+    {
+      test: /\.txt$/i,
+      loaders: ['raw-loader'],
+    },
   ];
 
   return {
