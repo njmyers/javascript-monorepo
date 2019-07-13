@@ -1,46 +1,19 @@
-import React, { useEffect, useState, useRef } from 'react';
-import loadYouTubeAPI from './load-you-tube-api';
+import React, { useRef, useEffect } from 'react';
+import useYouTube from './use-you-tube';
+// types
+import { Props } from './types';
 
-function YouTube({ onPlayer, ...props }) {
-  const [YT, setYT] = useState(null);
-  const [player, setPlayer] = useState(null);
-  const node = useRef(null);
-
-  useEffect(() => {
-    const load = async () => {
-      if (YT && player) {
-        return;
-      }
-
-      try {
-        const YT = await await loadYouTubeAPI();
-        setYT(YT);
-      } catch (e) {
-        setPlayer(null);
-      }
-    };
-
-    load();
-  }, [YT]);
+function YouTubeVideo({ onPlayer, ...props }: Props) {
+  const node = useRef<HTMLElement>(null);
+  const player = useYouTube(node, props);
 
   useEffect(() => {
-    if (player) {
-      return;
+    if (onPlayer && player) {
+      onPlayer(player);
     }
-
-    if (!node || !node.current || !YT || !YT.Player) {
-      return;
-    }
-
-    const p = new YT.Player(node.current, props);
-    setPlayer(p);
-
-    if (onPlayer) {
-      onPlayer(p);
-    }
-  }, [YT, player, node]);
+  }, [player]);
 
   return <div ref={node} />;
 }
 
-export default YouTube;
+export default YouTubeVideo;

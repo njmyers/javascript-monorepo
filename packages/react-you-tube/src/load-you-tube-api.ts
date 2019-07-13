@@ -1,11 +1,5 @@
 import createScriptLoader from '@njmyers/script-loader';
-
-interface YouTubeWindow extends Window {
-  onYouTubeIframeAPIReady?: () => void;
-  YT?: {
-    player: YT.Player;
-  };
-}
+import { YouTubeWindow } from './types';
 
 const loadYouTubeAPI = createScriptLoader({
   id: 'youtube',
