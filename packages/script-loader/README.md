@@ -12,13 +12,13 @@ or
 
 ## Usage
 
-For a realistic example, we will use a popular payment gateway Stripe. After inspecting the (documentation)[https://stripe.com/docs/stripe-js/reference#including-stripejs] we see that their API is available from `https://js.stripe.com/v3/`. After downloading their API via a `<script>` tag they will make it available via the global object `window.Stripe`. So you add this code to your index.html
+For a realistic example, we will use a popular payment gateway Stripe. After inspecting the [documentation](https://stripe.com/docs/stripe-js/reference#including-stripejs) we see that their API is available from `https://js.stripe.com/v3/`. After downloading their API via a `<script>` tag they will make it available via the global object `window.Stripe`. So you add this code to your index.html
 
 ```html
 <script src="https://js.stripe.com/v3/" />
 ```
 
-After running a performance report on your side you may see an error report that complains about (render blocking resources)[https://developers.google.com/web/tools/lighthouse/audits/blocking-resources]. Oh no! I don't want to block my rendering. So for your next step you add the suggested attributes.
+After running a performance report on your side you may see an error report that complains about [render blocking resources](https://developers.google.com/web/tools/lighthouse/audits/blocking-resources). Oh no! I don't want to block my rendering. So for your next step you add the suggested attributes.
 
 ```html
 <script src="https://js.stripe.com/v3/" async defer />
