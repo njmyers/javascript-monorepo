@@ -1,8 +1,6 @@
 export type Reference = any | null;
 export type ScriptElement = HTMLScriptElement | null;
 
-export type Options = {
-  id: string;
-  src: string;
+export interface Options extends ElementCreationOptions {
   initialize: (window: Window) => Reference;
-};
+}

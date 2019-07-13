@@ -1,6 +1,6 @@
-import { ScriptElement, Reference, Options } from './types';
+import { Reference, Options } from './types';
 
-const REQUIRED_OPTIONS = ['id', 'src', 'reference'];
+const REQUIRED_OPTIONS = ['id', 'src'];
 
 const defaultOptions = {
   async: true,
@@ -9,14 +9,14 @@ const defaultOptions = {
 
 function scriptLoader(userOptions: Options) {
   let reference: Reference = null;
-  let scriptEl: ScriptElement = null;
+  let scriptEl: HTMLScriptElement | null = null;
 
   const options = {
     ...defaultOptions,
     ...userOptions,
   };
 
-  REQUIRED_OPTIONS.forEach((option) => {
+  REQUIRED_OPTIONS.forEach(option => {
     if (!Object.prototype.hasOwnProperty.call(options, option)) {
       throw new Error(`You must supply a ${option} key in your options`);
     }
@@ -35,7 +35,9 @@ function scriptLoader(userOptions: Options) {
         scriptEl = document.createElement('script');
 
         Object.entries(attributes).forEach(([attr, value]) => {
-          scriptEl[attr] = value;
+          if (scriptEl) {
+            scriptEl.setAttribute(attr, value);
+          }
         });
 
         scriptEl.addEventListener('load', () => {
@@ -43,9 +45,13 @@ function scriptLoader(userOptions: Options) {
           res(reference);
         });
 
-        scriptEl.addEventListener('error', (error) => {
+        scriptEl.addEventListener('error', error => {
           rej(error);
         });
+
+        if (document && document.head) {
+          document.head.appendChild(scriptEl);
+        }
       }
     });
 }
