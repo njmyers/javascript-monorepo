@@ -8,9 +8,10 @@
   "main": "build/script-loader.cjs.js",
   "module": "build/script-loader.esm.js",
   "scripts": {
+    "prebuild": "shx rm -rf build",
     "build": "run-s rollup",
     "prepublishOnly": "npm run build",
-    "rollup": "BABEL_ENV=production rollup -c -w"
+    "rollup": "BABEL_ENV=production rollup -c"
   },
   "dependencies": {
     "@babel/runtime": "7.1.2"
