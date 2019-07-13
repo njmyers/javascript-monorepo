@@ -1,12 +1,14 @@
 import * as React from 'react';
 import { storiesOf } from '@storybook/react';
-import YouTube from '../YouTube';
+import { withStorySource } from '@storybook/addon-storysource';
+import { camelToTitle } from 'smalldash';
+import * as examples from '../__docs__';
 
-storiesOf('@njmyers/react-youtube|Demo', module).add('Player', () => (
-  <YouTube
-    width="640"
-    height="390"
-    videoId="Z1BCujX3pw8"
-    playerVars={{ autoplay: 0, color: 0, controls: 1 }}
-  />
-));
+Object.entries(examples).forEach(([moduleName, Component]) => {
+  const name = camelToTitle(moduleName).replace('You Tube', 'YouTube');
+  const source = require(`../__docs__/${moduleName}.txt`).default;
+
+  storiesOf('@njmyers/react-youtube|Demo', module)
+    .addDecorator(withStorySource(source))
+    .add(name, () => React.createElement(Component));
+});
