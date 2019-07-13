@@ -1,16 +1,13 @@
 import { es6, cjs } from '@njmyers/rollup-config';
 import pkg from './package.json';
 
-const cjsConfig = cjs(pkg);
-const es6Config = es6(pkg);
-
 export default [
   {
     input: 'src/index.ts',
-    ...cjsConfig,
+    ...es6(pkg),
   },
   {
     input: 'src/index.ts',
-    ...cjsConfig,
+    ...cjs(pkg),
   },
 ];
