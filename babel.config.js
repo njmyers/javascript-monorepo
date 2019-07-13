@@ -1,4 +1,5 @@
-module.exports = (api) => {
+/* eslint-disable */
+module.exports = api => {
   api.cache(true);
 
   const env = process.env.BABEL_ENV;
@@ -20,6 +21,7 @@ module.exports = (api) => {
         },
       ],
       '@babel/preset-flow',
+      ['@babel/preset-typescript', { isTSX: true, allExtensions: true }],
       // https://github.com/storybooks/storybook/pull/4262
       [
         'babel-preset-minify',
