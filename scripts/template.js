@@ -1,4 +1,4 @@
-module.exports = (env) =>
+module.exports = env =>
   `{
   "name": "${env.name}",
   "version": "0.0.1",
