@@ -36,8 +36,8 @@ function Volume({ state, setVolume, setMute }: Player) {
       : 'volume-up';
 
   return (
-    <div className="audioPlayer_volume">
-      <label htmlFor="volume" className="audioPlayer_mute" onClick={handleMute}>
+    <div className="volume">
+      <label htmlFor="volume" className="mute" onClick={handleMute}>
         <button>
           <FontAwesomeIcon icon={icon} size="1x" />
         </button>
