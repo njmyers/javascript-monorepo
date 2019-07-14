@@ -1,13 +1,7 @@
 import * as React from 'react';
 import './marquee.sass';
 
-function Marquee(props) {
-  const speed = props.speed ? props.speed : 4;
-  const state = props.state ? props.state : 'running';
-
-  // some fonts need this adjustment
-  const lineHeight = props.lineHeight ? props.lineHeight : null;
-
+function Marquee({ speed, state, lineHeight, text }) {
   const style = {
     animationDuration: `${speed}s`,
     animationPlayState: state,
@@ -18,11 +12,18 @@ function Marquee(props) {
     <div className="marquee_container">
       <div className="marquee">
         <span className="marquee_span" style={style}>
-          {props.text}
+          {text}
         </span>
       </div>
     </div>
   );
 }
+
+Marquee.defaultProps = {
+  speed: 4,
+  state: 'running',
+  lineHeight: null,
+  text: '',
+};
 
 export default Marquee;
