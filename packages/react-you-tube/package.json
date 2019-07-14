@@ -9,6 +9,8 @@
   "main": "build/youtube.cjs.js",
   "module": "build/youtube.esm.js",
   "scripts": {
+    "prestorybook": "node scripts/generate-examples.js",
+    "docs": "node scripts/generate-docs.js",
     "prebuild": "shx rm -rf build",
     "build": "run-s rollup",
     "prepublishOnly": "yarn run build",
@@ -20,6 +22,7 @@
   },
   "devDependencies": {
     "@njmyers/babel-runtime-files": "^0.0.5",
+    "@njmyers/directory": "^0.0.16",
     "@njmyers/eslint-config": "^0.0.1",
     "@njmyers/rollup-config": "^0.0.1",
     "@types/youtube": "^0.0.38",
