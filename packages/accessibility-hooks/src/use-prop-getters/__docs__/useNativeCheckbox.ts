@@ -1,5 +1,5 @@
 import * as React from 'react';
-import useNativeCheckbox from '../../use-native-checkbox';
+import useNativeCheckbox from '../use-native-checkbox';
 
 function NativeCheckboxExample() {
   const onChange = (checked, e) => {

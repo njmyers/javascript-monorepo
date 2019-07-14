@@ -1,17 +1,21 @@
 import * as React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withStorySource } from '@storybook/addon-storysource';
-import { camelToKebab } from 'smalldash';
+import { withDocs } from 'storybook-readme';
+import { camelToTitle } from 'smalldash';
 import * as examples from '../__docs__';
 
-Object.entries(examples).forEach(([name, Component]) => {
-  const folderName = `../__docs__/${camelToKebab(name)}`;
+function appendSourceToDocs(docs, source) {
+  return docs + '\n\n\n```js\n' + source + '\n```\n';
+}
 
-  // const source = require(`${folderName}/example-source.txt`).default;
-  // const { default: readme } = require(`${folderName}/README.md`);
+Object.entries(examples).forEach(([moduleName, Component]) => {
+  const name = camelToTitle(moduleName);
+  const source = require(`../__docs__/${moduleName}.txt`).default;
+  const docs = require(`../__docs__/${moduleName}.md`).default;
 
-  // console.log(source);
   storiesOf('@njmyers/accessibility-props|Hooks', module)
-    // .addDecorator(withStorySource(source))
+    .addDecorator(withStorySource(source))
+    .addDecorator(withDocs(appendSourceToDocs(docs, source)))
     .add(name, () => React.createElement(Component));
 });

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import useToggleButton from '../../use-toggle-button';
+import useToggleButton from '../use-toggle-button';
 
 function ToggleButtonExample() {
   const { getToggleButtonProps, toggled } = useToggleButton({

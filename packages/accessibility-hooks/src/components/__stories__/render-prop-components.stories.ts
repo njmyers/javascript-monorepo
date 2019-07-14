@@ -10,7 +10,7 @@ function appendSourceToDocs(docs, source) {
 }
 
 Object.entries(examples).forEach(([moduleName, Component]) => {
-  const name = camelToTitle(moduleName).replace('You Tube', 'YouTube');
+  const name = camelToTitle(moduleName);
   const source = require(`../__docs__/${moduleName}.txt`).default;
   const docs = require(`../__docs__/${moduleName}.md`).default;
 
