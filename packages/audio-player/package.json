@@ -9,12 +9,9 @@
   "main": "build/component.cjs.js",
   "module": "build/component.esm.js",
   "scripts": {
-    "prestorybook": "node scripts/generate-examples.js",
-    "docs": "node scripts/generate-docs.js",
     "build": "run-s rollup",
     "prepublishOnly": "yarn run build",
-    "rollup": "BABEL_ENV=production rollup -c",
-    "test": "jest --watchAll"
+    "rollup": "BABEL_ENV=production rollup -c"
   },
   "dependencies": {
     "@babel/runtime": "7.1.2",
@@ -23,13 +20,14 @@
     "@fortawesome/react-fontawesome": "^0.1.3",
     "@njmyers/sass": "^0.0.1",
     "howler": "^2.0.15",
-    "react": "^16.8.0",
-    "react-dom": "^16.8.0",
-    "react-redux": "^7.0.3",
+    "react-redux": "^7.1.0",
     "react-size-components": "^2.1.2",
     "redux": "^4.0.1",
-    "smalldash": "^1.1.21",
-    "uuid": "^3.3.2"
+    "smalldash": "^1.1.21"
+  },
+  "peerDependencies": {
+    "react": "^16.8.0",
+    "react-dom": "^16.8.0"
   },
   "devDependencies": {
     "@njmyers/babel-runtime-files": "^0.0.5",
