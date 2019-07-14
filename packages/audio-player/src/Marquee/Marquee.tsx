@@ -1,7 +1,9 @@
 import * as React from 'react';
 import './marquee.sass';
+// types
+import { Props } from './types';
 
-function Marquee({ speed, state, lineHeight, text }) {
+function Marquee({ speed, state, lineHeight, text }: Props) {
   const style = {
     animationDuration: `${speed}s`,
     animationPlayState: state,
@@ -22,7 +24,6 @@ function Marquee({ speed, state, lineHeight, text }) {
 Marquee.defaultProps = {
   speed: 4,
   state: 'running',
-  lineHeight: null,
   text: '',
 };
 
