@@ -1,30 +1,25 @@
-import * as React from 'react';
+import React from 'react';
 import Button from '../Button';
-
-import { Props } from './types';
-
+// styles
 import './controls.sass';
+// types
+import { Player } from '../Context';
 
-const Controls = ({
-  playing,
-  playerStart,
-  playerPause,
-  playerStop,
-  playerForward,
-  playerBackward,
-}: Props) => {
+function Controls({ state, start, pause, stop, forward, backward }: Player) {
+  const { playing } = state;
+
   return (
     <div className="controls" role="group">
-      <Button icon="backward" onClick={playerBackward} />
+      <Button icon="backward" onClick={backward} />
       <Button
         icon={!playing ? 'play' : 'pause'}
         size="lg"
-        onClick={!playing ? playerStart : playerPause}
+        onClick={!playing ? start : pause}
       />
-      <Button icon="stop" size="lg" onClick={playerStop} />
-      <Button icon="forward" onClick={playerForward} />
+      <Button icon="stop" size="lg" onClick={stop} />
+      <Button icon="forward" onClick={forward} />
     </div>
   );
-};
+}
 
 export default Controls;
