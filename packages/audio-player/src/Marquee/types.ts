@@ -1,6 +1,6 @@
 export interface Props {
   speed: number;
   state: 'running' | 'paused' | 'initial' | 'inherit';
-  lineHeight?: number;
+  lineHeight?: number | string;
   text: string;
 }
