@@ -9,6 +9,8 @@
   "main": "build/component.cjs.js",
   "module": "build/component.esm.js",
   "scripts": {
+    "prestorybook": "node scripts/generate-examples.js",
+    "docs": "node scripts/generate-docs.js",
     "build": "run-s rollup",
     "prepublishOnly": "yarn run build",
     "rollup": "BABEL_ENV=production rollup -c",
