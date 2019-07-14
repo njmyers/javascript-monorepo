@@ -1,2 +1,2 @@
-export { default as ToggleButton } from './toggle-button';
-export { default as Checkbox } from './checkbox';
+export { default as ToggleButtonExample } from './ToggleButtonExample';
+export { default as CheckboxExample } from './CheckboxExample';
