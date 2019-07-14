@@ -22,7 +22,7 @@ Object.entries(examples).forEach(([moduleName, Component]) => {
   const source = require(`../__docs__/${moduleName}.txt`).default;
   const docs = require(`../__docs__/${moduleName}.md`).default;
 
-  storiesOf('@njmyers/react-you-tube|Demos', module)
+  storiesOf('@njmyers/react-you-tube|Examples', module)
     .addDecorator(withStorySource(source))
     .addDecorator(withDocs(appendSourceToDocs(docs, source)))
     .add(name, () => React.createElement(Component));
