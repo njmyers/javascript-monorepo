@@ -1,4 +1,4 @@
-const { kebabToCamel } = require("smalldash");
+import { kebabToCamel } from "smalldash";
 
 const camelName = arg => kebabToCamel(arg);
 

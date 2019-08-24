@@ -1,4 +1,4 @@
-const { kebabToTitle } = require("smalldash");
+import { kebabToTitle } from "smalldash";
 
 const componentName = arg =>
   kebabToTitle(arg)
