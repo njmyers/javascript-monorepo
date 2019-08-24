@@ -11,7 +11,7 @@
   },
   "scripts": {
     "clean": "shx rm -rf build",
-    "test": "jest --watchAll",
+    "test": "jest",
     "prewatch": "run-s clean",
     "watch": "rollup -c rollup.config.js --watch",
     "build": "rollup -c rollup.config.js",
@@ -20,8 +20,9 @@
   "dependencies": {
     "chalk": "^2.4.1",
     "commander": "^2.19.0",
-    "shelljs": "^0.8.2",
-    "smalldash": "^1.1.21"
+    "shelljs": "^0.8.3",
+    "smalldash": "^1.1.21",
+    "@njmyers/directory": "^0.0.16"
   },
   "devDependencies": {
     "@babel/cli": "^7.1.2",
@@ -32,7 +33,6 @@
     "@babel/preset-env": "^7.1.0",
     "@babel/preset-flow": "^7.0.0",
     "@njmyers/babel-runtime-files": "^0.0.4",
-    "@njmyers/directory": "^0.0.16",
     "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "^24.8.0",
     "babel-plugin-dynamic-import-node": "^2.2.0",
