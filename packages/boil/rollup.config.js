@@ -1,5 +1,4 @@
 import path from "path";
-import directory from "@njmyers/directory";
 import resolve from "rollup-plugin-node-resolve";
 import builtins from "rollup-plugin-node-builtins";
 import commonjs from "rollup-plugin-commonjs";
@@ -14,12 +13,6 @@ const external = [
   "fs",
   "path"
 ];
-
-const entries = directory("src/clis", {
-  absolute: true,
-  recursive: false,
-  filter: "js"
-});
 
 const config = {
   external,
@@ -44,24 +37,6 @@ const config = {
 };
 
 export default [
-  ...entries.map(entry => ({
-    ...config,
-    input: entry.path,
-    output: {
-      file: `build/${path.basename(entry.path, ".js")}.cjs.js`,
-      format: "cjs",
-      sourcemap: true
-    }
-  })),
-  ...entries.map(entry => ({
-    ...config,
-    input: entry.path,
-    output: {
-      file: `build/${path.basename(entry.path, ".js")}.esm.js`,
-      format: "esm",
-      sourcemap: true
-    }
-  })),
   {
     ...config,
     input: "src/program.js",
