@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`it works it runs without crashing 1`] = `
-"/** @flow */
+"
 import type { Action } from './test-component-actions'
 
 export type State = {

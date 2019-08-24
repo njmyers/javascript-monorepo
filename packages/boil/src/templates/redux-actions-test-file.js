@@ -1,4 +1,3 @@
-/** @flow */
 import { camelName } from "../args";
 
 const reduxActionsTestFile = (kebab, options) =>

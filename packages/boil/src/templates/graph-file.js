@@ -1,4 +1,3 @@
-/** @flow */
 import { componentName, camelName } from "../args";
 
 const graphFile = (kebab, options) => {

@@ -1,4 +1,3 @@
-/** @flow */
 const reactTypesFile = () =>
   `import * as React from 'react'
 

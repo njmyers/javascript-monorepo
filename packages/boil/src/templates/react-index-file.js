@@ -1,4 +1,3 @@
-/** @flow */
 import { componentName } from "../args";
 
 const reactIndexFile = kebab =>

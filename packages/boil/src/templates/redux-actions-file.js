@@ -1,4 +1,3 @@
-/** @flow */
 import { kebabToSnake } from "smalldash";
 
 const reduxActionsFile = (kebab, options) =>

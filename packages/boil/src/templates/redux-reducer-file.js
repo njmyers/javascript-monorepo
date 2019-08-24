@@ -1,7 +1,6 @@
-/** @flow */
 import { camelName } from "../args";
 
-const reduxReducerFile = (kebab, options) => `/** @flow */
+const reduxReducerFile = (kebab, options) => `
 import type { Action } from './${kebab}-actions'
 
 export type State = {

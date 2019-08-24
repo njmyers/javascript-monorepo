@@ -1,4 +1,3 @@
-/** @flow */
 const { kebabToTitle } = require("smalldash");
 
 const componentName = arg =>

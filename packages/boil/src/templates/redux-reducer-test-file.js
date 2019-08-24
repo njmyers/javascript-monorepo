@@ -1,4 +1,3 @@
-/** @flow */
 import { camelName } from "../args";
 
 // https://medium.com/@netxm/testing-redux-reducers-with-jest-6653abbfe3e1

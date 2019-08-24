@@ -1,4 +1,3 @@
-/** @flow */
 import { camelName } from "../args";
 
 const functionTestFile = kebab => `import ${camelName(

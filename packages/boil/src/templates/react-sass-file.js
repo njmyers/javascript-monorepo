@@ -1,4 +1,3 @@
-/** @flow */
 import { camelName } from "../args";
 
 const reactSassFile = kebab => `.${camelName(kebab)}

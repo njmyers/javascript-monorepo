@@ -1,4 +1,3 @@
-/** @flow */
 import { camelName } from "../args";
 
 const reduxIndexFile = (kebab, options) => `export { default as ${camelName(

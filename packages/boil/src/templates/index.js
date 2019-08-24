@@ -1,4 +1,3 @@
-/** @flow */
 // react
 export { default as reactFile } from "./react-file";
 export { default as reactTypesFile } from "./react-types-file";

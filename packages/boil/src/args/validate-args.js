@@ -1,4 +1,3 @@
-/** @flow */
 const validateArgs = () => {
   const args = process.argv.slice(2);
   const cwd = process.cwd();
