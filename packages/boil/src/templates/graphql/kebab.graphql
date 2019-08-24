@@ -1,0 +1,29 @@
+type Pascal {
+
+}
+
+input PascalUniqueInput {
+
+}
+
+input PascalSearchInput {
+
+}
+
+extend type Query {
+  camel(input: PascalUniqueInput): Pascal
+  camels(input: PascalSearchInput): [Pascal]
+}
+
+input PascalCreateInput {
+
+}
+
+input PascalUpdateInput {
+
+}
+
+extend type Mutation {
+  createPascal(input: PascalCreateInput): Pascal
+  updatePascal(input: PascalUpdateInput): Pascal
+}
