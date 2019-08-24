@@ -1,12 +1,15 @@
+import program from "commander";
 import path from "path";
 import shell from "shelljs";
 import directory from "@njmyers/directory";
 import chalk from "chalk";
+import pkg from "../package.json";
 
 import { replaceTemplateStrings, removeLeadingSlash } from "./utils";
 
-const componentProgram = (program, directories) => {
+const componentProgram = directories => {
   program
+    .version(pkg.version, "-v, --version")
     .option("-e, --extension", "override template file extension")
     .option(
       "-p, --path <path>",
@@ -14,7 +17,7 @@ const componentProgram = (program, directories) => {
       process.cwd()
     )
     .option(
-      "-f, --filter <string>",
+      "-f, --filter <filter>",
       "js regexp to match specific template files paths"
     );
 
@@ -31,15 +34,10 @@ const componentProgram = (program, directories) => {
 
     program
       .command(`${directoryName} [${directoryName}-names...]`)
-      .action((...args) => {
-        const [options, kebabNames] = args.reverse();
-
-        // const ext = options.extension;
-        // console.log(options.options, kebabNames);
-
+      .action(kebabNames => {
         kebabNames.forEach(name => {
           templateFiles
-            .filter(descriptor => descriptor.path.match(options.filter))
+            .filter(descriptor => descriptor.path.match(program.filter))
             .forEach(descriptor => {
               const relativePath = removeLeadingSlash(
                 descriptor.path.split(directoryName).pop()
@@ -63,6 +61,8 @@ const componentProgram = (program, directories) => {
         });
       });
   });
+
+  program.parse(process.argv);
 };
 
 export default componentProgram;
