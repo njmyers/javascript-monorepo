@@ -1,6 +1,6 @@
 import { kebabToTitle, kebabToCamel, kebabToSnake } from "smalldash";
 
-const templateStrings = [
+const templateTokens = [
   {
     token: "camel",
     fn: kebabToCamel
@@ -22,4 +22,4 @@ const templateStrings = [
   }
 ];
 
-export default templateStrings;
+export default templateTokens;
