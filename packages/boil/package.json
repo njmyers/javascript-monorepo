@@ -21,8 +21,8 @@
     "@njmyers/directory": "^0.0.16",
     "chalk": "^2.4.1",
     "commander": "^3.0.0",
-    "commander-rc-adapter": "^0.1.1",
-    "rc": "^1.2.8",
+    "cosmiconfig": "^5.2.1",
+    "pkg-dir": "^4.2.0",
     "shelljs": "^0.8.3",
     "smalldash": "^1.1.21",
     "update-notifier": "^3.0.1"
