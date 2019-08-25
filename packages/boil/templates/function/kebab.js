@@ -1,3 +1,8 @@
-const camel = () => null;
+/**
+ *
+ */
+function camel() {
+  return null;
+}
 
 export default camel;
