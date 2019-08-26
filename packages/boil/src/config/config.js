@@ -12,7 +12,8 @@ const defaults = {
   extension: undefined,
   include: undefined,
   exclude: undefined,
-  debug: false
+  debug: false,
+  dryRun: false
 };
 
 const result = cosmiconfig("boil").searchSync();
