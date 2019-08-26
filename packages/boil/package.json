@@ -4,24 +4,24 @@
   "description": "make component folders and files with boilerplate",
   "license": "ISC",
   "author": "Nick Myers <nickmyers111@gmail.com>",
-  "main": "build/boil.cjs.js",
-  "module": "build/boil.esm.js",
-  "bin": {
-    "boil": "scripts/boil.js"
-  },
   "files": [
     "build",
     "templates",
     "scripts"
   ],
+  "main": "build/boil.cjs.js",
+  "module": "build/boil.esm.js",
+  "bin": {
+    "boil": "scripts/boil.js"
+  },
   "scripts": {
+    "build": "rollup -c rollup.config.js",
     "clean": "shx rm -rf build",
+    "postinstall": "run-s clean build",
+    "package": "npm pack && tar -xvzf *.tgz && rm -rf package *.tgz",
     "test": "jest",
     "prewatch": "run-s clean",
-    "watch": "rollup -c rollup.config.js --watch",
-    "build": "rollup -c rollup.config.js",
-    "postinstall": "run-s clean build",
-    "package": "npm pack && tar -xvzf *.tgz && rm -rf package *.tgz"
+    "watch": "rollup -c rollup.config.js --watch"
   },
   "dependencies": {
     "@njmyers/directory": "^0.0.16",
