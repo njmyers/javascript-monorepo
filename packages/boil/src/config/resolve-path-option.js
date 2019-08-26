@@ -7,6 +7,14 @@ import path from "path";
  * specified the path
  */
 function resolvePathOption(rcFilePath, pathOption) {
+  if (!pathOption || (!rcFilePath && !pathOption)) {
+    return "";
+  }
+
+  if (!rcFilePath) {
+    return pathOption;
+  }
+
   if (path.isAbsolute(pathOption)) {
     return pathOption;
   }
