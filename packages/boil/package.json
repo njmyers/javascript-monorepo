@@ -59,5 +59,9 @@
     "rollup-plugin-node-resolve": "^3.4.0",
     "rollup-plugin-replace": "^2.1.0",
     "shx": "^0.3.2"
+  },
+  "resolutions": {
+    "lodash": "^4.17.13",
+    "bl": "^0.9.5"
   }
 }
