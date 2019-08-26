@@ -8,23 +8,19 @@ const PATH_OPTIONS = ["templateDirectory", "projectRoot", "codePath"];
  * path. If they are specified as relative paths then we resolve them from the
  * directory of the .boilrc file.
  */
-function getResolvedPathOptions(result) {
+function getResolvedPathOptions(filePath, config) {
   return PATH_OPTIONS.reduce((pathOptions, pathKey) => {
-    if (!(result && result.filepath)) {
+    if (!Object.prototype.hasOwnProperty.call(config, pathKey)) {
       return pathOptions;
     }
 
-    if (!Object.prototype.hasOwnProperty.call(result.config, pathKey)) {
-      return pathOptions;
-    }
-
-    const pathOption = result.config[pathKey];
+    const pathOption = config[pathKey];
 
     if (typeof pathOption !== "string") {
       return pathOptions;
     }
 
-    pathOptions[pathKey] = resolvePathOption(result.filepath, pathOption);
+    pathOptions[pathKey] = resolvePathOption(filePath, pathOption);
 
     return pathOptions;
   }, {});

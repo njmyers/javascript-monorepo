@@ -5,9 +5,10 @@ import directory from "@njmyers/directory";
 import chalk from "chalk";
 
 import pkg from "../package.json";
-import fileConfig from "./config";
+import rcConfig from "./config";
 import "./notifier";
 
+import { getResolvedPathOptions } from "./config";
 import { replaceTemplateStrings, removeLeadingSlash } from "./utils";
 
 program
@@ -16,21 +17,21 @@ program
   .option(
     "-p, --code-path <path>",
     "create files at another path",
-    fileConfig.codePath
+    rcConfig.codePath
   )
-  .option("-i, --include <include>", "include matched template files paths")
-  .option("-e, --exclude <exclude>", "exclude matched template files paths")
+  .option("-I, --include <include>", "include matched template files paths")
+  .option("-E, --exclude <exclude>", "exclude matched template files paths")
   .option("-d, --debug", "print configuration and debug program")
   .option(
     "-D, --dry-run",
     "perform a dry run and do not modify files",
-    fileConfig.dryRun
+    rcConfig.dryRun
   );
 
 shell
-  .ls(fileConfig.templateDirectory)
+  .ls(rcConfig.templateDirectory)
   .map(templateFolder =>
-    path.resolve(fileConfig.templateDirectory, templateFolder)
+    path.resolve(rcConfig.templateDirectory, templateFolder)
   )
   .forEach(templatePath => {
     const directoryName = templatePath.split(path.sep).pop();
@@ -44,7 +45,13 @@ shell
     program
       .command(`${directoryName} [${directoryName}-names...]`)
       .action(kebabNames => {
-        const config = { ...fileConfig, ...program.opts() };
+        const cliConfig = program.opts();
+
+        const config = {
+          ...rcConfig,
+          ...cliConfig,
+          ...getResolvedPathOptions(process.cwd(), cliConfig)
+        };
 
         if (config.debug) {
           console.log(chalk.green("\ncurrent config:"));

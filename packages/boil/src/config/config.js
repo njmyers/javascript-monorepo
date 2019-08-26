@@ -21,7 +21,7 @@ const result = cosmiconfig("boil").searchSync();
 const config = {
   ...defaults,
   ...((result && result.config) || {}),
-  ...getResolvedPathOptions(result)
+  ...((result && getResolvedPathOptions(result.filepath, result.config)) || {})
 };
 
 export default config;
