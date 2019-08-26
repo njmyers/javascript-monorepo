@@ -1,6 +1,6 @@
 {
-  "name": "@njmyers/boil-cli",
-  "version": "0.0.1",
+  "name": "@njmyers/boil",
+  "version": "0.0.2",
   "description": "make component folders and files with boilerplate",
   "license": "ISC",
   "author": "Nick Myers <nickmyers111@gmail.com>",
