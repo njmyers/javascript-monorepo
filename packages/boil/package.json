@@ -9,13 +9,19 @@
   "bin": {
     "boil": "scripts/boil.js"
   },
+  "files": [
+    "build",
+    "templates",
+    "scripts"
+  ],
   "scripts": {
     "clean": "shx rm -rf build",
     "test": "jest",
     "prewatch": "run-s clean",
     "watch": "rollup -c rollup.config.js --watch",
     "build": "rollup -c rollup.config.js",
-    "postinstall": "run-s clean build"
+    "postinstall": "run-s clean build",
+    "package": "npm pack && tar -xvzf *.tgz && rm -rf package *.tgz"
   },
   "dependencies": {
     "@njmyers/directory": "^0.0.16",
