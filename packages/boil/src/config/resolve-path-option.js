@@ -1,4 +1,4 @@
-import path from "path";
+import path from 'path';
 
 /**
  * Resolve a path that is given as a configuration value. If the path is an
@@ -8,7 +8,7 @@ import path from "path";
  */
 function resolvePathOption(rcFilePath, pathOption) {
   if (!pathOption || (!rcFilePath && !pathOption)) {
-    return "";
+    return '';
   }
 
   if (!rcFilePath) {

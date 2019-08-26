@@ -1,9 +1,9 @@
-import templateTokens from "./template-tokens";
+import templateTokens from './template-tokens';
 
 const replaceTemplateStrings = (string, kebab) =>
   templateTokens.reduce((prevString, nextReplacer) => {
     const { fn, token } = nextReplacer;
-    const regex = new RegExp(token, "g");
+    const regex = new RegExp(token, 'g');
 
     return prevString.replace(regex, fn(kebab));
   }, string);

@@ -1,10 +1,10 @@
-import fs from "fs";
-import path from "path";
+import fs from 'fs';
+import path from 'path';
 
-import getProjectRoot from "./get-project-root";
-import getCliRoot from "./get-cli-root";
+import getProjectRoot from './get-project-root';
+import getCliRoot from './get-cli-root';
 
-const DEFAULT_TEMPLATE_DIRECTORY = path.resolve(getCliRoot(), "../templates");
+const DEFAULT_TEMPLATE_DIRECTORY = path.resolve(getCliRoot(), '../templates');
 
 /**
  * Get the location of the default templates directory. First searches for a
@@ -18,7 +18,7 @@ function getDefaultTemplateDirectory() {
     return DEFAULT_TEMPLATE_DIRECTORY;
   }
 
-  const templatesDirectory = path.resolve(projectRoot, "./templates");
+  const templatesDirectory = path.resolve(projectRoot, './templates');
 
   if (fs.existsSync(templatesDirectory)) {
     return templatesDirectory;

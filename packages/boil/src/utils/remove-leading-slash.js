@@ -1,4 +1,4 @@
-import path from "path";
+import path from 'path';
 
 const removeLeadingSlash = pathString =>
   pathString.charAt(0) === path.sep

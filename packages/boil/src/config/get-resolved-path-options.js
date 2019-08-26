@@ -1,6 +1,6 @@
-import resolvePathOption from "./resolve-path-option";
+import resolvePathOption from './resolve-path-option';
 
-const PATH_OPTIONS = ["templateDirectory", "projectRoot", "codePath"];
+const PATH_OPTIONS = ['templateDirectory', 'projectRoot', 'codePath'];
 
 /**
  * Get the fully resolved absolute path of all path related options specified in
@@ -16,7 +16,7 @@ function getResolvedPathOptions(filePath, config = {}) {
 
     const pathOption = config[pathKey];
 
-    if (typeof pathOption !== "string") {
+    if (typeof pathOption !== 'string') {
       return pathOptions;
     }
 

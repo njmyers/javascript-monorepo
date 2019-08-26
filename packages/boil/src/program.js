@@ -1,46 +1,46 @@
-import program from "commander";
-import path from "path";
-import shell from "shelljs";
-import directory from "@njmyers/directory";
-import chalk from "chalk";
+import program from 'commander';
+import path from 'path';
+import shell from 'shelljs';
+import directory from '@njmyers/directory';
+import chalk from 'chalk';
 
-import pkg from "../package.json";
-import rcConfig from "./config";
-import "./notifier";
+import pkg from '../package.json';
+import rcConfig from './config';
+import './notifier';
 
-import { getResolvedPathOptions } from "./config";
-import { replaceTemplateStrings, removeLeadingSlash } from "./utils";
+import { getResolvedPathOptions } from './config';
+import { replaceTemplateStrings, removeLeadingSlash } from './utils';
 
 program
-  .version(pkg.version, "-v, --version")
+  .version(pkg.version, '-v, --version')
   .option(
-    "-E, --extension",
-    "override template file extension",
+    '-E, --extension',
+    'override template file extension',
     rcConfig.extension
   )
   .option(
-    "-p, --code-path <path>",
-    "create files at another path",
+    '-p, --code-path <path>',
+    'create files at another path',
     rcConfig.codePath
   )
   .option(
-    "-i, --include <include>",
-    "include matched template files paths",
+    '-i, --include <include>',
+    'include matched template files paths',
     rcConfig.include
   )
   .option(
-    "-e, --exclude <exclude>",
-    "exclude matched template files paths",
+    '-e, --exclude <exclude>',
+    'exclude matched template files paths',
     rcConfig.exclude
   )
   .option(
-    "-d, --debug",
-    "print configuration and debug program",
+    '-d, --debug',
+    'print configuration and debug program',
     rcConfig.debug
   )
   .option(
-    "-D, --dry-run",
-    "perform a dry run and do not modify files",
+    '-D, --dry-run',
+    'perform a dry run and do not modify files',
     rcConfig.dryRun
   );
 
@@ -55,7 +55,7 @@ shell
     const templateFiles = directory(templatePath, {
       recursive: true,
       read: true,
-      mime: true
+      mime: true,
     });
 
     program
@@ -66,13 +66,13 @@ shell
         const config = {
           ...rcConfig,
           ...cliConfig,
-          ...getResolvedPathOptions(process.cwd(), cliConfig)
+          ...getResolvedPathOptions(process.cwd(), cliConfig),
         };
 
         if (config.debug) {
-          console.log(chalk.green("\ncurrent config:"));
+          console.log(chalk.green('\ncurrent config:'));
           Object.entries(config).forEach(([key, value]) => {
-            console.log(key + ": " + chalk.bold(value));
+            console.log(key + ': ' + chalk.bold(value));
           });
         }
 
@@ -97,22 +97,22 @@ shell
               );
 
               if (!config.dryRun) {
-                shell.mkdir("-p", path.dirname(writePath));
+                shell.mkdir('-p', path.dirname(writePath));
 
                 shell
                   .ShellString(replaceTemplateStrings(descriptor.file, name))
                   .toEnd(writePath);
 
                 console.log(
-                  chalk.green("boilerplate added at: ") + chalk.bold(writePath)
+                  chalk.green('boilerplate added at: ') + chalk.bold(writePath)
                 );
               }
 
               if (config.dryRun) {
                 console.log(
-                  chalk.green("dry run of boilerplate at: ") +
+                  chalk.green('dry run of boilerplate at: ') +
                     chalk.bold(writePath) +
-                    "\n"
+                    '\n'
                 );
 
                 console.log(replaceTemplateStrings(descriptor.file, name));
@@ -125,4 +125,4 @@ shell
 program.parse(process.argv);
 
 // add newline after all program output
-console.log("");
+console.log('');

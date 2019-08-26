@@ -1,4 +1,4 @@
-import pkgDir from "pkg-dir";
+import pkgDir from 'pkg-dir';
 
 /**
  * Get the root directory of this boil cli project. This is useful in the

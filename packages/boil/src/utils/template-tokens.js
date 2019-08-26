@@ -1,25 +1,25 @@
-import { kebabToTitle, kebabToCamel, kebabToSnake } from "smalldash";
+import { kebabToTitle, kebabToCamel, kebabToSnake } from 'smalldash';
 
 const templateTokens = [
   {
-    token: "camel",
-    fn: kebabToCamel
+    token: 'camel',
+    fn: kebabToCamel,
   },
   {
-    token: "Pascal",
+    token: 'Pascal',
     fn: string =>
       kebabToTitle(string)
-        .split(" ")
-        .join("")
+        .split(' ')
+        .join(''),
   },
   {
-    token: "kebab",
-    fn: string => string
+    token: 'kebab',
+    fn: string => string,
   },
   {
-    token: "UPPER",
-    fn: string => kebabToSnake(string).toUpperCase()
-  }
+    token: 'UPPER',
+    fn: string => kebabToSnake(string).toUpperCase(),
+  },
 ];
 
 export default templateTokens;

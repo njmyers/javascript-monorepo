@@ -3,7 +3,7 @@ const validateArgs = () => {
   const cwd = process.cwd();
 
   if (args.length !== 1) {
-    console.log("one argument please");
+    console.log('one argument please');
     process.exit(1);
   }
 

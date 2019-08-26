@@ -1,4 +1,4 @@
-import pkgDir from "pkg-dir";
+import pkgDir from 'pkg-dir';
 
 /**
  * Get the nearest project root. Search for package.json starting in current
