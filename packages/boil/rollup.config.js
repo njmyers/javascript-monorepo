@@ -22,10 +22,7 @@ const config = {
     sourcemap: true,
   },
   plugins: [
-    resolve({
-      jsnext: true,
-      main: true,
-    }),
+    resolve(),
     commonjs(),
     json(),
     builtins(),
