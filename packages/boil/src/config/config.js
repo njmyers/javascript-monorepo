@@ -1,14 +1,19 @@
+import path from 'path';
 import cosmiconfig from 'cosmiconfig';
 
 import getDefaultTemplateDirectory from './get-default-template-directory';
 import getProjectRoot from './get-project-root';
 import getDefaultCodePath from './get-default-code-path';
 import getResolvedPathOptions from './get-resolved-path-options';
+import getCliRoot from './get-cli-root';
+
+const RC_FILENAME = 'boil';
 
 const defaults = {
   templateDirectory: getDefaultTemplateDirectory(),
   projectRoot: getProjectRoot(),
   codePath: getDefaultCodePath(),
+  configPath: getCliRoot(),
   extension: undefined,
   include: undefined,
   exclude: undefined,
@@ -16,12 +21,16 @@ const defaults = {
   dryRun: false,
 };
 
-const result = cosmiconfig('boil').searchSync();
+const result = cosmiconfig(RC_FILENAME).searchSync() || {};
+
+const rcConfig = result.config;
+const rcFilePath = result.filepath;
+const rcDirectory = (rcFilePath && path.dirname(rcFilePath)) || undefined;
 
 const config = {
   ...defaults,
-  ...((result && result.config) || {}),
-  ...((result && getResolvedPathOptions(result.filepath, result.config)) || {}),
+  ...rcConfig,
+  ...getResolvedPathOptions(rcDirectory, rcConfig),
 };
 
 export default config;
