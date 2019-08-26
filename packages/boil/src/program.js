@@ -64,11 +64,11 @@ shell
           templateFiles
             .filter(descriptor => {
               const { include } = config;
-              return include ? descriptor.path.match(program.include) : true;
+              return include ? descriptor.path.match(include) : true;
             })
             .filter(descriptor => {
               const { exclude } = config;
-              return exclude ? !descriptor.path.match(program.exclude) : true;
+              return exclude ? !descriptor.path.match(exclude) : true;
             })
             .forEach(descriptor => {
               const relativePath = removeLeadingSlash(
@@ -86,11 +86,21 @@ shell
                 shell
                   .ShellString(replaceTemplateStrings(descriptor.file, name))
                   .toEnd(writePath);
+
+                console.log(
+                  chalk.green("boilerplate added at: ") + chalk.bold(writePath)
+                );
               }
 
-              console.log(
-                chalk.green("boilerplate added at: ") + chalk.bold(writePath)
-              );
+              if (config.dryRun) {
+                console.log(
+                  chalk.green("dry run of boilerplate at: ") +
+                    chalk.bold(writePath) +
+                    "\n"
+                );
+
+                console.log(replaceTemplateStrings(descriptor.file, name));
+              }
             });
         });
       });
