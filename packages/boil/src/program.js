@@ -13,15 +13,31 @@ import { replaceTemplateStrings, removeLeadingSlash } from "./utils";
 
 program
   .version(pkg.version, "-v, --version")
-  .option("-e, --extension", "override template file extension")
+  .option(
+    "-E, --extension",
+    "override template file extension",
+    rcConfig.extension
+  )
   .option(
     "-p, --code-path <path>",
     "create files at another path",
     rcConfig.codePath
   )
-  .option("-I, --include <include>", "include matched template files paths")
-  .option("-E, --exclude <exclude>", "exclude matched template files paths")
-  .option("-d, --debug", "print configuration and debug program")
+  .option(
+    "-i, --include <include>",
+    "include matched template files paths",
+    rcConfig.include
+  )
+  .option(
+    "-e, --exclude <exclude>",
+    "exclude matched template files paths",
+    rcConfig.exclude
+  )
+  .option(
+    "-d, --debug",
+    "print configuration and debug program",
+    rcConfig.debug
+  )
   .option(
     "-D, --dry-run",
     "perform a dry run and do not modify files",
