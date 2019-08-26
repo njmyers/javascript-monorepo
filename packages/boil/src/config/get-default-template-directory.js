@@ -4,7 +4,7 @@ import path from 'path';
 import getProjectRoot from './get-project-root';
 import getCliRoot from './get-cli-root';
 
-const DEFAULT_TEMPLATE_DIRECTORY = path.resolve(getCliRoot(), '../templates');
+const DEFAULT_TEMPLATE_DIRECTORY = path.resolve(getCliRoot(), 'templates');
 
 /**
  * Get the location of the default templates directory. First searches for a
