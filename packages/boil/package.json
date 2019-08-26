@@ -1,7 +1,7 @@
 {
   "name": "@njmyers/boil",
   "version": "0.0.2",
-  "description": "make component folders and files with boilerplate",
+  "description": "Generate boilerplate for file and folder structures",
   "license": "ISC",
   "author": "Nick Myers <nickmyers111@gmail.com>",
   "files": [
@@ -15,8 +15,8 @@
     "boil": "scripts/boil.js"
   },
   "scripts": {
-    "build": "rollup -c rollup.config.js",
     "prebuild": "shx rm -rf build",
+    "build": "rollup -c rollup.config.js",
     "package": "npm pack && tar -xvzf *.tgz && rm -rf package *.tgz",
     "prettier": "prettier 'src/**/*.{.test.js,js,json}' --write",
     "test": "jest"
