@@ -1,8 +1,8 @@
 /**
  *
  */
-function camel() {
+function camelCase() {
   return null;
 }
 
-export default camel;
+export default camelCase;

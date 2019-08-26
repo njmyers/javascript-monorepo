@@ -1,29 +1,29 @@
-type Pascal {
+type PascalCase {
 
 }
 
-input PascalUniqueInput {
+input PascalCaseUniqueInput {
 
 }
 
-input PascalSearchInput {
+input PascalCaseSearchInput {
 
 }
 
 extend type Query {
-  camel(input: PascalUniqueInput): Pascal
-  camels(input: PascalSearchInput): [Pascal]
+  camelCase(input: PascalCaseUniqueInput): PascalCase
+  camelCases(input: PascalCaseSearchInput): [PascalCase]
 }
 
-input PascalCreateInput {
+input PascalCaseCreateInput {
 
 }
 
-input PascalUpdateInput {
+input PascalCaseUpdateInput {
 
 }
 
 extend type Mutation {
-  createPascal(input: PascalCreateInput): Pascal
-  updatePascal(input: PascalUpdateInput): Pascal
+  createPascalCase(input: PascalCaseCreateInput): PascalCase
+  updatePascalCase(input: PascalCaseUpdateInput): PascalCase
 }

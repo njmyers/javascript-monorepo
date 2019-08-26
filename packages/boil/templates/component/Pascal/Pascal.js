@@ -1,16 +1,16 @@
-import React from "react";
+import React from 'react';
 // types
-import { Props } from "./types";
+import { Props } from './types';
 // styles
-import "./kebab.sass";
+import './kebab-case.sass';
 
-function Pascal(props): Props {
+function PascalCase(props): Props {
   return (
-    <section className="camel">
-      {Pascal}
+    <section className="camelCase">
+      {PascalCase}
       <pre>{JSON.stringify(props, null, 2)}</pre>
     </section>
   );
 }
 
-export default Pascal;
+export default PascalCase;

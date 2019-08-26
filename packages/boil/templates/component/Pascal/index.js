@@ -1,2 +1,2 @@
-export { default } from "./Pascal";
-export * from "./types";
+export { default } from './PascalCase';
+export * from './types';

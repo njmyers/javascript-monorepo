@@ -1,6 +1,6 @@
-import React from "react";
-import { storiesOf } from "@storybook/react";
+import React from 'react';
+import { storiesOf } from '@storybook/react';
 
-import Pascal from "../Pascal";
+import PascalCase from '../PascalCase';
 
-storiesOf("Pascal", module).add("Demo", () => <Pascal />);
+storiesOf('PascalCase', module).add('Demo', () => <PascalCase />);

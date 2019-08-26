@@ -1,1 +1,1 @@
-export { default as camel } from "./kebab";
+export { default as camelCase } from './kebab-case';

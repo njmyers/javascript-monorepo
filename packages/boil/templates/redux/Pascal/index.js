@@ -1,3 +1,3 @@
-export { default as camelReducer } from "./kebab-reducer";
-export * from "./kebab-reducer";
-export * from "./kebab-actions";
+export { default as camelCaseReducer } from './kebab-case-reducer';
+export * from './kebab-case-reducer';
+export * from './kebab-case-actions';

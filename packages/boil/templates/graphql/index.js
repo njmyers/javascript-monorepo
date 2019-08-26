@@ -1,1 +1,1 @@
-import Pascal from "./kebab.graphql";
+import PascalCase from './kebab-case.graphql';

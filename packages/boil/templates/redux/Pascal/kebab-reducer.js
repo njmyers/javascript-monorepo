@@ -1,7 +1,7 @@
-import { camelName } from "../args";
+import { camelCaseName } from "../args";
 
-const reduxReducerFile = (kebab, options) => `
-import type { Action } from './${kebab}-actions'
+const reduxReducerFile = (kebab-case, options) => `
+import type { Action } from './${kebab-case}-actions'
 
 export type State = {
   +key: string,
@@ -11,8 +11,8 @@ export const initialState = {
   key: 'value'
 }
 
-const ${camelName(
-  kebab
+const ${camelCaseName(
+  kebab-case
 )}Reducer = (state: State = initialState, action: Action) => {
   switch(action.type) {
     default:
@@ -20,7 +20,7 @@ const ${camelName(
   }
 }
 
-export default ${camelName(kebab)}Reducer
+export default ${camelCaseName(kebab-case)}Reducer
 `;
 
 export default reduxReducerFile;
