@@ -3,28 +3,35 @@ import path from "path";
 import shell from "shelljs";
 import directory from "@njmyers/directory";
 import chalk from "chalk";
-import updateNotifier from "update-notifier";
-import rc from "rc";
 
 import pkg from "../package.json";
-import defaults from "./defaults";
+import fileConfig from "./config";
+import "./notifier";
 
 import { replaceTemplateStrings, removeLeadingSlash } from "./utils";
-
-updateNotifier({ pkg }).notify();
 
 program
   .version(pkg.version, "-v, --version")
   .option("-e, --extension", "override template file extension")
-  .option("-p, --path <path>", "create files at another path", process.cwd())
+  .option(
+    "-p, --code-path <path>",
+    "create files at another path",
+    fileConfig.codePath
+  )
   .option("-i, --include <include>", "include matched template files paths")
-  .option("-e, --exclude <exclude>", "exclude matched template files paths");
-
-const { templatesDirectory } = rc("boil", defaults);
+  .option("-e, --exclude <exclude>", "exclude matched template files paths")
+  .option("-d, --debug", "print configuration and debug program")
+  .option(
+    "-D, --dry-run",
+    "perform a dry run and do not modify files",
+    fileConfig.dryRun
+  );
 
 shell
-  .ls(templatesDirectory)
-  .map(templateFolder => path.resolve(templatesDirectory, templateFolder))
+  .ls(fileConfig.templateDirectory)
+  .map(templateFolder =>
+    path.resolve(fileConfig.templateDirectory, templateFolder)
+  )
   .forEach(templatePath => {
     const directoryName = templatePath.split(path.sep).pop();
 
@@ -34,21 +41,26 @@ shell
       mime: true
     });
 
-    const currentPath = process.cwd();
-
     program
       .command(`${directoryName} [${directoryName}-names...]`)
       .action(kebabNames => {
-        const options = rc("boil", defaults, program);
+        const config = { ...fileConfig, ...program.opts() };
+
+        if (config.debug) {
+          console.log(chalk.green("\ncurrent config:"));
+          Object.entries(config).forEach(([key, value]) => {
+            console.log(key + ": " + chalk.bold(value));
+          });
+        }
 
         kebabNames.forEach(name => {
           templateFiles
             .filter(descriptor => {
-              const { include } = options;
+              const { include } = config;
               return include ? descriptor.path.match(program.include) : true;
             })
             .filter(descriptor => {
-              const { exclude } = options;
+              const { exclude } = config;
               return exclude ? !descriptor.path.match(program.exclude) : true;
             })
             .forEach(descriptor => {
@@ -57,15 +69,17 @@ shell
               );
 
               const writePath = replaceTemplateStrings(
-                path.resolve(currentPath, relativePath),
+                path.resolve(config.codePath, relativePath),
                 name
               );
 
-              shell.mkdir("-p", path.dirname(writePath));
+              if (!config.dryRun) {
+                shell.mkdir("-p", path.dirname(writePath));
 
-              shell
-                .ShellString(replaceTemplateStrings(descriptor.file, name))
-                .toEnd(writePath);
+                shell
+                  .ShellString(replaceTemplateStrings(descriptor.file, name))
+                  .toEnd(writePath);
+              }
 
               console.log(
                 chalk.green("boilerplate added at: ") + chalk.bold(writePath)
@@ -76,3 +90,6 @@ shell
   });
 
 program.parse(process.argv);
+
+// add newline after all program output
+console.log("");
