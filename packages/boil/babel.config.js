@@ -1,15 +1,15 @@
-"use strict";
+'use strict';
 
 module.exports = api => {
   api.cache(true);
 
   return {
-    presets: ["@babel/preset-env", "@babel/preset-flow"],
+    presets: ['@babel/preset-env'],
     plugins: [
-      "@babel/plugin-proposal-class-properties",
-      "@babel/plugin-syntax-dynamic-import",
-      "@babel/plugin-transform-runtime",
-      "dynamic-import-node"
-    ]
+      '@babel/plugin-proposal-class-properties',
+      '@babel/plugin-syntax-dynamic-import',
+      '@babel/plugin-transform-runtime',
+      'dynamic-import-node',
+    ],
   };
 };
