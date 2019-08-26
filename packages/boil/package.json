@@ -16,13 +16,10 @@
   },
   "scripts": {
     "build": "rollup -c rollup.config.js",
-    "clean": "shx rm -rf build",
-    "postinstall": "run-s clean build",
+    "prebuild": "shx rm -rf build",
     "package": "npm pack && tar -xvzf *.tgz && rm -rf package *.tgz",
     "prettier": "prettier 'src/**/*.{.test.js,js,json}' --write",
-    "test": "jest",
-    "prewatch": "run-s clean",
-    "watch": "rollup -c rollup.config.js --watch"
+    "test": "jest"
   },
   "dependencies": {
     "@njmyers/directory": "^0.0.16",
