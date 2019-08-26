@@ -26,6 +26,7 @@ const config = {
       jsnext: true,
       main: true,
     }),
+    commonjs(),
     json(),
     builtins(),
     babel({
