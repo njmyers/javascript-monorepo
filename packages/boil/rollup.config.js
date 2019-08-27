@@ -37,7 +37,7 @@ const config = {
 export default [
   {
     ...config,
-    input: 'src/program.js',
+    input: 'src/program/program.js',
     output: {
       file: pkg.module,
       format: 'esm',
@@ -46,7 +46,7 @@ export default [
   },
   {
     ...config,
-    input: 'src/program.js',
+    input: 'src/program/program.js',
     output: {
       file: pkg.main,
       format: 'cjs',
