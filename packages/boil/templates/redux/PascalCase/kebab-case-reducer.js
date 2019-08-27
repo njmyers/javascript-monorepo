@@ -1,26 +1,14 @@
-import { camelCaseName } from "../args";
+import { camelCaseName } from '../args';
 
-const reduxReducerFile = (kebab-case, options) => `
-import type { Action } from './${kebab-case}-actions'
+const initialState = {
+  key: 'value',
+};
 
-export type State = {
-  +key: string,
-}
-
-export const initialState = {
-  key: 'value'
-}
-
-const ${camelCaseName(
-  kebab-case
-)}Reducer = (state: State = initialState, action: Action) => {
-  switch(action.type) {
+function camelCaseReducer(state, action) {
+  switch (action.type) {
     default:
       return state;
   }
 }
 
-export default ${camelCaseName(kebab-case)}Reducer
-`;
-
-export default reduxReducerFile;
+export default camelCaseReducer;
