@@ -5,7 +5,7 @@ import chalk from 'chalk';
  * configuration and diagnosing issues with the .boilrc configuration file
  */
 function printConfiguration(config) {
-  console.log(chalk.green('\ncurrent config:'));
+  console.log(chalk.green('\nCURRENT CONFIG:\n'));
   Object.entries(config).forEach(([key, value]) => {
     console.log(key + ': ' + chalk.bold(value));
   });
