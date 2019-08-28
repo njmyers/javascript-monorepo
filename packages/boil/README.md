@@ -124,21 +124,29 @@ Even boil gets it's own rcfile! Put your own `.boilrc` file in the repo root or 
 
 ```jsonc
 {
-  // The relative or absolute directory where your templates are kept. Defaults to "./templates"
+  // The relative or absolute directory where your templates are kept.
+  // Defaults to "./templates"
   "templateDirectory": "String",
-  // The relative or absolute directory of you project root. Defaults to the nearest package.json.
+  // The relative or absolute directory of you project root.
+  // Defaults to the nearest package.json.
   "projectRoot": "String",
-  // The path where the code should be written. For example "./src" if you use the cli from project root. Defaults to cwd.
+  // The path where the code should be written. For example "./src" if you use the cli from project root.
+  // Defaults to cwd.
   "codePath": "String",
-  // Override the template file extension. No default.
+  // Override the template file extension.
+  // No default.
   "extension": "Boolean",
-  // A string to match against template files that should be included. No default.
+  // A string to match against template files that should be included.
+  // No default.
   "include": "String",
-  // A string to match against template files that should be excluded. No default.
+  // A string to match against template files that should be excluded.
+  // No default.
   "exclude": "String",
-  // Print your current configuration. Defaults to false.
+  // Print your current configuration.
+  // Defaults to false.
   "debug": "Boolean",
-  // Print code and codePath to the console but don't write anything. Defaults to false.
+  // Print code and codePath to the console but don't write anything.
+  // Defaults to false.
   "dryRun": "Boolean"
 }
 ```
