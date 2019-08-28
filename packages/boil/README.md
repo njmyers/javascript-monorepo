@@ -130,8 +130,9 @@ Even boil gets it's own rcfile! Put your own `.boilrc` file in the repo root or 
   // The relative or absolute directory of you project root.
   // Defaults to the nearest package.json.
   "projectRoot": "String",
-  // The path where the code should be written. For example "./src" if you use the cli from project root.
-  // Defaults to cwd.
+  // The path where the code should be written.
+  // For example "./src" if you use the cli from project root.
+  // Defaults to process.cwd().
   "codePath": "String",
   // Override the template file extension.
   // No default.
