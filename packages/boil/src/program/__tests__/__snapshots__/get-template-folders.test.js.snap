@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`program/getTemplateFolders it runs without crashing 1`] = `
+Array [
+  "/home/developer/Projects/boil/README.md",
+  "/home/developer/Projects/boil/babel.config.js",
+  "/home/developer/Projects/boil/build",
+  "/home/developer/Projects/boil/jest.config.js",
+  "/home/developer/Projects/boil/node_modules",
+  "/home/developer/Projects/boil/package.json",
+  "/home/developer/Projects/boil/rollup.config.js",
+  "/home/developer/Projects/boil/scripts",
+  "/home/developer/Projects/boil/src",
+  "/home/developer/Projects/boil/templates",
+  "/home/developer/Projects/boil/yarn.lock",
+]
+`;

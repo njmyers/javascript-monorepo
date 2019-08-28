@@ -1,11 +1,11 @@
 import getTemplateFolders from '../get-template-folders';
 
-describe('it works', () => {
+describe('program/getTemplateFolders', () => {
   test('it is a function ', () => {
-    expect(typeof getTemplateFolders()).toBe('function');
+    expect(typeof getTemplateFolders).toBe('function');
   });
 
   test('it runs without crashing', () => {
-    expect(getTemplateFolders()).toMatchSnapshot();
+    expect(getTemplateFolders({ templateDirectory: '' })).toMatchSnapshot();
   });
 });

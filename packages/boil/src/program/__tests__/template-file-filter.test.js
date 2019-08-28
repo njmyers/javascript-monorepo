@@ -1,11 +1,12 @@
 import templateFileFilter from '../template-file-filter';
 
-describe('it works', () => {
+describe('program/templateFileFilter', () => {
   test('it is a function ', () => {
-    expect(typeof templateFileFilter()).toBe('function');
+    expect(typeof templateFileFilter).toBe('function');
+    expect(typeof templateFileFilter({})).toBe('function');
   });
 
   test('it runs without crashing', () => {
-    expect(templateFileFilter()).toMatchSnapshot();
+    expect(templateFileFilter({})()).toMatchSnapshot();
   });
 });

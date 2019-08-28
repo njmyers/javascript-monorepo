@@ -1,11 +1,11 @@
 import printConfiguration from '../print-configuration';
 
-describe('it works', () => {
+describe('program/printConfiguration', () => {
   test('it is a function ', () => {
-    expect(typeof printConfiguration()).toBe('function');
+    expect(typeof printConfiguration).toBe('function');
   });
 
   test('it runs without crashing', () => {
-    expect(printConfiguration()).toMatchSnapshot();
+    expect(printConfiguration({})).toMatchSnapshot();
   });
 });
