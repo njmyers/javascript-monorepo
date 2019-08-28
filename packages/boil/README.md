@@ -122,7 +122,7 @@ No more writing index files or test boilerplate! This encourages good practices 
 
 Even boil gets it's own rcfile! Put your own `.boilrc` file in the repo root or use cli flags. Here are the json options for `.boilrc`
 
-```json
+```jsonc
 {
   // The relative or absolute directory where your templates are kept. Defaults to "./templates"
   "templateDirectory": "String",
