@@ -1,11 +1,17 @@
 import templateTokens from '../template-tokens';
 
-describe('it works', () => {
-  test('it is a function ', () => {
-    expect(typeof templateTokens()).toBe('function');
+describe('utils/templateTokens', () => {
+  test('it is an array ', () => {
+    expect(Array.isArray(templateTokens)).toBe(true);
   });
 
-  test('it runs without crashing', () => {
-    expect(templateTokens()).toMatchSnapshot();
+  templateTokens.forEach(props => {
+    test('the object contains a token key', () => {
+      expect(props).toHaveProperty('token');
+    });
+
+    test('the object contains a fn key', () => {
+      expect(props).toHaveProperty('fn');
+    });
   });
 });
