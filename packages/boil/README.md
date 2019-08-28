@@ -56,7 +56,7 @@ npm install -g @njmyers/boil
 
 ## Usage
 
-Boil up your favorite recipes. Simply enter the command `boil \[template\] kebab-case-name`. Template is simply the name of the template you wish to use. Boil cli comes with 4 ready-made templates but the point is to create your own! `kebab-case-name` is whatever the domain concept of the folder and files. In traditional unix style you can pass as many `kebab-case-names` as you wish to create multiple files/folders.
+Boil up your favorite recipes. Simply enter the command `boil [template] kebab-case-name`. Template is simply the name of the template you wish to use. Boil cli comes with 4 ready-made templates but the point is to create your own! `kebab-case-name` is whatever the domain concept of the folder and files. In traditional unix style you can pass as many `kebab-case-names` as you wish to create multiple files/folders.
 
 ## Templates
 
