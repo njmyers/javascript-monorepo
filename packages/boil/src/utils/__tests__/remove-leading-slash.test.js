@@ -3,7 +3,7 @@ import removeLeadingSlash from '../remove-leading-slash';
 
 const sep = path.sep;
 
-describe('it works', () => {
+describe('utils/removeLeadingSlash', () => {
   test('it is a function ', () => {
     expect(typeof removeLeadingSlash).toBe('function');
   });
