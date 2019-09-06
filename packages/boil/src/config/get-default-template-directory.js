@@ -1,6 +1,8 @@
 import fs from 'fs';
 import path from 'path';
 
+import { findDirectoryUpwards } from '../utils';
+
 import getProjectRoot from './get-project-root';
 import getCliRoot from './get-cli-root';
 
@@ -18,7 +20,7 @@ function getDefaultTemplateDirectory() {
     return DEFAULT_TEMPLATE_DIRECTORY;
   }
 
-  const templatesDirectory = path.resolve(projectRoot, './templates');
+  const templatesDirectory = findDirectoryUpwards(projectRoot, './templates');
 
   if (fs.existsSync(templatesDirectory)) {
     return templatesDirectory;
