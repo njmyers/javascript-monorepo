@@ -1,16 +1,18 @@
 import fs from 'fs';
-
 import { FileObject } from '../types';
 
 /**
- * Reads the file and adds it to the object
- * @param  {FileObject} obj a file object with the required path property
- * @return {FileObject}     a file object with the file contents added in
+ * Reads the contents of the file and adds it to the object as a string. We are
+ * assuming utf8 enconding and that the return type should be a string.
+ *
+ * TODO: Add support for additional fs options
  */
-function readSync(obj: FileObject): FileObject {
+function readSync(fileObject: FileObject): FileObject {
   return {
-    ...obj,
-    file: obj.include ? fs.readFileSync(obj.path, 'utf8').toString() : null,
+    ...fileObject,
+    file: fileObject.include
+      ? fs.readFileSync(fileObject.path, 'utf8').toString()
+      : null,
   };
 }
 

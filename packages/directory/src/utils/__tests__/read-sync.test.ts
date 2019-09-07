@@ -1,11 +1,38 @@
 import readSync from '../read-sync';
 
-describe('it works', () => {
+describe('utils/readSync', () => {
   test('it is a function ', () => {
     expect(typeof readSync).toBe('function');
   });
 
-  test('it runs without crashing', () => {
-    expect(readSync()).toMatchSnapshot();
+  const testCases = [
+    [
+      {
+        include: true,
+        path: `${__dirname}/helpers/recursive/folder/otherfile.js`,
+      },
+      {
+        include: true,
+        path: `${__dirname}/helpers/recursive/folder/otherfile.js`,
+        file: `/** File */\n\nconst thing = 'arbitrary javascript';\n`,
+      },
+    ],
+    [
+      {
+        include: false,
+        path: `${__dirname}/helpers/recursive/folder/otherfile.js`,
+      },
+      {
+        include: false,
+        path: `${__dirname}/helpers/recursive/folder/otherfile.js`,
+      },
+    ],
+  ];
+
+  testCases.forEach(([fileObject, expectedFileObject]) => {
+    const { path } = fileObject;
+    test(`it reads from the path ${path} and adds the contents to the file key`, () => {
+      expect(readSync(fileObject)).toMatchObject(expectedFileObject);
+    });
   });
 });
