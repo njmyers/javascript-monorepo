@@ -1,3 +1,11 @@
 export { default as filterify } from './filterify';
 export { default as normalizeExtension } from './normalize-extension';
 export { default as mimeify } from './mimeify';
+export { default as pathify } from './pathify';
+export { default as objectify } from './objectify';
+export { default as isFileSync } from './is-file-sync';
+export { default as isFileAsync } from './is-file-async';
+export { default as readDirectorySync } from './read-directory-sync';
+export { default as readDirectoryAsync } from './read-directory-async';
+export { default as readSync } from './read-sync';
+export { default as readAsync } from './read-async';
