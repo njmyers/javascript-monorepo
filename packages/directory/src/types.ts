@@ -1,23 +1,25 @@
+import fs from 'fs';
+
 /** Directory Options */
-export type Options = {
+export interface Options {
   /** boolean option to return mime information for all files: default false */
-  mime: boolean;
+  mime?: boolean;
   /** boolean option to return absolute paths for all files default: true */
-  absolute: boolean;
+  absolute?: boolean;
   /** boolean option to search the directory recursively */
-  recursive: boolean;
+  recursive?: boolean;
   /** boolean option to read the files and return the contents as a string */
-  read: boolean;
+  read?: boolean;
   /** string or array of file types to filter (include) */
-  filter: string | Array<string>;
-};
+  filter?: string | Array<string>;
+}
 
 /** Return Object */
-export type FileObject = {
+export interface FileObject {
   /** the path of the file */
-  path: string;
+  path?: string;
   /** whether it was included (will always be true) */
-  include: boolean;
+  include?: boolean;
   /** the mime information */
   mime?: {
     /** the content type ie text/css */
@@ -26,7 +28,8 @@ export type FileObject = {
     extension: string;
   };
   /** the file contents */
-  file?: string;
-};
+  file?: string | null;
+}
 
-export type Files = Array<string>;
+export type DirectoryArgs = [fs.PathLike, Options?];
+export type Files = Array<string | FileObject>;
