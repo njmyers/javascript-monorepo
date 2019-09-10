@@ -1,4 +1,10 @@
 import readAsync from '../read-async';
+import {
+  JS_FILE_PATH,
+  JS_FILE_DATA,
+  SINGLE_FILE_PATH,
+  SINGLE_FILE_DATA,
+} from '../../__fixtures__/data';
 
 describe('utils/readAsync', () => {
   test('it is a function ', () => {
@@ -9,22 +15,23 @@ describe('utils/readAsync', () => {
     [
       {
         include: true,
-        path: `${__dirname}/helpers/recursive/folder/otherfile.js`,
+        path: JS_FILE_PATH,
       },
       {
         include: true,
-        path: `${__dirname}/helpers/recursive/folder/otherfile.js`,
-        file: `/** File */\n\nconst thing = 'arbitrary javascript';\n`,
+        path: JS_FILE_DATA[0].path,
+        file: JS_FILE_DATA[0].file,
       },
     ],
     [
       {
         include: false,
-        path: `${__dirname}/helpers/recursive/folder/otherfile.js`,
+        path: SINGLE_FILE_PATH,
       },
       {
         include: false,
-        path: `${__dirname}/helpers/recursive/folder/otherfile.js`,
+        path: SINGLE_FILE_DATA[0].path,
+        file: null,
       },
     ],
   ];

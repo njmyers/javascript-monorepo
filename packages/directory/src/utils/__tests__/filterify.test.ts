@@ -1,6 +1,6 @@
 import filterify from '../filterify';
 
-describe('it works', () => {
+describe('utils/filterify', () => {
   test('it is a function ', () => {
     expect(typeof filterify).toBe('function');
   });

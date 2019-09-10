@@ -1,9 +1,5 @@
 import isFileSync from '../is-file-sync';
-
-import {
-  JS_FILE_PATH,
-  SHALLOW_FOLDER_PATH,
-} from '../../__tests__/fixtures/data';
+import { JS_FILE_PATH, SHALLOW_FOLDER_PATH } from '../../__fixtures__/data';
 
 describe('utils/isFileSync', () => {
   test('it is a function ', () => {

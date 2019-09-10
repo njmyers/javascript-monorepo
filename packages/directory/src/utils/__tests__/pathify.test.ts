@@ -1,6 +1,6 @@
 import pathify from '../pathify';
 
-describe('it works', () => {
+describe('utils/pathify', () => {
   test('it is a function ', () => {
     expect(typeof pathify).toBe('function');
   });

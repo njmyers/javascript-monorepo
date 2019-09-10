@@ -1,9 +1,6 @@
 import isFileAsync from '../is-file-async';
 
-import {
-  JS_FILE_PATH,
-  SHALLOW_FOLDER_PATH,
-} from '../../__tests__/fixtures/data';
+import { JS_FILE_PATH, SHALLOW_FOLDER_PATH } from '../../__fixtures__/data';
 
 describe('utils/isFileAsync', () => {
   test('it is a function ', () => {

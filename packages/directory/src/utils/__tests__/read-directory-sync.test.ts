@@ -1,6 +1,15 @@
 import path from 'path';
 import readDirectorySync from '../read-directory-sync';
 
+import {
+  SHALLOW_FOLDER_PATH,
+  SHALLOW_FOLDER_DATA,
+  DEEP_FOLDER_PATH,
+  DEEP_FOLDER_DATA,
+  SINGLE_FILE_PATH,
+  SINGLE_FILE_DATA,
+} from '../../__fixtures__/data';
+
 /**
  * These tests can be maddening.
  * Since we run jest from the repo root process.cwd() is the repo root.
@@ -23,31 +32,19 @@ describe('utils/readDirectorySync', () => {
 
   test('it reads a file defined absolutely', () => {
     expect(
-      readDirectorySync(path.resolve(__dirname, 'helpers/test.txt'), {
-        recursive: true,
-      })
-    ).toMatchObject([path.resolve(__dirname, 'helpers/test.txt')]);
+      readDirectorySync(SINGLE_FILE_PATH, { recursive: true })
+    ).toMatchObject(SINGLE_FILE_DATA.map(fileObject => fileObject.path));
   });
 
   test('it reads a folder defined absolutely of depth = 1', () => {
-    expect(
-      readDirectorySync(path.resolve(__dirname, 'helpers/folder'))
-    ).toMatchObject([
-      `${__dirname}/helpers/folder/file.txt`,
-      `${__dirname}/helpers/folder/otherfile.txt`,
-    ]);
+    expect(readDirectorySync(SHALLOW_FOLDER_PATH)).toMatchObject(
+      SHALLOW_FOLDER_DATA.map(fileObject => fileObject.path)
+    );
   });
 
   test('it reads a folder defined absolutely of depth > 1', () => {
     expect(
-      readDirectorySync(path.resolve(__dirname, 'helpers/recursive'), {
-        recursive: true,
-      })
-    ).toMatchObject([
-      `${__dirname}/helpers/recursive/file.txt`,
-      `${__dirname}/helpers/recursive/folder/file.txt`,
-      `${__dirname}/helpers/recursive/folder/otherfile.js`,
-      `${__dirname}/helpers/recursive/folder/thing/file.txt`,
-    ]);
+      readDirectorySync(DEEP_FOLDER_PATH, { recursive: true })
+    ).toMatchObject(DEEP_FOLDER_DATA.map(fileObject => fileObject.path));
   });
 });
