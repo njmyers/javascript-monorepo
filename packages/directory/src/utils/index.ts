@@ -9,3 +9,4 @@ export { default as readDirectorySync } from './read-directory-sync';
 export { default as readDirectoryAsync } from './read-directory-async';
 export { default as readSync } from './read-sync';
 export { default as readAsync } from './read-async';
+export { default as flatten } from './flatten';
