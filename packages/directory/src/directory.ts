@@ -1,5 +1,5 @@
 import { pipe } from 'smalldash';
-
+import defaults from './default-options';
 import {
   filterify,
   mimeify,
@@ -8,36 +8,25 @@ import {
   readDirectorySync,
   readSync,
 } from './utils';
-
 // types
 import { FileObject, Options } from './types';
 
-/** default options */
-const defO = {
-  absolute: true,
-  recursive: false,
-  mime: false,
-  read: false,
-  filter: false,
-};
-
 /**
- * Looks up files with options including a return of relative or absolute paths
- * Recursively look up the directory
- * Add mime contentType and extension
- * @param  {string} dir       the relative or absolute path to read
- * @param  {Options} options  the options object
- * @return {array}            an array of file objects containing your information
+ * Looks up files within a directory and pass options to indicate the return
+ * type. Options include returning relative or absolute paths, as well as
+ * recursively looking in the directory, adding mime contentType and extension,
+ * reading the contents of the file and filtering out files by extension.
  */
-function directory(dir: string, options: Options = defO): Array<FileObject> {
+function directory(dir: string, options: Options = defaults): FileObject[] {
   const list = readDirectorySync(dir, options);
+  const { absolute, mime, read, filter } = options;
 
   const pipeline = []
-    .concat(options.absolute || options.read ? pathify : [])
-    .concat(options.mime || options.read || options.filter ? objectify : [])
-    .concat(options.mime || options.filter ? mimeify : [])
-    .concat(options.filter ? filterify(options.filter) : [])
-    .concat(options.read ? readSync : []);
+    .concat(absolute || read ? pathify : [])
+    .concat(mime || read || filter ? objectify : [])
+    .concat(mime || filter ? mimeify : [])
+    .concat(filter ? filterify(filter) : [])
+    .concat(read ? readSync : []);
 
   return pipeline.length > 0
     ? list

@@ -1,5 +1,5 @@
 import { pipeAsync } from 'smalldash';
-
+import defaults from './default-options';
 import {
   filterify,
   mimeify,
@@ -11,16 +11,6 @@ import {
 
 // types
 import { FileObject, Options } from './types';
-
-/** default options */
-const defaults = {
-  absolute: true,
-  recursive: false,
-  depth: Infinity,
-  mime: false,
-  read: false,
-  filter: undefined,
-};
 
 /**
  * Looks up files within a directory and pass options to indicate the return
