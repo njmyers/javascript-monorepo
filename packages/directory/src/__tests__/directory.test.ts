@@ -1,198 +1,204 @@
 import path from 'path';
 import directory from '../directory';
+import directoryAsync from '../directory-async';
 
-/**
- * These tests can be maddening.
- * Since we run jest from the repo root process.cwd() is the repo root.
- * Remember that and try not to run jest from any other directory.
- * Otherwise you may literally lose your sanity.
- */
+import { Options } from '../types';
 
-describe('it reads the directory and uses options', () => {
-  /** testing with local paths */
-  test('it returns absolute paths automatically', () => {
-    const pkg = directory('package.json');
+import {
+  SINGLE_FILE_PATH,
+  SINGLE_FILE_DATA,
+  JS_FILE_DATA,
+  SHALLOW_FOLDER_PATH,
+  SHALLOW_FOLDER_DATA,
+  DEEP_FOLDER_PATH,
+  DEEP_FOLDER_DATA,
+} from './fixtures/data';
 
-    expect(directory('package.json')).toMatchObject([
-      path.resolve(process.cwd(), 'package.json'),
-    ]);
+type DirectoryArgs = [string, Options?];
+
+describe('src/directory', () => {
+  describe('it returns absolute paths with no options argument', () => {
+    const args: DirectoryArgs = ['package.json', undefined];
+    const expected = [path.resolve(process.cwd(), 'package.json')];
+
+    test('synchronously', () => {
+      expect(directory(...args)).toMatchObject(expected);
+    });
+
+    test('asynchronously', () => {
+      return directoryAsync(...args).then(value =>
+        expect(value).toMatchObject(expected)
+      );
+    });
   });
 
-  /** testing with absolute paths */
-  test('it reads a folder defined absolutely of depth > 1', () => {
-    expect(
-      directory(path.resolve(__dirname, 'helpers/recursive'), {
-        recursive: true,
-      })
-    ).toMatchObject([
-      `${__dirname}/helpers/recursive/file.txt`,
-      `${__dirname}/helpers/recursive/folder/file.txt`,
-      `${__dirname}/helpers/recursive/folder/otherfile.js`,
-      `${__dirname}/helpers/recursive/folder/thing/file.txt`,
-    ]);
+  describe('it recursively reads a directory and returns absolute paths', () => {
+    const args: DirectoryArgs = [DEEP_FOLDER_PATH, { recursive: true }];
+    const expected = DEEP_FOLDER_DATA.map(fileObject => fileObject.path);
+
+    test('synchronously', () => {
+      expect(directory(...args)).toMatchObject(expected);
+    });
+
+    test('asynchronously', () => {
+      return directoryAsync(...args).then(value =>
+        expect(value).toMatchObject(expected)
+      );
+    });
   });
 
-  test('it reads a file and adds mime information', () => {
-    expect(
-      directory(path.resolve(__dirname, 'helpers/test.txt'), {
-        mime: true,
-      })
-    ).toMatchObject([
-      {
-        path: `${__dirname}/helpers/test.txt`,
-        include: true,
-        mime: {
-          contentType: 'text/plain',
-          extension: 'txt',
-        },
-      },
-    ]);
+  describe('it shallowly reads a directory and returns an array of paths', () => {
+    const args: DirectoryArgs = [SHALLOW_FOLDER_PATH, { recursive: false }];
+    const expected = SHALLOW_FOLDER_DATA.map(fileObject => fileObject.path);
+
+    test('synchronously', () => {
+      expect(directory(...args)).toMatchObject(expected);
+    });
+
+    test('asynchronously', () => {
+      return directoryAsync(...args).then(value =>
+        expect(value).toMatchObject(expected)
+      );
+    });
   });
 
-  test('it reads a directory and adds mime information', () => {
-    expect(
-      directory(path.resolve(__dirname, 'helpers/recursive'), {
-        mime: true,
-        recursive: true,
-      })
-    ).toMatchObject([
-      {
-        mime: { contentType: 'text/plain', extension: 'txt' },
-        path: `${__dirname}/helpers/recursive/file.txt`,
-        include: true,
-      },
-      {
-        mime: { contentType: 'text/plain', extension: 'txt' },
-        path: `${__dirname}/helpers/recursive/folder/file.txt`,
-        include: true,
-      },
-      {
-        mime: { contentType: 'application/javascript', extension: 'js' },
-        path: `${__dirname}/helpers/recursive/folder/otherfile.js`,
-        include: true,
-      },
-      {
-        mime: { contentType: 'text/plain', extension: 'txt' },
-        path: `${__dirname}/helpers/recursive/folder/thing/file.txt`,
-        include: true,
-      },
-    ]);
+  describe('it reads a single file and returns mime information', () => {
+    const args: DirectoryArgs = [SINGLE_FILE_PATH, { mime: true }];
+    const expected = SINGLE_FILE_DATA.map(fileObject => ({
+      path: fileObject.path,
+      mime: fileObject.mime,
+    }));
+
+    test('synchronously', () => {
+      expect(directory(...args)).toMatchObject(expected);
+    });
+
+    test('asynchronously', () => {
+      return directoryAsync(...args).then(value =>
+        expect(value).toMatchObject(expected)
+      );
+    });
   });
 
-  test('it reads a directory and adds file contents', () => {
-    expect(
-      directory(path.resolve(__dirname, 'helpers/recursive'), {
-        recursive: true,
-        read: true,
-      })
-    ).toMatchObject([
-      {
-        file: '',
-        include: true,
-        path: `${__dirname}/helpers/recursive/file.txt`,
-      },
-      {
-        file: '',
-        include: true,
-        path: `${__dirname}/helpers/recursive/folder/file.txt`,
-      },
-      {
-        file: `/** File */\n\nconst thing = 'arbitrary javascript';\n`,
-        include: true,
-        path: `${__dirname}/helpers/recursive/folder/otherfile.js`,
-      },
-      {
-        file: '',
-        include: true,
-        path: `${__dirname}/helpers/recursive/folder/thing/file.txt`,
-      },
-    ]);
-  });
-
-  test('it reads a directory and filters by file extension', () => {
-    expect(
-      directory(path.resolve(__dirname, 'helpers/recursive'), {
-        recursive: true,
-        read: true,
-        filter: 'js',
-      })
-    ).toMatchObject([
-      {
-        file: `/** File */\n\nconst thing = 'arbitrary javascript';\n`,
-        include: true,
-        path: `${__dirname}/helpers/recursive/folder/otherfile.js`,
-      },
-    ]);
-  });
-
-  test('it reads a directory and filters by array of file extensions', () => {
-    expect(
-      directory(path.resolve(__dirname, 'helpers/recursive'), {
-        recursive: true,
-        read: true,
-        filter: ['js'],
-      })
-    ).toMatchObject([
-      {
-        file: `/** File */\n\nconst thing = 'arbitrary javascript';\n`,
-        include: true,
-        path: `${__dirname}/helpers/recursive/folder/otherfile.js`,
-      },
-    ]);
-
-    expect(
-      directory(path.resolve(__dirname, 'helpers/recursive'), {
-        recursive: true,
-        read: true,
-        filter: ['js', 'txt'],
-      })
-    ).toMatchObject([
-      {
-        file: '',
-        include: true,
-        path: `${__dirname}/helpers/recursive/file.txt`,
-      },
-      {
-        file: '',
-        include: true,
-        path: `${__dirname}/helpers/recursive/folder/file.txt`,
-      },
-      {
-        file: `/** File */\n\nconst thing = 'arbitrary javascript';\n`,
-        include: true,
-        path: `${__dirname}/helpers/recursive/folder/otherfile.js`,
-      },
-      {
-        file: '',
-        include: true,
-        path: `${__dirname}/helpers/recursive/folder/thing/file.txt`,
-      },
-    ]);
-  });
-
-  test('it reads a directory and filters by malformed file extension', () => {
-    const result = [
-      {
-        file: `/** File */\n\nconst thing = 'arbitrary javascript';\n`,
-        include: true,
-        path: `${__dirname}/helpers/recursive/folder/otherfile.js`,
-      },
+  describe('it recursively reads a directory of files and returns mime information', () => {
+    const args: DirectoryArgs = [
+      DEEP_FOLDER_PATH,
+      { mime: true, recursive: true },
     ];
+    const expected = DEEP_FOLDER_DATA.map(fileObject => ({
+      path: fileObject.path,
+      mime: fileObject.mime,
+    }));
 
-    expect(
-      directory(path.resolve(__dirname, 'helpers/recursive'), {
-        recursive: true,
-        read: true,
-        filter: '.js',
-      })
-    ).toMatchObject(result);
+    test('synchronously', () => {
+      expect(directory(...args)).toMatchObject(expected);
+    });
 
-    expect(
-      directory(path.resolve(__dirname, 'helpers/recursive'), {
-        recursive: true,
-        read: true,
-        filter: ['.js'],
-      })
-    ).toMatchObject(result);
+    test('asynchronously', () => {
+      return directoryAsync(...args).then(value =>
+        expect(value).toMatchObject(expected)
+      );
+    });
+  });
+
+  describe('it recursively reads a directory of files and returns file contents', () => {
+    const args: DirectoryArgs = [
+      DEEP_FOLDER_PATH,
+      { read: true, recursive: true },
+    ];
+    const expected = DEEP_FOLDER_DATA.map(fileObject => ({
+      path: fileObject.path,
+      file: fileObject.file,
+    }));
+
+    test('synchronously', () => {
+      expect(directory(...args)).toMatchObject(expected);
+    });
+
+    test('asynchronously', () => {
+      return directoryAsync(...args).then(value =>
+        expect(value).toMatchObject(expected)
+      );
+    });
+  });
+
+  describe('it reads a directory and filters by file extension', () => {
+    const args: DirectoryArgs = [
+      DEEP_FOLDER_PATH,
+      { recursive: true, filter: 'js' },
+    ];
+    const expected = JS_FILE_DATA.map(fileObject => ({
+      path: fileObject.path,
+    }));
+
+    test('synchronously', () => {
+      expect(directory(...args)).toMatchObject(expected);
+    });
+
+    test('asynchronously', () => {
+      return directoryAsync(...args).then(value =>
+        expect(value).toMatchObject(expected)
+      );
+    });
+  });
+
+  describe('it reads a directory and filters by an array of file extensions', () => {
+    const args: DirectoryArgs = [
+      DEEP_FOLDER_PATH,
+      { recursive: true, filter: ['js', 'txt'] },
+    ];
+    const expected = DEEP_FOLDER_DATA.map(fileObject => ({
+      path: fileObject.path,
+    }));
+
+    test('synchronously', () => {
+      expect(directory(...args)).toMatchObject(expected);
+    });
+
+    test('asynchronously', () => {
+      return directoryAsync(...args).then(value =>
+        expect(value).toMatchObject(expected)
+      );
+    });
+  });
+
+  describe('it reads a directory and filters by malformed file extension', () => {
+    const args: DirectoryArgs = [
+      DEEP_FOLDER_PATH,
+      { recursive: true, filter: '.js' },
+    ];
+    const expected = JS_FILE_DATA.map(fileObject => ({
+      path: fileObject.path,
+    }));
+
+    test('synchronously', () => {
+      expect(directory(...args)).toMatchObject(expected);
+    });
+
+    test('asynchronously', () => {
+      return directoryAsync(...args).then(value =>
+        expect(value).toMatchObject(expected)
+      );
+    });
+  });
+
+  describe('it reads a directory and filters by an array of malformed file extension', () => {
+    const args: DirectoryArgs = [
+      DEEP_FOLDER_PATH,
+      { recursive: true, filter: ['.js'] },
+    ];
+    const expected = JS_FILE_DATA.map(fileObject => ({
+      path: fileObject.path,
+    }));
+
+    test('synchronously', () => {
+      expect(directory(...args)).toMatchObject(expected);
+    });
+
+    test('asynchronously', () => {
+      return directoryAsync(...args).then(value =>
+        expect(value).toMatchObject(expected)
+      );
+    });
   });
 });
