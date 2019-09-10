@@ -18,7 +18,9 @@ export const SINGLE_FILE_DATA = [
   },
 ];
 
-export const JS_FILE_PATH = resolvePath('fake-directory/test.txt');
+export const JS_FILE_PATH = resolvePath(
+  'fake-directory/recursive/folder/otherfile.js'
+);
 export const JS_FILE_DATA = [
   {
     file: `/** File */\n\nconst thing = 'arbitrary javascript';\n`,

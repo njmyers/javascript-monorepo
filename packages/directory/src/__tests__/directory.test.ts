@@ -2,7 +2,7 @@ import path from 'path';
 import directory from '../directory';
 import directoryAsync from '../directory-async';
 
-import { Options } from '../types';
+import { DirectoryArgs } from '../types';
 
 import {
   SINGLE_FILE_PATH,
@@ -12,9 +12,7 @@ import {
   SHALLOW_FOLDER_DATA,
   DEEP_FOLDER_PATH,
   DEEP_FOLDER_DATA,
-} from './fixtures/data';
-
-type DirectoryArgs = [string, Options?];
+} from '../__fixtures__/data';
 
 describe('src/directory', () => {
   describe('it returns absolute paths with no options argument', () => {
