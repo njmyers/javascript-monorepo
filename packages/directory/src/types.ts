@@ -1,5 +1,3 @@
-import fs from 'fs';
-
 /** Directory Options */
 export interface Options {
   /** boolean option to return mime information for all files: default false */
@@ -31,5 +29,5 @@ export interface FileObject {
   file?: string | null;
 }
 
-export type DirectoryArgs = [fs.PathLike, Options?];
+export type DirectoryArgs = [string, Options?];
 export type Files = Array<string | FileObject>;
