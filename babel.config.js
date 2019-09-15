@@ -11,6 +11,7 @@ module.exports = api => {
       '@babel/plugin-proposal-object-rest-spread',
       'dynamic-import-node',
       '@babel/plugin-syntax-dynamic-import',
+      '@babel/plugin-transform-runtime',
     ],
     presets: [
       ['@babel/preset-env'],
