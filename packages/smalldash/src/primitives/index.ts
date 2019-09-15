@@ -1,4 +1,3 @@
-/** @flow */
 export { default as arrayish } from './arrayish';
 export { default as nullish } from './nullish';
 export { default as numberish } from './numberish';

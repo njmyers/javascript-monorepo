@@ -1,6 +1,6 @@
 import arrayish from '../arrayish';
 
-describe('it returns true for arrays only', () => {
+describe('primitives/arrayish', () => {
   test('it returns true for arrays', () => {
     expect(arrayish(['value'])).toBe(true);
   });

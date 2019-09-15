@@ -1,6 +1,6 @@
 import nullish from '../nullish';
 
-describe('it returns true for null and undefined values', () => {
+describe('primitives/nullish', () => {
   test('it returns true for null', () => {
     expect(nullish(null)).toBe(true);
   });

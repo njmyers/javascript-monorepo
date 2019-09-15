@@ -1,6 +1,6 @@
 import stringish from '../stringish';
 
-describe('it returns true for non-empty strings', () => {
+describe('primitives/stringish', () => {
   test('it returns true for string', () => {
     expect(stringish('string')).toBe(true);
   });

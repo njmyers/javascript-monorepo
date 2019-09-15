@@ -1,6 +1,6 @@
 import numberish from '../numberish';
 
-describe('it returns true for real numbers excluding NaN', () => {
+describe('primitives/numberish', () => {
   test('it returns true for positive and negative real numbers', () => {
     expect(numberish(2)).toBe(true);
     expect(numberish(-2)).toBe(true);

@@ -1,6 +1,6 @@
 import objectish from '../objectish';
 
-describe('it returns true for objects excluding null, array and function', () => {
+describe('primitives/objectish', () => {
   test('it returns true for objects', () => {
     expect(objectish({ key: 'value' })).toBe(true);
   });
