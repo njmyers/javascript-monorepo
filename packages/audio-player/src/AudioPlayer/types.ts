@@ -1,6 +1,4 @@
-import { Player } from '../Context';
-
-export interface Props extends Player {
+export interface Props {
   display: ['controls' | 'trackInfo' | 'meter' | 'volume'];
   classPrefix: string;
 }

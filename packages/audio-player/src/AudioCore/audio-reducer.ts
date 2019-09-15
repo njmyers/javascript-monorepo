@@ -11,14 +11,14 @@ const audioPlayerState = {
   currentTime: 0,
   duration: 0,
   playing: false,
-  display: false,
+  display: true,
   volume: 1,
   muted: false,
   current: 0,
   previous: 0,
   tracks: [],
   size: {},
-  timeoutID: null,
+  timeoutID: undefined,
 };
 
 /**
@@ -38,14 +38,13 @@ const scrollTracks = (current, tracks, payload) =>
  * @param {number} id id number of track to select
  */
 const selectById = (tracks, id) =>
-  tracks.findIndex((track) => Number(track.id) === Number(id));
+  tracks.findIndex(track => Number(track.id) === Number(id));
 
 /**
  * Validate current position so we never go beyond the bounds of the array length
  * @param {array} tracks array of tracks
  */
-const validateCurrent = (tracks) =>
-  tracks.length === 0 ? 0 : tracks.length - 1;
+const validateCurrent = tracks => (tracks.length === 0 ? 0 : tracks.length - 1);
 
 /**
  * Root redux reducer for the audio player
@@ -53,6 +52,7 @@ const validateCurrent = (tracks) =>
  * @param {object} action redux action with parameters type and payload
  */
 const audioPlayerReducer = (state = audioPlayerState, action) => {
+  console.log(state, action);
   switch (action.type) {
     case '@AUDIO_PLAYER/TIMEOUT_ID':
       return {
@@ -97,8 +97,8 @@ const audioPlayerReducer = (state = audioPlayerState, action) => {
     case '@AUDIO_PLAYER/LOAD_TRACK':
       // prefer existing object
       const tracks = uniq(
-        [state.tracks.reverse(), action.payload],
-        (object) => object.id
+        [...state.tracks.reverse(), action.payload],
+        object => object.id
       );
 
       return {

@@ -3,11 +3,9 @@ import audioSideEffects from './audio-side-effects';
 import {
   updateUI,
   playerStop,
-  playerStart,
   playerSoftStart,
   playerSoftStop,
   saveTimeoutID,
-  clearTimeoutID,
 } from './audio-actions';
 
 import {
@@ -30,13 +28,11 @@ const dispatchToSoftStop = [
 ];
 
 const dispatchToHardStart = ['@AUDIO_PLAYER/START', '@AUDIO_PLAYER/FRAME'];
-
 const dispatchToHardStop = ['@AUDIO_PLAYER/HIDE', '@AUDIO_PLAYER/DESTROY'];
 
-const isNumber = (number) =>
-  !Number.isNaN(number) || typeof number === 'number';
+const isNumber = number => !Number.isNaN(number) || typeof number === 'number';
 
-const frame = (dispatch, state) => (action) => {
+const frame = (dispatch, state) => action => {
   // dispatch UI update
   const currentTime = getHowlCurrentTime(state);
   const duration = getHowlDuration(state);
@@ -60,7 +56,7 @@ const frame = (dispatch, state) => (action) => {
   }
 };
 
-const audioMiddleware = ({ dispatch, getState }) => (next) => (action) => {
+const audioMiddleware = ({ dispatch, getState }) => next => action => {
   // first pass to reducer
   next(action);
   // then do side effects

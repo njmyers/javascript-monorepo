@@ -1,93 +1,95 @@
 import React, { useEffect, useState, useCallback } from 'react';
-import { Form } from '@njmyers/component-library';
-import uuid from 'uuid/v1';
+// import { Form } from '@njmyers/component-library';
+// import uuid from 'uuid/v1';
 
-import createAudioPlayer from '../src/AudioPlayer';
-import './interface.sass';
+// import { AudioPlayer, withPlayer } from '../src/AudioPlayer';
+// import './interface.sass';
 
-function Interface({
-  audioPlayerShow,
-  audioPlayerDestroy,
-  audioPlayerStart,
-  audioPlayerStop,
-  loadAudioTrack,
-}) {
-  const [track, setTrack] = useState({
-    url: 'https://blatboy.s3.amazonaws.com/2018/03/BuddySweetheartUke.mp3',
-    artist: 'Artist',
-    name: 'Track #1',
-  });
+// function Interface({
+//   audioPlayerShow,
+//   audioPlayerDestroy,
+//   audioPlayerStart,
+//   audioPlayerStop,
+//   loadAudioTrack,
+// }) {
+//   const [track, setTrack] = useState({
+//     url: 'https://blatboy.s3.amazonaws.com/2018/03/BuddySweetheartUke.mp3',
+//     artist: 'Artist',
+//     name: 'Track #1',
+//   });
 
-  useEffect(() => {
-    audioPlayerShow();
-    return () => audioPlayerDestroy();
-  });
+//   useEffect(() => {
+//     audioPlayerShow();
+//     return () => audioPlayerDestroy();
+//   }, []);
 
-  const handleChange = useCallback(
-    ({ currentTarget: { name, value } }) => {
-      setTrack({
-        ...track,
-        [name]: value,
-      });
-    },
-    [track]
-  );
+//   const handleChange = useCallback(
+//     ({ currentTarget: { name, value } }) => {
+//       setTrack({
+//         ...track,
+//         [name]: value,
+//       });
+//     },
+//     [track]
+//   );
 
-  const handleClick = useCallback(
-    () =>
-      loadAudioTrack({
-        name: track.name,
-        artist: track.artist,
-        urls: [track.url],
-        id: uuid(),
-      }),
-    [track]
-  );
+//   const handleClick = useCallback(
+//     () =>
+//       loadAudioTrack({
+//         name: track.name,
+//         artist: track.artist,
+//         urls: [track.url],
+//         id: uuid(),
+//       }),
+//     [track]
+//   );
 
-  return (
-    <div className="interface">
-      <h5 className="sans">Seperately Mapped Interface</h5>
-      <Form.Input name="url" value={track.url} onChange={handleChange} />
-      <Form.Input name="name" value={track.name} onChange={handleChange} />
-      <Form.Input name="artist" value={track.artist} onChange={handleChange} />
-      <button onClick={handleClick}>Load URL</button>
-      <button onClick={audioPlayerStart}>Externally Mapped Start Button</button>
-      <button onClick={audioPlayerStop}>Externally Mapped Stop Button</button>
-    </div>
-  );
-}
+//   return (
+//     <div className="interface">
+//       <h5 className="sans">Seperately Mapped Interface</h5>
+//       <Form.Input name="url" value={track.url} onChange={handleChange} />
+//       <Form.Input name="name" value={track.name} onChange={handleChange} />
+//       <Form.Input name="artist" value={track.artist} onChange={handleChange} />
+//       <button onClick={handleClick}>Load URL</button>
+//       <button onClick={audioPlayerStart}>Externally Mapped Start Button</button>
+//       <button onClick={audioPlayerStop}>Externally Mapped Stop Button</button>
+//     </div>
+//   );
+// }
 
-const FirstInstance = createAudioPlayer();
-const SecondInstance = createAudioPlayer();
+// const FirstInstance = createAudioPlayer();
+// const SecondInstance = createAudioPlayer();
 
-const FirstInterface = FirstInstance.withPlayer(Interface);
-const SecondInterface = SecondInstance.withPlayer(Interface);
+// const FirstInterface = FirstInstance.withPlayer(Interface);
+// const SecondInterface = SecondInstance.withPlayer(Interface);
 
-function AudioPlayerBasic() {
-  return (
-    <article className="parent-sans">
-      <h3>First Instance</h3>
-      <h4>First Interface</h4>
-      <FirstInterface />
-      <h4>First Player</h4>
-      <FirstInstance.AudioPlayer
-        trackInfo={false}
-        volume={false}
-        meter={false}
-        className="myClass"
-      />
-      <h3>Second Instance</h3>
-      <h4>Second Interface</h4>
-      <SecondInterface />
-      <h4>Second Player</h4>
-      <SecondInstance.AudioPlayer
-        trackInfo={false}
-        volume={false}
-        meter={false}
-        className="myOtherClass"
-      />
-    </article>
-  );
-}
+// function AudioPlayerBasic() {
+//   return (
+//     <article className="parent-sans">
+//       <h3>First Instance</h3>
+//       <h4>First Interface</h4>
+//       <FirstInterface />
+//       <h4>First Player</h4>
+//       <FirstInstance.AudioPlayer
+//         trackInfo={false}
+//         volume={false}
+//         meter={false}
+//         className="myClass"
+//       />
+//       <h3>Second Instance</h3>
+//       <h4>Second Interface</h4>
+//       <SecondInterface />
+//       <h4>Second Player</h4>
+//       <SecondInstance.AudioPlayer
+//         trackInfo={false}
+//         volume={false}
+//         meter={false}
+//         className="myOtherClass"
+//       />
+//     </article>
+//   );
+// }
 
-export default AudioPlayerBasic;
+// export default AudioPlayerBasic;
+
+export default () => null;

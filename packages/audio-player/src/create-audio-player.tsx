@@ -1,18 +1,30 @@
-import * as React from 'react';
+import React from 'react';
 import { Provider } from 'react-redux';
 
-import AudioPlayer from './AudioPlayer';
-import { createStore, usePlayer } from './Context';
+import UnwrappedAudioPlayer from './AudioPlayer';
+import Context, { createStore } from './Context';
 // types
 import { PlayerProps, RenderProps } from './types';
 
 const createAudioPlayer = () => {
   const store = createStore();
 
-  function WrappedAudioPlayer(props: PlayerProps) {
+  function AudioPlayer(props: PlayerProps) {
     return (
       <Provider store={store}>
-        <AudioPlayer {...props} {...usePlayer()} />
+        <Context>
+          <UnwrappedAudioPlayer {...props} />
+        </Context>
+      </Provider>
+    );
+  }
+
+  function AudioPlayerControl({ render: Render }: RenderProps) {
+    return (
+      <Provider store={store}>
+        <Context>
+          <Render />
+        </Context>
       </Provider>
     );
   }
@@ -20,14 +32,16 @@ const createAudioPlayer = () => {
   function withAudioPlayer(Wrapped: React.Component) {
     return props => (
       <Provider store={store}>
-        <Wrapped {...props} {...usePlayer()} />
+        <Context>
+          <Wrapped {...props} />
+        </Context>
       </Provider>
     );
   }
 
   return {
-    AudioPlayer: WrappedAudioPlayer,
-    // AudioPlayerControl,
+    AudioPlayer,
+    AudioPlayerControl,
     withAudioPlayer,
   };
 };

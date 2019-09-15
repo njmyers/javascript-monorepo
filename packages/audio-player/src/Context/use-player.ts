@@ -43,7 +43,7 @@ function usePlayer(): Player {
     hide: getDispatchCallback(playerHide),
     show: getDispatchCallback(playerShow),
     destroy: getDispatchCallback(playerDestroy),
-    loadTrack: useCallback(track => dispatch(loadTrack(track)), [dispatch]),
+    loadTrack: getDispatchCallback(loadTrack),
   };
 }
 

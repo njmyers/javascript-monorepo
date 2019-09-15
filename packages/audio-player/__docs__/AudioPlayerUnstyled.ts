@@ -2,16 +2,10 @@ import React, { useEffect, useState, useCallback } from 'react';
 import { Form } from '@njmyers/component-library';
 import uuid from 'uuid/v1';
 
-import createAudioPlayer from '../src/AudioPlayer';
+import createAudioPlayer from '../src';
 import './interface.sass';
 
-function Interface({
-  audioPlayerShow,
-  audioPlayerDestroy,
-  audioPlayerStart,
-  audioPlayerStop,
-  loadAudioTrack,
-}) {
+function Interface({ show, destroy, start, stop, loadTrack }) {
   const [track, setTrack] = useState({
     url: 'https://blatboy.s3.amazonaws.com/2018/03/BuddySweetheartUke.mp3',
     artist: 'Artist',
@@ -19,9 +13,9 @@ function Interface({
   });
 
   useEffect(() => {
-    audioPlayerShow();
-    return () => audioPlayerDestroy();
-  });
+    show();
+    return () => destroy();
+  }, []);
 
   const handleChange = useCallback(
     ({ currentTarget: { name, value } }) => {
@@ -35,7 +29,7 @@ function Interface({
 
   const handleClick = useCallback(
     () =>
-      loadAudioTrack({
+      loadTrack({
         name: track.name,
         artist: track.artist,
         urls: [track.url],
@@ -51,14 +45,14 @@ function Interface({
       <Form.Input name="name" value={track.name} onChange={handleChange} />
       <Form.Input name="artist" value={track.artist} onChange={handleChange} />
       <button onClick={handleClick}>Load URL</button>
-      <button onClick={audioPlayerStart}>Externally Mapped Start Button</button>
-      <button onClick={audioPlayerStop}>Externally Mapped Stop Button</button>
+      <button onClick={start}>Externally Mapped Start Button</button>
+      <button onClick={stop}>Externally Mapped Stop Button</button>
     </div>
   );
 }
 
-const { withPlayer, AudioPlayer } = createAudioPlayer();
-const ConnectedInterface = withPlayer(Interface);
+const { withAudioPlayer, AudioPlayer } = createAudioPlayer();
+const ConnectedInterface = withAudioPlayer(Interface);
 
 function AudioPlayerBasic() {
   return (

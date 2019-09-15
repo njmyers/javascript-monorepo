@@ -1,11 +1,11 @@
 import { createHowl } from './audio-get-set';
 
-export const updateUI = (currentTime, duration) => ({
+export const updateUI = (currentTime: number, duration: number) => ({
   type: '@AUDIO_PLAYER/UPDATE_UI',
   payload: { currentTime, duration },
 });
 
-export const playerError = (err) => ({
+export const playerError = err => ({
   type: '@AUDIO_PLAYER/ERROR',
   payload: err,
 });
@@ -37,29 +37,32 @@ export const playerPause = () => ({
 });
 
 /* Volume */
-export const playerVolume = (payload) => ({
+export const playerVolume = payload => ({
   type: '@AUDIO_PLAYER/VOLUME',
   payload,
 });
 
-export const playerMute = (payload) => ({
+export const playerMute = payload => ({
   type: '@AUDIO_PLAYER/MUTE',
   payload,
 });
 
 /* Track Current Time */
-export const playerSeek = (payload) => ({
+export const playerSeek = payload => ({
   type: '@AUDIO_PLAYER/SEEK',
   payload,
 });
 
 /* Select Active */
-export const playerScroll = (payload) => ({
+export const playerScroll = payload => ({
   type: '@AUDIO_PLAYER/SCROLL',
   payload,
 });
 
-export const playerSelect = (payload) => ({
+export const playerForward = () => playerScroll(1);
+export const playerBackward = () => playerScroll(-1);
+
+export const playerSelect = payload => ({
   type: '@AUDIO_PLAYER/SELECT',
   payload,
 });
@@ -79,7 +82,7 @@ export const loadTrack = ({ id, urls, name, artist } = {}) => ({
 });
 
 /* Update Size */
-export const playerSize = (payload) => ({
+export const playerSize = payload => ({
   type: '@AUDIO_PLAYER/SIZE',
   payload,
 });
@@ -99,7 +102,7 @@ export const playerDestroy = () => ({
   type: '@AUDIO_PLAYER/DESTROY',
 });
 
-export const saveTimeoutID = (id) => ({
+export const saveTimeoutID = id => ({
   type: '@AUDIO_PLAYER/TIMEOUT_ID',
   id,
 });
