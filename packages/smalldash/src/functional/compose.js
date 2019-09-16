@@ -1,10 +1,14 @@
-// @flow
 import pipe from './pipe';
 
 /**
- * compose functions from right to left automatically currying arguments
- * @param {functions} fns functions (transformations) to perform
+ * Compose functions together automatically currying the return value of the
+ * previous function as the argument of the following function. Compose returns
+ * a function which allows you to create flow dynamically create flow control
+ * and execute it in a separate step. Compose executes functions in order of
+ * right to left.
  */
-const compose = (...fns: Array<() => any>) => pipe(...fns.reverse());
+function compose(...functions) {
+  return pipe(...functions.reverse());
+}
 
 export default compose;
