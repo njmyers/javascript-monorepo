@@ -1,77 +1,42 @@
+#!/usr/bin/env node
+const directory = require('@njmyers/directory');
 const fs = require('fs');
+const path = require('path');
 const chalk = require('chalk');
-const { basename, resolve } = require('path');
 const camelCase = require('camelcase');
 
-function isFile(file) {
-  return fs.statSync(file).isFile();
-}
+const SRC = path.resolve(__dirname, '../src');
+const IGNORE = ['types', 'index', '__tests__', '__fixtures__'];
+const FOLDERS = [
+  'array',
+  'async',
+  'functional',
+  'object',
+  'primitives',
+  'string',
+];
 
-/**
- * recursively read directory structure
- * @param  {string} dir directory to read
- * @return {array}     array of file paths
- */
-const readDirectoryKeys = (dir) => {
-  const contents = fs.readdirSync(dir);
-  const files = contents
-    .map((name) => {
-      const filePath = `${dir}/${name}`;
-      const file = isFile(filePath);
+let mainIndex = '';
 
-      return !file
-        ? name !== '__tests__'
-          ? [filePath, ...readDirectoryKeys(filePath)]
-          : undefined
-        : name !== 'index.js' && name !== 'types.js'
-          ? filePath
-          : undefined;
-    })
-    // removed undefined
-    .filter((val) => val !== undefined);
+FOLDERS.forEach(folderName => {
+  let folderIndex = '';
+  mainIndex += `export * from './${folderName}'\n`;
 
-  return files;
-};
+  directory(path.resolve(SRC, folderName), {
+    absolute: true,
+  })
+    .filter(filePath => !IGNORE.some(ignore => filePath.includes(ignore)))
+    .forEach(filePath => {
+      const baseName = path.basename(filePath, '.ts');
+      const functionName = camelCase(baseName);
+      folderIndex += `export { default as ${functionName} } from './${baseName}'\n`;
+    });
 
-const functionName = (path) => {
-  const base = basename(path);
-  return camelCase(base.slice(0, base.length - 3));
-};
+  const folderIndexPath = path.resolve(SRC, folderName, 'index.ts');
+  console.log(chalk.green('writing index at: ') + chalk.bold(folderIndexPath));
+  fs.writeFileSync(folderIndexPath, folderIndex);
+});
 
-const relativePath = (path) => {
-  const base = basename(path);
-  return `'./${base.slice(0, base.length - 3)}'`;
-};
-
-const createStrings = (keys) => {
-  const stringed = keys.map((path, index) => {
-    return Array.isArray(path)
-      ? createStrings(path)
-      : index === 0
-        ? path + '/index.js'
-        : `export { default as ${functionName(path)} } from ${relativePath(
-            path
-          )};`;
-  });
-
-  return stringed;
-};
-
-const writeFiles = (strings) => {
-  let path = '';
-  let file = '/** @flow */\n';
-
-  strings.forEach((string, index) => {
-    if (Array.isArray(string)) writeFiles(string);
-    else {
-      if (index === 0) path = string;
-      else file += string + '\n';
-    }
-  });
-
-  file += `\nexport * from './types'`;
-
-  if (path) fs.writeFileSync(path, file, 'utf8');
-};
-
-writeFiles(createStrings(readDirectoryKeys(resolve(__dirname, '../src'))));
+const mainIndexPath = path.resolve(SRC, 'index.ts');
+console.log(chalk.green('writing index at: ') + chalk.bold(mainIndexPath));
+fs.writeFileSync(mainIndexPath, mainIndex);
