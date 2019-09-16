@@ -1,4 +1,3 @@
-// @flow
 import validateLetterString from './validate-letter-string';
 import compose from '../functional/compose';
 

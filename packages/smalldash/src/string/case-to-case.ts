@@ -1,4 +1,3 @@
-// @flow
 
 type CaseToCase = (
   first: string

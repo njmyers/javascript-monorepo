@@ -1,5 +1,3 @@
-// @flow
-
 /**
  * Ensures that the argument is a string of length one
  * @param  {string} string the string to test

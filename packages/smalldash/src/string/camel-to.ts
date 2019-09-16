@@ -1,4 +1,3 @@
-// @flow
 import isUpperCase from './is-upper-case';
 
 type CamelTo = (seperator: string) => (string: string) => string;
