@@ -20,7 +20,7 @@ let mainIndex = '';
 
 FOLDERS.forEach(folderName => {
   let folderIndex = '';
-  mainIndex += `export * from './${folderName}'\n`;
+  mainIndex += `export * from './${folderName}';\n`;
 
   directory(path.resolve(SRC, folderName), {
     absolute: true,
@@ -29,7 +29,7 @@ FOLDERS.forEach(folderName => {
     .forEach(filePath => {
       const baseName = path.basename(filePath, '.ts');
       const functionName = camelCase(baseName);
-      folderIndex += `export { default as ${functionName} } from './${baseName}'\n`;
+      folderIndex += `export { default as ${functionName} } from './${baseName}';\n`;
     });
 
   const folderIndexPath = path.resolve(SRC, folderName, 'index.ts');
