@@ -1,14 +1,14 @@
 /** @flow */
 import { nullish, objectish, arrayish } from '../primitives';
-import type { Complex, Primitive } from '../primitives';
+import { Complex, Primitive } from '../primitives';
 
 /** compare primitives with NaN */
-const primitives = (value: Primitive, compare: Primitive): boolean %checks => {
+const primitives = (value: Primitive, compare: Primitive): boolean => {
   return (Number.isNaN(value) && Number.isNaN(compare)) || value === compare;
 };
 
 /** compare references for shortcut */
-const reference = (value: Complex, compare: Complex): boolean %checks =>
+const reference = (value: Complex, compare: Complex): boolean =>
   value === compare;
 
 /** Get object or array length */
@@ -20,7 +20,7 @@ const length = (object: Complex): number =>
  * Rewrote this as a giant ternary in attempt to get flow to understand this
  * Obviously way too many checks here for flow but we can try right?
  */
-const equals = (actual: Complex, expected: Complex): boolean %checks =>
+const equals = (actual: Complex, expected: Complex): boolean =>
   // add an initial short path ... improves speed drastically
   !reference(actual, expected)
     ? // Check if input is object or array
@@ -29,11 +29,10 @@ const equals = (actual: Complex, expected: Complex): boolean %checks =>
         length(actual) !== length(expected)
         ? false
         : Object.entries(actual)
-            .map(
-              (entry: [string, Complex]) =>
-                arrayish(entry[1]) || objectish(entry[1])
-                  ? equals(entry[1], expected[entry[0]])
-                  : primitives(entry[1], expected[entry[0]])
+            .map((entry: [string, Complex]) =>
+              arrayish(entry[1]) || objectish(entry[1])
+                ? equals(entry[1], expected[entry[0]])
+                : primitives(entry[1], expected[entry[0]])
             )
             .reduce((a, b) => a && b, true)
       : primitives(actual, expected)
