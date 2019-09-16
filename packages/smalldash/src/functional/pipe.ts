@@ -5,17 +5,8 @@
  * execute it in a separate step. Pipe executes functions in order of left to
  * right.
  */
-function pipe(firstFunction, ...remainingFunctions) {
-  return (...args) => {
-    let value = firstFunction(...args);
-
-    while (remainingFunctions.length) {
-      const nextFunction = remainingFunctions.shift();
-      value = nextFunction(value);
-    }
-
-    return value;
-  };
+function pipe(fn, ...fns) {
+  return (...args) => fns.reduce((prev, next) => next(prev), fn(...args));
 }
 
 export default pipe;
