@@ -1,1 +1,1 @@
-export { default as equals } from './equals'
+export { default as equals } from './equals';
