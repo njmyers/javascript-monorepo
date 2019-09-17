@@ -7,7 +7,7 @@ test('capitalize string', () => {
   expect(capitalize(string)).toBe(expected);
 });
 
-test('capitalize string with seperator', () => {
+test('capitalize string with separator', () => {
   const string = 'this-is-a-test';
   const expected = 'This-Is-A-Test';
 
