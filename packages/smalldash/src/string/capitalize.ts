@@ -1,11 +1,13 @@
 /**
- * @param {string} str input string
- * @param {string} split split or character to split string at
+ * Capitalize all words in a sentence or string based on a character separator.
+ * The separator will be used to separate the string into "words" which will
+ * then all have capitalization applied.
  */
-const capitalize = (str, split = ' ') =>
-  str
-    .split(split)
-    .map((word) => word.slice(0, 1).toUpperCase() + word.slice(1))
-    .join(split);
+function capitalize(sentence, separator = ' ') {
+  return sentence
+    .split(separator)
+    .map(word => word.slice(0, 1).toUpperCase() + word.slice(1))
+    .join(separator);
+}
 
 export default capitalize;
