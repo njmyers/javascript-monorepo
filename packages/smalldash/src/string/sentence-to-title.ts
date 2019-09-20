@@ -1,21 +1,16 @@
-import acceptStrings from './accept-strings';
+import caseToCase from './case-to-case';
+import { KEBAB_CASE_SEPARATOR, SENTENCE_CASE_SEPARATOR } from './constants';
 import compose from '../functional/compose';
-
-type SentenceToTitle = (string: string) => string;
+import capitalize from './capitalize';
 
 /**
- * Converts sentence case to Title Case
- * @type {[type]}
+ * Convert a sentence case string to Title Case string and trim all whitespace.
  */
-const _sentenceToTitle: SentenceToTitle = (string) =>
-  string
-    .split(' ')
-    .map((word) => word.slice(0, 1).toUpperCase() + word.slice(1))
-    .join(' ');
+function kebabToSentence(sentenceCaseString) {
+  return compose(
+    capitalize,
+    caseToCase(SENTENCE_CASE_SEPARATOR)(KEBAB_CASE_SEPARATOR)
+  )(sentenceCaseString);
+}
 
-const sentenceToTitle = compose(
-  _sentenceToTitle,
-  acceptStrings
-);
-
-export default sentenceToTitle;
+export default kebabToSentence;
