@@ -1,16 +1,13 @@
 import toCamel from './to-camel';
-import acceptStrings from './accept-strings';
-import compose from '../functional/compose';
-
-type KebabToCamel = (string: string) => string;
+import { KEBAB_CASE_SEPARATOR } from './constants';
 
 /**
- * Converts kebab-case to camelCase
- * @type {[type]}
+ * Convert a kebab-case string to camelCase string and trim all whitespace.
  */
-const kebabToCamel: KebabToCamel = compose(
-  toCamel('-'),
-  acceptStrings
-);
+function kebabToCamel(kebabCaseString) {
+  return toCamel(KEBAB_CASE_SEPARATOR)(
+    kebabCaseString
+  );
+}
 
 export default kebabToCamel;
