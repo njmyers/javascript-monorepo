@@ -7,6 +7,7 @@ import isUpperCase from './is-upper-case';
 function camelTo(separator) {
   return string =>
     string
+      .trim()
       .split('')
       .map(letter =>
         isUpperCase(letter) ? `${separator}${letter.toLowerCase()}` : letter
