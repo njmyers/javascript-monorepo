@@ -2,51 +2,56 @@ import snakeToSentence from '../snake-to-sentence';
 import snakeToCamel from '../snake-to-camel';
 import snakeToKebab from '../snake-to-kebab';
 import snakeToTitle from '../snake-to-title';
+import snakeToPascal from '../snake-to-pascal';
 
-test('snake string to sentence case', () => {
-  const string = 'this_is_some_snake';
-  const expected = 'this is some snake';
+import * as strings from '../__fixtures__/cased-strings';
 
-  expect(snakeToSentence(string)).toBe(expected);
+describe('snakeToSentence', () => {
+  test('it converts a snake cased string to sentence case', () => {
+    expect(snakeToSentence(strings.SNAKE)).toBe(strings.SENTENCE);
+  });
+
+  test('it fails on non string input', () => {
+    expect(() => snakeToSentence(9)).toThrow();
+  });
 });
 
-test('snake string to sentence case preserves capitalization', () => {
-  const string = 'This_is_some_snake';
-  const expected = 'This is some snake';
+describe('snakeToTitle', () => {
+  test('it converts a snake cased string to title case', () => {
+    expect(snakeToTitle(strings.SNAKE)).toBe(strings.TITLE);
+  });
 
-  expect(snakeToSentence(string)).toBe(expected);
+  test('it fails on non string input', () => {
+    expect(() => snakeToTitle(9)).toThrow();
+  });
 });
 
-test('snake string to camel case', () => {
-  const string = 'this_is_some_snake';
-  const expected = 'thisIsSomeSnake';
+describe('snakeToCamel', () => {
+  test('it converts a snake cased string to camel case', () => {
+    expect(snakeToCamel(strings.SNAKE)).toBe(strings.CAMEL);
+  });
 
-  expect(snakeToCamel(string)).toBe(expected);
+  test('it fails on non string input', () => {
+    expect(() => snakeToCamel(9)).toThrow();
+  });
 });
 
-test('snake string to kebab case', () => {
-  const string = 'this_is_some_snake';
-  const expected = 'this-is-some-snake';
+describe('snakeToKebab', () => {
+  test('it converts a snake cased string to kebab case', () => {
+    expect(snakeToKebab(strings.SNAKE)).toBe(strings.KEBAB);
+  });
 
-  expect(snakeToKebab(string)).toBe(expected);
+  test('it fails on non string input', () => {
+    expect(() => snakeToKebab(9)).toThrow();
+  });
 });
 
-test('snake string to kebab case preserves capitalization', () => {
-  const string = 'This_is_some_snake';
-  const expected = 'This-is-some-snake';
+describe('snakeToPascal', () => {
+  test('it converts a snake cased string to pascal case', () => {
+    expect(snakeToPascal(strings.SNAKE)).toBe(strings.PASCAL);
+  });
 
-  expect(snakeToKebab(string)).toBe(expected);
-});
-
-test('snake string to title case', () => {
-  const string = 'This_is_some_snake';
-  const expected = 'This Is Some Snake';
-
-  expect(snakeToTitle(string)).toBe(expected);
-});
-
-test('fails on non string input', () => {
-  expect(() => snakeToCamel(9)).toThrow();
-  expect(() => snakeToSentence(9)).toThrow();
-  expect(() => snakeToSentence(9)).toThrow();
+  test('it fails on non string input', () => {
+    expect(() => snakeToPascal(9)).toThrow();
+  });
 });
