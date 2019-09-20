@@ -1,10 +1,16 @@
 import camelTo from './camel-to';
-import acceptStrings from './accept-strings';
 import capitalize from './capitalize';
-import { compose, sideEffects } from '../functional';
+import { SENTENCE_CASE_SEPARATOR } from './constants';
+import { compose } from '../functional';
 
-export default compose(
-  capitalize,
-  camelTo(' '),
-  acceptStrings
-);
+/**
+ * Convert a camelCase string to sentence case string and trim all whitespace.
+ */
+function camelToSentence(camelCaseString) {
+  return compose(
+    capitalize,
+    camelTo(SENTENCE_CASE_SEPARATOR)
+  )(camelCaseString);
+}
+
+export default camelToSentence;

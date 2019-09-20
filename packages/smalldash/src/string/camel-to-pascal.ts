@@ -1,9 +1,11 @@
-import acceptStrings from './accept-strings';
-import { compose } from '../functional';
+import camelTo from './camel-to';
+import capitalize from './capitalize';
 
-const camelToPascal = (str) => str.slice(0, 1).toUpperCase() + str.slice(1);
+/**
+ * Convert a camelCase string to sentence case string and trim all whitespace.
+ */
+function camelToPascal(camelCaseString) {
+  return capitalize(camelCaseString);
+}
 
-export default compose(
-  camelToPascal,
-  acceptStrings
-);
+export default camelToPascal;

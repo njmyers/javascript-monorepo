@@ -1,8 +1,11 @@
 import camelTo from './camel-to';
-import acceptStrings from './accept-strings';
-import { compose } from '../functional';
+import { SNAKE_CASE_SEPARATOR } from './constants';
 
-export default compose(
-  camelTo('_'),
-  acceptStrings
-);
+/**
+ * Convert a camelCase string to snake_case string and trim all whitespace.
+ */
+function camelToSnake(camelCaseString) {
+  return camelTo(SNAKE_CASE_SEPARATOR)(camelCaseString);
+}
+
+export default camelToSnake;
