@@ -1,18 +1,8 @@
-import validateLetterString from './validate-letter-string';
-import compose from '../functional/compose';
-
-type IsLowerCase = (letter: string) => boolean;
-
 /**
- * Tests whether a letter is lowercase or not
- * @param  {string}  letter the letter to test
- * @return {boolean}        boolean value of whether the letter is upper case
+ * Return a boolean value that indicates whether or not a letter is lowercase.
  */
-const _isLowerCase: IsLowerCase = (letter) => letter !== letter.toUpperCase();
-
-const isLowerCase: IsLowerCase = compose(
-  _isLowerCase,
-  validateLetterString
-);
+function isLowerCase(letter) {
+  return letter !== letter.toUpperCase();
+}
 
 export default isLowerCase;
