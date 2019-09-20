@@ -6,7 +6,7 @@ const chalk = require('chalk');
 const camelCase = require('camelcase');
 
 const SRC = path.resolve(__dirname, '../src');
-const IGNORE = ['types', 'index', '__tests__', '__fixtures__'];
+const IGNORE = ['types', 'index', '__tests__', '__fixtures__', 'constants'];
 const FOLDERS = [
   'array',
   'async',
