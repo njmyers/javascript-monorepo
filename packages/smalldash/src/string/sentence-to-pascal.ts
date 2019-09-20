@@ -4,8 +4,8 @@ import { SENTENCE_CASE_SEPARATOR } from './constants';
 /**
  * Convert a sentence case string to PascalCase string and trim all whitespace.
  */
-function camelToPascal(sentenceCaseString) {
+function sentenceToPascal(sentenceCaseString) {
   return toPascal(SENTENCE_CASE_SEPARATOR)(sentenceCaseString);
 }
 
-export default camelToPascal;
+export default sentenceToPascal;
