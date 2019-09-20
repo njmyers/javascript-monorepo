@@ -1,11 +1,17 @@
-const toCamel = separator => str =>
-  str
-    .split(separator)
-    .map((word, i) =>
-      i !== 0
-        ? word.slice(0, 1).toUpperCase() + word.slice(1).toLowerCase()
-        : word.toLowerCase()
-    )
-    .join('');
+import capitalize from './capitalize';
+
+/**
+ * Return a function that converts a string to camel case. The separator
+ * determines where to create capitalization groupings. Use this function to
+ * generate other functions such as snakeToCamel or any other case to camel case
+ * conversions.
+ */
+function toCamel(separator) {
+  return string =>
+    string
+      .split(separator)
+      .map((word, i) => (i !== 0 ? capitalize(word) : word.toLowerCase()))
+      .join('');
+}
 
 export default toCamel;
