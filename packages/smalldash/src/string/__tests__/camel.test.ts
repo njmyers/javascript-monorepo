@@ -4,45 +4,54 @@ import camelToSnake from '../camel-to-snake';
 import camelToTitle from '../camel-to-title';
 import camelToPascal from '../camel-to-pascal';
 
-test('camel string to sentence case', () => {
-  const string = 'thisIsSomeCamel';
-  const expected = 'this is some camel';
+import * as strings from '../__fixtures__/cased-strings';
 
-  expect(camelToSentence(string)).toBe(expected);
+describe('camelToSentence', () => {
+  test('it converts a camel cased string to sentence case', () => {
+    expect(camelToSentence(strings.CAMEL)).toBe(strings.SENTENCE);
+  });
+
+  test('it fails on non string input', () => {
+    expect(() => camelToSentence(9)).toThrow();
+  });
 });
 
-test('camel string to title case', () => {
-  const string = 'thisIsSomeCamel';
-  const expected = 'This Is Some Camel';
+describe('camelToTitle', () => {
+  test('it converts a camel cased string to title case', () => {
+    expect(camelToTitle(strings.CAMEL)).toBe(strings.TITLE);
+  });
 
-  expect(camelToTitle(string)).toBe(expected);
+  test('it fails on non string input', () => {
+    expect(() => camelToTitle(9)).toThrow();
+  });
 });
 
-test('camel string to kebab case', () => {
-  const string = 'thisIsSomeCamel';
-  const expected = 'this-is-some-camel';
+describe('camelToKebab', () => {
+  test('it converts a camel cased string to kebab case', () => {
+    expect(camelToKebab(strings.CAMEL)).toBe(strings.KEBAB);
+  });
 
-  expect(camelToKebab(string)).toBe(expected);
+  test('it fails on non string input', () => {
+    expect(() => camelToKebab(9)).toThrow();
+  });
 });
 
-test('camel string to snake case', () => {
-  const string = 'thisIsSomeCamel';
-  const expected = 'this_is_some_camel';
+describe('camelToSnake', () => {
+  test('it converts a camel cased string to snake case', () => {
+    expect(camelToSnake(strings.CAMEL)).toBe(strings.SNAKE);
+  });
 
-  expect(camelToSnake(string)).toBe(expected);
+  test('it fails on non string input', () => {
+    expect(() => camelToSnake(9)).toThrow();
+  });
 });
 
-test('camel string to pascal case', () => {
-  const string = 'thisIsSomeCamel';
-  const expected = 'ThisIsSomeCamel';
+describe('camelToPascal', () => {
+  test('it converts a camel cased string to pascal case', () => {
+    expect(camelToPascal(strings.CAMEL)).toBe(strings.PASCAL);
+  });
 
-  expect(camelToPascal(string)).toBe(expected);
-});
-
-test('fails on non string input', () => {
-  expect(() => camelToKebab(9)).toThrow();
-  expect(() => camelToSentence(9)).toThrow();
-  expect(() => camelToSnake(9)).toThrow();
-  expect(() => camelToTitle(9)).toThrow();
-  expect(() => camelToPascal(9)).toThrow();
+  test('it fails on non string input', () => {
+    expect(() => camelToPascal(9)).toThrow();
+  });
 });
