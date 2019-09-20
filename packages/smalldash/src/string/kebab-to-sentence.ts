@@ -1,16 +1,13 @@
-import kebabTo from './kebab-to';
-import acceptStrings from './accept-strings';
-import compose from '../functional/compose';
-
-type KebabToSentence = (string: string) => string;
+import caseToCase from './case-to-case';
+import { KEBAB_CASE_SEPARATOR, SENTENCE_CASE_SEPARATOR } from './constants';
 
 /**
- * Converts kebab-case to sentence case
- * @type {[type]}
+ * Convert a kebab-case string to sentence case string and trim all whitespace.
  */
-const kebabToSentence: KebabToSentence = compose(
-  kebabTo(' '),
-  acceptStrings
-);
+function kebabToSentence(kebabCaseString) {
+  return caseToCase(KEBAB_CASE_SEPARATOR)(SENTENCE_CASE_SEPARATOR)(
+    kebabCaseString
+  );
+}
 
 export default kebabToSentence;

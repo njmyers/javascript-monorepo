@@ -1,16 +1,13 @@
-import kebabTo from './kebab-to';
-import acceptStrings from './accept-strings';
-import compose from '../functional/compose';
-
-type KebabToSnake = (string: string) => string;
+import caseToCase from './case-to-case';
+import { KEBAB_CASE_SEPARATOR, SNAKE_CASE_SEPARATOR } from './constants';
 
 /**
- * Converts kebab-case to snake_case
- * @type {[type]}
+ * Convert a kebab-case string to snake_case string and trim all whitespace.
  */
-const kebabToSnake: KebabToSnake = compose(
-  kebabTo('_'),
-  acceptStrings
-);
+function kebabToSnake(kebabCaseString) {
+  return caseToCase(KEBAB_CASE_SEPARATOR)(SNAKE_CASE_SEPARATOR)(
+    kebabCaseString
+  );
+}
 
 export default kebabToSnake;
