@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+/* eslint-disable */
 const directory = require('@njmyers/directory');
 const fs = require('fs');
 const path = require('path');
