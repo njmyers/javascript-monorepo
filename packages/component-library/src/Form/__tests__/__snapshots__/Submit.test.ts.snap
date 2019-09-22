@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`it works it loads without crashing 1`] = `
+<div
+  className="formInput formInput"
+>
+  <label
+    className="formInput_label formInput_label"
+    htmlFor="submit"
+  >
+    submit
+  </label>
+  <input
+    className="formInput_input formInput_input"
+    name="submit"
+    placeholder=""
+    required={false}
+    type="submit"
+    value="submit"
+  />
+</div>
+`;

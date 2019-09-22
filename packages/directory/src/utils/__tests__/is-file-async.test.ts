@@ -1,5 +1,4 @@
 import isFileAsync from '../is-file-async';
-
 import { JS_FILE_PATH, SHALLOW_FOLDER_PATH } from '../../__fixtures__/data';
 
 describe('utils/isFileAsync', () => {
