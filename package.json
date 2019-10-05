@@ -93,16 +93,6 @@
     "react-dom": "^16.8.6",
     "react-test-renderer": "^16.8.6",
     "regenerator-runtime": "^0.12.0",
-    "rollup-plugin-async": "^1.2.0",
-    "rollup-plugin-babel": "^4.0.1",
-    "rollup-plugin-commonjs": "^9.1.8",
-    "rollup-plugin-flow": "^1.1.1",
-    "rollup-plugin-json": "^3.0.0",
-    "rollup-plugin-node-builtins": "^2.1.2",
-    "rollup-plugin-node-globals": "^1.2.1",
-    "rollup-plugin-node-resolve": "^3.3.0",
-    "rollup-plugin-postcss": "^1.6.2",
-    "rollup-plugin-visualizer": "^0.9.0",
     "sass-loader": "^7.0.3",
     "shx": "^0.3.2",
     "sinon": "^6.0.0",
@@ -110,7 +100,7 @@
     "source-map-explorer": "^1.5.0",
     "storybook-readme": "^4.0.0-beta1",
     "style-loader": "^0.21.0",
-    "typescript": "^3.4.5"
+    "typescript": "^3.6.3"
   },
   "licence": "ISC",
   "lint-staged": {
