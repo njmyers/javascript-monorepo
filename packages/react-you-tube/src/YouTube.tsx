@@ -4,7 +4,7 @@ import useYouTube from './use-you-tube';
 import { Props } from './types';
 
 function YouTubeVideo({ onPlayer, ...props }: Props) {
-  const node = useRef<HTMLElement>(null);
+  const node = useRef<HTMLDivElement>(null);
   const player = useYouTube(node, props);
 
   useEffect(() => {
