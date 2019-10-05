@@ -4,7 +4,7 @@ import pkg from './package.json';
 export default [
   rollupEnvironment(pkg, {
     input: 'src/program/program.ts',
-    env: 'node',
+    env: ['node', 'typescript'],
     output: {
       format: 'cjs',
     },
@@ -12,7 +12,7 @@ export default [
   }),
   rollupEnvironment(pkg, {
     input: 'src/program/program.ts',
-    env: 'node',
+    env: ['node', 'typescript'],
     output: {
       format: 'es',
     },
