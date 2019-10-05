@@ -1,13 +1,17 @@
-import { es6, cjs } from '@njmyers/rollup-config';
+import rollupEnvironment from '@njmyers/rollup-config';
 import pkg from './package.json';
 
 export default [
-  {
+  rollupEnvironment(pkg, {
     input: 'src/index.ts',
-    ...es6(pkg),
-  },
-  {
+    output: {
+      format: 'cjs',
+    },
+  }),
+  rollupEnvironment(pkg, {
     input: 'src/index.ts',
-    ...cjs(pkg),
-  },
+    output: {
+      format: 'es',
+    },
+  }),
 ];
