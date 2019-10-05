@@ -24,6 +24,7 @@
     "smalldash": "^1.1.21"
   },
   "devDependencies": {
+    "@njmyers/rollup-config": "^0.0.1",
     "@njmyers/babel-runtime-files": "^0.0.5",
     "@njmyers/eslint-config": "^0.0.1",
     "babel-cli": "^6.26.0",

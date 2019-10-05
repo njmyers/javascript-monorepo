@@ -19,8 +19,6 @@
     "@njmyers/script-loader": "^0.0.1"
   },
   "devDependencies": {
-    "@njmyers/babel-runtime-files": "^0.0.5",
-    "@njmyers/directory": "^0.0.16",
     "@njmyers/rollup-config": "^0.0.1",
     "@types/youtube": "^0.0.38",
     "npm-run-all": "^4.1.3",

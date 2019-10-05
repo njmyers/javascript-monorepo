@@ -31,7 +31,6 @@
     "update-notifier": "^3.0.1"
   },
   "devDependencies": {
-    "@njmyers/babel-runtime-files": "^0.0.5",
     "@njmyers/directory": "^0.0.16",
     "@njmyers/rollup-config": "^0.0.1",
     "@types/chalk": "^2.2.0",
