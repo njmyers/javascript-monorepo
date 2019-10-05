@@ -15,8 +15,7 @@
     "build": "run-s rollup",
     "rollup": "rollup -c",
     "develop": "nodemon --exec babel-node src/rx.js",
-    "start": "node app.js",
-    "test": "jest --watchAll"
+    "start": "node app.js"
   },
   "bin": {
     "image-server": "app.js"
@@ -36,11 +35,7 @@
     "smalldash": "^1.1.21"
   },
   "devDependencies": {
-    "@njmyers/babel-runtime-files": "^0.0.5",
-    "@njmyers/eslint-config": "^0.0.1",
-    "babel-cli": "^6.26.0",
-    "flow-bin": "^0.74.0",
-    "jest": "^22.1.4",
+    "@njmyers/rollup-config": "^0.0.1",
     "nodemon": "^1.18.2",
     "npm-run-all": "^4.1.2",
     "shx": "^0.3.2"
