@@ -1,14 +1,17 @@
-/* eslint-disable */
-import { es6, cjs } from '@njmyers/rollup-config';
+import rollupEnvironment from '@njmyers/rollup-config';
 import pkg from './package.json';
 
 export default [
-  {
-    ...cjs(pkg),
+  rollupEnvironment(pkg, {
     input: 'src/index.ts',
-  },
-  {
-    ...es6(pkg),
+    output: {
+      format: 'es',
+    },
+  }),
+  rollupEnvironment(pkg, {
     input: 'src/index.ts',
-  },
+    output: {
+      format: 'cjs',
+    },
+  }),
 ];
