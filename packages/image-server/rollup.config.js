@@ -1,37 +1,21 @@
-import flow from 'rollup-plugin-flow';
-import resolve from 'rollup-plugin-node-resolve';
-import commonjs from 'rollup-plugin-commonjs';
-import globals from 'rollup-plugin-node-globals';
-import builtins from 'rollup-plugin-node-builtins';
-import babel from 'rollup-plugin-babel';
-import json from 'rollup-plugin-json';
+import rollupEnvironment from '@njmyers/rollup-config';
 import pkg from './package.json';
 
 export default [
-  {
-    input: 'src/index.js',
-    output: [
-      { file: pkg.main, format: 'cjs', sourcemap: true },
-      { file: pkg.module, format: 'es', sourcemap: true },
-    ],
-    external: [
-      'rxjs',
-      'http',
-      'stream',
-      'dotenv',
-      'sharp',
-      'aws-sdk',
-      'axios',
-      'mime',
-      'qs',
-      'bluebird',
-    ],
-    plugins: [
-      flow(),
-      resolve(),
-      builtins(),
-      commonjs(),
-      babel({ exclude: 'node_modules/**' }),
-    ],
-  },
+  rollupEnvironment(pkg, {
+    input: 'src/index.ts',
+    output: {
+      format: 'es',
+    },
+    env: ['typescript', 'node'],
+    external: ['util', 'process', 'stream', 'url', 'buffer'],
+  }),
+  rollupEnvironment(pkg, {
+    input: 'src/index.ts',
+    output: {
+      format: 'cjs',
+    },
+    env: ['typescript', 'node'],
+    external: ['util', 'process', 'stream', 'url', 'buffer'],
+  }),
 ];
