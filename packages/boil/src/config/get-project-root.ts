@@ -5,7 +5,7 @@ import pkgDir from 'pkg-dir';
  * working directory and then searching recursively upwards.
  */
 function getProjectRoot() {
-  return pkgDir.sync(process.cwd());
+  return pkgDir.sync(process.cwd()) || process.cwd();
 }
 
 export default getProjectRoot;
