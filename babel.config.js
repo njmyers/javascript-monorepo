@@ -22,7 +22,6 @@ module.exports = api => {
         },
       ],
       '@babel/preset-flow',
-      ['@babel/preset-typescript', { isTSX: true, allExtensions: true }],
       // https://github.com/storybooks/storybook/pull/4262
       [
         'babel-preset-minify',
