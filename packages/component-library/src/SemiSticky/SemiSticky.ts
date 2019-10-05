@@ -1,4 +1,4 @@
-/// @flow
+/
 import * as React from 'react';
 import withSize from 'react-size-components';
 import createTransitionStyle from '../utils/create-transition-style';

@@ -1,4 +1,4 @@
-// @flow
+
 import * as React from 'react';
 import Circle from './Circle';
 import Arrow from './Arrow';
@@ -14,9 +14,9 @@ import Bag from './Bag';
 function configure(newProps: {}) {
   const Copy = {};
   // copy components with new props
-  Object.keys(this).forEach((key) => {
+  Object.keys(this).forEach(key => {
     const Clone = this[key];
-    Copy[key] = (props) => <Clone {...props} {...newProps} />;
+    Copy[key] = props => <Clone {...props} {...newProps} />;
   });
   // manually reassign non enumerable method
   Copy.configure = this.configure;

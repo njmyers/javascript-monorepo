@@ -2,7 +2,7 @@ import createTransitionStyle, {
   createTransitionString,
 } from '../create-transition-style';
 
-import type { AnimationProps } from '../../types';
+import { AnimationProps } from '../../types';
 
 const props: AnimationProps = {
   onState: {

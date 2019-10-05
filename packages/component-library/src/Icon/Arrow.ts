@@ -1,5 +1,6 @@
-// @flow
+
 import * as React from 'react';
+import Caret from './Caret';
 
 type Direction = 'up' | 'down' | 'left' | 'right';
 
@@ -30,13 +31,13 @@ const rotation = (direction: Direction) => {
 };
 
 /**
- * Caret icon component using svg
- * @param {string} color     color of the icon
- * @param {number} thickness the thickness of the icon as a percentage
- * @param {string} direction the direction of the icon
- * @param {number} radius    the radius for the rounded corners
+ * Arrow icon component using svg
+ * @param {string} color     the color of the icon
+ * @param {number} thickness thickness of the lines as a percentage
+ * @param {string} direction the direction of the arrow
+ * @param {number} radius    the radius of the rounded corners
  */
-const Caret = ({ color, thickness, direction, radius }: Props) => (
+const Arrow = ({ color, thickness, direction, radius }: Props) => (
   // Could've done this much simpler with a rotated square?
   <svg
     viewBox="0 0 102 102"
@@ -44,33 +45,24 @@ const Caret = ({ color, thickness, direction, radius }: Props) => (
     transform={`rotate(${rotation(direction)})`}
   >
     <rect
-      x={`${51}`}
-      y={`${1}`}
-      width={`${Math.sqrt(2) * 51}`}
-      height={`${thickness}`}
+      x={`${thickness}`}
+      y={`${50 - thickness / 2}%`}
+      width={`${100 - thickness}%`}
+      height={`${thickness}%`}
       rx={radius}
       ry={radius}
       fill={color}
-      transform="rotate(45 51 1)"
+      transform="rotate(90 51 51)"
     />
-    <rect
-      x={`${51}`}
-      y={`${1 - thickness}`}
-      width={`${Math.sqrt(2) * 51}%`}
-      height={`${thickness}`}
-      rx={radius}
-      ry={radius}
-      fill={color}
-      transform="rotate(135 51 1)"
-    />
+    <Caret color={color} thickness={thickness} radius={radius} />
   </svg>
 );
 
-Caret.defaultProps = {
+Arrow.defaultProps = {
   color: '#000000',
   thickness: 15,
   direction: 'up',
   radius: 4,
 };
 
-export default Caret;
+export default Arrow;

@@ -1,5 +1,5 @@
-// @flow
-import type { AnimationProps } from '../types';
+
+import { AnimationProps } from '../types';
 
 export const createTransitionString = (props: AnimationProps) => {
   const { onState, transitionSpeed, transitionTiming } = props;
