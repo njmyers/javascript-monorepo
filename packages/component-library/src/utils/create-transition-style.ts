@@ -1,5 +1,8 @@
-
-import { AnimationProps } from '../types';
+interface AnimationProps {
+  onState: Function;
+  transitionSpeed: string;
+  transitionTiming: string;
+}
 
 export const createTransitionString = (props: AnimationProps) => {
   const { onState, transitionSpeed, transitionTiming } = props;

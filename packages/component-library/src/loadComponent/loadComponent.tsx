@@ -1,19 +1,18 @@
-
 import * as React from 'react';
 import StatusSwitch from '../StatusSwitch';
 
 type Props = {
-  loading?: React.ComponentType<{}>,
-  error?: React.ComponentType<{}>,
+  loading?: React.ComponentType<{}>;
+  error?: React.ComponentType<{}>;
 };
 
 type State = {
-  status: string,
-  component: React.ComponentType<{}>,
+  status: string;
+  component: React.ComponentType<{}>;
 };
 
 type Module = {
-  default: React.ComponentType<{}>,
+  default: React.ComponentType<{}>;
 };
 
 /**

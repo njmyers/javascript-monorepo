@@ -1,18 +1,16 @@
-
 import * as React from 'react';
 import Loading from '../Loading';
-import ErrorMessage from '../ErrorMessage';
 
 type Props = {
-  loading: React.ComponentType<{}>,
-  error: React.ComponentType<{}>,
-  status: string | Array<string>,
-  children: React.Node,
+  loading: React.ComponentType<{}>;
+  error: React.ComponentType<{}>;
+  status: string | Array<string>;
+  children: React.Node;
 };
 
 class StatusSwitch extends React.Component<Props> {
   static defaultProps = {
-    error: ErrorMessage,
+    error: () => 'error',
     loading: Loading,
     status: 'initial',
     children: null,
