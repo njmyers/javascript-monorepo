@@ -15,15 +15,6 @@
   "bin": {
     "wordpresser": "scripts/cli.js"
   },
-  "devDependencies": {
-    "@njmyers/babel-runtime-files": "^0.0.5",
-    "@njmyers/eslint-config": "^0.0.1",
-    "babel-cli": "^6.26.0",
-    "jest": "^23.1.0",
-    "npm-run-all": "^4.1.3",
-    "rollup": "^0.62.0",
-    "shx": "^0.3.2"
-  },
   "dependencies": {
     "@babel/runtime": "7.1.2",
     "axios": "^0.18.0",
@@ -31,6 +22,11 @@
     "commander": "^2.18.0",
     "parse-link-header": "^1.0.1",
     "query-string": "^6.1.0"
+  },
+  "devDependencies": {
+    "@njmyers/rollup-config": "^0.0.1",
+    "npm-run-all": "^4.1.3",
+    "shx": "^0.3.2"
   },
   "gitHead": "4fe560b5b283a402ba3ce73ac35184223e0c5248"
 }
