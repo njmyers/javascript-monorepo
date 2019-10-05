@@ -12,5 +12,23 @@
     "@njmyers/eslint-config",
     "plugin:@typescript-eslint/recommended"
   ],
-  "plugins": ["@typescript-eslint"]
+  "plugins": ["@typescript-eslint"],
+  "overrides": [
+    {
+      "files": ["**/scripts/*.js"],
+      "rules": {
+        "env": {
+          "node": true
+        }
+      }
+    },
+    {
+      "files": ["**/__test__/*.js", "**/__test__/*.ts"],
+      "rules": {
+        "env": {
+          "jest": true
+        }
+      }
+    }
+  ]
 }
