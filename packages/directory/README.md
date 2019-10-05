@@ -7,9 +7,7 @@ Reads all the files within a directory. Returns absolute or relative paths, mime
 ```js
 import directory from '@njmyers/directory';
 
-const files = directory('../path/to/folder/or/file', { ...Options })
-
-const Options = {
+const options = {
   /** boolean option to return mime information for all files: default false */
   mime: boolean,
   /** boolean option to return absolute paths for all files default: true */
@@ -21,6 +19,9 @@ const Options = {
   /** string or array of file types to filter (include) default: false */
   filter: string | Array<string>,
 };
+
+const files = directory('../path/to/folder/or/file', options)
+
 
 /** Returns an Array of FileObjects */
 const FileObject = {
