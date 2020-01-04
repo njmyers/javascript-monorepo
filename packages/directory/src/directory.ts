@@ -1,4 +1,4 @@
-import { pipe } from 'smalldash';
+import pipe from 'smalldash/functional/pipe';
 import defaults from './default-options';
 import {
   filterify,
@@ -7,7 +7,7 @@ import {
   objectify,
   readDirectorySync,
   readSync,
-} from './utils';
+} from '~/utils';
 // types
 import { FileObject, Options } from './types';
 
@@ -22,11 +22,11 @@ function directory(dir: string, options: Options = defaults): FileObject[] {
   const { absolute, mime, read, filter } = options;
 
   const pipeline = []
-    .concat(absolute || read ? pathify : [])
-    .concat(mime || read || filter ? objectify : [])
-    .concat(mime || filter ? mimeify : [])
-    .concat(filter ? filterify(filter) : [])
-    .concat(read ? readSync : []);
+    .concat(absolute || read ? pathify : undefined)
+    .concat(mime || read || filter ? objectify : undefined)
+    .concat(mime || filter ? mimeify : undefined)
+    .concat(filter ? filterify(filter) : undefined)
+    .concat(read ? readSync : undefined);
 
   return pipeline.length > 0
     ? list

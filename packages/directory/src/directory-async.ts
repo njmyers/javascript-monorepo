@@ -1,4 +1,4 @@
-import { pipeAsync } from 'smalldash';
+import pipeAsync from 'smalldash/async/pipe-async';
 import defaults from './default-options';
 import {
   filterify,
@@ -7,7 +7,7 @@ import {
   objectify,
   readDirectoryAsync,
   readAsync,
-} from './utils';
+} from '~/utils';
 
 // types
 import { FileObject, Options } from './types';
@@ -26,11 +26,11 @@ async function directoryAsync(
   const { absolute, mime, read, filter } = options;
 
   const pipeline = []
-    .concat(absolute || read ? pathify : [])
-    .concat(mime || read || filter ? objectify : [])
-    .concat(mime || filter ? mimeify : [])
-    .concat(filter ? filterify(filter) : [])
-    .concat(read ? readAsync : []);
+    .concat(absolute || read ? pathify : undefined)
+    .concat(mime || read || filter ? objectify : undefined)
+    .concat(mime || filter ? mimeify : undefined)
+    .concat(filter ? filterify(filter) : undefined)
+    .concat(read ? readAsync : undefined);
 
   if (pipeline.length < 1) {
     return list;

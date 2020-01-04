@@ -4,7 +4,7 @@
  * Then we can safely compare to the output from mime.extension
  */
 function normalizeExtension(ext: string): string {
-  return ext.charAt(0) === '.' ? normalizeExtension(ext.slice(1)) : ext;
+  return ext.startsWith(0) === '.' ? normalizeExtension(ext.slice(1)) : ext;
 }
 
 export default normalizeExtension;

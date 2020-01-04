@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import { promisify } from 'util';
-import { pipeAsync } from 'smalldash';
+import pipeAsync from 'smalldash/async/pipe-async';
 
 import isFileAsync from './is-file-async';
 import flatten from './flatten';
