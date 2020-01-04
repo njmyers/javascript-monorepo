@@ -1,3 +1,4 @@
+// @ts-nocheck
 const validateNumber = (base: number) => (unknown: unknown): number => {
   const type = typeof unknown;
   return type === 'number'

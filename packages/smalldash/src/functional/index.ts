@@ -10,3 +10,4 @@ export { default as mapRight } from './map-right';
 export { default as map } from './map';
 export { default as pipe } from './pipe';
 export { default as sideEffects } from './side-effects';
+export { default as identity } from './identity';

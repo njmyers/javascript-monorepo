@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { nullish, objectish, arrayish } from '../primitives';
 import { Complex, Primitive } from '../primitives';
 

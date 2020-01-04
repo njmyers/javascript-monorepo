@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 /**
  * Pipe functions together automatically currying the return value of the
  * previous function as the argument of the following function. Pipe returns a
@@ -6,7 +8,8 @@
  * right.
  */
 function pipe(fn, ...fns) {
-  return (...args) => fns.reduce((prev, next) => next(prev), fn(...args));
+  return (...args): unknown =>
+    fns.reduce((prev, next) => next(prev), fn(...args));
 }
 
 export default pipe;

@@ -4,7 +4,9 @@
  * capitalization or character case transform such as going from snake_case to
  * kebab-case.
  */
-const caseToCase = fromSeparator => toSeparator => (sentence: string): string =>
+const caseToCase = (fromSeparator: string) => (toSeparator: string) => (
+  sentence: string
+): string =>
   sentence
     .trim()
     .split(fromSeparator)

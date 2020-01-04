@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 /**
  * This function allows a side effect to be put into a chain of functional
  * arguments. This is useful for debugging or developing in a compositional

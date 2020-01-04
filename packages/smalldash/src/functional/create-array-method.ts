@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 /**
  * Creates a functional recursive method to apply a series of transformations to an array
  * @param {string} method array method to create a functional composition method for

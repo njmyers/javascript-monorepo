@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import pipe from './pipe';
 
 /**
@@ -7,7 +9,7 @@ import pipe from './pipe';
  * and execute it in a separate step. Compose executes functions in order of
  * right to left.
  */
-function compose(...functions) {
+function compose(...functions: Function[]): Function {
   return pipe(...functions.reverse());
 }
 

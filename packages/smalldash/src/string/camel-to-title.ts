@@ -1,3 +1,4 @@
+// @ts-nocheck
 import camelTo from './camel-to';
 import capitalize from './capitalize';
 import { SENTENCE_CASE_SEPARATOR } from './constants';

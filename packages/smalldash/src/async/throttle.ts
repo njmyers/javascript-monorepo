@@ -1,3 +1,4 @@
+// @ts-nocheck
 const throttle = (fn, limit) => {
   let lastCall;
   let timestamp;

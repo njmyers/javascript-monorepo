@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 /**
  * Debounce function to control the number of function calls
  * @param {function} fn the function to debounce
