@@ -14,6 +14,7 @@ export default [
     input: 'src/index.ts',
     output: {
       format: 'cjs',
+      exports: 'named',
     },
     external: ['fs', 'path', 'util'],
     env: ['typescript', 'node'],

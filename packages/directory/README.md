@@ -5,7 +5,7 @@ Reads all the files within a directory. Returns absolute or relative paths, mime
 ## Usage
 
 ```js
-import directory from '@njmyers/directory';
+import { directory } from '@njmyers/directory';
 
 const options = {
   /** boolean option to return mime information for all files: default false */
