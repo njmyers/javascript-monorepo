@@ -6,7 +6,7 @@ import capitalize from './capitalize';
 /**
  * Convert a kebab-case string to sentence case string and trim all whitespace.
  */
-function kebabToTitle(kebabCaseString) {
+function kebabToTitle(kebabCaseString: string): string {
   return compose(
     capitalize,
     caseToCase(KEBAB_CASE_SEPARATOR)(SENTENCE_CASE_SEPARATOR)

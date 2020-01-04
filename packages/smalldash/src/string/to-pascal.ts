@@ -6,8 +6,8 @@ import capitalize from './capitalize';
  * generate other functions such as snakeToPascal or any other case to pascal
  * case conversions.
  */
-function toPascal(separator) {
-  return string =>
+function toPascal(separator: string) {
+  return (string: string): string =>
     string
       .split(separator)
       .map(capitalize)

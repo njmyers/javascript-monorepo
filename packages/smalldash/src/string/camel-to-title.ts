@@ -6,7 +6,7 @@ import { compose } from '../functional';
 /**
  * Convert a camelCase string to sentence case string and trim all whitespace.
  */
-function camelToTitle(camelCaseString) {
+function camelToTitle(camelCaseString: string): string {
   return compose(
     capitalize,
     camelTo(SENTENCE_CASE_SEPARATOR)

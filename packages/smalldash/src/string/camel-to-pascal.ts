@@ -4,7 +4,7 @@ import capitalize from './capitalize';
 /**
  * Convert a camelCase string to sentence case string and trim all whitespace.
  */
-function camelToPascal(camelCaseString) {
+function camelToPascal(camelCaseString: string): string {
   return capitalize(camelCaseString);
 }
 

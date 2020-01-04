@@ -4,7 +4,7 @@ import { SENTENCE_CASE_SEPARATOR } from './constants';
 /**
  * Convert a sentence case string to PascalCase string and trim all whitespace.
  */
-function sentenceToPascal(sentenceCaseString) {
+function sentenceToPascal(sentenceCaseString: string): string {
   return toPascal(SENTENCE_CASE_SEPARATOR)(sentenceCaseString);
 }
 

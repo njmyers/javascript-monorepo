@@ -6,7 +6,7 @@ import capitalize from './capitalize';
 /**
  * Convert a snake_case string to Title Case string and trim all whitespace.
  */
-function snakeToTitle(snakeCaseString) {
+function snakeToTitle(snakeCaseString: string): string {
   return compose(
     capitalize,
     caseToCase(SNAKE_CASE_SEPARATOR)(SENTENCE_CASE_SEPARATOR)

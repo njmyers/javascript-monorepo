@@ -6,8 +6,8 @@ import capitalize from './capitalize';
  * generate other functions such as snakeToCamel or any other case to camel case
  * conversions.
  */
-function toCamel(separator) {
-  return string =>
+function toCamel(separator: string) {
+  return (string: string): string =>
     string
       .split(separator)
       .map((word, i) => (i !== 0 ? capitalize(word) : word.toLowerCase()))

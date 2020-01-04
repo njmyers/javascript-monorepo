@@ -4,7 +4,7 @@ import { SNAKE_CASE_SEPARATOR } from './constants';
 /**
  * Convert a snake-case string to PascalCase string and trim all whitespace.
  */
-function snakeToPascal(snakeCaseString) {
+function snakeToPascal(snakeCaseString: string): string {
   return toPascal(SNAKE_CASE_SEPARATOR)(snakeCaseString);
 }
 

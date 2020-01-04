@@ -4,7 +4,7 @@ import { SNAKE_CASE_SEPARATOR } from './constants';
 /**
  * Convert a snake_case string to a camelCase string and trim all whitespace.
  */
-function snakeToCamel(snakeCaseString) {
+function snakeToCamel(snakeCaseString: string): string {
   return toCamel(SNAKE_CASE_SEPARATOR)(snakeCaseString);
 }
 

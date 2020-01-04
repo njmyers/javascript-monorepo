@@ -4,7 +4,7 @@ import { KEBAB_CASE_SEPARATOR, SENTENCE_CASE_SEPARATOR } from './constants';
 /**
  * Convert a kebab-case string to sentence case string and trim all whitespace.
  */
-function kebabToSentence(kebabCaseString) {
+function kebabToSentence(kebabCaseString: string): string {
   return caseToCase(KEBAB_CASE_SEPARATOR)(SENTENCE_CASE_SEPARATOR)(
     kebabCaseString
   );

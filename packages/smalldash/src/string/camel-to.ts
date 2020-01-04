@@ -5,8 +5,8 @@ import isUpperCase from './is-upper-case';
  * characters where words were previously delimited by upper case characters.
  * This function will also trim all whitespace before and after the string.
  */
-function camelTo(separator) {
-  return string =>
+function camelTo(separator: string) {
+  return (string: string): string =>
     string
       .trim()
       .split('')
