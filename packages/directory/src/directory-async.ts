@@ -1,4 +1,5 @@
-import pipeAsync from 'smalldash/async/pipe-async';
+// @ts-nocheck
+import pipeAsync from '../../smalldash/src/async/pipe-async';
 import defaults from './default-options';
 import {
   filterify,
@@ -7,7 +8,8 @@ import {
   objectify,
   readDirectoryAsync,
   readAsync,
-} from '~/utils';
+} from './utils';
+import { EMPTY_ARRAY } from './constants';
 
 // types
 import { FileObject, Options } from './types';
@@ -25,19 +27,16 @@ async function directoryAsync(
   const list = await readDirectoryAsync(dir, options);
   const { absolute, mime, read, filter } = options;
 
-  const pipeline = []
-    .concat(absolute || read ? pathify : undefined)
-    .concat(mime || read || filter ? objectify : undefined)
-    .concat(mime || filter ? mimeify : undefined)
-    .concat(filter ? filterify(filter) : undefined)
-    .concat(read ? readAsync : undefined);
+  const pipeline: Function[] = []
+    .concat(absolute || read ? pathify : EMPTY_ARRAY)
+    .concat(objectify)
+    .concat(mime || filter ? mimeify : EMPTY_ARRAY)
+    .concat(filter ? filterify(filter) : EMPTY_ARRAY)
+    .concat(read ? readAsync : EMPTY_ARRAY);
 
-  if (pipeline.length < 1) {
-    return list;
-  }
-
+  // @ts-ignore
   const fileObjects = await Promise.all(list.map(pipeAsync(...pipeline)));
-  return fileObjects.filter(obj => obj.include || typeof obj === 'string');
+  return fileObjects.filter((obj: FileObject) => obj.include);
 }
 
 export default directoryAsync;

@@ -1,7 +1,8 @@
+// @ts-nocheck
 import fs from 'fs';
 import path from 'path';
 import { promisify } from 'util';
-import pipeAsync from 'smalldash/async/pipe-async';
+import pipeAsync from '../../../smalldash/src/async/pipe-async';
 
 import isFileAsync from './is-file-async';
 import flatten from './flatten';

@@ -1,4 +1,5 @@
-import pipe from 'smalldash/functional/pipe';
+// @ts-nocheck
+import pipe from '../../smalldash/src/functional/pipe';
 import defaults from './default-options';
 import {
   filterify,
@@ -7,7 +8,8 @@ import {
   objectify,
   readDirectorySync,
   readSync,
-} from '~/utils';
+} from './utils';
+import { EMPTY_ARRAY } from './constants';
 // types
 import { FileObject, Options } from './types';
 
@@ -21,22 +23,19 @@ function directory(dir: string, options: Options = defaults): FileObject[] {
   const list = readDirectorySync(dir, options);
   const { absolute, mime, read, filter } = options;
 
-  const pipeline = []
-    .concat(absolute || read ? pathify : undefined)
-    .concat(mime || read || filter ? objectify : undefined)
-    .concat(mime || filter ? mimeify : undefined)
-    .concat(filter ? filterify(filter) : undefined)
-    .concat(read ? readSync : undefined);
+  const pipeline: Function[] = []
+    .concat(absolute || read ? pathify : EMPTY_ARRAY)
+    .concat(objectify)
+    .concat(mime || filter ? mimeify : EMPTY_ARRAY)
+    .concat(filter ? filterify(filter) : EMPTY_ARRAY)
+    .concat(read ? readSync : EMPTY_ARRAY);
 
-  return pipeline.length > 0
-    ? list
-        // map through our pipeline
-        .map(pipe(...pipeline))
-        // finally apply the filtering for our safe results array
-        // if we are in "only paths" mode then we won't have an object
-        // if we have an object we default to include unless we add a filter
-        .filter(obj => obj.include || typeof obj === 'string')
-    : list;
+  // map through our pipeline
+  // finally apply the filtering for our safe results array
+  // if we are in "only paths" mode then we won't have an object
+  // if we have an object we default to include unless we add a filter
+  // @ts-ignore
+  return list.map(pipe(...pipeline)).filter((obj: FileObject) => obj.include);
 }
 
 export default directory;

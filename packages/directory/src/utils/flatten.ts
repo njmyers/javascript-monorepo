@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 /**
  * Flatten a nested array up to a given depth.
  */
