@@ -9,7 +9,19 @@ import getCliRoot from './get-cli-root';
 
 const RC_FILENAME = 'boil';
 
-const defaults = {
+export interface Config {
+  templateDirectory?: string;
+  projectRoot?: string;
+  codePath?: string;
+  configPath?: string;
+  extension?: string;
+  include?: string;
+  exclude?: string;
+  debug?: boolean;
+  dryRun?: boolean;
+}
+
+const defaults: Config = {
   templateDirectory: getDefaultTemplateDirectory(),
   projectRoot: getProjectRoot(),
   codePath: getDefaultCodePath(),

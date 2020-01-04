@@ -1,4 +1,5 @@
 import resolvePathOption from './resolve-path-option';
+import { Config } from './config';
 
 const PATH_OPTIONS = ['templateDirectory', 'projectRoot', 'codePath'];
 
@@ -8,7 +9,7 @@ const PATH_OPTIONS = ['templateDirectory', 'projectRoot', 'codePath'];
  * path. If they are specified as relative paths then we resolve them from the
  * directory of the .boilrc file.
  */
-function getResolvedPathOptions(filePath, config = {}) {
+function getResolvedPathOptions(filePath: string, config: Config = {}): Config {
   return PATH_OPTIONS.reduce((pathOptions, pathKey) => {
     if (!Object.prototype.hasOwnProperty.call(config, pathKey)) {
       return pathOptions;

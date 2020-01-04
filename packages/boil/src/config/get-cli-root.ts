@@ -5,7 +5,7 @@ import pkgDir from 'pkg-dir';
  * interim as our source code may have a different structure as the final
  * compiled cli. Hopefully we won't have to use this in a future esm world.
  */
-function getCliRoot() {
+function getCliRoot(): string {
   return pkgDir.sync(__dirname);
 }
 

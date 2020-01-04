@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import path from 'path';
 import shell from 'shelljs';
 import chalk from 'chalk';
@@ -8,7 +9,7 @@ import chalk from 'chalk';
  * non-destructive and appends the contents if a file exists rather the
  * overwriting the contents
  */
-function writeTemplateFile(fileContents, writePath) {
+function writeTemplateFile(fileContents: string, writePath: string): void {
   shell.mkdir('-p', path.dirname(writePath));
   shell.ShellString(fileContents).toEnd(writePath);
 

@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import chalk from 'chalk';
 
 /**
@@ -6,7 +7,7 @@ import chalk from 'chalk';
  * templates and file contents would write to the correct destination with the
  * correct contents.
  */
-function printTemplateFile(fileContents, writePath) {
+function printTemplateFile(fileContents: string, writePath: string): void {
   console.log(
     chalk.green('dry run of boilerplate at: ') + chalk.bold(writePath) + '\n'
   );

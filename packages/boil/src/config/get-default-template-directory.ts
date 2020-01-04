@@ -13,7 +13,7 @@ const DEFAULT_TEMPLATE_DIRECTORY = path.resolve(getCliRoot(), 'templates');
  * templates directory in the project root. If it is not found then falls back
  * to the templates directory in this repository
  */
-function getDefaultTemplateDirectory() {
+function getDefaultTemplateDirectory(): string {
   const projectRoot = getProjectRoot();
 
   if (!projectRoot) {

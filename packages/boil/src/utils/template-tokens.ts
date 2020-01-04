@@ -7,18 +7,18 @@ const templateTokens = [
   },
   {
     token: 'PascalCase',
-    fn: string =>
-      kebabToTitle(string)
+    fn: (word: string): string =>
+      kebabToTitle(word)
         .split(' ')
         .join(''),
   },
   {
     token: 'kebab-case',
-    fn: string => string,
+    fn: (word: string): string => word,
   },
   {
     token: 'KEBAB-CASE',
-    fn: string => string.toUpperCase(),
+    fn: (word: string): string => word.toUpperCase(),
   },
   {
     token: 'snake_case',
@@ -26,7 +26,7 @@ const templateTokens = [
   },
   {
     token: 'SNAKE_CASE',
-    fn: string => kebabToSnake(string).toUpperCase(),
+    fn: (word: string): string => kebabToSnake(word).toUpperCase(),
   },
 ];
 

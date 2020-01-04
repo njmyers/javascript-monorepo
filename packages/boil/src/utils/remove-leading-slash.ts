@@ -1,7 +1,7 @@
 import path from 'path';
 
-const removeLeadingSlash = pathString =>
-  pathString.charAt(0) === path.sep
+const removeLeadingSlash = (pathString: string): string =>
+  pathString.startsWith(0) === path.sep
     ? removeLeadingSlash(pathString.slice(1))
     : pathString;
 

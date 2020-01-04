@@ -11,7 +11,9 @@ function getTemplateFolders(config) {
 
   return shell
     .ls(templateDirectory)
-    .map(templateFolder => path.resolve(templateDirectory, templateFolder));
+    .map((templateFolder): string =>
+      path.resolve(templateDirectory, templateFolder)
+    );
 }
 
 export default getTemplateFolders;

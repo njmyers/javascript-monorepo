@@ -1,8 +1,6 @@
 import program from 'commander';
 import path from 'path';
-import shell from 'shelljs';
 import directory from '@njmyers/directory';
-import chalk from 'chalk';
 
 import rcConfig from '../config';
 import pkg from '../../package.json';
@@ -125,4 +123,5 @@ if (templateFolders.length < 1 || program.args.length < 1) {
 }
 
 // add newline after all program output
+// eslint-disable-next-line no-console
 console.log('');
