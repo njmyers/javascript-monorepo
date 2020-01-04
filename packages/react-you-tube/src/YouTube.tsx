@@ -3,7 +3,7 @@ import useYouTube from './use-you-tube';
 // types
 import { Props } from './types';
 
-function YouTubeVideo({ onPlayer, ...props }: Props) {
+function YouTubeVideo({ onPlayer, ...props }: Props): React.FC<Props> {
   const node = useRef<HTMLDivElement>(null);
   const player = useYouTube(node, props);
 

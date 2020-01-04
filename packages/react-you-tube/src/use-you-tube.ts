@@ -3,11 +3,14 @@ import loadYouTubeAPI from './load-you-tube-api';
 // types
 import { Props } from './types';
 
-function useYouTube(ref: React.RefObject<HTMLElement>, props: Props) {
+function useYouTube(
+  ref: React.RefObject<HTMLElement>,
+  props: Props
+): YT.Player {
   const [player, setPlayer] = useState<YT.Player | null>(null);
 
   useEffect(() => {
-    const load = async () => {
+    const load = async (): void => {
       if (player) {
         return;
       }
@@ -20,7 +23,7 @@ function useYouTube(ref: React.RefObject<HTMLElement>, props: Props) {
         const YT = await await loadYouTubeAPI();
         new YT.Player(ref.current, {
           events: {
-            onReady: e => setPlayer(e.target),
+            onReady: (e): void => setPlayer(e.target),
             ...(props.events || {}),
           },
           ...props,

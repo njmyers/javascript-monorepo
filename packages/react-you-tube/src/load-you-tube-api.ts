@@ -6,7 +6,7 @@ const loadYouTubeAPI = createScriptLoader({
   src: 'https://www.youtube.com/iframe_api',
   initialize: (window: YouTubeWindow) =>
     new Promise(res => {
-      window.onYouTubeIframeAPIReady = () => res(window.YT);
+      window.onYouTubeIframeAPIReady = (): void => res(window.YT);
     }),
 });
 
