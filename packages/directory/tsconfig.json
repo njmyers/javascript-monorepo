@@ -1,12 +1,13 @@
 {
   "extends": "../../tsconfig.json",
+  "include": ["src"],
+  "references": [{ "path": "../smalldash" }],
   "compilerOptions": {
+    // "allowJs": false,
+    // "isolatedModules": false,
+    // "declaration": true,
     "outDir": "build",
-    "rootDir": ".",
-    "baseUrl": ".",
-    "paths": {
-      "smalldash/*": ["../smalldash/src/*"],
-      "~/*": ["src/*"]
-    }
+    // "rootDir": "src",
+    "baseUrl": "src"
   }
 }
