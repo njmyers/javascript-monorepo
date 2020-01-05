@@ -32,7 +32,7 @@ function Element({
       <label element="label" htmlFor={name}>
         {label || name}
       </label>
-      <HTMLElement element={element || as} ref={el} name={name} {...props} />
+      <HTMLElement element={element || HTMLElement} ref={el} name={name} {...props} />
     </div>
   );
 }

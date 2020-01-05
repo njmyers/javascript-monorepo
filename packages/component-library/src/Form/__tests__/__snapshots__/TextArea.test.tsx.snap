@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`it works it loads without crashing 1`] = `
+<div>
+  <label
+    element="label"
+    htmlFor="text"
+  >
+    text
+  </label>
+  <textarea
+    element="textArea"
+    name="text"
+    placeholder=""
+    required={false}
+  />
+</div>
+`;
