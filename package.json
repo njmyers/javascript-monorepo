@@ -18,7 +18,6 @@
     "prettier": "prettier 'packages/**/*.{.test.js,.stories.js,js,jsx,json}' --write",
     "sort": "sort-package-json packages/*/package.json",
     "start": "run-p storybook",
-    "prestorybook": "node scripts/generate-examples.js",
     "storybook": "start-storybook -p 9009",
     "test": "jest"
   },
@@ -92,6 +91,7 @@
     "prettier": "^1.19.1",
     "react": "^16.12.0",
     "react-docgen": "^3.0.0",
+    "react-docgen-typescript-loader": "^3.6.0",
     "react-dom": "^16.12.0",
     "react-test-renderer": "^16.12.0",
     "regenerator-runtime": "^0.12.1",
@@ -104,6 +104,7 @@
     "storybook-readme": "^4.0.5",
     "style-loader": "^0.21.0",
     "ts-jest": "^24.2.0",
+    "ts-loader": "^6.2.1",
     "typescript": "^3.7.4"
   },
   "licence": "ISC"

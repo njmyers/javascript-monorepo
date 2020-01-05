@@ -64,6 +64,7 @@ importers:
       prettier: 1.19.1
       react: 16.12.0
       react-docgen: 3.0.0
+      react-docgen-typescript-loader: 3.6.0_typescript@3.7.4
       react-dom: 16.12.0_react@16.12.0
       react-test-renderer: 16.12.0_react@16.12.0
       regenerator-runtime: 0.12.1
@@ -76,6 +77,7 @@ importers:
       storybook-readme: 4.0.5
       style-loader: 0.21.0
       ts-jest: 24.2.0_jest@24.9.0
+      ts-loader: 6.2.1_typescript@3.7.4
       typescript: 3.7.4
     specifiers:
       '@babel/cli': ^7.7.7
@@ -141,6 +143,7 @@ importers:
       prettier: ^1.19.1
       react: ^16.12.0
       react-docgen: ^3.0.0
+      react-docgen-typescript-loader: ^3.6.0
       react-dom: ^16.12.0
       react-test-renderer: ^16.12.0
       regenerator-runtime: ^0.12.1
@@ -153,6 +156,7 @@ importers:
       storybook-readme: ^4.0.5
       style-loader: ^0.21.0
       ts-jest: ^24.2.0
+      ts-loader: ^6.2.1
       typescript: ^3.7.4
   packages/audio-player:
     dependencies:
@@ -3858,6 +3862,21 @@ packages:
     dev: true
     resolution:
       integrity: sha512-w0U0pD4EhlnvRyeJzBqaVSJAo9w/ce7/WPogeXLzGkO6hzhr4GnQIZ4W4uUt5b9ooAaXPtnXlj0gzsXEOUNYMg==
+  /@webpack-contrib/schema-utils/1.0.0-beta.0:
+    dependencies:
+      ajv: 6.10.2
+      ajv-keywords: 3.4.1_ajv@6.10.2
+      chalk: 2.4.2
+      strip-ansi: 4.0.0
+      text-table: 0.2.0
+      webpack-log: 1.2.0
+    dev: true
+    engines:
+      node: '>= 6.9.0 || >= 8.9.0'
+    peerDependencies:
+      webpack: ^3.0.0 || ^4.0.0
+    resolution:
+      integrity: sha512-LonryJP+FxQQHsjGBi6W786TQB1Oym+agTpY0c+Kj8alnIw+DLUJb6SI8Y1GHGhLCH1yPRrucjObUmxNICQ1pg==
   /@xtuc/ieee754/1.2.0:
     dev: true
     resolution:
@@ -11306,7 +11325,7 @@ packages:
   /memory-fs/0.5.0:
     dependencies:
       errno: 0.1.7
-      readable-stream: 2.3.6
+      readable-stream: 2.3.7
     dev: true
     engines:
       node: '>=4.3.0 <5.0.0 || >=5.10'
@@ -11421,7 +11440,7 @@ packages:
   /micromatch/4.0.2:
     dependencies:
       braces: 3.0.2
-      picomatch: 2.1.1
+      picomatch: 2.2.1
     dev: true
     engines:
       node: '>=8'
@@ -12532,12 +12551,12 @@ packages:
     dev: true
     resolution:
       integrity: sha1-Ywn04OX6kT7BxpMHrjZLSzd8nns=
-  /picomatch/2.1.1:
+  /picomatch/2.2.1:
     dev: true
     engines:
       node: '>=8.6'
     resolution:
-      integrity: sha512-OYMyqkKzK7blWO/+XZYP6w8hH0LDvkBvdvKukti+7kqYFCiEAk+gI3DWnryapc0Dau05ugGTy0foQ6mqn4AHYA==
+      integrity: sha512-ISBaA8xQNmwELC7eOjqFKMESB2VIqt4PPDD0nsS95b/9dZXvVKOlz9keMSnoGGKcOHXfTvDD6WMaRoSc9UuhRA==
   /pidtree/0.3.0:
     dev: true
     engines:
@@ -13561,6 +13580,21 @@ packages:
       node: '>=8.10'
     resolution:
       integrity: sha512-X2KYF/lIGyGwP/F/oXgGDF24nxDA2KC4b7AFto+eqzc/t838gpSGiaU8trTqHXOohuLxxc5qi1eDzsl9ucPDpg==
+  /react-docgen-typescript-loader/3.6.0_typescript@3.7.4:
+    dependencies:
+      '@webpack-contrib/schema-utils': 1.0.0-beta.0
+      loader-utils: 1.2.3
+      react-docgen-typescript: 1.16.2
+      typescript: 3.7.4
+    dev: true
+    peerDependencies:
+      typescript: '*'
+    resolution:
+      integrity: sha512-+uEsM3VYCdlcBGxF3tBqI5XWL1phvrh8dkiIfdpciKlM1BDHW+d82kKJI9hX6zk9H8TL+3Th/j/JAEaKb5FFNw==
+  /react-docgen-typescript/1.16.2:
+    dev: true
+    resolution:
+      integrity: sha512-nECrg2qih81AKp0smkxXebF72/2EjmEn7gXSlWLDHLbpGcbw2yIorol24fw1FWqvndIY82sfSd0x/SyfMKY1Jw==
   /react-docgen/3.0.0:
     dependencies:
       '@babel/parser': 7.7.7
@@ -16088,6 +16122,21 @@ packages:
       jest: '>=24 <25'
     resolution:
       integrity: sha512-Yc+HLyldlIC9iIK8xEN7tV960Or56N49MDP7hubCZUeI7EbIOTsas6rXCMB4kQjLACJ7eDOF4xWEO5qumpKsag==
+  /ts-loader/6.2.1_typescript@3.7.4:
+    dependencies:
+      chalk: 2.4.2
+      enhanced-resolve: 4.1.1
+      loader-utils: 1.2.3
+      micromatch: 4.0.2
+      semver: 6.3.0
+      typescript: 3.7.4
+    dev: true
+    engines:
+      node: '>=8.6'
+    peerDependencies:
+      typescript: '*'
+    resolution:
+      integrity: sha512-Dd9FekWuABGgjE1g0TlQJ+4dFUfYGbYcs52/HQObE0ZmUNjQlmLAS7xXsSzy23AMaMwipsx5sNHvoEpT2CZq1g==
   /ts-pnp/1.1.5_typescript@3.7.4:
     dependencies:
       typescript: 3.7.4
