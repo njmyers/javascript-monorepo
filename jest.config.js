@@ -1,6 +1,11 @@
 module.exports = {
   preset: 'ts-jest',
-  testEnvironment: 'node',
+  testPathIgnorePatterns: [
+    '/node_modules/',
+    '/helpers/',
+    '/templates/',
+    '__fixtures__',
+  ],
   globals: {
     'ts-jest': {
       diagnostics: false,
