@@ -2,7 +2,7 @@ import * as React from 'react';
 import { withDocs } from 'storybook-readme';
 
 const withDocsCustom = withDocs({
-  PreviewComponent: (props) => (
+  PreviewComponent: props => (
     <div
       style={{
         position: 'relative',
