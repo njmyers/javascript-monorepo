@@ -23,7 +23,7 @@ const {
   transitionTiming,
 } = SlideShow.defaultProps;
 
-storiesOf('@njmyers-component-library/7) SlideShow', module)
+storiesOf('@njmyers/component-library|7) SlideShow', module)
   .addDecorator(withDocs(readme))
   // .addDecorator(withReadme(readme))
   .add('Simple Text Slideshow', () => (

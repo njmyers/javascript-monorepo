@@ -37,7 +37,7 @@ const Box = ({ name, children, size }) => {
   );
 };
 
-const iconStories = storiesOf('@njmyers-component-library/4) Icons', module)
+const iconStories = storiesOf('@njmyers/component-library|4) Icons', module)
   .addDecorator(withReadme(readme))
   .addDecorator(withDocs(readme))
   .addDecorator(withKnobs);

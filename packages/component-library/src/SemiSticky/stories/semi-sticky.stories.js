@@ -19,7 +19,7 @@ const {
   transitionTiming,
 } = SemiSticky.defaultProps;
 
-storiesOf('@njmyers-component-library/6) SemiSticky', module)
+storiesOf('@njmyers/component-library|6) SemiSticky', module)
   .addDecorator(withDocs(readme))
   .add('Demo', () => (
     <React.Fragment>

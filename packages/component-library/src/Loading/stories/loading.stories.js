@@ -5,7 +5,7 @@ import { storiesOf } from '@storybook/react';
 
 import Loading from '../Loading';
 
-storiesOf('@njmyers-component-library/2) Loading', module).add('Demo', () => (
+storiesOf('@njmyers/component-library|2) Loading', module).add('Demo', () => (
   <Fragment>
     <p>Some Text</p>
     <Loading

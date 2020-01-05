@@ -19,7 +19,7 @@ const {
   transitionTiming,
 } = Modal.defaultProps;
 
-storiesOf('@njmyers-component-library/1) Modal', module)
+storiesOf('@njmyers/component-library|1) Modal', module)
   .addDecorator(withDocs(readme))
   .add('Modal Demo', () => (
     <section
