@@ -5,7 +5,6 @@
     // "allowJs": false,
     // "isolatedModules": false,
     // "declaration": true,
-    "outDir": "build",
-    "baseUrl": "src"
+    "outDir": "build"
   }
 }
