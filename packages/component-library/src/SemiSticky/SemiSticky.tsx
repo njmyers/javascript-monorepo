@@ -33,7 +33,7 @@ type InheritedProps = {
     isSemiStickyActive: boolean,
   },
   /** reference from withSize for dom component position/sizing */
-  childRef: ?HTMLElement,
+  childRef?: HTMLElement,
   /** react children (your component) */
   children?: React.Node,
 };

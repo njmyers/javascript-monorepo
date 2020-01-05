@@ -68,8 +68,8 @@ class LazyImage extends React.Component<Props, State> {
     status: 'initial',
   };
 
-  image: ?HTMLImageElement;
-  placeholder: ?HTMLImageElement;
+  image?: HTMLImageElement;
+  placeholder?: HTMLImageElement;
 
   componentDidMount() {
     if (!this.props.src) {
@@ -104,7 +104,7 @@ class LazyImage extends React.Component<Props, State> {
   resolved = ({ status }: State) =>
     status !== 'resolved' ? { status: 'resolved' } : null;
 
-  loadImage = (src: string, ref: ?HTMLImageElement) => {
+  loadImage = (src: string, ref?: HTMLImageElement) => {
     ref.src = src;
     this.setState(this.loading);
   };

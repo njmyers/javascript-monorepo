@@ -42,7 +42,7 @@ const iconStories = storiesOf('@njmyers-component-library/4) Icons', module)
   .addDecorator(withDocs(readme))
   .addDecorator(withKnobs);
 
-Object.keys(Icon).forEach((name) => {
+Object.keys(Icon).forEach(name => {
   const Display = Icon[name];
 
   iconStories.add(name, () => (

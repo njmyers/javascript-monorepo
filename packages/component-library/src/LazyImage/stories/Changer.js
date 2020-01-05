@@ -15,7 +15,7 @@ class Changer extends React.Component {
   };
 
   onClick = () => {
-    this.setState((state) => ({
+    this.setState(state => ({
       src: !state.toggle ? src : otherSrc,
       placeholder: !state.toggle ? placeholder : otherPlaceholder,
       toggle: !state.toggle,

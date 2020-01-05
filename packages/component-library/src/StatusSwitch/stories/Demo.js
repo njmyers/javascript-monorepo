@@ -49,7 +49,7 @@ class Demo extends React.Component {
   resolved = () => this.setState({ status: 'resolved' });
   error = () => this.setState({ status: 'error' });
 
-  onClick = (event) => {
+  onClick = event => {
     this.loading();
     setTimeout(this.resolved, 4000);
   };
