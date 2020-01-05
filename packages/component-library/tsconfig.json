@@ -1,11 +1,10 @@
 {
   "extends": "../../tsconfig.json",
+  "include": ["src"],
   "compilerOptions": {
-    "outDir": "build",
-    "rootDir": ".",
-    "baseUrl": ".",
-    "paths": {
-      "~/*": ["src/*"]
-    }
+    // "allowJs": false,
+    // "isolatedModules": false,
+    // "declaration": true,
+    "outDir": "build"
   }
 }
