@@ -12,5 +12,10 @@
     "@babel/runtime": "7.1.2",
     "mime-types": "^2.1.20"
   },
-  "gitHead": "4fe560b5b283a402ba3ce73ac35184223e0c5248"
+  "gitHead": "4fe560b5b283a402ba3ce73ac35184223e0c5248",
+  "devDependencies": {
+    "rollup": "^1.28.0",
+    "shx": "^0.3.2",
+    "typescript": "^3.7.4"
+  }
 }

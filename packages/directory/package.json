@@ -21,7 +21,7 @@
     "@njmyers/rollup-config": "^0.0.1",
     "@types/mime-types": "^2.1.0",
     "@types/node": "^13.1.4",
-    "rollup": "^1.27.14",
+    "rollup": "^1.28.0",
     "shx": "^0.3.2",
     "typescript": "^3.7.4"
   },
