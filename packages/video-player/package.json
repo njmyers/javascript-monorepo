@@ -9,9 +9,10 @@
   "main": "build/component.cjs.js",
   "module": "build/component.esm.js",
   "scripts": {
-    "prepublishOnly": "yarn run build",
-    "rollup": "BABEL_ENV=production rollup -c",
-    "test": "jest --watchAll"
+    "prepublishOnly": "npm run build",
+    "prebuild": "shx rm -rf build",
+    "type": "tsc",
+    "build": "BABEL_ENV=production rollup -c"
   },
   "dependencies": {
     "@babel/runtime": "7.1.2",
@@ -21,7 +22,8 @@
     "redux": "^4.0.0",
     "redux-observable": "^1.0.0",
     "rxjs": "^6.2.2",
-    "smalldash": "^1.1.21"
+    "smalldash": "^1.1.21",
+    "tslib": "^1.10.0"
   },
   "devDependencies": {
     "@njmyers/babel-runtime-files": "^0.0.5",

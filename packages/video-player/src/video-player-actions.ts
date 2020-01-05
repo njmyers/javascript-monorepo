@@ -1,16 +1,23 @@
-/* global Modernizr */
-
-import generateActions from '../../utils/action-creator';
+// @ts-nocheck
+// import generateActions from '../../utils/action-creator';
 // import { hideAudioPlayer, stop as stopAudio } from '../AudioPlayer/audio-player-actions';
-import {
-  percentString,
-  formatTimes,
-  percentage,
-  findAspectHeight,
-  pixelString,
-} from '../../utils/strings';
+// import {
+//   percentString,
+//   formatTimes,
+//   percentage,
+//   findAspectHeight,
+//   pixelString,
+// } from '../../utils/strings';
 
 const frameRate = 100;
+
+const generateActions = t => t;
+const percentString = t => t;
+const formatTimes = t => t;
+const percentage = t => t;
+const findAspectHeight = t => t;
+const pixelString = t => t;
+const Modernizr = {};
 
 const myActions = [
   {
@@ -91,7 +98,7 @@ function validateEncoding(encoding) {
 }
 
 function saveVideoEncoding() {
-  return (dispatch) => {
+  return dispatch => {
     // else if creates cascading preference for mp4, ogv, webm
     if (Modernizr.video) {
       if (Modernizr.video.h264) {
@@ -109,7 +116,7 @@ function saveVideoEncoding() {
  * Store reference to video object and create styles
  */
 function loadVideoPlayer() {
-  return (dispatch) => {
+  return dispatch => {
     const object = document.getElementById('video_player');
     const container = document.getElementById('video_container');
 
@@ -163,7 +170,7 @@ function loadVideo(id) {
     if (playingAudio) dispatch(stopAudio());
     if (displayAudio) dispatch(hideAudioPlayer());
 
-    const found = videos.data.find((video) => video.id == id);
+    const found = videos.data.find(video => video.id == id);
     const { url } = found.acf[encoding];
 
     // only method handled by react all other methods are executed directly on video object
@@ -175,7 +182,7 @@ function loadVideo(id) {
         play({ dispatch, state });
         scroll({ state });
       })
-      .catch((err) => {
+      .catch(err => {
         console.log(err);
       });
   };

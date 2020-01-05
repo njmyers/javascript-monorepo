@@ -1,5 +1,5 @@
+// @ts-nocheck
 import React, { Component } from 'react';
-// import './video-player.css';
 
 class VideoPlayer extends Component {
   constructor(props) {
