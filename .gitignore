@@ -41,3 +41,4 @@ module.js.map
 private-dataset.js
 
 *.tgz
+pnpm-debug.log

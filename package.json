@@ -9,8 +9,8 @@
   ],
   "scripts": {
     "precommit": "lint-staged",
-    "prebuild": "lerna bootstrap && lerna link && lerna run build && shx rm -rf storybook-static",
-    "build": "build-storybook",
+    "prebuild-storybook": "pnpm install && pnpm recursive run build && shx rm -rf storybook-static",
+    "build-storybook": "build-storybook",
     "clean": "shx rm -rf node_modules && lerna clean -y",
     "bootstrap": "pnpm install",
     "sort": "sort-package-json packages/*/package.json",
@@ -88,6 +88,7 @@
     "react-dom": "^16.12.0",
     "react-test-renderer": "^16.12.0",
     "regenerator-runtime": "^0.12.1",
+    "rollup": "^1.28.0",
     "sass-loader": "^7.3.1",
     "shx": "^0.3.2",
     "sinon": "^6.3.5",
