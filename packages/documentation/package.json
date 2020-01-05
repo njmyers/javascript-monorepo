@@ -1,15 +1,19 @@
 {
   "name": "storybook-clean",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
-  },
-  "author": "",
+  "homepage": "https://component-library.netlify.com/",
+  "repository": "https://github.com/njmyers/javascript-monorepo.git",
   "license": "ISC",
+  "author": "Nick Myers",
+  "scripts": {
+    "build": "build-storybook",
+    "start": "start-storybook -p 9009"
+  },
+  "dependencies": {
+    "@njmyers/sass": "workspace:^0.1.1",
+    "normalize.css": "^8.0.1",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0"
+  },
   "devDependencies": {
     "@babel/core": "^7.7.7",
     "@babel/preset-env": "^7.7.7",
@@ -25,15 +29,14 @@
     "@types/webpack": "^4.41.1",
     "babel-loader": "^8.0.6",
     "css-loader": "^3.4.1",
+    "fibers": "^4.0.2",
     "fork-ts-checker-webpack-plugin": "^3.1.1",
     "react-docgen-typescript-loader": "^3.6.0",
+    "sass": "^1.24.2",
     "sass-loader": "^8.0.0",
     "style-loader": "^1.1.2",
     "ts-loader": "^6.2.1",
     "typescript": "^3.7.4",
     "webpack": "^4.41.5"
-  },
-  "dependencies": {
-    "@njmyers/sass": "workspace:^0.1.1"
   }
 }
