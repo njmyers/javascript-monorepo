@@ -1,4 +1,5 @@
 // @ts-nocheck
+import identity from './identity';
 
 /**
  * Pipe functions together automatically currying the return value of the
@@ -7,7 +8,7 @@
  * execute it in a separate step. Pipe executes functions in order of left to
  * right.
  */
-function pipe(fn, ...fns) {
+function pipe(fn = identity, ...fns) {
   return (...args): unknown =>
     fns.reduce((prev, next) => next(prev), fn(...args));
 }
