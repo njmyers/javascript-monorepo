@@ -13,6 +13,8 @@
     "isolatedModules": true,
     // Import non-ES modules as default imports.
     "esModuleInterop": true,
+    // Compile jsx
+    "jsx": "react",
     // Add source maps
     "sourceMap": true,
     // Base url for all paths
