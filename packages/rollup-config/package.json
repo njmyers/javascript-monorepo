@@ -8,10 +8,8 @@
   "author": "Nick Myers",
   "main": "src/index.js",
   "module": "src/index.js",
-  "peerDependencies": {
-    "rollup": "^1.0.0",
-    "tslib": "^1.10.0",
-    "typescript": "^3.7.4"
+  "resolutions": {
+    "bl": "^0.9.5"
   },
   "dependencies": {
     "@babel/cli": "^7.7.0",
@@ -34,23 +32,27 @@
     "@rollup/plugin-json": "^4.0.1",
     "@rollup/plugin-node-resolve": "^6.1.0",
     "@rollup/plugin-typescript": "^2.0.2",
-    "autoprefixer": "^9.6.1",
+    "autoprefixer": "^9.7.3",
     "lodash": "^4.17.15",
-    "regenerator-runtime": "^0.13.3",
     "rollup-plugin-babel": "^4.3.3",
     "rollup-plugin-flow": "^1.1.1",
     "rollup-plugin-node-builtins": "^2.1.2",
     "rollup-plugin-node-globals": "^1.4.0",
-    "rollup-plugin-postcss": "^1.6.2",
+    "rollup-plugin-postcss": "^2.0.3",
     "rollup-plugin-typescript2": "^0.25.0",
-    "rollup-plugin-visualizer": "^0.9.0",
-    "ts-transform-paths": "^2.0.0",
-    "ttypescript": "^1.5.8"
+    "rollup-plugin-visualizer": "^3.3.1",
+    "ts-transform-paths": "^2.0.0"
   },
-  "licence": "ISC",
   "devDependencies": {
-    "rollup": "^1.28.0",
+    "rollup": "^1.0.0",
     "shx": "^0.3.2",
+    "tslib": "^1.10.0",
     "typescript": "^3.7.4"
-  }
+  },
+  "peerDependencies": {
+    "rollup": "^1.0.0",
+    "tslib": "^1.10.0",
+    "typescript": "^3.7.4"
+  },
+  "licence": "ISC"
 }

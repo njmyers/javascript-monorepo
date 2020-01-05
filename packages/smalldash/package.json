@@ -8,10 +8,10 @@
   "main": "build/smalldash.cjs.js",
   "module": "build/smalldash.esm.js",
   "scripts": {
-    "prepublishOnly": "npm run build",
     "prebuild": "shx rm -rf build",
-    "type": "tsc",
-    "build": "BABEL_ENV=production rollup -c"
+    "build": "BABEL_ENV=production rollup -c",
+    "prepublishOnly": "npm run build",
+    "type": "tsc"
   },
   "dependencies": {
     "tslib": "^1.10.0"
@@ -27,6 +27,6 @@
     "shx": "^0.3.2",
     "typescript": "^3.7.4"
   },
-  "licence": "ISC",
-  "gitHead": "852c3ed727699556799081e1274bb6a18776c498"
+  "gitHead": "852c3ed727699556799081e1274bb6a18776c498",
+  "licence": "ISC"
 }

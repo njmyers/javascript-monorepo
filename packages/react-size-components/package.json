@@ -7,7 +7,6 @@
   "author": "Nick Myers",
   "main": "build/react-size-components.cjs.js",
   "module": "build/react-size-components.esm.js",
-  "licence": "ISC",
   "scripts": {
     "build": "run-s docgen rollup",
     "build-ssr": "BABEL_ENV=test webpack --config ssr/webpack.config.js",
@@ -30,10 +29,6 @@
     "smalldash": "^1.1.21",
     "tslib": "^1.10.0"
   },
-  "peerDependencies": {
-    "react": "^16.4.1",
-    "react-dom": "^16.4.1"
-  },
   "devDependencies": {
     "@njmyers/rollup-config": "^0.0.1",
     "@types/invariant": "^2.2.31",
@@ -46,5 +41,10 @@
     "shx": "^0.3.2",
     "typescript": "^3.7.4"
   },
-  "gitHead": "852c3ed727699556799081e1274bb6a18776c498"
+  "peerDependencies": {
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1"
+  },
+  "gitHead": "852c3ed727699556799081e1274bb6a18776c498",
+  "licence": "ISC"
 }

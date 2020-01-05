@@ -7,10 +7,10 @@
   "main": "build/directory.cjs.js",
   "module": "build/directory.esm.js",
   "scripts": {
-    "prepublishOnly": "npm run build",
     "prebuild": "shx rm -rf build",
-    "type": "tsc",
-    "build": "BABEL_ENV=production rollup -c"
+    "build": "BABEL_ENV=production rollup -c",
+    "prepublishOnly": "npm run build",
+    "type": "tsc"
   },
   "dependencies": {
     "@babel/runtime": "7.1.2",

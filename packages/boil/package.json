@@ -17,8 +17,8 @@
   "scripts": {
     "prebuild": "shx rm -rf build",
     "build": "rollup -c rollup.config.js",
-    "prepublishOnly": "npm run build",
-    "package": "npm pack && tar -xvzf *.tgz && rm -rf package *.tgz"
+    "package": "npm pack && tar -xvzf *.tgz && rm -rf package *.tgz",
+    "prepublishOnly": "npm run build"
   },
   "dependencies": {
     "@njmyers/directory": "^0.0.16",

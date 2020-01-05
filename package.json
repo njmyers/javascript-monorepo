@@ -8,19 +8,25 @@
     "packages/*"
   ],
   "scripts": {
-    "precommit": "lint-staged",
+    "bootstrap": "pnpm install",
+    "build-packages": "pnpm recursive run build",
     "prebuild-storybook": "pnpm install && pnpm recursive run build && shx rm -rf storybook-static",
     "build-storybook": "build-storybook",
-    "build-packages": "pnpm recursive run build",
+    "check-types": "tsc",
     "clean": "shx rm -rf node_modules && lerna clean -y",
-    "bootstrap": "pnpm install",
+    "precommit": "lint-staged",
+    "prettier": "prettier 'packages/**/*.{.test.js,.stories.js,js,jsx,json}' --write",
     "sort": "sort-package-json packages/*/package.json",
     "start": "run-p storybook",
     "prestorybook": "node scripts/generate-examples.js",
     "storybook": "start-storybook -p 9009",
-    "test": "jest",
-    "prettier": "prettier 'packages/**/*.{.test.js,.stories.js,js,jsx,json}' --write",
-    "check-types": "tsc"
+    "test": "jest"
+  },
+  "lint-staged": {
+    "packages/**/*.{.test.js,js,jsx,json}": [
+      "prettier --write",
+      "git add"
+    ]
   },
   "devDependencies": {
     "@babel/cli": "^7.7.7",
@@ -100,11 +106,5 @@
     "ts-jest": "^24.2.0",
     "typescript": "^3.7.4"
   },
-  "licence": "ISC",
-  "lint-staged": {
-    "packages/**/*.{.test.js,js,jsx,json}": [
-      "prettier --write",
-      "git add"
-    ]
-  }
+  "licence": "ISC"
 }

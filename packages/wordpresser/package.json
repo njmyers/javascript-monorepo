@@ -1,19 +1,19 @@
 {
   "name": "@njmyers/wordpresser",
   "version": "0.0.9",
-  "author": "Nick Myers <nickmyers111@gmail.com>",
   "description": "A utility to fetch data from the wordpress api",
   "license": "ISC",
+  "author": "Nick Myers <nickmyers111@gmail.com>",
   "main": "build/wordpresser.cjs.js",
   "module": "build/wordpresser.esm.js",
+  "bin": {
+    "wordpresser": "scripts/cli.js"
+  },
   "scripts": {
     "build": "run-s rollup",
     "prepublishOnly": "yarn run build",
     "rollup": "BABEL_ENV=production rollup -c",
     "test": "jest --watchAll"
-  },
-  "bin": {
-    "wordpresser": "scripts/cli.js"
   },
   "dependencies": {
     "@babel/runtime": "7.1.2",

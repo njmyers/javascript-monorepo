@@ -10,15 +10,13 @@
   "author": "Nick Myers <nickmyers111@gmail.com>",
   "main": "build/app.cjs.js",
   "module": "build/app.esm.js",
-  "scripts": {
-    "prepublishOnly": "yarn run build",
-    "build": "run-s rollup",
-    "rollup": "rollup -c",
-    "develop": "nodemon --exec babel-node src/rx.js",
-    "start": "node app.js"
-  },
   "bin": {
     "image-server": "app.js"
+  },
+  "scripts": {
+    "develop": "nodemon --exec babel-node src/rx.js",
+    "rollup": "rollup -c",
+    "start": "node app.js"
   },
   "dependencies": {
     "@babel/runtime": "7.1.2",

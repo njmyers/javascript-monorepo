@@ -30,6 +30,6 @@
     "react": "^16.8.0",
     "react-dom": "^16.8.0"
   },
-  "licence": "ISC",
-  "gitHead": "852c3ed727699556799081e1274bb6a18776c498"
+  "gitHead": "852c3ed727699556799081e1274bb6a18776c498",
+  "licence": "ISC"
 }
