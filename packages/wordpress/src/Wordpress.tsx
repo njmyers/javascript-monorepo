@@ -1,4 +1,4 @@
-// @flow
+// @ts-nocheck
 import * as React from 'react';
 import axios from 'axios';
 import { StatusSwitch } from 'njmyers-component-library';

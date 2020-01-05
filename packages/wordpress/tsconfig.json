@@ -1,0 +1,12 @@
+{
+  "extends": "../../tsconfig.json",
+  "include": ["src"],
+  "compilerOptions": {
+    // "allowJs": false,
+    // "isolatedModules": false,
+    // "declaration": true,
+    "outDir": "build",
+    "rootDir": "src",
+    "baseUrl": "src"
+  }
+}
