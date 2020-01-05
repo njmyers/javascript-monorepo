@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withStorySource } from '@storybook/addon-storysource';
-import { withDocs } from 'storybook-readme';
+// import { withStorySource } from '@storybook/addon-storysource';
+// import { withDocs } from 'storybook-readme';
 import { camelToTitle } from 'smalldash';
 
 import readme from '../__docs__/README.md';
@@ -12,18 +12,18 @@ function appendSourceToDocs(docs, source) {
 }
 
 storiesOf('@njmyers/audio-player|Intro', module)
-  .addDecorator(withDocs(readme))
+  // .addDecorator(withDocs(readme))
   .add('README', () => (
     <p className="sans">Welcome to the interactive playground!</p>
   ));
 
 Object.entries(examples).forEach(([moduleName, Component]) => {
   const name = camelToTitle(moduleName).replace('Audio Player', 'AudioPlayer');
-  const source = require(`../__docs__/${moduleName}.txt`).default;
-  const docs = require(`../__docs__/${moduleName}.md`).default;
+  // const source = require(`../__docs__/${moduleName}.txt`).default;
+  // const docs = require(`../__docs__/${moduleName}.md`).default;
 
   storiesOf('@njmyers/audio-player|Examples', module)
-    .addDecorator(withStorySource(source))
-    .addDecorator(withDocs(appendSourceToDocs(docs, source)))
+    // .addDecorator(withStorySource(source))
+    // .addDecorator(withDocs(appendSourceToDocs(docs, source)))
     .add(name, () => React.createElement(Component));
 });
