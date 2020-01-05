@@ -80,6 +80,7 @@ importers:
       smalldash: 'link:../smalldash'
       tslib: 1.10.0
     devDependencies:
+      '@njmyers/component-library': 'link:../component-library'
       '@njmyers/rollup-config': 'link:../rollup-config'
       '@types/howler': 2.1.2
       '@types/react': 16.9.17
@@ -94,6 +95,7 @@ importers:
       '@fortawesome/fontawesome-svg-core': ^1.2.4
       '@fortawesome/free-solid-svg-icons': ^5.3.1
       '@fortawesome/react-fontawesome': ^0.1.3
+      '@njmyers/component-library': 'workspace:^0.3.2'
       '@njmyers/rollup-config': ^0.0.1
       '@njmyers/sass': ^0.0.1
       '@types/howler': ^2.1.0
@@ -218,6 +220,7 @@ importers:
       react-dom: 16.12.0_react@16.12.0
     devDependencies:
       '@babel/core': 7.7.7
+      '@babel/plugin-proposal-class-properties': 7.7.4_@babel+core@7.7.7
       '@babel/preset-env': 7.7.7_@babel+core@7.7.7
       '@babel/preset-react': 7.7.4_@babel+core@7.7.7
       '@babel/preset-typescript': 7.7.7_@babel+core@7.7.7
@@ -243,6 +246,7 @@ importers:
       webpack: 4.41.5_webpack@4.41.5
     specifiers:
       '@babel/core': ^7.7.7
+      '@babel/plugin-proposal-class-properties': ^7.7.4
       '@babel/preset-env': ^7.7.7
       '@babel/preset-react': ^7.7.4
       '@babel/preset-typescript': ^7.7.7
