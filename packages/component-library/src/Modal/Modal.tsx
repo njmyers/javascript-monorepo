@@ -1,3 +1,4 @@
+// @ts-nocheck
 
 import * as React from 'react';
 import Modal from './ModalUnstyled';
@@ -7,7 +8,7 @@ export type ModalProps = {
   /** div id where to render the react portal */
   modalRoot: string,
   /** react children (your component) */
-  children?: React.Node,
+  children?: React.ReactNode,
 };
 
 type AnimationProps = {

@@ -5,7 +5,7 @@ type Props = {
   loading: React.ComponentType<{}>;
   error: React.ComponentType<{}>;
   status: string | Array<string>;
-  children: React.Node;
+  children: React.ReactNode;
 };
 
 class StatusSwitch extends React.Component<Props> {

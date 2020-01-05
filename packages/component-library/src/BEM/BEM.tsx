@@ -1,8 +1,8 @@
-
+// @ts-nocheck
 import * as React from 'react';
 
 type Props = {
-  children: React.Node,
+  children: React.ReactNode,
   block: string,
   modifiers?: string | void | Array<string>,
 };

@@ -1,3 +1,4 @@
+// @ts-nocheck
 import * as React from 'react';
 import Circle from './Circle';
 import Arrow from './Arrow';
