@@ -8,7 +8,6 @@ export default [
     output: {
       format: 'cjs',
     },
-    external: ['fs', 'path'],
   }),
   rollupEnvironment(pkg, {
     input: 'src/program/program.ts',
@@ -16,6 +15,5 @@ export default [
     output: {
       format: 'es',
     },
-    external: ['fs', 'path'],
   }),
 ];

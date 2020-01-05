@@ -1,3 +1,4 @@
+// @ts-nocheck
 import resolvePathOption from './resolve-path-option';
 import { Config } from './config';
 

@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { Config } from '../config';
 
 /**

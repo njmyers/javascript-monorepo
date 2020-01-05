@@ -1,3 +1,4 @@
+// @ts-nocheck
 import program from 'commander';
 import path from 'path';
 import directory from '@njmyers/directory';

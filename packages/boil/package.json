@@ -22,26 +22,24 @@
   },
   "dependencies": {
     "@njmyers/directory": "^0.0.16",
-    "chalk": "^2.4.2",
+    "chalk": "^3.0.0",
     "commander": "^4.0.1",
     "cosmiconfig": "^5.2.1",
     "pkg-dir": "^4.2.0",
     "shelljs": "^0.8.3",
     "smalldash": "^1.1.21",
+    "tslib": "^1.10.0",
     "update-notifier": "^3.0.1"
   },
   "devDependencies": {
-    "@njmyers/directory": "^0.0.16",
     "@njmyers/rollup-config": "^0.0.1",
-    "@types/chalk": "^2.2.0",
     "@types/cosmiconfig": "^5.0.3",
+    "@types/node": "^13.1.4",
+    "@types/shelljs": "^0.8.6",
+    "@types/update-notifier": "^2.5.0",
     "npm-run-all": "^4.1.3",
     "rollup": "^1.28.0",
     "shx": "^0.3.2",
     "typescript": "^3.7.4"
-  },
-  "resolutions": {
-    "lodash": "^4.17.13",
-    "bl": "^0.9.5"
   }
 }

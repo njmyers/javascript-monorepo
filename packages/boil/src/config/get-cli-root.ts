@@ -1,3 +1,4 @@
+// @ts-nocheck
 import pkgDir from 'pkg-dir';
 
 /**

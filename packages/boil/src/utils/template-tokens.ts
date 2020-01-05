@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { kebabToTitle, kebabToCamel, kebabToSnake } from 'smalldash';
 
 const templateTokens = [

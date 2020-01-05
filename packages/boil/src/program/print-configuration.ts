@@ -1,3 +1,4 @@
+// @ts-nocheck
 /* eslint-disable no-console, prefer-template */
 import chalk from 'chalk';
 
