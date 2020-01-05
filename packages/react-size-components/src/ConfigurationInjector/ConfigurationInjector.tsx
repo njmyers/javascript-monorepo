@@ -1,3 +1,4 @@
+// @ts-nocheck
 import * as React from 'react';
 import LazyEvent from '../LazyEvent';
 import createInitalState from './initializers';

@@ -14,3 +14,5 @@ const withSizeContext = (configurations, Component) => {
 
   return { SizeProvider, SizeConsumer: Context.Consumer };
 };
+
+export default withSizeContext;

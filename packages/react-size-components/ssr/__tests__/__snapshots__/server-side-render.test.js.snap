@@ -1,7 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`SSR functionality for size components it renders to string without errors 1`] = `"<section style=\\"display:flex;flex-direction:column;justify-content:center;align-items:flex-start;padding:0 5rem;color:white;background:#65655c;min-height:100vh\\" data-reactroot=\\"\\"><h1>Server Side Rendering Demo</h1><article style=\\"box-sizing:border-box;background:#7f3535;width:100%;padding:30px\\"><h2>Sized Component</h2><h3>Component</h3><li>width: <!-- -->0</li><li>height: <!-- -->0</li><h3>Window</h3><li>innerWidth: <!-- -->0</li><li>innerHeight: <!-- -->0</li><li>outerWidth: <!-- -->0</li><li>outerHeight: <!-- -->0</li><h3>Breakpoints</h3><li>tablet: </li><li>laptop: </li><li>mobile: <!-- -->false</li><li>orientation: <!-- -->landscape</li><h3>Position</h3><li>component is in view: <!-- -->false</li><p><i>note: check the console for callbacks</i></p></article></section>"`;
-
-exports[`SSR functionality for size components sanity check, should throw error 1`] = `"window is not defined"`;
-
-exports[`SSR functionality for size components sanity check, should throw error 2`] = `"window is not defined"`;

@@ -1,3 +1,4 @@
+// @ts-nocheck
 import combineOptions from './combine-options';
 import componentConfig from './component';
 import inViewConfig from './in-view';

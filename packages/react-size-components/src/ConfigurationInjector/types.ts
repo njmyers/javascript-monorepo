@@ -8,6 +8,6 @@ type ComponentState = {
 export type State = Sizes & ComponentState;
 
 export type Props = {
-  onSize?: (State) => any;
+  onSize?: (state: State) => any;
   id?: string;
 };

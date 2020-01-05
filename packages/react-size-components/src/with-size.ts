@@ -1,3 +1,4 @@
+// @ts-nocheck
 import * as React from 'react';
 import createConfiguration from './configurations';
 import ConfigurationInjector from './ConfigurationInjector';

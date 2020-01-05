@@ -1,3 +1,4 @@
+// @ts-nocheck
 import invariant from 'invariant';
 // types
 import { Configuration, Configurations } from '../configurations';

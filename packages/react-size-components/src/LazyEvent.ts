@@ -1,3 +1,4 @@
+// @ts-nocheck
 import SubPub from './SubPub';
 
 type EventType = 'resize' | 'scroll';
