@@ -10,7 +10,7 @@ module.exports = {
     'react/jsx-filename-extension': [
       1,
       {
-        'extensions': ['.js', '.jsx', '.ts', '.tsx', '.test.js', '.test.ts', '.stories.js', '.stories.ts']
+        'extensions': ['.js', '.jsx', '.tsx']
       }
     ],
     'react/prop-types': 0,
