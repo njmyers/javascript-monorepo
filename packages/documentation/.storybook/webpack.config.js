@@ -8,13 +8,19 @@ module.exports = ({ config, mode }) => {
   const rules = [
     ...config.module.rules,
     {
-      test: /\.js?$/,
+      test: /\.(t|j)sx?$/,
       include: PACKAGES,
       use: [
         {
           loader: 'babel-loader',
           options: {
             cacheDirectory: path.resolve(NODE_MODULES, '.cache/storybook'),
+            plugins: [
+              path.resolve(
+                NODE_MODULES,
+                '@babel/plugin-proposal-class-properties'
+              ),
+            ],
             presets: [
               [
                 path.resolve(NODE_MODULES, '@babel/preset-env/lib/index.js'),
@@ -25,6 +31,10 @@ module.exports = ({ config, mode }) => {
                 },
               ],
               path.resolve(NODE_MODULES, '@babel/preset-react/lib/index.js'),
+              path.resolve(
+                NODE_MODULES,
+                '@babel/preset-typescript/lib/index.js'
+              ),
             ],
           },
         },
@@ -46,7 +56,7 @@ module.exports = ({ config, mode }) => {
       ...config.resolve,
       modules: [...config.resolve.modules, NODE_MODULES],
       alias: {
-        'with-docs$': path.resolve(__dirname, 'with-docs.js'),
+        'with-docs$': path.resolve(__dirname, 'decorators/with-docs.js'),
       },
     },
   };

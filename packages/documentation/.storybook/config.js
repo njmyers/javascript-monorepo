@@ -26,6 +26,10 @@ storybook.addDecorator(withLayout);
 
 // automatically import all files ending in *.stories.js
 storybook.configure(
-  require.context('../../react-you-tube', true, /.stories.(j|t)sx?$/),
+  require.context(
+    '../../',
+    true,
+    /^((?![\\/]node_modules|vendor|templates[\\/]).)*\.stories.(j|t)sx?$/
+  ),
   module
 );
