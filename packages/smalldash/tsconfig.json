@@ -7,7 +7,7 @@
     // "declaration": true,
     "composite": true,
     "outDir": "build",
-    "rootDir": "src",
+
     "baseUrl": "src"
   }
 }

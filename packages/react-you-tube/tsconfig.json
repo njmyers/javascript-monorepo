@@ -6,7 +6,6 @@
     // "isolatedModules": false,
     // "declaration": true,
     "outDir": "build",
-    "rootDir": "src",
     "baseUrl": "src"
   }
 }
