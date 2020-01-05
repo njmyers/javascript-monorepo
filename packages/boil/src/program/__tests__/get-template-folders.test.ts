@@ -6,6 +6,6 @@ describe('program/getTemplateFolders', () => {
   });
 
   test('it runs without crashing', () => {
-    expect(getTemplateFolders({ templateDirectory: '' })).toMatchSnapshot();
+    expect(() => getTemplateFolders({ templateDirectory: '' })).not.toThrow();
   });
 });

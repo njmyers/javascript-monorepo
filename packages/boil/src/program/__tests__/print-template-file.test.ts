@@ -6,6 +6,6 @@ describe('it works', () => {
   });
 
   test('it runs without crashing', () => {
-    expect(printTemplateFile({})).toMatchSnapshot();
+    expect(() => printTemplateFile({})).not.toThrow();
   });
 });

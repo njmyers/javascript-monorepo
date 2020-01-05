@@ -5,7 +5,7 @@ describe('it works', () => {
     expect(typeof findDirectoryUpwards).toBe('function');
   });
 
-  test('it runs without crashing', () => {
-    expect(findDirectoryUpwards()).toMatchSnapshot();
+  test('it runs with crashing', () => {
+    expect(() => findDirectoryUpwards()).toThrow();
   });
 });

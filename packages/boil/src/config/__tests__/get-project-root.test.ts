@@ -6,6 +6,6 @@ describe('it works', () => {
   });
 
   test('it runs without crashing', () => {
-    expect(getProjectRoot()).toMatchSnapshot();
+    expect(() => getProjectRoot()).not.toThrow();
   });
 });

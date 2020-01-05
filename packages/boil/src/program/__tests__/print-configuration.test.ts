@@ -6,6 +6,6 @@ describe('program/printConfiguration', () => {
   });
 
   test('it runs without crashing', () => {
-    expect(printConfiguration({})).toMatchSnapshot();
+    expect(() => printConfiguration({})).not.toThrow();
   });
 });

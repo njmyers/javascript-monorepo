@@ -6,6 +6,6 @@ describe('it works', () => {
   });
 
   test('it runs without crashing', () => {
-    expect(getDefaultTemplateDirectory()).toMatchSnapshot();
+    expect(() => getDefaultTemplateDirectory()).not.toThrow();
   });
 });

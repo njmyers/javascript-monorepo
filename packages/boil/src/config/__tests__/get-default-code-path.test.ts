@@ -6,6 +6,6 @@ describe('it works', () => {
   });
 
   test('it runs without crashing', () => {
-    expect(getDefaultCodePath()).toMatchSnapshot();
+    expect(() => getDefaultCodePath()).not.toThrow();
   });
 });

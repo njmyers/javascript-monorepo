@@ -6,6 +6,6 @@ describe('it works', () => {
   });
 
   test('it runs without crashing', () => {
-    expect(resolvePathOption()).toMatchSnapshot();
+    expect(() => resolvePathOption()).not.toThrow();
   });
 });

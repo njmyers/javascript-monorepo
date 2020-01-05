@@ -7,6 +7,6 @@ describe('program/templateFileFilter', () => {
   });
 
   test('it runs without crashing', () => {
-    expect(templateFileFilter({})()).toMatchSnapshot();
+    expect(() => templateFileFilter({})()).not.toThrow();
   });
 });
