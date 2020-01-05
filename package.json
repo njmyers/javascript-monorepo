@@ -11,6 +11,7 @@
     "precommit": "lint-staged",
     "prebuild-storybook": "pnpm install && pnpm recursive run build && shx rm -rf storybook-static",
     "build-storybook": "build-storybook",
+    "build-packages": "pnpm recursive run build",
     "clean": "shx rm -rf node_modules && lerna clean -y",
     "bootstrap": "pnpm install",
     "sort": "sort-package-json packages/*/package.json",
