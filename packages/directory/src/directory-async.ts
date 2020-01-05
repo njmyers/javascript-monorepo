@@ -29,14 +29,16 @@ async function directoryAsync(
 
   const pipeline: Function[] = []
     .concat(absolute || read ? pathify : EMPTY_ARRAY)
-    .concat(objectify)
+    .concat(mime || read || filter ? objectify : EMPTY_ARRAY)
     .concat(mime || filter ? mimeify : EMPTY_ARRAY)
     .concat(filter ? filterify(filter) : EMPTY_ARRAY)
     .concat(read ? readAsync : EMPTY_ARRAY);
 
   // @ts-ignore
   const fileObjects = await Promise.all(list.map(pipeAsync(...pipeline)));
-  return fileObjects.filter((obj: FileObject) => obj.include);
+  return fileObjects.filter(
+    (obj: FileObject) => (obj && obj.include) || typeof obj === 'string'
+  );
 }
 
 export default directoryAsync;

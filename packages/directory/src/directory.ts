@@ -25,7 +25,7 @@ function directory(dir: string, options: Options = defaults): FileObject[] {
 
   const pipeline: Function[] = []
     .concat(absolute || read ? pathify : EMPTY_ARRAY)
-    .concat(objectify)
+    .concat(mime || read || filter ? objectify : EMPTY_ARRAY)
     .concat(mime || filter ? mimeify : EMPTY_ARRAY)
     .concat(filter ? filterify(filter) : EMPTY_ARRAY)
     .concat(read ? readSync : EMPTY_ARRAY);
@@ -35,7 +35,11 @@ function directory(dir: string, options: Options = defaults): FileObject[] {
   // if we are in "only paths" mode then we won't have an object
   // if we have an object we default to include unless we add a filter
   // @ts-ignore
-  return list.map(pipe(...pipeline)).filter((obj: FileObject) => obj.include);
+  return list
+    .map(pipe(...pipeline))
+    .filter(
+      (obj: FileObject) => (obj && obj.include) || typeof obj === 'string'
+    );
 }
 
 export default directory;
