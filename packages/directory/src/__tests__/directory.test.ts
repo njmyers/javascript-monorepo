@@ -17,7 +17,7 @@ import {
 describe('src/directory', () => {
   describe('it returns absolute paths with no options argument', () => {
     const args: DirectoryArgs = ['package.json', undefined];
-    const expected = [path.resolve(process.cwd(), 'package.json')];
+    const expected = [path.resolve('package.json')];
 
     test('synchronously', () => {
       expect(directory(...args)).toMatchObject(expected);
