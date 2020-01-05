@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { Track } from '../AudioCore';
 
 /** Convert a string length to consistent marquee speed */

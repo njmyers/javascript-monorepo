@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React from 'react';
 // components
 import AudioCore from '../AudioCore';

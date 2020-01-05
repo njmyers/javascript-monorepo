@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { Howl, Howler } from 'howler';
 import { compose } from 'smalldash';
 // types

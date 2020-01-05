@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { cloneElement } from 'react';
 import usePlayer from './use-player';
 

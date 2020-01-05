@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { createHowl } from './audio-get-set';
 
 export const updateUI = (currentTime: number, duration: number) => ({

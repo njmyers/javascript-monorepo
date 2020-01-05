@@ -1,3 +1,4 @@
+// @ts-nocheck
 import * as React from 'react';
 // components
 import Marquee from '../Marquee';

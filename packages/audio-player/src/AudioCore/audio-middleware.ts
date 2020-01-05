@@ -1,3 +1,4 @@
+// @ts-nocheck
 import audioSideEffects from './audio-side-effects';
 
 import {
