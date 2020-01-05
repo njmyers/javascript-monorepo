@@ -43,3 +43,4 @@ private-dataset.js
 *.tgz
 pnpm-debug.log
 stats.html
+cache.json
