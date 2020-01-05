@@ -1,3 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`the input works the input mounts without crashing 1`] = `"<div></div><aside style=\\"transition:0.25s ease transform;transform:translateY(-100px);position:fixed;background:rgba(0, 0, 0, 0.8);width:100%;top:0;left:0\\"></aside>"`;

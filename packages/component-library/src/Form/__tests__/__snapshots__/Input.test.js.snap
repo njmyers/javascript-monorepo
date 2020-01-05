@@ -1,3 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`the input works the input mounts without crashing 1`] = `"<div class=\\"formInput\\"><label element=\\"label\\" for=\\"input\\" class=\\"formInput_label\\">input</label><input element=\\"input\\" name=\\"input\\" type=\\"text\\" placeholder=\\"\\" class=\\"formInput_input\\"></div>"`;

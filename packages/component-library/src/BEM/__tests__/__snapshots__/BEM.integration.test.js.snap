@@ -1,5 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`integration testing and rendering of children renders children 1`] = `"<div class=\\"\\">some text</div>"`;
-
-exports[`integration testing and rendering of children the input mounts without crashing 1`] = `null`;
