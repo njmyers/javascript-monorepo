@@ -3,11 +3,10 @@ const resolve = require('@rollup/plugin-node-resolve');
 const commonjs = require('@rollup/plugin-commonjs');
 const json = require('@rollup/plugin-json');
 
-const babel = require('rollup-plugin-babel');
-
 const runtimes = require('@njmyers/babel-runtime-files');
 const _ = require('lodash');
-const { node, postcss, typescript, flow } = require('./environments');
+
+const { node, postcss, typescript, flow, babel } = require('./environments');
 
 const defaultOptions = {
   /** default rollup options */
@@ -18,15 +17,6 @@ const defaultOptions = {
   },
   /** environment settings */
   env: ['browser', 'typescript'],
-  /** plugin options */
-  babel: {
-    runtimeHelpers: true,
-    exclude: 'node_modules/**',
-    extensions: ['.js', '.jsx', '.ts', '.tsx'],
-    plugins: ['@babel/plugin-transform-runtime'],
-  },
-  typescript: {},
-  flow: {},
   json: {},
   commonjs: {},
   resolve: {
@@ -56,7 +46,7 @@ const rollupEnvironment = (pkg, userOptions = {}) => {
       ...flow(options),
       ...postcss(options),
       ...node(options),
-      // babel(options.babel),
+      ...babel(options),
     ],
   };
 
