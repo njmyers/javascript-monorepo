@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { useRef, useEffect } from 'react';
 import useYouTube from './use-you-tube';
 // types

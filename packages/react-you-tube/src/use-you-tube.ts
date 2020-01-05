@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useEffect, useState } from 'react';
 import loadYouTubeAPI from './load-you-tube-api';
 // types

@@ -1,3 +1,4 @@
+// @ts-nocheck
 import createScriptLoader from '@njmyers/script-loader';
 import { YouTubeWindow } from './types';
 
