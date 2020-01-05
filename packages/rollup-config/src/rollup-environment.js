@@ -1,9 +1,11 @@
 /* eslint-disable */
-const resolve = require('rollup-plugin-node-resolve');
-const commonjs = require('rollup-plugin-commonjs');
+const resolve = require('@rollup/plugin-node-resolve');
+const commonjs = require('@rollup/plugin-commonjs');
+const json = require('@rollup/plugin-json');
+
 const babel = require('rollup-plugin-babel');
+
 const runtimes = require('@njmyers/babel-runtime-files');
-const json = require('rollup-plugin-json');
 const _ = require('lodash');
 const { node, postcss, typescript, flow } = require('./environments');
 
@@ -54,7 +56,7 @@ const rollupEnvironment = (pkg, userOptions = {}) => {
       ...flow(options),
       ...postcss(options),
       ...node(options),
-      babel(options.babel),
+      // babel(options.babel),
     ],
   };
 
