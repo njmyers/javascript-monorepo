@@ -1,3 +1,5 @@
+
+// @ts-nocheck
 import { Reference, Options } from './types';
 
 const REQUIRED_OPTIONS = ['id', 'src'];

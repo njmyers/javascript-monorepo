@@ -11,13 +11,13 @@
   "main": "build/script-loader.cjs.js",
   "module": "build/script-loader.esm.js",
   "scripts": {
-    "prebuild": "shx rm -rf build",
-    "build": "run-s rollup",
     "prepublishOnly": "npm run build",
-    "rollup": "BABEL_ENV=production rollup -c"
+    "prebuild": "shx rm -rf build",
+    "type": "tsc",
+    "build": "BABEL_ENV=production rollup -c"
   },
   "dependencies": {
-    "@babel/runtime": "7.1.2"
+    "tslib": "^1.10.0"
   },
   "devDependencies": {
     "@njmyers/rollup-config": "^0.0.1",
