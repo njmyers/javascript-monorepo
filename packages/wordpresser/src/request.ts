@@ -1,4 +1,4 @@
-// @flow
+// @ts-nocheck
 import axios from 'axios';
 
 const validateRequest = (params, cb) => {

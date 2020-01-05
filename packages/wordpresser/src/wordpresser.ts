@@ -1,3 +1,4 @@
+// @ts-nocheck
 import parse from 'parse-link-header';
 import _request from './request';
 import ensureArray from './ensure-array';

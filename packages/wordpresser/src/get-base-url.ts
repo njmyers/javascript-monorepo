@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 /**
  * Ensure no leading slashes in path part
  * @param  {string} path the path part
