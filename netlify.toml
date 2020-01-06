@@ -1,6 +1,6 @@
 [build]
-  publish = "storybook-static"
+  publish = "packages/documentation/storybook-static"
   command = "yarn run build"
 
 [build.environment]
-  YARN_VERSION = "1.10.1"
+  NPM_FLAGS = "--prefix=/"
