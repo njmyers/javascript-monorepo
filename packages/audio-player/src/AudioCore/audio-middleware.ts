@@ -33,11 +33,11 @@ const dispatchToHardStop = ['@AUDIO_PLAYER/HIDE', '@AUDIO_PLAYER/DESTROY'];
 
 const isNumber = number => !Number.isNaN(number) || typeof number === 'number';
 
-const frame = (dispatch, state) => action => {
+const frame = (dispatch, state) => () => {
   // dispatch UI update
   const currentTime = getHowlCurrentTime(state);
   const duration = getHowlDuration(state);
-  // verify we are getting numberical input
+  // verify we are getting numerical input
   // sometimes howler returns the howl object from methods...
   dispatch(
     updateUI(
@@ -64,7 +64,7 @@ const audioMiddleware = ({ dispatch, getState }) => next => action => {
   audioSideEffects(getState(), action);
   // dispatch additional internal actions last
   if (dispatchToHardStart.includes(action.type)) {
-    frame(dispatch, getState())(action);
+    frame(dispatch, getState())();
   } else if (dispatchToHardStop.includes(action.type)) {
     dispatch(playerStop());
   }

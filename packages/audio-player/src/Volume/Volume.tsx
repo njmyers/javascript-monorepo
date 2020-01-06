@@ -6,9 +6,10 @@ import { SCALE } from './constants';
 // styles
 import './volume.sass';
 // types
-import { Player } from '../Context';
+import { Player, usePlayer } from '../Context';
 
-function Volume({ state, setVolume, setMute }: Player) {
+function Volume() {
+  const { state, setVolume, setMute } = usePlayer();
   const { muted } = state;
   const volume = normalizeVolume(state.volume);
 

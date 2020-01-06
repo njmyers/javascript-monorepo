@@ -5,9 +5,10 @@ import { normalizeRange, denormalizeRange } from './normalizers';
 // styles
 import './meter.sass';
 // types
-import { Player } from '../Context';
+import { usePlayer } from '../Context';
 
-function Meter({ setSeek, state }: Player) {
+function Meter() {
+  const { state, setSeek } = usePlayer();
   const { duration, currentTime } = state;
 
   const handleSeek = useCallback(

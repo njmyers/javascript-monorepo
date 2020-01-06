@@ -1,4 +1,5 @@
-import { useCallback } from 'react';
+import { useCallback, useContext } from 'react';
+import AudioPlayerContext from './context';
 import { useDispatch, useSelector, shallowEqual } from 'react-redux';
 import {
   playerStart,
@@ -20,7 +21,7 @@ import { State } from '../AudioCore';
 import { Player } from './types';
 
 function usePlayer(): Player {
-  const dispatch = useDispatch();
+  const [state, dispatch] = useContext(AudioPlayerContext);
 
   const getDispatchCallback = useCallback(
     actionCreator => (...args: [any]) => dispatch(actionCreator(...args)),
@@ -28,7 +29,7 @@ function usePlayer(): Player {
   );
 
   return {
-    state: useSelector((state: State) => state, shallowEqual),
+    state,
     start: getDispatchCallback(playerStart),
     stop: getDispatchCallback(playerStop),
     pause: getDispatchCallback(playerPause),

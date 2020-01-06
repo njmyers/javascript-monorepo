@@ -7,7 +7,7 @@ import { Props } from './types';
 import './button.sass';
 
 const Button = ({ onClick, icon, ...props }: Props) => {
-  const name = icon as string;
+  const name = icon;
 
   return (
     <button

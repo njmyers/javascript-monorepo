@@ -7,10 +7,14 @@ import {
   formatTime,
   convertStringToMarqueeSpeed,
 } from './utils';
+
+import { usePlayer } from '../Context';
+
 // sass
 import './track-info.sass';
 
-const TrackInfo = ({ state }) => {
+const TrackInfo = () => {
+  const { state } = usePlayer();
   const { currentTime, duration, playing, current, tracks } = state;
   const currentTrack = tracks[current];
   const text = formatTrackText(currentTrack);

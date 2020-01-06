@@ -8,7 +8,7 @@ import { uniq } from 'smalldash';
 // 	urls: [],
 // };
 
-const audioPlayerState = {
+export const audioPlayerState = {
   currentTime: 0,
   duration: 0,
   playing: false,

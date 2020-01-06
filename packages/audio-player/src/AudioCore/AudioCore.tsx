@@ -7,7 +7,10 @@ import './library';
 import './audio.sass';
 import './range.sass';
 
-const AudioCore = ({ childRef, classPrefix, sizes, children, state }) => {
+import { usePlayer } from '../Context';
+
+const AudioCore = ({ childRef, classPrefix, sizes, children }) => {
+  const { state } = usePlayer();
   const { display } = state;
 
   return (

@@ -3,9 +3,10 @@ import Button from '../Button';
 // styles
 import './controls.sass';
 // types
-import { Player } from '../Context';
+import { Player, usePlayer } from '../Context';
 
-function Controls({ state, start, pause, stop, forward, backward }: Player) {
+function Controls() {
+  const { start, pause, stop, forward, backward, state } = usePlayer();
   const { playing } = state;
 
   return (

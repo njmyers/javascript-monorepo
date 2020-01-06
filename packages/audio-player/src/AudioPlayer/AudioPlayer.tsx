@@ -12,10 +12,10 @@ import { Props } from './types';
 function AudioPlayer({ display, classPrefix, ...props }: Props) {
   return (
     <AudioCore classPrefix={classPrefix} {...props}>
-      {display.includes('controls') && <Controls {...props} />}
-      {display.includes('trackInfo') && <TrackInfo {...props} />}
-      {display.includes('meter') && <Meter {...props} />}
-      {display.includes('volume') && <Volume {...props} />}
+      {display.includes('controls') && <Controls />}
+      {display.includes('trackInfo') && <TrackInfo />}
+      {display.includes('meter') && <Meter />}
+      {display.includes('volume') && <Volume />}
     </AudioCore>
   );
 }
