@@ -1,6 +1,6 @@
 [build]
   publish = "packages/documentation/storybook-static"
-  command = "yarn run build"
+  command = "./scripts/netlify-build.sh"
 
 [build.environment]
   NPM_FLAGS = "--prefix=/"
