@@ -6,6 +6,10 @@
   "repository": "https://github.com/njmyers/javascript-monorepo.git",
   "license": "ISC",
   "author": "Nick Myers",
+  "files": [
+    "README.md",
+    "build"
+  ],
   "main": "build/youtube.cjs.js",
   "module": "build/youtube.esm.js",
   "scripts": {

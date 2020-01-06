@@ -5,6 +5,10 @@
   "homepage": "https://njmyers.netlify.com/",
   "repository": "https://github.com/njmyers/javascript-monorepo.git",
   "author": "Nick Myers",
+  "files": [
+    "README.md",
+    "build"
+  ],
   "main": "build/components.cjs.js",
   "module": "build/components.esm.js",
   "scripts": {

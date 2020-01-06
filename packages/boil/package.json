@@ -5,6 +5,7 @@
   "license": "ISC",
   "author": "Nick Myers <nickmyers111@gmail.com>",
   "files": [
+    "README.md",
     "build",
     "templates",
     "scripts"

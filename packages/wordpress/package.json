@@ -14,6 +14,10 @@
   "repository": "https://github.com/njmyers/javascript-monorepo.git",
   "license": "ISC",
   "author": "Nick Myers <nickmyers111@gmail.com>",
+  "files": [
+    "README.md",
+    "build"
+  ],
   "main": "build/react-wordpress.cjs.js",
   "module": "build/react-wordpress.esm.js",
   "scripts": {

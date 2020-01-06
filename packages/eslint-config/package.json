@@ -5,6 +5,9 @@
   "homepage": "https://njmyers.netlify.com/",
   "repository": "https://github.com/njmyers/javascript-monorepo.git",
   "author": "Nick Myers",
+  "files": [
+    "index.js"
+  ],
   "main": "index.js",
   "module": "index.js",
   "dependencies": {

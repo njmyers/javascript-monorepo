@@ -4,6 +4,10 @@
   "description": "Reads all the files within a directory.",
   "license": "ISC",
   "author": "Nick Myers <nickmyers111@gmail.com>",
+  "files": [
+    "README.md",
+    "build"
+  ],
   "main": "build/directory.cjs.js",
   "module": "build/directory.esm.js",
   "scripts": {
