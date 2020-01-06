@@ -3,14 +3,14 @@ const resolve = require('@rollup/plugin-node-resolve');
 const commonjs = require('@rollup/plugin-commonjs');
 const json = require('@rollup/plugin-json');
 
-const runtimes = require('@njmyers/babel-runtime-files');
+// const runtimes = require('@njmyers/babel-runtime-files');
 const _ = require('lodash');
 
 const { node, postcss, typescript, flow, babel } = require('./environments');
 
 const defaultOptions = {
   /** default rollup options */
-  external: runtimes(),
+  // external: runtimes(),
   output: {
     format: 'cjs',
     sourcemap: true,
