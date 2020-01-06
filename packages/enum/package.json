@@ -9,9 +9,6 @@
   "main": "build/enum.cjs.js",
   "module": "build/enum.esm.js",
   "scripts": {
-    "prebuild": "shx rm -rf build",
-    "build": "BABEL_ENV=production rollup -c",
-    "prepublishOnly": "npm run build",
     "type": "tsc"
   },
   "dependencies": {
