@@ -4,3 +4,4 @@
 
 [build.environment]
   NPM_FLAGS = "--prefix=/"
+  NODE_VERSION = "12.14.1"
