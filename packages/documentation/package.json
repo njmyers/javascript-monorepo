@@ -10,7 +10,7 @@
     "start": "start-storybook -p 9009"
   },
   "dependencies": {
-    "@njmyers/sass": "workspace:^0.1.1",
+    "@njmyers/sass": "^0.1.1",
     "normalize.css": "^8.0.1",
     "react": "^16.12.0",
     "react-dom": "^16.12.0"

@@ -30,7 +30,7 @@
     "tslib": "^1.10.0"
   },
   "devDependencies": {
-    "@njmyers/component-library": "workspace:^0.3.2",
+    "@njmyers/component-library": "^0.3.2",
     "@njmyers/rollup-config": "^0.0.1",
     "@types/howler": "^2.1.0",
     "@types/react": "^16.9.17",
