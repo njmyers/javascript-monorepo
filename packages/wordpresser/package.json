@@ -16,7 +16,7 @@
   "scripts": {
     "build": "run-s rollup",
     "prepublishOnly": "yarn run build",
-    "rollup": "BABEL_ENV=production rollup -c --watch",
+    "rollup": "BABEL_ENV=production rollup -c",
     "test": "jest --watchAll"
   },
   "dependencies": {
