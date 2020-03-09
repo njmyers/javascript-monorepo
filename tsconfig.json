@@ -3,7 +3,7 @@
   "exclude": ["**/__tests__/**", "packages/*/node_modules", "node_modules"],
   "compilerOptions": {
     // Base url for all paths
-    "baseUrl": "."
+    "baseUrl": ".",
     // Specify module code generation: "None", "CommonJS", "AMD", "System", "UMD", "ES6", "ES2015" or "ESNext".
     "module": "esnext",
     // Target latest version of ECMAScript.
@@ -25,6 +25,6 @@
     // Disallow features that require cross-file information for emit.
     "isolatedModules": true,
     // Import emit helpers (e.g. __extends, __rest, etc..) from tslib.
-    "importHelpers": true,
+    "importHelpers": true
   }
 }
