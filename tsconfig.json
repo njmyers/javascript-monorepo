@@ -2,6 +2,8 @@
   "include": ["packages/*/src"],
   "exclude": ["**/__tests__/**", "packages/*/node_modules", "node_modules"],
   "compilerOptions": {
+    // Base url for all paths
+    "baseUrl": "."
     // Specify module code generation: "None", "CommonJS", "AMD", "System", "UMD", "ES6", "ES2015" or "ESNext".
     "module": "esnext",
     // Target latest version of ECMAScript.
@@ -10,17 +12,19 @@
     "allowJs": true,
     // Enable strictest settings like strictNullChecks & noImplicitAny.
     "strict": true,
-    // Disallow features that require cross-file information for emit.
-    "isolatedModules": true,
-    // Import emit helpers (e.g. __extends, __rest, etc..) from tslib.
-    "importHelpers": true,
-    // Import non-ES modules as default imports.
-    "esModuleInterop": true,
     // Support JSX in .tsx files: "react", "preserve", "react-native". See JSX.
     "jsx": "react",
     // Add source maps
     "sourceMap": true,
-    // Base url for all paths
-    "baseUrl": "."
+    // Specifies module resolution strategy
+    "moduleResolution": "node",
+    // Import non-ES modules as default imports.
+    "esModuleInterop": true,
+    // Allow default imports from modules with no default export
+    "allowSyntheticDefaultImports": true,
+    // Disallow features that require cross-file information for emit.
+    "isolatedModules": true,
+    // Import emit helpers (e.g. __extends, __rest, etc..) from tslib.
+    "importHelpers": true,
   }
 }
