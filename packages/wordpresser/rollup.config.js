@@ -14,4 +14,22 @@ export default [
       format: 'cjs',
     },
   }),
+  rollupEnvironment(pkg, {
+    env: ['typescript', 'node'],
+    external: ['fs', 'path'],
+    input: 'src/program.ts',
+    output: {
+      format: 'cjs',
+      file: 'build/program.cjs.js',
+    },
+  }),
+  rollupEnvironment(pkg, {
+    env: ['typescript', 'node'],
+    external: ['fs', 'path'],
+    input: 'src/program.ts',
+    output: {
+      format: 'cjs',
+      file: 'build/program.esm.js',
+    },
+  }),
 ];

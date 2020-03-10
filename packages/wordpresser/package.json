@@ -14,10 +14,9 @@
     "wordpresser": "scripts/cli.js"
   },
   "scripts": {
-    "build": "run-s rollup",
-    "prepublishOnly": "yarn run build",
-    "rollup": "BABEL_ENV=production rollup -c",
-    "test": "jest --watchAll"
+    "prebuild": "rm -rf build",
+    "build": "rollup -c rollup.config.js",
+    "prepublishOnly": "yarn run build"
   },
   "dependencies": {
     "@babel/runtime": "7.1.2",
@@ -25,6 +24,7 @@
     "chalk": "^3.0.0",
     "commander": "^4.1.1",
     "parse-link-header": "^1.0.1",
+    "pkg-dir": "^4.2.0",
     "query-string": "^6.11.1"
   },
   "devDependencies": {

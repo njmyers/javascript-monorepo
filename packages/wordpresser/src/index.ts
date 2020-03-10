@@ -1,1 +1,1 @@
-export { default } from './wordpresser'
+export { default } from './Wordpresser';

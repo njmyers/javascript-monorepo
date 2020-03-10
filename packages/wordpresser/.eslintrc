@@ -1,0 +1,5 @@
+{
+  "settings": {
+    "import/ignore": ["commander", "pkg-dir"]
+  }
+}
