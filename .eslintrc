@@ -32,14 +32,6 @@
   "overrides": [
     {
       "parser": "@typescript-eslint/parser",
-      "parserOptions": {
-        "sourceType": "module",
-        "project": ["./tsconfig.json", "./packages/*/tsconfig.json"],
-        "tsconfigRootDir": "/home/developer/Projects/monorepo",
-        "ecmaFeatures": {
-          "jsx": true
-        }
-      },
       "files": ["**/*.ts", "**/*.tsx"],
       "extends": [
         "eslint:recommended",
