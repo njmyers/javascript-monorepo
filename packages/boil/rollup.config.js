@@ -5,6 +5,7 @@ export default [
   rollupEnvironment(pkg, {
     input: 'src/program/program.ts',
     env: ['node', 'typescript'],
+    external: ['fs', 'path'],
     output: {
       format: 'cjs',
     },
@@ -12,6 +13,7 @@ export default [
   rollupEnvironment(pkg, {
     input: 'src/program/program.ts',
     env: ['node', 'typescript'],
+    external: ['fs', 'path'],
     output: {
       format: 'es',
     },

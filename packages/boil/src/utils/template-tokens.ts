@@ -1,5 +1,6 @@
-// @ts-nocheck
-import { kebabToTitle, kebabToCamel, kebabToSnake } from 'smalldash';
+import kebabToTitle from '../../../smalldash/src/string/kebab-to-title';
+import kebabToCamel from '../../../smalldash/src/string/kebab-to-camel';
+import kebabToSnake from '../../../smalldash/src/string/kebab-to-snake';
 
 const templateTokens = [
   {
