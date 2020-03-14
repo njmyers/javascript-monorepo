@@ -5,12 +5,13 @@
   "homepage": "https://njmyers.netlify.com/",
   "repository": "https://github.com/njmyers/javascript-monorepo.git",
   "author": "Nick Myers <nickmyers111@gmail.com>",
+  "main": "build/script-loader.cjs.js",
+  "module": "build/script-loader.esm.js",
+  "types": "build/index.d.ts",
   "files": [
     "README.md",
     "build"
   ],
-  "main": "build/script-loader.cjs.js",
-  "module": "build/script-loader.esm.js",
   "scripts": {
     "prebuild": "shx rm -rf build",
     "build": "BABEL_ENV=production rollup -c",
@@ -27,8 +28,5 @@
     "shx": "^0.3.2",
     "typescript": "^3.7.4"
   },
-  "file": [
-    "build"
-  ],
   "licence": "ISC"
 }
