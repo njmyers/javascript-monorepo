@@ -1,6 +1,4 @@
-
-// @ts-nocheck
-import { Reference, Options } from './types';
+import environment from './environment';
 
 const REQUIRED_OPTIONS = ['id', 'src'];
 
@@ -9,8 +7,14 @@ const defaultOptions = {
   defer: true,
 };
 
-function scriptLoader(userOptions: Options) {
-  let reference: Reference = null;
+export interface Options<T> extends HTMLScriptElement {
+  initialize: (window: Window) => T;
+  id: string;
+  src: string;
+}
+
+function scriptLoader<T>(userOptions: Options<T>): () => Promise<T> {
+  let reference: T | null = null;
   let scriptEl: HTMLScriptElement | null = null;
 
   const options = {
@@ -24,37 +28,64 @@ function scriptLoader(userOptions: Options) {
     }
   });
 
-  if (!window && !document) {
-    throw new Error(`You must be in a browser environment to use this script`);
-  }
+  return (): Promise<T> =>
+    new Promise((resolve, reject) => {
+      environment({
+        dom: window => {
+          const document = window.document;
+          const { initialize, ...attributes } = options;
 
-  return () =>
-    new Promise((res, rej) => {
-      if (scriptEl && reference) {
-        res(reference);
-      } else {
-        const { initialize, ...attributes } = options;
-        scriptEl = document.createElement('script');
+          if (!scriptEl) {
+            scriptEl = document.createElement('script');
+            Object.entries(attributes).forEach(([attr, value]) => {
+              if (scriptEl) {
+                scriptEl.setAttribute(attr, value);
+              }
+            });
 
-        Object.entries(attributes).forEach(([attr, value]) => {
-          if (scriptEl) {
-            scriptEl.setAttribute(attr, value);
+            if (document.head) {
+              document.head.appendChild(scriptEl);
+            }
           }
-        });
 
-        scriptEl.addEventListener('load', () => {
-          reference = initialize(window);
-          res(reference);
-        });
+          if (reference) {
+            resolve(reference);
+          }
 
-        scriptEl.addEventListener('error', error => {
-          rej(error);
-        });
+          // eslint-disable-next-line prefer-const
+          let cleanupListeners: undefined | (() => void);
 
-        if (document && document.head) {
-          document.head.appendChild(scriptEl);
-        }
-      }
+          const handleLoad = (): void => {
+            if (typeof cleanupListeners === 'function') {
+              cleanupListeners();
+            }
+
+            reference = initialize(window);
+            resolve(reference);
+          };
+
+          const handleError = (error: unknown): void => {
+            if (typeof cleanupListeners === 'function') {
+              cleanupListeners();
+            }
+
+            reject(error);
+          };
+
+          cleanupListeners = (): void => {
+            window.removeEventListener('load', handleLoad);
+            window.removeEventListener('error', handleError);
+          };
+
+          scriptEl.addEventListener('load', handleLoad);
+          scriptEl.addEventListener('error', handleError);
+        },
+        fallback: () => {
+          reject(
+            new Error(`You must be in a browser environment to use this script`)
+          );
+        },
+      });
     });
 }
 
