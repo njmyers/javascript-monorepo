@@ -10,6 +10,7 @@
   ],
   "main": "build/wordpresser.cjs.js",
   "module": "build/wordpresser.esm.js",
+  "types": "build/index.d.ts",
   "bin": {
     "wordpresser": "scripts/cli.js"
   },
