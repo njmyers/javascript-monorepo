@@ -1,13 +1,11 @@
 {
   "extends": "../../tsconfig.json",
   "include": ["src"],
+  "exclude": ["**/*.test.ts", "**/*.test.tsx"],
   "compilerOptions": {
-    // "allowJs": false,
-    // "isolatedModules": false,
-    // "declaration": true,
-    "composite": true,
+    "allowJs": false,
+    "declaration": true,
     "outDir": "build",
-
     "baseUrl": "src"
   }
 }
