@@ -1,68 +1,111 @@
+// @ts-nocheck
 import composeAsync from '../compose-async';
 
-const add = (a) => a + 1;
-
-const addSlowly = (timeout) => (value) => {
-  return new Promise((res, rej) => {
-    setTimeout(() => res(value + 1), timeout);
+const defer = value =>
+  new Promise(resolve => {
+    setTimeout(() => resolve(value), 0);
   });
-};
 
-const makeErrorSlowly = (timeout) => (message) => () => {
-  return new Promise((res, rej) => {
-    setTimeout(() => rej(new Error(message)), timeout);
+const return1 = 1;
+const return2 = 2;
+const return3 = 3;
+
+const fn1 = jest.fn().mockImplementation(() => defer(return1));
+const fn2 = jest.fn().mockImplementation(() => defer(return2));
+const fn3 = jest.fn().mockImplementation(() => defer(return3));
+
+const arg = 0;
+
+describe('functional/composeAsync', () => {
+  describe('no functions', () => {
+    test('it is a function', () => {
+      expect(typeof composeAsync).toBe('function');
+    });
+
+    test('it does not throw an error', () => {
+      expect(() => composeAsync()).not.toThrow();
+    });
+
+    const zeroFunctions = composeAsync();
+
+    test('it returns a function', () => {
+      expect(typeof zeroFunctions).toBe('function');
+    });
+
+    test('it does not throw an error when curried', () => {
+      expect(zeroFunctions).not.toThrow();
+    });
+
+    let result;
+    beforeEach(async () => {
+      result = await zeroFunctions(arg);
+    });
+
+    test('it returns the argument passed in', () => {
+      expect(result).toBe(arg);
+    });
   });
-};
 
-const err = 'something happened';
+  describe('one function', () => {
+    const oneFunction = composeAsync(fn1);
+    let result;
 
-const addOneSlowly = addSlowly(200);
-const errorSlowly = makeErrorSlowly(200)(err);
+    beforeEach(async () => {
+      result = await oneFunction(arg);
+    });
 
-test('calling compose async has no errors', async () => {
-  try {
-    await composeAsync(add, add);
-  } catch (e) {
-    expect(e).not.toBeInstanceOf(Error);
-  }
-});
+    test('it calls the first function with the argument', () => {
+      expect(fn1).toHaveBeenCalledWith(arg);
+    });
 
-test('calling compose async with args has no errors', async () => {
-  try {
-    await composeAsync(add, add)(1);
-  } catch (e) {
-    expect(e).not.toBeInstanceOf(Error);
-  }
-});
+    test('it returns the result of the first function', () => {
+      expect(result).toBe(return1);
+    });
+  });
 
-test('calling compose async with synchonous functions', async () => {
-  try {
-    const result = await composeAsync(add, add, add)(1);
-    expect(result).toBe(4);
-  } catch (e) {
-    expect(e).not.toBeInstanceOf(Error);
-  }
-});
+  describe('two function', () => {
+    const twoFunctions = composeAsync(fn2, fn1);
+    let result;
 
-test('calling compose async with async functions for end result', async () => {
-  const addThreeSlowly = composeAsync(addOneSlowly, addOneSlowly, addOneSlowly);
-  try {
-    const result = await addThreeSlowly(1);
-    expect(result).toBe(4);
-  } catch (e) {
-    expect(e).not.toBeInstanceOf(Error);
-  }
-});
+    beforeEach(async () => {
+      result = await twoFunctions(arg);
+    });
 
-test('compose multiple functions and catch errors', async () => {
-  const addTwoSlowlyWithError = composeAsync(
-    addOneSlowly,
-    errorSlowly,
-    addOneSlowly
-  );
-  try {
-    const result = await addTwoSlowlyWithError(1);
-  } catch (e) {
-    expect(e).toBeInstanceOf(Error);
-  }
+    test('it calls the first function with the argument', () => {
+      expect(fn1).toHaveBeenCalledWith(arg);
+    });
+
+    test('it calls the second function with the return of the first', () => {
+      expect(fn2).toHaveBeenCalledWith(return1);
+    });
+
+    test('it returns the result of the second function', () => {
+      expect(result).toBe(return2);
+    });
+  });
+
+  describe('three function', () => {
+    const threeFunctions = composeAsync(fn3, fn2, fn1);
+    let result;
+
+    beforeEach(async () => {
+      result = await threeFunctions(arg);
+    });
+
+    test('it calls the first function with the argument', () => {
+      expect(fn1).toHaveBeenCalledWith(arg);
+    });
+
+    test('it calls the second function with the return of the first', () => {
+      expect(fn2).toHaveBeenCalledWith(return1);
+    });
+
+    test('it calls the third function with the return of the second', () => {
+      expect(fn3).toHaveBeenCalledWith(return2);
+    });
+
+    test('it returns the result of the second function', () => {
+      expect(result).toBe(return3);
+    });
+  });
 });
