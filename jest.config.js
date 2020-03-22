@@ -1,5 +1,6 @@
 module.exports = {
   preset: 'ts-jest',
+  clearMocks: true,
   testPathIgnorePatterns: [
     '/node_modules/',
     '/helpers/',
