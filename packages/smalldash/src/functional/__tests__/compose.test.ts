@@ -1,83 +1,101 @@
+// @ts-nocheck
 import compose from '../compose';
 
-const ARG = 0;
-const RETURN = 1;
+const return1 = 1;
+const return2 = 2;
+const return3 = 3;
+
+const fn1 = jest.fn().mockReturnValue(return1);
+const fn2 = jest.fn().mockReturnValue(return2);
+const fn3 = jest.fn().mockReturnValue(return3);
+
+const arg = 0;
 
 describe('functional/compose', () => {
-  describe('type check', () => {
+  describe('no functions', () => {
     test('it is a function', () => {
       expect(typeof compose).toBe('function');
     });
 
-    test('it returns a function', () => {
-      expect(typeof compose()).toBe('function');
-    });
-  });
-
-  describe('no functions', () => {
     test('it does not throw an error', () => {
       expect(() => compose()).not.toThrow();
     });
 
-    const noArguments = compose();
+    const zeroFunctions = compose();
+
+    test('it returns a function', () => {
+      expect(typeof zeroFunctions).toBe('function');
+    });
 
     test('it does not throw an error when curried', () => {
-      expect(() => noArguments()).not.toThrow();
+      expect(zeroFunctions).not.toThrow();
     });
 
-    test('it defaults to identity function', () => {
-      expect(noArguments(ARG)).toBe(ARG);
-    });
-  });
-
-  describe('single function', () => {
-    const fn = jest.fn();
-    const singleFunction = compose(fn);
-
-    beforeEach(() => {
-      fn.mockClear();
-      fn.mockReturnValue(RETURN);
-      singleFunction(ARG);
-    });
-
-    test('it calls with the argument', () => {
-      expect(fn).toHaveBeenCalledWith(ARG);
-    });
-
-    test('it returns the value', () => {
-      expect(fn).toHaveReturnedWith(RETURN);
+    test('it returns the argument passed in', () => {
+      expect(zeroFunctions(arg)).toBe(arg);
     });
   });
 
-  describe('multiple function', () => {
-    const fn1 = jest.fn();
-    const fn2 = jest.fn();
-    const fns = [fn1, fn2];
-    const multipleFunctions = compose(...fns);
+  describe('one function', () => {
+    const oneFunction = compose(fn1);
+    let result;
 
     beforeEach(() => {
-      fns.forEach(fn => {
-        fn.mockClear();
-        fn.mockReturnValue(RETURN);
-      });
-
-      multipleFunctions(ARG);
+      result = oneFunction(arg);
     });
 
-    test('it calls the second with the argument', () => {
-      expect(fn2).toHaveBeenCalledWith(ARG);
+    test('it calls the first function with the argument', () => {
+      expect(fn1).toHaveBeenCalledWith(arg);
     });
 
-    test('it calls the first with the return of the second', () => {
-      expect(fn1).toHaveBeenCalledWith(RETURN);
+    test('it returns the result of the first function', () => {
+      expect(result).toBe(return1);
+    });
+  });
+
+  describe('two function', () => {
+    const twoFunctions = compose(fn2, fn1);
+    let result;
+
+    beforeEach(() => {
+      result = twoFunctions(arg);
     });
 
-    test('it returns the value', () => {
-      expect(fn1).toHaveReturnedWith(RETURN);
+    test('it calls the first function with the argument', () => {
+      expect(fn1).toHaveBeenCalledWith(arg);
     });
 
-    test('it returns the value', () => {
-      expect(fn2).toHaveReturnedWith(RETURN);
+    test('it calls the second function with the return of the first', () => {
+      expect(fn2).toHaveBeenCalledWith(return1);
+    });
+
+    test('it returns the result of the second function', () => {
+      expect(result).toBe(return2);
+    });
+  });
+
+  describe('three function', () => {
+    const threeFunctions = compose(fn3, fn2, fn1);
+    let result;
+
+    beforeEach(() => {
+      result = threeFunctions(arg);
+    });
+
+    test('it calls the first function with the argument', () => {
+      expect(fn1).toHaveBeenCalledWith(arg);
+    });
+
+    test('it calls the second function with the return of the first', () => {
+      expect(fn2).toHaveBeenCalledWith(return1);
+    });
+
+    test('it calls the third function with the return of the second', () => {
+      expect(fn3).toHaveBeenCalledWith(return2);
+    });
+
+    test('it returns the result of the second function', () => {
+      expect(result).toBe(return3);
     });
   });
 });
