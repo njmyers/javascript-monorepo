@@ -1,4 +1,3 @@
-import camelTo from './camel-to';
 import capitalize from './capitalize';
 
 /**

@@ -1,4 +1,3 @@
-// @ts-nocheck
 import capitalize from './capitalize';
 
 /**
@@ -11,7 +10,7 @@ function toPascal(separator: string) {
   return (string: string): string =>
     string
       .split(separator)
-      .map(capitalize)
+      .map(word => capitalize(word))
       .join('');
 }
 
