@@ -1,3 +1,4 @@
+// @ts-nocheck
 import sentenceToSentence from '../sentence-to-camel';
 import sentenceToKebab from '../sentence-to-kebab';
 import sentenceToSnake from '../sentence-to-snake';
