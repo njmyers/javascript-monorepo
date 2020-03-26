@@ -1,4 +1,4 @@
-import padDigits from '../pad-digits';
+// @ts-nocheck
 import padZero from '../pad-zero';
 
 describe('it pads the digits', () => {

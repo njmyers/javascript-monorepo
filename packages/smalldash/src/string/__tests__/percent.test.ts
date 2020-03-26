@@ -1,3 +1,4 @@
+// @ts-nocheck
 import percent from '../percent';
 
 test('percent string', () => {
