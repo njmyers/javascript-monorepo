@@ -1,13 +1,18 @@
 {
   "include": ["packages/*/src"],
-  "exclude": ["**/__tests__/**", "packages/*/node_modules", "node_modules"],
+  "exclude": [
+    "*.test.ts",
+    "*.test.tsx",
+    "packages/*/node_modules",
+    "node_modules"
+  ],
   "compilerOptions": {
     // Base url for all paths
     "baseUrl": ".",
     // Specify module code generation: "None", "CommonJS", "AMD", "System", "UMD", "ES6", "ES2015" or "ESNext".
-    "module": "esnext",
+    "module": "ESNext",
     // Target latest version of ECMAScript.
-    "target": "esnext",
+    "target": "ESNext",
     // Process & infer types from .js files.
     "allowJs": true,
     // Enable strictest settings like strictNullChecks & noImplicitAny.
@@ -25,6 +30,9 @@
     // Disallow features that require cross-file information for emit.
     "isolatedModules": true,
     // Import emit helpers (e.g. __extends, __rest, etc..) from tslib.
-    "importHelpers": true
+    "importHelpers": true,
+    // Strict casing rules
+    "forceConsistentCasingInFileNames": true,
+    "removeComments": true
   }
 }
