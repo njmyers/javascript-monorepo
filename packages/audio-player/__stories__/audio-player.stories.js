@@ -1,29 +1,26 @@
 import * as React from 'react';
-import { storiesOf } from '@storybook/react';
-// import { withStorySource } from '@storybook/addon-storysource';
-// import { withDocs } from 'storybook-readme';
-import { camelToTitle } from 'smalldash';
+import * as Examples from '../__docs__';
 
-import readme from '../__docs__/README.md';
-import * as examples from '../__docs__';
+export default {
+  title: '@njmyers/audio-player|Examples',
+};
 
-function appendSourceToDocs(docs, source) {
-  return docs + '\n\n\n```js\n' + source + '\n```\n';
-}
+export const README = () => {
+  return <p className="sans">Welcome to the interactive playground!</p>;
+};
 
-storiesOf('@njmyers/audio-player|Intro', module)
-  // .addDecorator(withDocs(readme))
-  .add('README', () => (
-    <p className="sans">Welcome to the interactive playground!</p>
-  ));
+export const Basic = () => {
+  return <Examples.AudioPlayerBasic />;
+};
 
-Object.entries(examples).forEach(([moduleName, Component]) => {
-  const name = camelToTitle(moduleName).replace('Audio Player', 'AudioPlayer');
-  // const source = require(`../__docs__/${moduleName}.txt`).default;
-  // const docs = require(`../__docs__/${moduleName}.md`).default;
+export const Hidden = () => {
+  return <Examples.AudioPlayerHidden />;
+};
 
-  storiesOf('@njmyers/audio-player|Examples', module)
-    // .addDecorator(withStorySource(source))
-    // .addDecorator(withDocs(appendSourceToDocs(docs, source)))
-    .add(name, () => React.createElement(Component));
-});
+export const Multiple = () => {
+  return <Examples.AudioPlayerMultiple />;
+};
+
+export const Unstyled = () => {
+  return <Examples.AudioPlayerUnstyled />;
+};

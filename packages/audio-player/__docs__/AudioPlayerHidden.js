@@ -2,10 +2,11 @@ import React, { useEffect, useState, useCallback } from 'react';
 import { Form } from '@njmyers/component-library';
 import uuid from 'uuid/v1';
 
-import createAudioPlayer from '../src';
+import { AudioPlayer, AudioPlayerProvider, usePlayer } from '../src';
 import './interface.sass';
 
-function Interface({ show, hide, destroy, start, stop, loadTrack }) {
+function AudioPlayerControls() {
+  const { show, hide, destroy, start, stop, load } = usePlayer();
   const [track, setTrack] = useState({
     url: 'https://blatboy.s3.amazonaws.com/2018/03/BuddySweetheartUke.mp3',
     artist: 'Artist',
@@ -28,7 +29,7 @@ function Interface({ show, hide, destroy, start, stop, loadTrack }) {
 
   const handleClick = useCallback(
     () =>
-      loadTrack({
+      load({
         name: track.name,
         artist: track.artist,
         urls: [track.url],
@@ -52,15 +53,12 @@ function Interface({ show, hide, destroy, start, stop, loadTrack }) {
   );
 }
 
-const { withAudioPlayer, AudioPlayer } = createAudioPlayer();
-const ConnectedInterface = withAudioPlayer(Interface);
-
 function AudioPlayerHidden() {
   return (
-    <article>
-      <ConnectedInterface />
+    <AudioPlayerProvider>
+      <AudioPlayerControls />
       <AudioPlayer />
-    </article>
+    </AudioPlayerProvider>
   );
 }
 

@@ -2,9 +2,8 @@
   "extends": "../../tsconfig.json",
   "include": ["src"],
   "compilerOptions": {
-    // "allowJs": false,
-    // "isolatedModules": false,
-    // "declaration": true,
+    "allowJs": false,
+    "declaration": true,
     "outDir": "build"
   }
 }

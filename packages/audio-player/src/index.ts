@@ -1,1 +1,2 @@
-export { default } from './create-audio-player';
+export { default as AudioPlayer } from './components/AudioPlayer';
+export * from './components/Context';

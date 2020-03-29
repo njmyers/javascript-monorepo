@@ -1,0 +1,16 @@
+export const SET_INTERVAL = '@AUDIO_PLAYER/SET_INTERVAL';
+export const CLEAR_INTERVAL = '@AUDIO_PLAYER/CLEAR_INTERVAL';
+export const TICK = '@AUDIO_PLAYER/TICK';
+export const START = '@AUDIO_PLAYER/START';
+export const PAUSE = '@AUDIO_PLAYER/PAUSE';
+export const STOP = '@AUDIO_PLAYER/STOP';
+export const SEEK = '@AUDIO_PLAYER/SEEK';
+export const VOLUME = '@AUDIO_PLAYER/VOLUME';
+export const MUTE = '@AUDIO_PLAYER/MUTE';
+export const SCROLL = '@AUDIO_PLAYER/SCROLL';
+export const SELECT = '@AUDIO_PLAYER/SELECT';
+export const LOAD_TRACK = '@AUDIO_PLAYER/LOAD_TRACK';
+export const HIDE = '@AUDIO_PLAYER/HIDE';
+export const SHOW = '@AUDIO_PLAYER/SHOW';
+export const ERROR = '@AUDIO_PLAYER/ERROR';
+export const DESTROY = '@AUDIO_PLAYER/DESTROY';

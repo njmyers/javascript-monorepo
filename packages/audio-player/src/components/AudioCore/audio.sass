@@ -1,0 +1,21 @@
+@import ../../global
+
+.audioPlayer
+  position: relative
+  background: darken($white, 12)
+  color: $black
+  padding: 12px 40px
+
+  +flexbox
+
+  align-items: center
+  justify-content: space-between
+
+  &_container
+    box-sizing: border-box
+    position: sticky
+    width: 100%
+    bottom: 0
+    box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.3)
+    z-index: 1000
+    transition: 0.25s ease all
