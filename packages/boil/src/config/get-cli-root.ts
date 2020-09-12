@@ -1,4 +1,3 @@
-// @ts-nocheck
 import pkgDir from 'pkg-dir';
 
 /**
@@ -6,7 +5,7 @@ import pkgDir from 'pkg-dir';
  * interim as our source code may have a different structure as the final
  * compiled cli. Hopefully we won't have to use this in a future esm world.
  */
-function getCliRoot(): string {
+function getCliRoot(): string | undefined {
   return pkgDir.sync(__dirname);
 }
 

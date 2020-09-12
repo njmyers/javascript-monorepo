@@ -1,4 +1,3 @@
-// @ts-nocheck
 import path from 'path';
 import cosmiconfig from 'cosmiconfig';
 
@@ -11,18 +10,23 @@ import getCliRoot from './get-cli-root';
 const RC_FILENAME = 'boil';
 
 export interface Config {
-  templateDirectory?: string;
-  projectRoot?: string;
-  codePath?: string;
-  configPath?: string;
+  templateDirectory: string;
+  projectRoot: string;
+  codePath: string;
+  configPath: string;
   extension?: string;
   include?: string;
   exclude?: string;
-  debug?: boolean;
-  dryRun?: boolean;
+  debug: boolean;
+  dryRun: boolean;
 }
 
-const defaults: Config = {
+interface CosmiConfig {
+  config?: Partial<Config>;
+  filepath?: string;
+}
+
+const defaults: Partial<Config> = {
   templateDirectory: getDefaultTemplateDirectory(),
   projectRoot: getProjectRoot(),
   codePath: getDefaultCodePath(),
@@ -34,7 +38,7 @@ const defaults: Config = {
   dryRun: false,
 };
 
-const result = cosmiconfig(RC_FILENAME).searchSync() || {};
+const result: CosmiConfig = cosmiconfig(RC_FILENAME).searchSync() || {};
 
 const rcConfig = result.config;
 const rcFilePath = result.filepath;

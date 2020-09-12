@@ -1,8 +1,13 @@
-// @ts-nocheck
 import resolvePathOption from './resolve-path-option';
 import { Config } from './config';
 
-const PATH_OPTIONS = ['templateDirectory', 'projectRoot', 'codePath'];
+const PATH_KEYS: (keyof Config)[] = [
+  'templateDirectory',
+  'projectRoot',
+  'codePath',
+];
+
+const emptyConfig: Partial<Config> = {};
 
 /**
  * Get the fully resolved absolute path of all path related options specified in
@@ -10,22 +15,30 @@ const PATH_OPTIONS = ['templateDirectory', 'projectRoot', 'codePath'];
  * path. If they are specified as relative paths then we resolve them from the
  * directory of the .boilrc file.
  */
-function getResolvedPathOptions(filePath: string, config: Config = {}): Config {
-  return PATH_OPTIONS.reduce((pathOptions, pathKey) => {
+function getResolvedPathOptions(
+  filePath?: string,
+  config: Partial<Config> = {}
+): Partial<Config> {
+  if (!filePath) {
+    return emptyConfig;
+  }
+
+  return PATH_KEYS.reduce((pathOptions, pathKey) => {
     if (!Object.prototype.hasOwnProperty.call(config, pathKey)) {
       return pathOptions;
     }
 
-    const pathOption = config[pathKey];
+    const relativePath = config[pathKey];
 
-    if (typeof pathOption !== 'string') {
+    if (typeof relativePath !== 'string') {
       return pathOptions;
     }
 
-    pathOptions[pathKey] = resolvePathOption(filePath, pathOption);
+    // @ts-ignore
+    pathOptions[pathKey] = resolvePathOption(filePath, relativePath);
 
     return pathOptions;
-  }, {});
+  }, emptyConfig);
 }
 
 export default getResolvedPathOptions;

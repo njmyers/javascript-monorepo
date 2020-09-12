@@ -1,20 +1,20 @@
-// @ts-nocheck
+import fs from 'fs';
 import path from 'path';
-import shell from 'shelljs';
+
+import { Config } from '../config';
 
 /**
  * Get a list of the folders that are contained in the template directory. This
  * will populate the list of sub-commands and allows us to grow the cli based on
  * our template folder structure.
  */
-function getTemplateFolders(config) {
+function getTemplateFolders(config: Config): string[] {
   const { templateDirectory } = config;
 
-  return shell
-    .ls(templateDirectory)
-    .map((templateFolder): string =>
-      path.resolve(templateDirectory, templateFolder)
-    );
+  return fs
+    .readdirSync(templateDirectory)
+    .map((filePath: string) => path.resolve(templateDirectory, filePath))
+    .filter((filePath: string) => fs.statSync(filePath).isDirectory());
 }
 
 export default getTemplateFolders;
