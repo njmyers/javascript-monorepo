@@ -5,14 +5,14 @@ import path from 'path';
  * designed to return absolute paths we must use this to ensure that we can
  * write tests using relative paths and compare the results correctly
  */
-function resolvePath(relativePath: string) {
+function resolvePath(relativePath: string): string {
   return path.resolve(__dirname, relativePath);
 }
 
 export const SINGLE_FILE_PATH = resolvePath('fake-directory/test.txt');
 export const SINGLE_FILE_DATA = [
   {
-    file: '',
+    file: 'some text\n',
     path: resolvePath('fake-directory/test.txt'),
     mime: { contentType: 'text/plain', extension: 'txt' },
   },
