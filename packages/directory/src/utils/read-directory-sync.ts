@@ -6,10 +6,22 @@ import flatten from './flatten';
 import { Options } from '../types';
 
 /**
- * Synchronously read a directory and returns an array of all of the paths. Use
- * the recursive option to read a directory up to a specified depth. If you
- * input relative paths you will receive relative paths. If you input absolute
- * paths you will receive absolute paths.
+ * Return if a value is a string
+ *
+ * @param value - A value to test
+ * @returns Boolean indicating if the value is string
+ */
+function isString(value: unknown): value is string {
+  return typeof value === 'string';
+}
+
+/**
+ * Synchronously read a directory and returns an array of all of the paths.
+ *
+ * @param directory - The directory to read.
+ * @param options.recursive - Read all files in the directory recursively.
+ * @param options.absolute - Return all paths as absolute rather then relative.
+ * @returns An array of file paths
  */
 function readDirectorySync(directory: string, options: Options = {}): string[] {
   if (isFileSync(directory)) {
@@ -40,10 +52,10 @@ function readDirectorySync(directory: string, options: Options = {}): string[] {
   }
 
   if (!Array.isArray(directoryContents)) {
-    return [directoryContents].filter(Boolean);
+    return [directoryContents];
   }
 
-  return flatten(directoryContents).filter(Boolean);
+  return flatten<unknown>(directoryContents).filter(isString);
 }
 
 export default readDirectorySync;
