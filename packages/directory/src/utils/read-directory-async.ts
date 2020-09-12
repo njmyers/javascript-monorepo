@@ -19,7 +19,7 @@ const readShallowTree = promisify(fs.readdir);
  */
 async function readDirectoryAsync(
   directory: string,
-  options: Options
+  options: Options = {}
 ): Promise<string[]> {
   if (await isFileAsync(directory)) {
     return [directory];

@@ -15,6 +15,7 @@ async function directoryAsync(
     filePath => new File(filePath, options)
   );
 
+  // @ts-ignore
   return (await Promise.all(files.map(file => file.getAsyncResponse()))).filter(
     file => file !== null
   );
