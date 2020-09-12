@@ -1,5 +1,4 @@
 import normalizeExtension from './normalize-extension';
-// types
 import { FileObject } from '../types';
 
 /**
