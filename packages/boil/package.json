@@ -1,6 +1,6 @@
 {
   "name": "@njmyers/boil",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Generate boilerplate for file and folder structures",
   "license": "ISC",
   "author": "Nick Myers <nickmyers111@gmail.com>",
