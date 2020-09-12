@@ -1,8 +1,10 @@
 import path from 'path';
 
 /**
- * Helper function that turns a relative path into an absolute path using the
- * default resolve method from the node path module
+ * Return a relative path transformed into an absolute path
+ *
+ * @param relative - A relative path string
+ * @returns An absolute path string
  */
 function pathify(relative: string): string {
   return path.resolve(relative);

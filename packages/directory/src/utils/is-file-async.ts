@@ -1,8 +1,10 @@
 import fs from 'fs';
 
 /**
- * Use the file system to check asynchronously whether a path is a file or a
- * directory and return a promise of the result.
+ * Return whether a path is a file or a directory
+ *
+ * @param file - The file path
+ * @returns A promise that resolves to whether the path is a file
  */
 function isFileAsync(file: string): Promise<boolean> {
   return new Promise((resolve, reject) => {

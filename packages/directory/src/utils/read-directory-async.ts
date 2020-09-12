@@ -1,20 +1,21 @@
-// @ts-nocheck
 import fs from 'fs';
 import path from 'path';
 import { promisify } from 'util';
-import pipeAsync from '../../../smalldash/src/async/pipe-async';
 
 import isFileAsync from './is-file-async';
+import isString from './is-string';
 import flatten from './flatten';
+
 import { Options } from '../types';
 
-const readdirAsync = promisify(fs.readdir);
+const readShallowTree = promisify(fs.readdir);
 
 /**
- * Asynchronously read a directory and returns an array of all of the paths. Use
- * the recursive option to read a directory up to a specified depth. If you
- * input relative paths you will receive relative paths. If you input absolute
- * paths you will receive absolute paths.
+ * Asynchronously read a directory and return an array of all of the paths.
+ *
+ * @param directory - The directory to read.
+ * @param options.recursive - Read all files in the directory recursively.
+ * @returns An array of file paths
  */
 async function readDirectoryAsync(
   directory: string,
@@ -24,31 +25,29 @@ async function readDirectoryAsync(
     return [directory];
   }
 
-  return await pipeAsync(
-    readdirAsync,
-    (directoryContents: string[]) =>
-      Promise.all(
-        directoryContents.map(async (name: string) => {
-          const filePath = path.resolve(directory, name);
-          const isFile = await isFileAsync(filePath);
+  const readFullTree = async (shallowTree: string[]): Promise<string[]> => {
+    const fullTree = await Promise.all(
+      shallowTree.map(async (name: string) => {
+        const filePath = path.resolve(directory, name);
+        const isFile = await isFileAsync(filePath);
 
-          if (options.recursive && isFile) {
-            return filePath;
-          }
+        if (isFile) {
+          return filePath;
+        }
 
-          if (options.recursive && !isFile) {
-            return await readDirectoryAsync(filePath, options);
-          }
+        if (options.recursive && !isFile) {
+          return await readDirectoryAsync(filePath, options);
+        }
 
-          if (isFile) {
-            return filePath;
-          }
+        return null;
+      })
+    );
 
-          return null;
-        })
-      ),
-    flatten
-  )(directory, 'utf8');
+    return flatten<unknown>(fullTree).filter(isString);
+  };
+
+  const shallowTree = await readShallowTree(directory, 'utf8');
+  return await readFullTree(shallowTree);
 }
 
 export default readDirectoryAsync;

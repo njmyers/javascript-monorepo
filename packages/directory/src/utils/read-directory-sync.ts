@@ -3,24 +3,15 @@ import path from 'path';
 
 import isFileSync from './is-file-sync';
 import flatten from './flatten';
-import { Options } from '../types';
+import isString from './is-string';
 
-/**
- * Return if a value is a string
- *
- * @param value - A value to test
- * @returns Boolean indicating if the value is string
- */
-function isString(value: unknown): value is string {
-  return typeof value === 'string';
-}
+import { Options } from '../types';
 
 /**
  * Synchronously read a directory and returns an array of all of the paths.
  *
  * @param directory - The directory to read.
  * @param options.recursive - Read all files in the directory recursively.
- * @param options.absolute - Return all paths as absolute rather then relative.
  * @returns An array of file paths
  */
 function readDirectorySync(directory: string, options: Options = {}): string[] {
@@ -32,16 +23,12 @@ function readDirectorySync(directory: string, options: Options = {}): string[] {
     const filePath = path.resolve(directory, name);
     const isFile = isFileSync(filePath);
 
-    if (options.recursive && isFile) {
+    if (isFile) {
       return filePath;
     }
 
     if (options.recursive && !isFile) {
       return readDirectorySync(filePath, options);
-    }
-
-    if (isFile) {
-      return filePath;
     }
 
     return null;

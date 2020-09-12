@@ -1,15 +1,19 @@
-// @ts-nocheck
 import fs from 'fs';
+import isString from './is-string';
 import { FileObject } from '../types';
 
 /**
- * Reads the contents of the file and adds it to the object as a string. We are
- * assuming utf8 enconding and that the return type should be a string.
+ * Read a file contents and add it to the file object
  *
- * TODO: Add support for additional fs options
+ * @param fileObject - The file object
+ * @returns A promise that resolves to the file object with contents added
  */
 function readAsync(fileObject: FileObject): Promise<FileObject> {
   return new Promise((resolve, reject) => {
+    if (!isString(fileObject.path)) {
+      return reject(new Error('Tried to read a file path that does not exist'));
+    }
+
     if (!fileObject.include) {
       return resolve({
         ...fileObject,
@@ -17,7 +21,7 @@ function readAsync(fileObject: FileObject): Promise<FileObject> {
       });
     }
 
-    fs.readFile(fileObject.path, 'utf8', (error: Error, file: Buffer) => {
+    fs.readFile(fileObject.path, 'utf8', (error, file) => {
       if (error) {
         return reject(error);
       }

@@ -1,18 +1,18 @@
 import path from 'path';
-import mime from 'mime-types';
+import * as mime from 'mime-types';
 
 import normalizeExtension from './normalize-extension';
-// types
 import { FileObject } from '../types';
 
 /**
- * Adds mime information to the fileObject. This information includes the
- * contentType as well as the file extension without any leading period
- * characters
+ * Add mime information to the file object
+ *
+ * @param fileObject - A file object
+ * @returns The file object with mime information added
  */
 function mimeify(fileObject: FileObject): FileObject {
   if (!fileObject.path) {
-    throw new Error('Tried to access a the property path that does not exist');
+    throw new Error('Tried to access a path that does not exist');
   }
 
   return {
