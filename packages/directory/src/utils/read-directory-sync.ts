@@ -5,7 +5,7 @@ import isFileSync from './is-file-sync';
 import flatten from './flatten';
 import isString from './is-string';
 
-import { Options } from '../types';
+import { Options } from '../File';
 
 /**
  * Synchronously read a directory and returns an array of all of the paths.

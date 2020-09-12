@@ -6,40 +6,18 @@ import {
   SINGLE_FILE_DATA,
 } from '../../__fixtures__/data';
 
-describe('utils/readSync', () => {
-  test('it is a function ', () => {
-    expect(typeof readSync).toBe('function');
-  });
-
+describe('readSync', () => {
   const testCases = [
-    [
-      {
-        include: true,
-        path: JS_FILE_PATH,
-      },
-      {
-        include: true,
-        path: JS_FILE_DATA[0].path,
-        file: JS_FILE_DATA[0].file,
-      },
-    ],
-    [
-      {
-        include: false,
-        path: SINGLE_FILE_PATH,
-      },
-      {
-        include: false,
-        path: SINGLE_FILE_DATA[0].path,
-        file: null,
-      },
-    ],
+    [JS_FILE_PATH, JS_FILE_DATA[0].file],
+    [SINGLE_FILE_PATH, SINGLE_FILE_DATA[0].file],
   ];
 
-  testCases.forEach(([fileObject, expectedFileObject]) => {
-    const { path } = fileObject;
-    test(`it reads from the path ${path} and adds the contents to the file key`, () => {
-      expect(readSync(fileObject)).toMatchObject(expectedFileObject);
-    });
-  });
+  describe.each(testCases)(
+    'when the file path is %s',
+    (filePath, fileContents) => {
+      test('it returns the file contents', () => {
+        expect(readSync(filePath)).toBe(fileContents);
+      });
+    }
+  );
 });

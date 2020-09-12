@@ -1,4 +1,4 @@
-import { FileObject } from '../types';
+import { FileDescriptor } from '../File';
 
 /**
  * Turns the path into an object with property 'path'
@@ -6,7 +6,7 @@ import { FileObject } from '../types';
  * @param path - An absolute path string
  * @returns A file object
  */
-function objectify(path: string): FileObject {
+function objectify(path: string): FileDescriptor {
   return {
     path,
     include: true,

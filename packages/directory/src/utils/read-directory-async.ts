@@ -6,7 +6,7 @@ import isFileAsync from './is-file-async';
 import isString from './is-string';
 import flatten from './flatten';
 
-import { Options } from '../types';
+import { Options } from '../File';
 
 const readShallowTree = promisify(fs.readdir);
 
@@ -19,7 +19,7 @@ const readShallowTree = promisify(fs.readdir);
  */
 async function readDirectoryAsync(
   directory: string,
-  options: Options = {}
+  options: Options
 ): Promise<string[]> {
   if (await isFileAsync(directory)) {
     return [directory];

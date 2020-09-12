@@ -2,8 +2,6 @@ import path from 'path';
 import directory from '../directory';
 import directoryAsync from '../directory-async';
 
-import { DirectoryArgs } from '../types';
-
 import {
   SINGLE_FILE_PATH,
   SINGLE_FILE_DATA,
@@ -13,6 +11,8 @@ import {
   DEEP_FOLDER_PATH,
   DEEP_FOLDER_DATA,
 } from '../__fixtures__/data';
+
+type DirectoryArgs = Parameters<typeof directory>;
 
 describe('src/directory', () => {
   describe('it returns absolute paths with no options argument', () => {
