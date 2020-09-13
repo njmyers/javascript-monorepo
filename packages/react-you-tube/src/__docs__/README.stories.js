@@ -6,7 +6,7 @@ import { withDocs } from 'storybook-readme';
 import readme from './README.md';
 
 export default {
-  title: '@njmyers/react-you-tube|README',
+  title: 'react-you-tube/README',
   decorators: [withDocs(readme)],
 };
 

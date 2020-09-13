@@ -2,7 +2,7 @@ import * as React from 'react';
 import * as Examples from '../__docs__';
 
 export default {
-  title: '@njmyers/audio-player|Examples',
+  title: 'audio-player/Examples',
 };
 
 export const README = () => {

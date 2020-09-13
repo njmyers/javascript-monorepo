@@ -6,7 +6,7 @@ import { withDocs } from 'storybook-readme';
 import readme from './YouTubeControlled.md';
 
 export default {
-  title: '@njmyers/react-you-tube|YouTubeControlled',
+  title: 'react-you-tube/YouTubeControlled',
   decorators: [withDocs(readme)],
 };
 

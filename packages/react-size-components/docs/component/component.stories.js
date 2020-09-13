@@ -1,7 +1,4 @@
-import React, { Fragment } from 'react';
-
-import { storiesOf } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
+import React from 'react';
 import { withDocs } from 'storybook-readme';
 
 import readme from './README.md';
@@ -10,15 +7,15 @@ import Parent from './Parent';
 import ID from './ID';
 import Debounce from './Debounce';
 
-storiesOf('react-size-components|2) Component', module)
-  .addDecorator(withDocs(readme))
-  .add('Basic Component', () => <Child />)
-  .add('Parent Callback', () => (
-    <Parent onSize={action('component size callback')} />
-  ))
-  .add('Inject ID into Callback', () => (
-    <ID onSize={action('component size callback')} />
-  ))
-  .add('Debounce Callback', () => (
-    <Debounce onSize={action('component size callback')} />
-  ));
+export default {
+  title: 'react-size-components/2) Component',
+  decorators: [withDocs(readme)],
+};
+
+export const BasicComponent = () => <Child onSize={console.log} />;
+
+export const ParentCallback = () => <Parent onSize={console.log} />;
+
+export const InjectIDCallback = () => <ID onSize={console.log} />;
+
+export const DebounceCallback = () => <Debounce onSize={console.log} />;
