@@ -5,11 +5,12 @@
   "repository": "https://github.com/njmyers/javascript-monorepo.git",
   "author": "Nick Myers",
   "workspaces": [
-    "packages/*"
+    "packages/*",
+    "applications/*"
   ],
   "scripts": {
     "clean": "lerna clean --yes && rm -rf node_modules",
-    "bootstrap": "yarn && lerna bootstrap && lerna link",
+    "bootstrap": "yarn install",
     "build-packages": "lerna run build",
     "check-types": "tsc",
     "precommit": "lint-staged",
