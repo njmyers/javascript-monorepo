@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useContext } from 'react';
 import AudioPlayerContext from './AudioPlayerContext';
 import { actions, State } from '../AudioCore';
