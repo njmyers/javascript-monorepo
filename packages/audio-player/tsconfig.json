@@ -3,7 +3,8 @@
   "include": ["src"],
   "compilerOptions": {
     "allowJs": false,
-    "declaration": true,
-    "outDir": "build"
+    // "declaration": true,
+    "outDir": "build",
+    "skipLibCheck": true
   }
 }
