@@ -4,3 +4,4 @@
 **/babel.config.js
 **/rollup.config.js
 **/build/**
+**/node_modules/**
