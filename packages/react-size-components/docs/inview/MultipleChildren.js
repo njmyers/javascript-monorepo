@@ -10,8 +10,8 @@ class MultipleChildren extends Component {
     };
   }
 
-  onView = (sizes) => {
-    this.state.sizes.forEach((current) => {
+  onView = sizes => {
+    this.state.sizes.forEach(current => {
       if (current.id === sizes.id) {
         if (current.inView !== sizes.inView) {
           this.props.action({ id: sizes.id, inView: sizes.inView });
@@ -20,7 +20,7 @@ class MultipleChildren extends Component {
     });
 
     this.setState({
-      sizes: uniq([sizes, ...this.state.sizes], (obj) => obj.id),
+      sizes: uniq([sizes, ...this.state.sizes], obj => obj.id),
     });
   };
 

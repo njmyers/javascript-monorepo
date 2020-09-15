@@ -37,8 +37,8 @@ const LoremIpsum = ({ sizes } = {}) => {
 };
 
 // Define some custom size flags
-const tablet = (node) => window.innerWidth < 1440 && window.innerWidth >= 768;
-const laptop = (node) => window.innerWidth >= 1440;
+const tablet = node => window.innerWidth < 1440 && window.innerWidth >= 768;
+const laptop = node => window.innerWidth >= 1440;
 
 // custom flags for our options object
 const custom = [
@@ -89,7 +89,7 @@ class Page extends Component {
     };
   }
   // Testing CB function with SSR
-  onSize = (sizes) => {
+  onSize = sizes => {
     if (process.env.NODE_ENV !== 'test') console.log(sizes);
   };
 

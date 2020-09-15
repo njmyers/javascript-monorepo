@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 
-const General = (props) => {
+const General = props => {
   return (
     <Fragment>
       <h2 className="h2-roboto">React Size Components</h2>

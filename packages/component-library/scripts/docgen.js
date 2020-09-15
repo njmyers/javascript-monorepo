@@ -8,14 +8,14 @@ const appRootDir = require('app-root-dir').get();
 const docs = ['SemiSticky', 'SlideShow', 'LazyImage', 'Modal'];
 
 /** Generate JS paths */
-const jsPaths = (name) => path.resolve(appRootDir, 'src', name, `${name}.js`);
-const notesPath = (name) => path.resolve(appRootDir, 'src', name, 'NOTES.md');
-const readmePath = (folder) =>
+const jsPaths = name => path.resolve(appRootDir, 'src', name, `${name}.js`);
+const notesPath = name => path.resolve(appRootDir, 'src', name, 'NOTES.md');
+const readmePath = folder =>
   path.resolve(appRootDir, 'src', folder, 'README.md');
 /** Read the file */
-const read = (path) => fs.readFileSync(path, 'utf8');
+const read = path => fs.readFileSync(path, 'utf8');
 
-const generateReadme = (name) => {
+const generateReadme = name => {
   const json = reactDocs.parse(read(jsPaths(name)));
   const md = generateMarkdown(json);
 

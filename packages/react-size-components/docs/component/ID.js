@@ -10,7 +10,7 @@ class ID extends Component {
     };
   }
 
-  onSize = (sizes) => {
+  onSize = sizes => {
     this.setState({
       called: this.state.called + 1,
       sizes: [...this.state.sizes, sizes],

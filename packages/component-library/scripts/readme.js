@@ -13,9 +13,9 @@ const docs = [
 
 const cwd = process.cwd();
 
-const createPaths = (folder) => path.resolve(cwd, 'src', folder, 'README.md');
+const createPaths = folder => path.resolve(cwd, 'src', folder, 'README.md');
 
-const read = (path) => fs.readFileSync(path, 'utf8');
+const read = path => fs.readFileSync(path, 'utf8');
 
 const string = docs
   .map(createPaths)
