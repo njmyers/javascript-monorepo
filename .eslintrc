@@ -1,64 +1,19 @@
 {
   "root": true,
-  "parser": "babel-eslint",
-  "parserOptions": {
-    "sourceType": "module",
-    "project": ["./tsconfig.json", "./packages/*/tsconfig.json"],
-    "ecmaFeatures": {
-      "jsx": true
-    }
-  },
   "extends": [
-    "eslint:recommended",
-    "plugin:import/errors",
-    "plugin:import/warnings"
+    "@njmyers/eslint-config",
+    "@njmyers/eslint-config/react",
+    "@njmyers/eslint-config/typescript",
+    "@njmyers/eslint-config/jest"
   ],
-  "plugins": ["@typescript-eslint", "eslint-plugin-prettier"],
-  "rules": {
-    "react/prop-types": "off",
-    "prettier/prettier": "error",
-    "import/no-unresolved": "error"
+  "parserOptions": {
+    "project": ["./tsconfig.json", "./packages/*/tsconfig.json"]
   },
   "settings": {
-    "import/parsers": {
-      "@typescript-eslint/parser": [".ts", ".tsx"]
-    },
     "import/resolver": {
       "typescript": {
-        "directory": ["./tsconfig.json", "packages/*/tsconfig.json"]
+        "project": ["./tsconfig.json", "./packages/*/tsconfig.json"]
       }
     }
-  },
-  "overrides": [
-    {
-      "parser": "@typescript-eslint/parser",
-      "files": ["**/*.ts", "**/*.tsx"],
-      "extends": [
-        "eslint:recommended",
-        "prettier/@typescript-eslint",
-        "plugin:@typescript-eslint/eslint-recommended",
-        "plugin:@typescript-eslint/recommended",
-        "plugin:@typescript-eslint/recommended-requiring-type-checking"
-      ],
-      "plugins": ["@typescript-eslint", "import"],
-      "rules": {
-        "@typescript-eslint/ban-ts-ignore": "off",
-        "@typescript-eslint/explicit-function-return-type": "error",
-        "@typescript-eslint/no-explicit-any": "error",
-        "@typescript-eslint/indent": "off"
-      }
-    },
-    {
-      "files": ["**/scripts/*.js"],
-      "env": {
-        "node": true
-      }
-    },
-    {
-      "files": ["**/__test__/*.js", "**/__test__/*.ts"],
-      "env": {
-        "jest": true
-      }
-    }
-  ]
+  }
 }
