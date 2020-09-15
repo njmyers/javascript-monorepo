@@ -6,7 +6,12 @@
   "repository": "https://github.com/njmyers/javascript-monorepo.git",
   "author": "Nick Myers",
   "files": [
-    "index.js"
+    "index.js",
+    "jest.js",
+    "node.js",
+    "react.js",
+    "typescript.js",
+    "README.md"
   ],
   "main": "index.js",
   "module": "index.js",
@@ -25,8 +30,7 @@
     "eslint-plugin-react": "^7.20.6",
     "eslint-plugin-react-hooks": "^4.1.2"
   },
-  "devDependencies": {
-    "shx": "^0.3.2",
+  "peerDependencies": {
     "typescript": "^4.0.2"
   },
   "licence": "ISC"

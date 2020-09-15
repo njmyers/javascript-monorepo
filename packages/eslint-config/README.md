@@ -4,7 +4,7 @@ Add `@njmyers/eslint-config` package via your favorite package manager
 
 # Extends
 
-Extend which configurations you need based on the environment you are working in. All of the available extends are
+Extend which configurations you need based on the environment you are working in. All of the available configurations are.
 
 - `@njmyers/eslint-config`
 - `@njmyers/eslint-config/node`
