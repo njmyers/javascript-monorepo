@@ -1,0 +1,86 @@
+[
+  {
+    "elementName": "h1",
+    "defaultVariant": "headline-1",
+    "defaultColor": "primary-1",
+    "ComponentName": "Heading1"
+  },
+  {
+    "elementName": "h2",
+    "defaultVariant": "headline-2",
+    "defaultColor": "primary-1",
+    "ComponentName": "Heading2"
+  },
+  {
+    "elementName": "h3",
+    "defaultVariant": "headline-3",
+    "defaultColor": "primary-1",
+    "ComponentName": "Heading3"
+  },
+  {
+    "elementName": "h4",
+    "defaultVariant": "headline-4",
+    "defaultColor": "primary-1",
+    "ComponentName": "Heading4"
+  },
+  {
+    "elementName": "h5",
+    "defaultVariant": "headline-5",
+    "defaultColor": "primary-1",
+    "ComponentName": "Heading5"
+  },
+  {
+    "elementName": "h6",
+    "defaultVariant": "headline-6",
+    "defaultColor": "primary-1",
+    "ComponentName": "Heading6"
+  },
+  {
+    "elementName": "p",
+    "defaultVariant": "body-1",
+    "defaultColor": "primary-1",
+    "ComponentName": "Paragraph"
+  },
+  {
+    "elementName": "span",
+    "defaultColor": "secondary-1",
+    "defaultVariant": "overline",
+    "ComponentName": "Overline"
+  },
+  {
+    "elementName": "li",
+    "defaultVariant": "body-2",
+    "defaultColor": "primary-1",
+    "ComponentName": "ListItem"
+  },
+  {
+    "elementName": "span",
+    "defaultVariant": "body-1",
+    "defaultColor": "primary-1",
+    "ComponentName": "Span"
+  },
+  {
+    "elementName": "legend",
+    "defaultVariant": "caption",
+    "defaultColor": "secondary-1",
+    "ComponentName": "Legend"
+  },
+  {
+    "elementName": "label",
+    "defaultVariant": "subtitle-1",
+    "defaultColor": "secondary-1",
+    "ComponentName": "Label"
+  },
+  {
+    "elementName": "caption",
+    "defaultVariant": "caption",
+    "defaultColor": "secondary-1",
+    "ComponentName": "Caption"
+  },
+  {
+    "elementName": "figcaption",
+    "defaultVariant": "caption",
+    "defaultColor": "secondary-1",
+    "ComponentName": "FigCaption"
+  }
+]

@@ -1,0 +1,45 @@
+{
+  "name": "@njmyers/typography",
+  "version": "0.0.1",
+  "private": true,
+  "homepage": "https://njmyers.netlify.com/",
+  "repository": "https://github.com/njmyers/javascript-monorepo.git",
+  "license": "ISC",
+  "author": "Nick Myers",
+  "files": [
+    "README.md",
+    "build"
+  ],
+  "main": "build/typography.cjs.js",
+  "module": "build/typography.esm.js",
+  "scripts": {
+    "write-elements": "./elements/write.js",
+    "clean": "shx rm -rf build",
+    "prebuild": "run-s clean write-elements",
+    "build": "BABEL_ENV=production rollup -c",
+    "prepublishOnly": "npm run build",
+    "type": "tsc"
+  },
+  "dependencies": {
+    "classnames": "^2.2.6",
+    "tslib": "^1.10.0"
+  },
+  "devDependencies": {
+    "@njmyers/eslint-config": "^0.0.1",
+    "@njmyers/rollup-config": "^0.0.1",
+    "@njmyers/sass": "^0.1.1",
+    "@types/classnames": "^2.2.10",
+    "@types/react": "^16.9.17",
+    "@types/react-dom": "^16.9.4",
+    "npm-run-all": "^4.1.3",
+    "prettier": "^2.1.1",
+    "rollup": "^1.28.0",
+    "shelljs": "^0.8.4",
+    "shx": "^0.3.2",
+    "typescript": "^3.7.4"
+  },
+  "peerDependencies": {
+    "react": "^16.8.0",
+    "react-dom": "^16.8.0"
+  }
+}
