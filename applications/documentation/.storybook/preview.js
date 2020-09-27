@@ -10,6 +10,7 @@ export const globalTypes = {
 
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
+  viewMode: 'docs',
 };
 
 export const decorators = [withKnobs, withLayout];
