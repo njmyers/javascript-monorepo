@@ -16,8 +16,17 @@ export interface LabelProps {
 }
 
 /**
- * Render an semantic html element with typographical styles applied. All
- * typographical variants and colors are available for all elements.
+ * Render an semantic label html element with typographical styles
+ * applied.
+ *
+ * ```tsx
+ * <Label color="secondary-1" variant="subtitle-1">
+ *   Some text!
+ * </Label>
+ * ```
+ *
+ * All typographical variants and colors are available for this element.
+ *
  */
 export function Label({
   variant = 'subtitle-1',

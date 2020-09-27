@@ -16,8 +16,17 @@ export interface ListItemProps {
 }
 
 /**
- * Render an semantic html element with typographical styles applied. All
- * typographical variants and colors are available for all elements.
+ * Render an semantic li html element with typographical styles
+ * applied.
+ *
+ * ```tsx
+ * <ListItem color="primary-1" variant="body-2">
+ *   Some text!
+ * </ListItem>
+ * ```
+ *
+ * All typographical variants and colors are available for this element.
+ *
  */
 export function ListItem({
   variant = 'body-2',

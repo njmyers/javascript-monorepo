@@ -16,8 +16,17 @@ export interface ParagraphProps {
 }
 
 /**
- * Render an semantic html element with typographical styles applied. All
- * typographical variants and colors are available for all elements.
+ * Render an semantic p html element with typographical styles
+ * applied.
+ *
+ * ```tsx
+ * <Paragraph color="primary-1" variant="body-1">
+ *   Some text!
+ * </Paragraph>
+ * ```
+ *
+ * All typographical variants and colors are available for this element.
+ *
  */
 export function Paragraph({
   variant = 'body-1',

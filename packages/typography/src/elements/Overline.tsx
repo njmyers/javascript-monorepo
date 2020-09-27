@@ -16,8 +16,17 @@ export interface OverlineProps {
 }
 
 /**
- * Render an semantic html element with typographical styles applied. All
- * typographical variants and colors are available for all elements.
+ * Render an semantic span html element with typographical styles
+ * applied.
+ *
+ * ```tsx
+ * <Overline color="secondary-1" variant="overline">
+ *   Some text!
+ * </Overline>
+ * ```
+ *
+ * All typographical variants and colors are available for this element.
+ *
  */
 export function Overline({
   variant = 'overline',

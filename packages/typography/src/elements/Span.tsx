@@ -16,8 +16,17 @@ export interface SpanProps {
 }
 
 /**
- * Render an semantic html element with typographical styles applied. All
- * typographical variants and colors are available for all elements.
+ * Render an semantic span html element with typographical styles
+ * applied.
+ *
+ * ```tsx
+ * <Span color="primary-1" variant="body-1">
+ *   Some text!
+ * </Span>
+ * ```
+ *
+ * All typographical variants and colors are available for this element.
+ *
  */
 export function Span({
   variant = 'body-1',

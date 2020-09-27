@@ -16,8 +16,17 @@ export interface ComponentNameProps {
 }
 
 /**
- * Render an semantic html element with typographical styles applied. All
- * typographical variants and colors are available for all elements.
+ * Render an semantic elementName html element with typographical styles
+ * applied.
+ *
+ * ```tsx
+ * <ComponentName color="defaultColor" variant="defaultVariant">
+ *   Some text!
+ * </ComponentName>
+ * ```
+ *
+ * All typographical variants and colors are available for this element.
+ *
  */
 export function ComponentName({
   variant = 'defaultVariant',

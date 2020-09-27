@@ -16,8 +16,17 @@ export interface Heading2Props {
 }
 
 /**
- * Render an semantic html element with typographical styles applied. All
- * typographical variants and colors are available for all elements.
+ * Render an semantic h2 html element with typographical styles
+ * applied.
+ *
+ * ```tsx
+ * <Heading2 color="primary-1" variant="headline-2">
+ *   Some text!
+ * </Heading2>
+ * ```
+ *
+ * All typographical variants and colors are available for this element.
+ *
  */
 export function Heading2({
   variant = 'headline-2',

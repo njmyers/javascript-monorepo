@@ -16,8 +16,17 @@ export interface Heading6Props {
 }
 
 /**
- * Render an semantic html element with typographical styles applied. All
- * typographical variants and colors are available for all elements.
+ * Render an semantic h6 html element with typographical styles
+ * applied.
+ *
+ * ```tsx
+ * <Heading6 color="primary-1" variant="headline-6">
+ *   Some text!
+ * </Heading6>
+ * ```
+ *
+ * All typographical variants and colors are available for this element.
+ *
  */
 export function Heading6({
   variant = 'headline-6',

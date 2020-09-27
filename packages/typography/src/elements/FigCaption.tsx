@@ -16,8 +16,17 @@ export interface FigCaptionProps {
 }
 
 /**
- * Render an semantic html element with typographical styles applied. All
- * typographical variants and colors are available for all elements.
+ * Render an semantic figcaption html element with typographical styles
+ * applied.
+ *
+ * ```tsx
+ * <FigCaption color="secondary-1" variant="caption">
+ *   Some text!
+ * </FigCaption>
+ * ```
+ *
+ * All typographical variants and colors are available for this element.
+ *
  */
 export function FigCaption({
   variant = 'caption',

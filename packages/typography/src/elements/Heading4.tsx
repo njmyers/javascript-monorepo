@@ -16,8 +16,17 @@ export interface Heading4Props {
 }
 
 /**
- * Render an semantic html element with typographical styles applied. All
- * typographical variants and colors are available for all elements.
+ * Render an semantic h4 html element with typographical styles
+ * applied.
+ *
+ * ```tsx
+ * <Heading4 color="primary-1" variant="headline-4">
+ *   Some text!
+ * </Heading4>
+ * ```
+ *
+ * All typographical variants and colors are available for this element.
+ *
  */
 export function Heading4({
   variant = 'headline-4',

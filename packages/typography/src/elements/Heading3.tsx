@@ -16,8 +16,17 @@ export interface Heading3Props {
 }
 
 /**
- * Render an semantic html element with typographical styles applied. All
- * typographical variants and colors are available for all elements.
+ * Render an semantic h3 html element with typographical styles
+ * applied.
+ *
+ * ```tsx
+ * <Heading3 color="primary-1" variant="headline-3">
+ *   Some text!
+ * </Heading3>
+ * ```
+ *
+ * All typographical variants and colors are available for this element.
+ *
  */
 export function Heading3({
   variant = 'headline-3',

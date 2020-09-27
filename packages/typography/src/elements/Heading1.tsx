@@ -16,8 +16,17 @@ export interface Heading1Props {
 }
 
 /**
- * Render an semantic html element with typographical styles applied. All
- * typographical variants and colors are available for all elements.
+ * Render an semantic h1 html element with typographical styles
+ * applied.
+ *
+ * ```tsx
+ * <Heading1 color="primary-1" variant="headline-1">
+ *   Some text!
+ * </Heading1>
+ * ```
+ *
+ * All typographical variants and colors are available for this element.
+ *
  */
 export function Heading1({
   variant = 'headline-1',

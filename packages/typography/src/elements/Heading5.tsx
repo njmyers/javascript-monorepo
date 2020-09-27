@@ -16,8 +16,17 @@ export interface Heading5Props {
 }
 
 /**
- * Render an semantic html element with typographical styles applied. All
- * typographical variants and colors are available for all elements.
+ * Render an semantic h5 html element with typographical styles
+ * applied.
+ *
+ * ```tsx
+ * <Heading5 color="primary-1" variant="headline-5">
+ *   Some text!
+ * </Heading5>
+ * ```
+ *
+ * All typographical variants and colors are available for this element.
+ *
  */
 export function Heading5({
   variant = 'headline-5',

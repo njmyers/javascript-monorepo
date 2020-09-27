@@ -16,8 +16,17 @@ export interface LegendProps {
 }
 
 /**
- * Render an semantic html element with typographical styles applied. All
- * typographical variants and colors are available for all elements.
+ * Render an semantic legend html element with typographical styles
+ * applied.
+ *
+ * ```tsx
+ * <Legend color="secondary-1" variant="caption">
+ *   Some text!
+ * </Legend>
+ * ```
+ *
+ * All typographical variants and colors are available for this element.
+ *
  */
 export function Legend({
   variant = 'caption',
