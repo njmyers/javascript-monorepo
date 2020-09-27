@@ -1,27 +1,30 @@
 import * as React from 'react';
 import ReactDOMServer from 'react-dom/server';
 
-import * as Elements from '../../src/elements';
+import * as Typography from '../../src';
 import { withTypography } from '../decorators/with-typography';
 
 export default {
   title: 'typography/ListItem',
-  component: Elements.ListItem,
+  component: Typography.ListItem,
   decorators: [withTypography],
 };
 
-export const Example = ({ variant, color }) => {
+export const Example = ({
+  variant,
+  color,
+}: Typography.ListItemProps): JSX.Element => {
   return (
     <div>
-      <Elements.ListItem variant={variant} color={color}>
+      <Typography.ListItem variant={variant} color={color}>
         Handsome bulletin
-      </Elements.ListItem>
+      </Typography.ListItem>
       <div style={{ margin: '0.5rem 0' }}>
         <code>
           {ReactDOMServer.renderToStaticMarkup(
-            <Elements.ListItem variant={variant} color={color}>
+            <Typography.ListItem variant={variant} color={color}>
               Handsome bulletin
-            </Elements.ListItem>
+            </Typography.ListItem>
           )}
         </code>
       </div>

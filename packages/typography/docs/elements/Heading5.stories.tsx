@@ -1,27 +1,30 @@
 import * as React from 'react';
 import ReactDOMServer from 'react-dom/server';
 
-import * as Elements from '../../src/elements';
+import * as Typography from '../../src';
 import { withTypography } from '../decorators/with-typography';
 
 export default {
   title: 'typography/Heading5',
-  component: Elements.Heading5,
+  component: Typography.Heading5,
   decorators: [withTypography],
 };
 
-export const Example = ({ variant, color }) => {
+export const Example = ({
+  variant,
+  color,
+}: Typography.Heading5Props): JSX.Element => {
   return (
     <div>
-      <Elements.Heading5 variant={variant} color={color}>
+      <Typography.Heading5 variant={variant} color={color}>
         Handsome bulletin
-      </Elements.Heading5>
+      </Typography.Heading5>
       <div style={{ margin: '0.5rem 0' }}>
         <code>
           {ReactDOMServer.renderToStaticMarkup(
-            <Elements.Heading5 variant={variant} color={color}>
+            <Typography.Heading5 variant={variant} color={color}>
               Handsome bulletin
-            </Elements.Heading5>
+            </Typography.Heading5>
           )}
         </code>
       </div>

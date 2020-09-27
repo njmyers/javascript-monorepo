@@ -1,27 +1,30 @@
 import * as React from 'react';
 import ReactDOMServer from 'react-dom/server';
 
-import * as Elements from '../../src/elements';
+import * as Typography from '../../src';
 import { withTypography } from '../decorators/with-typography';
 
 export default {
   title: 'typography/Label',
-  component: Elements.Label,
+  component: Typography.Label,
   decorators: [withTypography],
 };
 
-export const Example = ({ variant, color }) => {
+export const Example = ({
+  variant,
+  color,
+}: Typography.LabelProps): JSX.Element => {
   return (
     <div>
-      <Elements.Label variant={variant} color={color}>
+      <Typography.Label variant={variant} color={color}>
         Handsome bulletin
-      </Elements.Label>
+      </Typography.Label>
       <div style={{ margin: '0.5rem 0' }}>
         <code>
           {ReactDOMServer.renderToStaticMarkup(
-            <Elements.Label variant={variant} color={color}>
+            <Typography.Label variant={variant} color={color}>
               Handsome bulletin
-            </Elements.Label>
+            </Typography.Label>
           )}
         </code>
       </div>

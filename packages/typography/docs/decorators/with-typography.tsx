@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { TypographyProvider } from '../../src/TypographyProvider';
+import { TypographyProvider } from '../../src';
 
 import styles from './with-typography.module.sass';
 

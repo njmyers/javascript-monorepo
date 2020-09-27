@@ -1,27 +1,30 @@
 import * as React from 'react';
 import ReactDOMServer from 'react-dom/server';
 
-import * as Elements from '../../src/elements';
+import * as Typography from '../../src';
 import { withTypography } from '../decorators/with-typography';
 
 export default {
   title: 'typography/Paragraph',
-  component: Elements.Paragraph,
+  component: Typography.Paragraph,
   decorators: [withTypography],
 };
 
-export const Example = ({ variant, color }) => {
+export const Example = ({
+  variant,
+  color,
+}: Typography.ParagraphProps): JSX.Element => {
   return (
     <div>
-      <Elements.Paragraph variant={variant} color={color}>
+      <Typography.Paragraph variant={variant} color={color}>
         Handsome bulletin
-      </Elements.Paragraph>
+      </Typography.Paragraph>
       <div style={{ margin: '0.5rem 0' }}>
         <code>
           {ReactDOMServer.renderToStaticMarkup(
-            <Elements.Paragraph variant={variant} color={color}>
+            <Typography.Paragraph variant={variant} color={color}>
               Handsome bulletin
-            </Elements.Paragraph>
+            </Typography.Paragraph>
           )}
         </code>
       </div>

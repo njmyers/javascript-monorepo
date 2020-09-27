@@ -8,7 +8,7 @@ import {
   Heading5,
   Heading6,
   ListItem,
-} from '../src/elements';
+} from '../src';
 import { withTypography } from './decorators/with-typography';
 
 export default {
