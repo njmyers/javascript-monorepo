@@ -11,12 +11,36 @@ module.exports = {
     '@storybook/addon-links',
     '@storybook/addon-essentials',
     '@storybook/addon-actions/register',
+    '@storybook/addon-controls',
+    '@storybook/addon-docs',
   ],
   /** Custom webpack configuration */
   webpackFinal: config => {
     config.module.rules.push({
       test: /\.sass$/,
-      loaders: ['style-loader', 'css-loader', 'sass-loader'],
+      exclude: /\.module\.sass$/,
+      use: [
+        { loader: 'style-loader' },
+        { loader: 'css-loader' },
+        { loader: 'sass-loader' },
+      ],
+    });
+
+    config.module.rules.push({
+      test: /\.module\.sass$/,
+      use: [
+        { loader: 'style-loader' },
+        {
+          loader: 'css-loader',
+          options: {
+            importLoaders: 1,
+            sourceMap: true,
+            localsConvention: 'camelCaseOnly',
+            modules: true,
+          },
+        },
+        { loader: 'sass-loader' },
+      ],
     });
 
     config.resolve.alias = {

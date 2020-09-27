@@ -30,6 +30,7 @@
     "@babel/preset-typescript": "^7.10.0",
     "@emotion/core": "^10.0.27",
     "@storybook/addon-actions": "^6.0.21",
+    "@storybook/addon-controls": "^6.0.22",
     "@storybook/addon-docs": "^6.0.21",
     "@storybook/addon-essentials": "^6.0.21",
     "@storybook/addon-knobs": "^6.0.21",
