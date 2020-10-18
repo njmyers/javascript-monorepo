@@ -1,8 +1,8 @@
-export interface YouTubeWindow extends Window {
-  onYouTubeIframeAPIReady?: () => void;
-  YT?: {
-    Player: YT.Player;
-  };
+declare global {
+  interface Window {
+    onYouTubeIframeAPIReady: () => void;
+    YT: typeof YT;
+  }
 }
 
 export interface Props extends YT.PlayerOptions {

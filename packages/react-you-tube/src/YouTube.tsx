@@ -1,20 +1,25 @@
-// @ts-nocheck
-import React, { useRef, useEffect } from 'react';
+import * as React from 'react';
 import useYouTube from './use-you-tube';
 // types
 import { Props } from './types';
 
-function YouTubeVideo({ onPlayer, ...props }: Props): React.FC<Props> {
-  const node = useRef<HTMLDivElement>(null);
+function YouTubeVideo({ onPlayer, ...props }: Props): JSX.Element {
+  const [node, setNode] = React.useState(null);
   const player = useYouTube(node, props);
 
-  useEffect(() => {
+  React.useEffect(() => {
     if (onPlayer && player) {
       onPlayer(player);
     }
-  }, [player]);
+  }, [onPlayer, player]);
 
-  return <div ref={node} />;
+  const handleRef = React.useCallback(node => {
+    if (node !== null) {
+      setNode(node);
+    }
+  }, []);
+
+  return <div ref={handleRef} />;
 }
 
 export default YouTubeVideo;

@@ -1,10 +1,16 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import useYouTube from '../use-you-tube';
 
 function YouTubeHook() {
   const [videoId, setVideoId] = useState('');
-  const ref = useRef(null);
-  const player = useYouTube(ref, {
+  const [node, setNode] = React.useState(null);
+  const handleRef = React.useCallback(node => {
+    if (node !== null) {
+      setNode(node);
+    }
+  }, []);
+
+  const player = useYouTube(node, {
     width: 640,
     height: 390,
     videoId: 'Z1BCujX3pw8',
@@ -16,7 +22,7 @@ function YouTubeHook() {
 
   return (
     <React.Fragment>
-      <div ref={ref} />
+      <div ref={handleRef} />
       <div>
         <label className="sans">Enter Video ID</label>
         <input
