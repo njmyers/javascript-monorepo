@@ -22,7 +22,7 @@ This is the most basic and easy way to use this component. Simply use the compon
 
 ```js
 import React from 'react';
-import YouTube from '../YouTube';
+import YouTube from '../src/YouTube';
 
 function YouTubeBasic() {
   return (
@@ -47,7 +47,7 @@ You can also get a reference to the player if you want to map additional control
 
 ```js
 import React, { useState } from 'react';
-import YouTube from '../YouTube';
+import YouTube from '../src/YouTube';
 
 function YouTubeControlled() {
   const [player, setPlayer] = useState(null);
@@ -88,13 +88,19 @@ For functional components, you can easily build out your own control use the `us
 <!-- STORY -->
 
 ```js
-import React, { useState, useRef } from 'react';
-import useYouTube from '../use-you-tube';
+import React, { useState } from 'react';
+import useYouTube from '../src/use-you-tube';
 
 function YouTubeHook() {
   const [videoId, setVideoId] = useState('');
-  const ref = useRef(null);
-  const player = useYouTube(ref, {
+  const [node, setNode] = React.useState(null);
+  const handleRef = React.useCallback(node => {
+    if (node !== null) {
+      setNode(node);
+    }
+  }, []);
+
+  const player = useYouTube(node, {
     width: 640,
     height: 390,
     videoId: 'Z1BCujX3pw8',
@@ -106,7 +112,7 @@ function YouTubeHook() {
 
   return (
     <React.Fragment>
-      <div ref={ref} />
+      <div ref={handleRef} />
       <div>
         <label className="sans">Enter Video ID</label>
         <input
