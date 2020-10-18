@@ -1,6 +1,5 @@
 import * as React from 'react';
 import YouTubeHook from './YouTubeHook';
-import { YouTube } from '../YouTube';
 import { withDocs } from 'storybook-readme';
 
 import readme from './YouTubeHook.md';

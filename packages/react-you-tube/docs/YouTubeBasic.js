@@ -1,5 +1,5 @@
 import React from 'react';
-import YouTube from '../YouTube';
+import YouTube from '../src/YouTube';
 
 function YouTubeBasic() {
   return (

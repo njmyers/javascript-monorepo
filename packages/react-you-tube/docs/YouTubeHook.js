@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import useYouTube from '../use-you-tube';
+import useYouTube from '../src/use-you-tube';
 
 function YouTubeHook() {
   const [videoId, setVideoId] = useState('');

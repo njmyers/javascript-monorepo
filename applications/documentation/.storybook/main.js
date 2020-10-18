@@ -3,7 +3,7 @@ const path = require('path');
 module.exports = {
   stories: [
     '../../../packages/react-size-components/docs/**/*.stories.@(js|jsx|ts|tsx)',
-    '../../../packages/react-you-tube/src/**/*.stories.@(js|jsx|ts|tsx)',
+    '../../../packages/react-you-tube/docs/**/*.stories.@(js|jsx|ts|tsx)',
     '../../../packages/audio-player/docs/**/*.stories.@(js|jsx|ts|tsx)',
     '../../../packages/sass/**/*.stories.@(js|jsx|ts|tsx)',
     '../../../packages/typography/docs/**/*.stories.@(js|jsx|ts|tsx)',

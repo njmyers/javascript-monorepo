@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import YouTube from '../YouTube';
+import YouTube from '../src/YouTube';
 
 function YouTubeControlled() {
   const [player, setPlayer] = useState(null);
