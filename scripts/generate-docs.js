@@ -7,7 +7,7 @@ const directory = require('@njmyers/directory');
 const appendCodeToMarkdown = require('./append-code-to-markdown');
 
 const PACKAGES = ['audio-player', 'react-you-tube', 'accessibility-hooks'];
-const INCLUDES = ['__docs__'];
+const INCLUDES = ['__docs__', 'docs'];
 const IGNORES = ['index'];
 
 PACKAGES.forEach(package => {
