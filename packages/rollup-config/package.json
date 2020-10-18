@@ -1,7 +1,6 @@
 {
   "name": "@njmyers/rollup-config",
   "version": "0.0.1",
-  "private": true,
   "description": "base rollup configuration",
   "homepage": "https://njmyers.netlify.com/",
   "repository": "https://github.com/njmyers/javascript-monorepo.git",
