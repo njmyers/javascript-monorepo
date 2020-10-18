@@ -6,11 +6,12 @@ const chalk = require('chalk');
 const directory = require('@njmyers/directory');
 const appendCodeToMarkdown = require('./append-code-to-markdown');
 
-const PACKAGES = ['audio-player', 'react-you-tube', 'accessibility-hooks'];
-const INCLUDES = ['__docs__', 'docs'];
+const PACKAGES = ['audio-player', 'react-you-tube'];
+const INCLUDES = ['docs'];
 const IGNORES = ['index'];
 
 PACKAGES.forEach(package => {
+  console.log({ package });
   const docs = directory(path.resolve(__dirname, '../packages', package), {
     recursive: true,
     mime: true,
@@ -42,7 +43,7 @@ PACKAGES.forEach(package => {
           const dirname = path.dirname(fileDescriptor.path);
           const basename = path.basename(fileDescriptor.path, '.md');
           const example = fs.readFileSync(
-            path.resolve(dirname, `${basename}.txt`)
+            path.resolve(dirname, `${basename}.js`)
           );
 
           return appendCodeToMarkdown(fileDescriptor.file, example);
