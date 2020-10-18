@@ -7,7 +7,7 @@ const defaultOptions = {
   defer: true,
 };
 
-export interface Options<T> extends HTMLScriptElement {
+export interface Options<T> extends Partial<HTMLScriptElement> {
   initialize: (window: Window) => T;
   id: string;
   src: string;
