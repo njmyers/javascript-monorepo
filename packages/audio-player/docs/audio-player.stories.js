@@ -1,5 +1,5 @@
 import * as React from 'react';
-import * as Examples from '../__docs__';
+import * as Examples from './examples';
 
 export default {
   title: 'audio-player/Examples',

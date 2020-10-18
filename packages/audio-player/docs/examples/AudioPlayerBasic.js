@@ -2,11 +2,11 @@ import React, { useEffect, useState, useCallback } from 'react';
 import { Form } from '@njmyers/component-library';
 import uuid from 'uuid/v1';
 
-import { AudioPlayer, AudioPlayerProvider, usePlayer } from '../src';
+import { AudioPlayer, AudioPlayerProvider, usePlayer } from '../../src';
 import './interface.sass';
 
 function AudioPlayerControls() {
-  const { show, hide, destroy, start, stop, load } = usePlayer();
+  const { show, destroy, start, stop, load } = usePlayer();
   const [track, setTrack] = useState({
     url: 'https://blatboy.s3.amazonaws.com/2018/03/BuddySweetheartUke.mp3',
     artist: 'Artist',
@@ -14,6 +14,7 @@ function AudioPlayerControls() {
   });
 
   useEffect(() => {
+    show();
     return () => destroy();
   }, []);
 
@@ -44,8 +45,6 @@ function AudioPlayerControls() {
       <Form.Input name="url" value={track.url} onChange={handleChange} />
       <Form.Input name="name" value={track.name} onChange={handleChange} />
       <Form.Input name="artist" value={track.artist} onChange={handleChange} />
-      <button onClick={show}>Show Player</button>
-      <button onClick={hide}>Hide Player</button>
       <button onClick={handleClick}>Load URL</button>
       <button onClick={start}>Externally Mapped Start Button</button>
       <button onClick={stop}>Externally Mapped Stop Button</button>
@@ -53,7 +52,7 @@ function AudioPlayerControls() {
   );
 }
 
-function AudioPlayerHidden() {
+function AudioPlayerBasic() {
   return (
     <AudioPlayerProvider>
       <AudioPlayerControls />
@@ -62,4 +61,4 @@ function AudioPlayerHidden() {
   );
 }
 
-export default AudioPlayerHidden;
+export default AudioPlayerBasic;

@@ -2,7 +2,7 @@ import React, { useEffect, useState, useCallback } from 'react';
 import { Form } from '@njmyers/component-library';
 import uuid from 'uuid/v1';
 
-import { AudioPlayer, AudioPlayerProvider, usePlayer } from '../src';
+import { AudioPlayer, AudioPlayerProvider, usePlayer } from '../../src';
 import './interface.sass';
 
 function AudioPlayerControls() {
@@ -52,14 +52,35 @@ function AudioPlayerControls() {
   );
 }
 
-function AudioPlayerUnstyled() {
+function AudioPlayerMultiple() {
   return (
-    <AudioPlayerProvider>
-      <AudioPlayerControls />
-      <h5 className="sans">Audio Player</h5>
-      <AudioPlayer className="customAudioClass" />
-    </AudioPlayerProvider>
+    <article className="parent-sans">
+      <AudioPlayerProvider>
+        <h3>First Instance</h3>
+        <h4>First Interface</h4>
+        <AudioPlayerControls />
+        <h4>First Player</h4>
+        <AudioPlayer
+          trackInfo={false}
+          volume={false}
+          meter={false}
+          className="myClass"
+        />
+      </AudioPlayerProvider>
+      <AudioPlayerProvider>
+        <h3>Second Instance</h3>
+        <h4>Second Interface</h4>
+        <AudioPlayerControls />
+        <h4>Second Player</h4>
+        <AudioPlayer
+          trackInfo={false}
+          volume={false}
+          meter={false}
+          className="myOtherClass"
+        />
+      </AudioPlayerProvider>
+    </article>
   );
 }
 
-export default AudioPlayerUnstyled;
+export default AudioPlayerMultiple;
