@@ -1,6 +1,6 @@
 {
   "name": "@njmyers/script-loader",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Promise based script loader for browser environments",
   "homepage": "https://njmyers.netlify.com/",
   "repository": "https://github.com/njmyers/javascript-monorepo.git",
