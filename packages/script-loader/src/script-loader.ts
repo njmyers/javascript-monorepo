@@ -34,6 +34,16 @@ function scriptLoader<T>(userOptions: Options<T>): () => Promise<T> {
         dom: window => {
           const document = window.document;
           const { initialize, ...attributes } = options;
+          const safeAttributes = {
+            ...attributes,
+            id: attributes.id ? attributes.id : attributes.src,
+          };
+
+          if (!scriptEl) {
+            scriptEl = document.querySelector(
+              `script[id="${safeAttributes.id}"]`
+            );
+          }
 
           if (!scriptEl) {
             scriptEl = document.createElement('script');
@@ -42,6 +52,10 @@ function scriptLoader<T>(userOptions: Options<T>): () => Promise<T> {
                 scriptEl.setAttribute(attr, value);
               }
             });
+
+            if (!scriptEl.getAttribute('id')) {
+              scriptEl.setAttribute('id', attributes.src);
+            }
 
             if (document.head) {
               document.head.appendChild(scriptEl);
