@@ -19,8 +19,7 @@
     "type": "tsc"
   },
   "dependencies": {
-    "@babel/runtime": "7.1.2",
-    "@njmyers/script-loader": "^0.0.1",
+    "@njmyers/script-loader": "^0.0.3",
     "tslib": "^1.10.0"
   },
   "devDependencies": {
