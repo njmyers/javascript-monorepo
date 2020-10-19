@@ -1,12 +1,11 @@
 import createScriptLoader from '@njmyers/script-loader';
+import YouTubeReady from './YouTubeReady';
 
+const youTubeReady = new YouTubeReady();
 const loadYouTubeAPI = createScriptLoader({
   id: 'youtube',
-  src: 'https://www.youtube.com/iframe_api',
-  initialize: (window: Window): Promise<Window['YT']> =>
-    new Promise(res => {
-      window.onYouTubeIframeAPIReady = (): void => res(window.YT);
-    }),
+  src: '//www.youtube.com/iframe_api',
+  initialize: (): Promise<Window['YT']> => youTubeReady.subscribe(),
 });
 
 export default loadYouTubeAPI;
