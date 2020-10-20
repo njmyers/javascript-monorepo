@@ -14,6 +14,10 @@ or
 
 <!-- STORY -->
 
+```js
+
+```
+
 ### YouTube Basic
 
 This is the most basic and easy way to use this component. Simply use the component and pass in all of required props as dictated by the [YouTube IFrame API documentation](https://developers.google.com/youtube/iframe_api_reference)
@@ -129,5 +133,45 @@ function YouTubeHook() {
 }
 
 export default YouTubeHook;
+
+```
+
+### YouTube Multiple
+
+You can easily render multiple YouTube videos on a page. Simply use the `YouTube` component in a loop. The component will handle loading the [YouTube IFrame API](https://developers.google.com/youtube/iframe_api_reference) and will ensure that all of your videos load asynchronously
+
+<!-- STORY -->
+
+```js
+import React from 'react';
+import YouTube from '../src/YouTube';
+
+const videoIds = [
+  'Z1BCujX3pw8',
+  'ue80QwXMRHg',
+  'QwievZ1Tx-8',
+  'pWdKf3MneyI',
+  'UUkn-enk2RU',
+];
+
+function YouTubeMultiple() {
+  return (
+    <div>
+      {videoIds.map(videoId => {
+        return (
+          <YouTube
+            key={videoId}
+            width="640"
+            height="390"
+            videoId={videoId}
+            playerVars={{ autoplay: 0, controls: 1 }}
+          />
+        );
+      })}
+    </div>
+  );
+}
+
+export default YouTubeMultiple;
 
 ```
