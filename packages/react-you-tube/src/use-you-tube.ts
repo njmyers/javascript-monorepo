@@ -26,13 +26,15 @@ function useYouTube(node: HTMLElement | null, props: Props): YT.Player | null {
 
       try {
         const YT = await loadYouTubeAPI();
-        new YT.Player(node, {
-          ...safeProps,
-          events: {
-            onReady: (e): void => setPlayer(e.target),
-            ...safeProps.events,
-          },
-        });
+        if (YT) {
+          new YT.Player(node, {
+            ...safeProps,
+            events: {
+              onReady: (e): void => setPlayer(e.target),
+              ...safeProps.events,
+            },
+          });
+        }
       } catch (e) {
         setPlayer(null);
       }
